@@ -1,5 +1,6 @@
 #!/bin/bash
-VERSION=$(awk -F "=" '/PTEID_PRODUCT_VERSION=/{print $2}' ../pteid-mw-pt/_src/eidmw/release_data)
+# autenticacao.gov and docs.autenticacao.gov repositories clones have to be at same level
+VERSION=$(awk -F "=" '/PTEID_PRODUCT_VERSION=/{print $2}' ../autenticacao.gov/pteid-mw-pt/_src/eidmw/release_data)
 NOW=$(date +"%d/%m/%Y")
 
 #filter out header, table of contents and css class .center
