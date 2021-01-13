@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":9,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":42,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -73,13 +73,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -117,25 +117,6 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Field and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#swigCMemOwn">swigCMemOwn</a></span></code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.summary">
@@ -145,21 +126,13 @@ extends java.lang.Object</pre>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
 <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
-<th class="colFirst" scope="col">Modifier</th>
-<th class="colLast" scope="col">Constructor and Description</th>
+<th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#PTEID_PDFSignature--">PTEID_PDFSignature</a></span>()</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#PTEID_PDFSignature--">PTEID_PDFSignature</a></span>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected </code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#PTEID_PDFSignature-long-boolean-">PTEID_PDFSignature</a></span>(long&nbsp;cPtr,
-                  boolean&nbsp;cMemoryOwn)</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#PTEID_PDFSignature-java.lang.String-">PTEID_PDFSignature</a></span>(java.lang.String&nbsp;input_path)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#PTEID_PDFSignature-java.lang.String-">PTEID_PDFSignature</a></span>(java.lang.String&nbsp;input_path)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -171,14 +144,17 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#addToBatchSigning-java.lang.String-">addToBatchSigning</a></span>(java.lang.String&nbsp;input_path)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#addToBatchSigning-java.lang.String-">addToBatchSigning</a></span>(java.lang.String&nbsp;input_path)</code>
+<div class="block">Add a file to a batch mode signature - this means the signature PIN introduced when the first signature is performed<br>
+ is cached in memory for the minimum time needed to sign the complete set of files<br></div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -191,43 +167,56 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#enableSmallSignatureFormat--">enableSmallSignatureFormat</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#enableSmallSignatureFormat--">enableSmallSignatureFormat</a></span>()</code>
+<div class="block">Use a smaller format for the visible signature which is 50% smaller in height but as wide as the regular format<br>
+ The default "Cartão de Cidadão" logo or a custom image supplied via setCustomImage() will not be included</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#enableTimestamp--">enableTimestamp</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#enableTimestamp--">enableTimestamp</a></span>()</code>
+<div class="block">Use this method to apply a cryptographic timestamp for the signature(s) - Internet connection is required<br>
+ By default the implementation will use the official Cartão de Cidadão TSA at ts.cartaodecidadao.pt<br>
+ Information about request limits described at https://pki.cartaodecidadao.pt - in section "Serviço de Selos Temporais"<br>
+ Using PTEID_Config with parameter PTEID_PARAM_XSIGN_TSAURL a different TSA may be specified</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#finalize--">finalize</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#getOccupiedSectors-int-">getOccupiedSectors</a></span>(int&nbsp;page)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">- method related to visible signature using sectors</span></div>
+</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>protected static long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#getCPtr-pt.gov.cartaodecidadao.PTEID_PDFSignature-">getCPtr</a></span>(<a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html" title="class in pt.gov.cartaodecidadao">PTEID_PDFSignature</a>&nbsp;obj)</code>&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#getOccupiedSectors-int-">getOccupiedSectors</a></span>(int&nbsp;page)</code>&nbsp;</td>
-</tr>
-<tr id="i8" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#getOtherPageCount-java.lang.String-">getOtherPageCount</a></span>(java.lang.String&nbsp;input_path)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#getPageCount--">getPageCount</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#isLandscapeFormat--">isLandscapeFormat</a></span>()</code>&nbsp;</td>
 </tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#setCustomImage-pt.gov.cartaodecidadao.PTEID_ByteArray-">setCustomImage</a></span>(<a href="../../../pt/gov/cartaodecidadao/PTEID_ByteArray.html" title="class in pt.gov.cartaodecidadao">PTEID_ByteArray</a>&nbsp;image_data)</code>
+<div class="block">Use this method to change the image that's used on the bottom of the visible signature<br>
+ This image will replace the default "Cartão de Cidadão" logo<br></div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#setFileSigning-java.lang.String-">setFileSigning</a></span>(java.lang.String&nbsp;input_path)</code>
+<div class="block">Set the PDF file to sign - it can be supplied either with this method or through the class constructor</div>
+</td>
+</tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#setCustomImage-pt.gov.cartaodecidadao.PTEID_ByteArray-">setCustomImage</a></span>(<a href="../../../pt/gov/cartaodecidadao/PTEID_ByteArray.html" title="class in pt.gov.cartaodecidadao">PTEID_ByteArray</a>&nbsp;image_data)</code>&nbsp;</td>
-</tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#setFileSigning-java.lang.String-">setFileSigning</a></span>(java.lang.String&nbsp;input_path)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html#setSignatureLevel-pt.gov.cartaodecidadao.PTEID_SignatureLevel-">setSignatureLevel</a></span>(<a href="../../../pt/gov/cartaodecidadao/PTEID_SignatureLevel.html" title="class in pt.gov.cartaodecidadao">PTEID_SignatureLevel</a>&nbsp;arg0)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -235,7 +224,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+<code>equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -245,39 +234,12 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ FIELD DETAIL =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.detail">
-<!--   -->
-</a>
-<h3>Field Detail</h3>
-<a name="swigCMemOwn">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>swigCMemOwn</h4>
-<pre>protected transient&nbsp;boolean swigCMemOwn</pre>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.detail">
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="PTEID_PDFSignature-long-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>PTEID_PDFSignature</h4>
-<pre>protected&nbsp;PTEID_PDFSignature(long&nbsp;cPtr,
-                             boolean&nbsp;cMemoryOwn)</pre>
-</li>
-</ul>
 <a name="PTEID_PDFSignature--">
 <!--   -->
 </a>
@@ -304,28 +266,6 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getCPtr-pt.gov.cartaodecidadao.PTEID_PDFSignature-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCPtr</h4>
-<pre>protected static&nbsp;long&nbsp;getCPtr(<a href="../../../pt/gov/cartaodecidadao/PTEID_PDFSignature.html" title="class in pt.gov.cartaodecidadao">PTEID_PDFSignature</a>&nbsp;obj)</pre>
-</li>
-</ul>
-<a name="finalize--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>finalize</h4>
-<pre>protected&nbsp;void&nbsp;finalize()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>finalize</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-</dl>
-</li>
-</ul>
 <a name="delete--">
 <!--   -->
 </a>
@@ -342,6 +282,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setFileSigning</h4>
 <pre>public&nbsp;void&nbsp;setFileSigning(java.lang.String&nbsp;input_path)</pre>
+<div class="block">Set the PDF file to sign - it can be supplied either with this method or through the class constructor</div>
 </li>
 </ul>
 <a name="addToBatchSigning-java.lang.String-">
@@ -351,6 +292,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addToBatchSigning</h4>
 <pre>public&nbsp;void&nbsp;addToBatchSigning(java.lang.String&nbsp;input_path)</pre>
+<div class="block">Add a file to a batch mode signature - this means the signature PIN introduced when the first signature is performed<br>
+ is cached in memory for the minimum time needed to sign the complete set of files<br></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>input_path:</code> - Absolute path for a PDF file to be signed in batch mode</dd>
+</dl>
 </li>
 </ul>
 <a name="addToBatchSigning-java.lang.String-boolean-">
@@ -388,6 +335,19 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>enableTimestamp</h4>
 <pre>public&nbsp;void&nbsp;enableTimestamp()</pre>
+<div class="block">Use this method to apply a cryptographic timestamp for the signature(s) - Internet connection is required<br>
+ By default the implementation will use the official Cartão de Cidadão TSA at ts.cartaodecidadao.pt<br>
+ Information about request limits described at https://pki.cartaodecidadao.pt - in section "Serviço de Selos Temporais"<br>
+ Using PTEID_Config with parameter PTEID_PARAM_XSIGN_TSAURL a different TSA may be specified</div>
+</li>
+</ul>
+<a name="setSignatureLevel-pt.gov.cartaodecidadao.PTEID_SignatureLevel-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSignatureLevel</h4>
+<pre>public&nbsp;void&nbsp;setSignatureLevel(<a href="../../../pt/gov/cartaodecidadao/PTEID_SignatureLevel.html" title="class in pt.gov.cartaodecidadao">PTEID_SignatureLevel</a>&nbsp;arg0)</pre>
 </li>
 </ul>
 <a name="enableSmallSignatureFormat--">
@@ -397,6 +357,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>enableSmallSignatureFormat</h4>
 <pre>public&nbsp;void&nbsp;enableSmallSignatureFormat()</pre>
+<div class="block">Use a smaller format for the visible signature which is 50% smaller in height but as wide as the regular format<br>
+ The default "Cartão de Cidadão" logo or a custom image supplied via setCustomImage() will not be included</div>
 </li>
 </ul>
 <a name="isLandscapeFormat--">
@@ -415,6 +377,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getOccupiedSectors</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getOccupiedSectors(int&nbsp;page)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">- method related to visible signature using sectors</span></div>
 </li>
 </ul>
 <a name="setCustomImage-pt.gov.cartaodecidadao.PTEID_ByteArray-">
@@ -424,6 +387,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setCustomImage</h4>
 <pre>public&nbsp;void&nbsp;setCustomImage(<a href="../../../pt/gov/cartaodecidadao/PTEID_ByteArray.html" title="class in pt.gov.cartaodecidadao">PTEID_ByteArray</a>&nbsp;image_data)</pre>
+<div class="block">Use this method to change the image that's used on the bottom of the visible signature<br>
+ This image will replace the default "Cartão de Cidadão" logo<br></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>image_data</code> - - image data in JPEG format (recommended size: 185x41 px)</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -479,13 +448,13 @@ extends java.lang.Object</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

@@ -21,7 +21,7 @@ var classeIDMW_1_1PTEID__Certificate =
     [ "isRoot", "classeIDMW_1_1PTEID__Certificate.html#a93ba2778eaf992ab4e6e81c595b1aa36", null ],
     [ "isTest", "classeIDMW_1_1PTEID__Certificate.html#a24c7c6a6e860e9cf24ac4120b1e9a6b4", null ],
     [ "PTEID_Certificates::addCertificate", "classeIDMW_1_1PTEID__Certificate.html#a874623fbaedd1c18c3ecf6b155f94f4e", null ],
-    [ "PTEID_Certificates::getCert", "classeIDMW_1_1PTEID__Certificate.html#ab5bd6d0f1607156ff480c77e9cd613b8", null ],
     [ "PTEID_Certificates::getCert", "classeIDMW_1_1PTEID__Certificate.html#acdc3afbe31871de51fbd8ce9e26595ad", null ],
+    [ "PTEID_Certificates::getCert", "classeIDMW_1_1PTEID__Certificate.html#ab5bd6d0f1607156ff480c77e9cd613b8", null ],
     [ "PTEID_Certificates::getCertFromCard", "classeIDMW_1_1PTEID__Certificate.html#a9edd448ac547391637452f652e0e6102", null ]
 ];
