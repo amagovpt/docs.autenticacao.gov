@@ -1792,4 +1792,4 @@ _________________
 
 Desenvolvido pelo Estado Português<br>
 (Agência para a Modernização Administrativa, IP e Instituto dos Registos e do Notariado, IP)<br>
-© Copyright (C) 2010-2019
+© Copyright (C) 2010-2021
