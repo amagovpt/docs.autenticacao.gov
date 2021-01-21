@@ -73,6 +73,7 @@
   - [Problemas com a nova cadeia de confiança](#problemas-com-a-nova-cadeia-de-confiança)
   - [Problemas na validação das assinaturas](#problemas-na-validação-das-assinaturas)
   - [Serviços online usados pela aplicação](#serviços-online-usados-pela-aplicação)
+  - [Obtenção do relatório para análise através do menu Configurações](#obtenção-do-relatório-para-análise-através-do-menu-configurações)
 - [Interface de linha de comandos](#interface-de-linha-de-comandos)
   - [Consultar ajuda e versão](#consultar-ajuda-e-versão)
   - [Atalho para configurar modo de renderização gráfica](#atalho-para-configurar-modo-de-renderização-gráfica)
@@ -824,6 +825,8 @@ aplicação. Este modo eleva o nível de detalhe do *log* para *debug*, o
 que, em caso de problemas com a aplicação, pode ajudar a equipa de
 suporte na resolução do problema.
 
+  **Para obter os ficheiros de log pode pressionar o botão "Criar relatório".** Os ficheiros serão copiados para o Ambiente de Trabalho. Para mais informações consulte o capítulo [Obtenção do relatório para análise através do menu Configurações](#obtenção-do-relatório-para-análise-através-do-menu-configurações).
+
   Os ficheiros de *log* por omissão são criados nas seguintes localizações e têm
   como nome o prefixo .PTEID:
 
@@ -1499,6 +1502,20 @@ Servidores CRL:
 **Selo temporal (por defeito):**
 
 - ts.cartaodecidadao.pt (porto 80)
+
+## Obtenção do relatório para análise através do menu Configurações
+
+Para ajudar a diagnosticar um problema com aplicação Autenticação.gov, a equipa de suporte pode pedir que lhe sejam enviados os "ficheiros de log"(ou relatório). Estes ficheiros contêm informações sobre o funcionamento da aplicação, essenciais para o diagnóstico de eventuais problemas.  
+Para obter os ficheiros de log deve:
+
+1. Abrir a aplicação e navegar até ao menu **Configurações -> Configurações da Aplicação**.
+2. Na secção "Modo diagnóstico" selecionar a opção **Ativar modo diagnóstico**.
+3. Reiniciar a aplicação.
+4. Repetir a ação que resultou na situação de erro/problema. Desta forma, com o modo diagnóstico ativo, as informações sobre o erro/problema constantes nos ficheiros de log serão mais detalhadas.
+5. Voltar a navegar até ao menu **Configurações -> Configurações da Aplicação**.
+6. Pressionar o botão **Criar relatório**.
+
+Ao pressionar o botão **Criar relatório** é criada uma pasta comprimida (ficheiro zip) no Ambiente de Trabalho que contem os ficheiros de log. Deve enviar esta pasta (zip), anexada à descrição do problema, para o contacto de suporte.
 
 # Interface de linha de comandos
 
