@@ -24,6 +24,8 @@
       - [Remoção através do *Software Center*](#remoção-através-do-software-center)
       - [Remoção através da linha de comandos](#remoção-através-da-linha-de-comandos)
     - [Remoção em MacOS](#remoção-em-macos)
+  - [Atualização da aplicação](#atualização-da-aplicação)
+    - [Atualização em Linux](#atualização-em-linux)
 - [Aplicação Utilitária “Autenticação.Gov”](#aplicação-utilitária-autenticaçãogov)
   - [Apresentação da Aplicação](#apresentação-da-aplicação)
   - [Funcionalidades da aplicação](#funcionalidades-da-aplicação)
@@ -395,6 +397,23 @@ seguintes são apresentados os ecrãs utilizando Linux Ubuntu 18.04.3 LTS.
 2.  Execute o seguinte comando para desinstalar todos os ficheiros da aplicação.
 
     `sudo /usr/local/bin/pteid_uninstall.sh`
+
+## Atualização da aplicação
+
+### Atualização em Linux
+
+Ao transferir o ficheiro de instalação através do menu **Configurações** -> **Atualizações** da aplicação, este ficará disponível na diretoria das **Transferências**, por defeito em `~/Downloads`.
+
+Pode também transferir a nova versão da aplicação através do site [oficial](https://www.autenticacao.gov.pt/web/guest/cc-aplicacao).
+
+Depois de ter transferido o ficheiro de instalação, para concluir a atualização:
+
+* Através da linha de comandos: siga os passos indicados na secção [Instalação através da linha de comandos](#instalação-através-da-linha-de-comandos).
+
+* Através do gestor de aplicações: siga os passos indicados na secção [Instalação através do *Software Center*](#instalação-através-do-software-center).
+
+    Nota: Ao utilizar o gestor de aplicações para atualizar a aplicação pode ser necessário remover a aplicação primeiro e só depois instalar a nova versão.
+
 
 # Aplicação Utilitária “Autenticação.Gov”
 
