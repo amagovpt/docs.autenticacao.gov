@@ -1112,7 +1112,7 @@ assinado.
 
 ## Assinatura digital em *Adobe Acrobat Reader*
 
-Nota: para assinar um documento no *Adobe Acrobat Reader DC* em MacOS, siga as instruções da seccção [Assinatura digital em *Adobe Acrobat Reader* em MacOS com PKCS#11](#assinatura-digital-em-adobe-acrobat-reader-em-macos-com-pkcs11).
+Nota: para assinar um documento no *Adobe Acrobat Reader DC* em MacOS, siga as instruções da secção [Assinatura digital em *Adobe Acrobat Reader* em MacOS com PKCS#11](#assinatura-digital-em-adobe-acrobat-reader-em-macos-com-pkcs11).
 
 Para assinar um documento aberto no *Adobe Acrobat Reader* deve:
 
@@ -1136,7 +1136,7 @@ Para assinar um documento aberto no *Adobe Acrobat Reader DC*, em MacOS, deve pr
 
     ![Ilustração: Janela para assinar em *Microsoft Word*.](Pictures/Autenticacao.Gov_macos_adobe_pref.png)
 
-2. Selecione a Categoria **Assinaturas** e na seccção "Certificados confiáveis e de identidade" pressione **Mais...**.
+2. Selecione a Categoria **Assinaturas** e na secção "Certificados confiáveis e de identidade" pressione **Mais...**.
 
     ![Ilustração: Janela para assinar em *Microsoft Word*.](Pictures/Autenticacao.Gov_macos_adobe_pref2.png)
 
