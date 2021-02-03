@@ -1407,7 +1407,7 @@ Para mais informações consultar a página de ajuda:
 
 No caso de existirem problemas gráficos, recomenda-se alterar o modo de renderização gráfica. Pode fazê-lo na secção Aceleração gráfica do submenu [Configuração da aplicação](#configuração-da-aplicação).
 
-**No caso da aplicação não arrancar**, é possível alterar essa opção de duas formas distintas:
+**No caso da aplicação não arrancar ou tiver problemas no arranque**, é possível alterar essa opção de três formas distintas:
 
 1. [Exclusivo para Windows a partir da versão 3.4.0 da aplicação] Na pasta da instalação da aplicação (que por defeito é "C:\Program Files\Portugal Identity Card") existe três atalhos que ao clicar vai abrir a aplicação alterando o modo de renderização gráfica. Os atalhos são ícones clicáveis com o símbolo da aplicação e têm os seguintes nomes:
 
@@ -1417,7 +1417,7 @@ No caso de existirem problemas gráficos, recomenda-se alterar o modo de renderi
 
     No caso de existirem problemas gráficos, ou a aplicação não arrancar, deverá experimentar as três opções e ver qual tem melhor resultado. A última opção escolhida, ficará guardada e poderá voltar a arrancar a aplicação clicando no ícone no ambiente de trabalho ou no menu iniciar.
 
-2. Ou usando as configurações do software Autenticação.gov (via Chaves de Registo em Windows ou ficheiro de configuração em Linux e MacOS).
+2. Usando as configurações do software Autenticação.gov (via Chaves de Registo em Windows ou ficheiro de configuração em Linux e MacOS).
 
    - Em **Windows**, a chave de registo:  
 **HKEY\_CURRENT\_USER\\Software\\PTEID\\configuretool\\graphics\_accelaration**;
@@ -1431,9 +1431,11 @@ No caso de existirem problemas gráficos, recomenda-se alterar o modo de renderi
    - 1 para renderização por Hardware (Placa gráfica);
    - 2 (Exclusivo para Windows) para renderização por Software (ANGLE, que emula o OpenGL usando Direct3D).
 
-3.  Ou usando o [Interface de linha de comandos](#interface-de-linha-de-comandos).
+    Em ambiente empresariais deve alterar esta configuração conforme descrito no capítulo [Instruções de configuração em ambientes empresariais](#instruções-de-configuração-em-ambientes-empresariais).
 
-Em ambiente empresariais deve alterar a seguinte configuração conforme descrito no capítulo [Instruções de configuração em ambientes empresariais](#instruções-de-configuração-em-ambientes-empresariais).
+
+1.  Usando o [Interface de linha de comandos](#interface-de-linha-de-comandos).
+
 
 ## Problemas com placas gráficas integradas
 
