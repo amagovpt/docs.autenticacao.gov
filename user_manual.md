@@ -1431,10 +1431,10 @@ No caso de existirem problemas gráficos, recomenda-se alterar o modo de renderi
    - 1 para renderização por Hardware (Placa gráfica);
    - 2 (Exclusivo para Windows) para renderização por Software (ANGLE, que emula o OpenGL usando Direct3D).
 
-    Em ambiente empresariais deve alterar esta configuração conforme descrito no capítulo [Instruções de configuração em ambientes empresariais](#instruções-de-configuração-em-ambientes-empresariais).
+3.  Usando o [Interface de linha de comandos](#interface-de-linha-de-comandos).
 
 
-1.  Usando o [Interface de linha de comandos](#interface-de-linha-de-comandos).
+Em ambiente empresariais deve alterar esta configuração conforme descrito no capítulo [Instruções de configuração em ambientes empresariais](#instruções-de-configuração-em-ambientes-empresariais).
 
 
 ## Problemas com placas gráficas integradas
