@@ -1492,15 +1492,19 @@ Servidores CRL:
 
 - pki.cartaodecidadao.pt (porto 443)
 
-**Atualização da aplicação, certificados e notícias:**
-
+**Atualização da aplicação:**
 - autenticacao.gov.pt (porto 443)
+- aplicacoes.autenticacao.gov.pt (porto 443)
+
+**Atualização de certificados e notícias:**
 - raw.githubusercontent.com
-  - Na obtenção do ficheiro em https://raw.githubusercontent.com/amagovpt/autenticacao.gov/master/pteid-mw-pt/_src/eidmw/version.json
   - Na obtenção do ficheiro em https://raw.githubusercontent.com/amagovpt/autenticacao.gov/master/pteid-mw-pt/_src/eidmw/news.json
 - github.com
   - URLs da forma: https://github.com/amagovpt/autenticacao.gov/blob/master/pteid-mw-pt/_src/eidmw/misc/certs/\<nome do ficheiro>
 
+**Documentação:**
+- URLs da forma: https://amagovpt.github.io/docs.autenticacao.gov/\<nome do ficheiro>
+  
 **Selo temporal (por defeito):**
 
 - ts.cartaodecidadao.pt (porto 80)
