@@ -678,6 +678,8 @@ Os ficheiros a assinar podem ser selecionados arrastando-os para a área de pré
 
     - **Última:** Poderá escolher a última página para apresentadar a assinatura. Disponível para assinaturas do tipo **PDF**.
 
+    - **Reduzida:** Permite utilizar um selo de assinatura de tamanho reduzido. O selo reduzido apresenta, sempre pela mesma ordem, os campos: "Nome Completo", "NIC" e "Data de assinatura", excepto se o espaço não for suficiente (nomes completos longos). Nesse caso são colocados apenas campos até preencher o espaço, pela mesma ordem. Disponível para assinaturas do tipo **PDF**.
+
 Após selecionar as opções pretendidas, na área indicada na figura anterior, arraste a pré-visualização da assinatura para a localização pretendida e de seguida prima o botão **Assinar com Cartão de Cidadão** ou **Assinar com Chave Móvel Digital**.
 
 O botão **Assinar com Cartão de Cidadão** só está disponível quando o Cartão de Cidadão estiver inserido no leitor de cartões e for correctamente lido pela aplicação. O botão **Assinar com Chave Móvel Digital** só está disponível nas assinaturas do tipo **PDF**.
