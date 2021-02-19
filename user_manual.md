@@ -827,7 +827,7 @@ aplicação. Este modo eleva o nível de detalhe do *log* para *debug*, o
 que, em caso de problemas com a aplicação, pode ajudar a equipa de
 suporte na resolução do problema.
 
-  **Para obter os ficheiros de log pode pressionar o botão "Criar relatório".** Os ficheiros serão copiados para o Ambiente de Trabalho. Para mais informações consulte o capítulo [Obtenção do relatório para análise através do menu Configurações](#obtenção-do-relatório-para-análise-através-do-menu-configurações).
+  **A partir da versão 3.5.0 da aplicação, para ajudar a obter os ficheiros de log pode pressionar o botão "Criar relatório".** Os ficheiros serão copiados para o Ambiente de Trabalho. Para mais informações consulte o capítulo [Obtenção do relatório para análise através do menu Configurações](#obtenção-do-relatório-para-análise-através-do-menu-configurações).
 
   Os ficheiros de *log* por omissão são criados nas seguintes localizações e têm
   como nome o prefixo .PTEID:
@@ -1513,7 +1513,7 @@ Servidores CRL:
 
 ## Obtenção do relatório para análise através do menu Configurações
 
-Para ajudar a diagnosticar um problema com aplicação Autenticação.gov, a equipa de suporte pode pedir que lhe sejam enviados os "ficheiros de log"(ou relatório). Estes ficheiros contêm informações sobre o funcionamento da aplicação, essenciais para o diagnóstico de eventuais problemas.  
+A partir da versão 3.5.0, para ajudar a diagnosticar um problema com aplicação Autenticação.gov, a equipa de suporte pode pedir que lhe sejam enviados os "ficheiros de log"(ou relatório). Estes ficheiros contêm informações sobre o funcionamento da aplicação, essenciais para o diagnóstico de eventuais problemas.  
 Para obter os ficheiros de log deve:
 
 1. Abrir a aplicação e navegar até ao menu **Configurações -> Configurações da Aplicação**.
