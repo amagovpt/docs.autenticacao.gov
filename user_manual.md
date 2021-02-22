@@ -76,7 +76,7 @@
 - [Interface de linha de comandos](#interface-de-linha-de-comandos)
   - [Consultar ajuda e versão](#consultar-ajuda-e-versão)
   - [Atalho para configurar modo de renderização gráfica](#atalho-para-configurar-modo-de-renderização-gráfica)
-  - [Atalho para submenus de assinatura](#atalho-para-submenus-de-assinatura)
+  - [Atalho para submenu de assinatura](#atalho-para-submenu-de-assinatura)
 - [Instruções de configuração em ambientes empresariais](#instruções-de-configuração-em-ambientes-empresariais)
   - [Configurações através de chaves de registo Windows](#configurações-através-de-chaves-de-registo-windows)
   - [Configurações através de ficheiro de configuração em Linux e MacOS](#configurações-através-de-ficheiro-de-configuração-em-linux-e-macos)
@@ -1593,38 +1593,40 @@ Exemplo (Windows):
 $ "C:\Program Files\Portugal Identity Card\pteidguiV2.exe" -c
 ```
 
-## Atalho para submenus de assinatura 
+## Atalho para submenu de assinatura
 
-Com os modos *signSimple* e *signAdvanced* é possível inicar a aplicação no submenu de assinatura simples e avançada, respetivamente.
+Através da interface de linha de comandos, é possível iniciar a aplicação diretamente no submenu de
+assinatura digital.
 
-O modo *signSimple* requer o caminho do ficheiro a ser carregado para assinatura. As seguintes opções são suportadas:
+O atalho para o submenu de assinatura (*sign*) requer os caminhos dos ficheiros a serem carregados
+para assinatura.
 
-- *--destino DESTINO* (*-d DESTINO*): configura a pasta de destino do ficheiro assinado. A pasta de destino não será pedida ao utilizador no momento da assinatura.
-
-
-O modo *signAdvanced* requer uma lista com de caminhos dos ficheiros a serem carregados para assinatura. Em adição à opção *--destino*, suporta ainda as seguintes opções:
-- *--tsa*: ativa a assinatura com timestamp no submenu da Assinatura Avançada;
-- *--motivo MOTIVO* (*-m MOTIVO*): configura o motivo da assinatura; 
-- *--localidade LOCALIDADE* (*-l LOCALIDADE*): configura a localidade da assinatura.
+As opções suportadas são as seguintes:
+  - *--destino DESTINO* (*-d DESTINO*): configura a pasta de destino do ficheiro assinado. A pasta
+    de destino não será pedida ao utilizador no momento da assinatura.
+  - *--tsa*: ativa a assinatura com timestamp;
+  - *--motivo MOTIVO* (*-m MOTIVO*): configura o campo 'motivo' da assinatura;
+  - *--localidade LOCALIDADE* (*-l LOCALIDADE*): configura o campo 'localidade' da assinatura.
 
 Exemplos (Linux):
 ```
-$ eidguiV2 signSimple -d /home/user/Documents/ ficheiro.pdf
+$ eidguiV2 sign -d /home/user/Documents/ ficheiro.pdf
 ```
 ```
-$ eidguiV2 signAdvanced --tsa -m "motivo" -l "localidade" -d /home/user/Documents/ \
+$ eidguiV2 sign --tsa -m "motivo" -l "localidade" -d /home/user/Documents/ \
 ficheiro1.pdf ... ficheiroN.pdf
 ```
 
 Exemplo (Windows):
 ```
-> "C:\Program Files\Portugal Identity Card\pteidguiV2.exe" signSimple^
+> "C:\Program Files\Portugal Identity Card\pteidguiV2.exe" sign^
  -d C:\Users\USER\Documents ficheiro.pdf
 ```
 
-**Nota:** As opções passadas por parâmetros, que contêm um caracter espaço, devem ser colocadas entre aspas. Por exemplo (Linux):
+**Nota:** As opções passadas por parâmetros, que contêm um caracter espaço, devem ser colocadas
+entre aspas. Por exemplo (Linux):
 ```
-$ eidguiV2 signSimple -d /home/user/Documents/ "ficheiro para assinar.pdf"
+$ eidguiV2 sign -d /home/user/Documents/ "ficheiro para assinar.pdf"
 ```
 
 # Instruções de configuração em ambientes empresariais
