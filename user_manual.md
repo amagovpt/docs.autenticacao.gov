@@ -72,6 +72,7 @@
   - [Aplicação não arranca](#aplicação-não-arranca)
   - [Problemas com a nova cadeia de confiança](#problemas-com-a-nova-cadeia-de-confiança)
   - [Problemas na validação das assinaturas](#problemas-na-validação-das-assinaturas)
+  - [Problemas com ficheiros PDF não suportados](#problemas-com-ficheiros-pdf-não-suportados)
   - [Serviços online usados pela aplicação](#serviços-online-usados-pela-aplicação)
   - [Obtenção do relatório para análise através do menu Configurações](#obtenção-do-relatório-para-análise-através-do-menu-configurações)
 - [Interface de linha de comandos](#interface-de-linha-de-comandos)
@@ -1114,7 +1115,9 @@ assinado.
 
 ## Assinatura digital em *Adobe Acrobat Reader*
 
-Nota: para assinar um documento no *Adobe Acrobat Reader DC* em MacOS, siga as instruções da secção [Assinatura digital em *Adobe Acrobat Reader* em MacOS com PKCS#11](#assinatura-digital-em-adobe-acrobat-reader-em-macos-com-pkcs11).
+**Nota**: para assinar um documento no *Adobe Acrobat Reader DC* em MacOS, siga as instruções da secção [Assinatura digital em *Adobe Acrobat Reader* em MacOS com PKCS#11](#assinatura-digital-em-adobe-acrobat-reader-em-macos-com-pkcs11).
+
+**Nota**: a assinatura com atributos profissionais só é possível na aplicação Autenticação.Gov.
 
 Para assinar um documento aberto no *Adobe Acrobat Reader* deve:
 
@@ -1460,6 +1463,16 @@ Alternativamente, pode instalar o certificado manualmente seguindo as instruçõ
 ## Problemas na validação das assinaturas 
 
 Em caso de problemas na validação das assinaturas, verifique se está relacionado com o tópico [Problemas com a nova cadeia de confiança](#problemas-com-a-nova-cadeia-de-confiança).
+
+## Problemas com ficheiros PDF não suportados
+
+A aplicação Autenticação.Gov atualmente não suporta os seguintes ficheiros PDF:
+  - Ficheiros PDF Encriptados;
+  - Ficheiros PDF com formulários XFA (criados, por exemplo, na aplicação *Adobe LiveCyle*).
+
+No entanto, é possível assinar estes ficheiros com o cartão de cidadão ou Chave Móvel Digital
+recorrendo a uma aplicação externa, por exemplo o *Adobe Acrobat Reader*. Para o fazer siga os passos
+descritos na secção [Assinatura digital em *Adobe Acrobat Reader*](#assinatura-digital-em-adobe-acrobat-reader).
 
 ## Serviços online usados pela aplicação
 
