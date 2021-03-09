@@ -877,7 +877,9 @@ if (pin.verifyPin("", ref triesLeft, true){
 
 A funcionalidade de assinatura está disponível para classes que implementam `PTEID_SigningDevice` como `PTEID_EIDCard` e `PTEID_CMDSignatureClient`. 
 
-Ao assinar com `PTEID_EIDCard` será apresentada uma janela para introdução do PIN de assinatura do cartão inserido no leitor. Com `PTEID_CMDSignatureClient`, é apresentada uma janela para introdução do número de telemóvel e PIN associados à conta da Chave Móvel Digital do assinante seguido de uma janela para introdução do código de segurança enviado para o telemóvel.
+Ao assinar com `PTEID_EIDCard` será apresentada uma janela para introdução do PIN de assinatura do cartão inserido no leitor. 
+
+Com `PTEID_CMDSignatureClient`, é apresentada uma janela para introdução do número de telemóvel e PIN associados à conta da Chave Móvel Digital do assinante seguido de uma janela para introdução do código de segurança enviado para o telemóvel. Antes de utilizar os serviços da CMD deve configurar as credenciais de acesso ao serviço através do método `setCredentials`. Para mais informação, deverá contactar a AMA pelo email info.cidadao@ama.pt.
 
 Para obter um `PTEID_SigningDevice` deve utilizar a classe `PTEID_SigningDeviceFactory`. No construtor pode indicar qual dos tipos de `PTEID_SigningDevice` deseja obter. Se ativar múltiplas opções, será apresentada uma janela ao utilizador para escolher: Cartão de Cidadão ou Chave Móvel Digital.
 
@@ -888,6 +890,10 @@ Para obter um `PTEID_SigningDevice` deve utilizar a classe `PTEID_SigningDeviceF
 1.  Exemplo C++
 
 ```c++
+(...)
+// Necessário para chamadas com PTEID_CMDSignatureClient
+PTEID_CMDSignatureClient::setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
+(...)
 // Neste exemplo ambas as opções estão ativas e, por isso, será apresentada uma janela
 PTEID_SigningDeviceFactory factory(true, true);
 PTEID_SigningDevice signingDev = factory.getSigningDevice();
@@ -896,6 +902,10 @@ PTEID_SigningDevice signingDev = factory.getSigningDevice();
 2.  Exemplo Java
 
 ```java
+(...)
+// Necessário para chamadas com PTEID_CMDSignatureClient
+PTEID_CMDSignatureClient.setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
+(...)
 // Neste exemplo ambas as opções estão ativas e, por isso, será apresentada uma janela
 PTEID_SigningDeviceFactory factory = new PTEID_SigningDeviceFactory(true, true);
 PTEID_SigningDevice signingDev = factory.getSigningDevice();
@@ -905,6 +915,10 @@ PTEID_SigningDevice signingDev = factory.getSigningDevice();
 3.  Exemplo C#
 
 ```csharp
+(...)
+// Necessário para chamadas com PTEID_CMDSignatureClient
+PTEID_CMDSignatureClient.setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
+(...)
 // Neste exemplo ambas as opções estão ativas e, por isso, será apresentada uma janela
 PTEID_SigningDeviceFactory factory = new PTEID_SigningDeviceFactory(true, true);
 PTEID_SigningDevice signingDev = factory.getSigningDevice();
@@ -1215,7 +1229,7 @@ Os métodos `getRoot()`, `getCA()`, `getSignature()` e `getAuthentication()` est
 
 Para `PTEID_EIDCard`, o método `getCertificates()` devolve uma instância `PTEID_Certificates` que contém os certificados do cartão inserido no leitor e das CAs necessárias à construção da cadeia completa.
 
-Para `PTEID_CMDSignatureClient`, o método `getCertificates()` devolve uma instância `PTEID_Certificates` com a cadeia de certificados usada na última assinatura com essa instância de `PTEID_CMDSignatureClient`. Se nenhuma assinatura tiver sido efetuada, é mostrada uma janela para autenticar com a conta da Chave Móvel Digital para a qual se desejam obter os certificados.
+Para `PTEID_CMDSignatureClient`, o método `getCertificates()` devolve uma instância `PTEID_Certificates` com a cadeia de certificados usada na última assinatura com essa instância de `PTEID_CMDSignatureClient`. Se nenhuma assinatura tiver sido efetuada, é mostrada uma janela para autenticar com a conta da Chave Móvel Digital para a qual se desejam obter os certificados. Este método requer credenciais de acesso ao serviço CMD tal como os métodos de assinatura (ver secção [Assinatura Digital](#assinatura-digital)).
 
 **NOTA:** As classes `PTEID_SigningDevice`, `PTEID_CMDSignatureClient` e `PTEID_SigningDeviceFactory` só estão disponíveis a partir da versão 3.6.0 do Middleware. Para versões anteriores, só as classes do cartão suportavam as funcionalidades de obtenção dos certificados.
 
