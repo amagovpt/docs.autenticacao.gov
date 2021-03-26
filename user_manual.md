@@ -844,7 +844,7 @@ aplicação. Este modo eleva o nível de detalhe do *log* para *debug*, o
 que, em caso de problemas com a aplicação, pode ajudar a equipa de
 suporte na resolução do problema.
 
-  **A partir da versão 3.5.0 da aplicação, para ajudar a obter os ficheiros de log pode pressionar o botão "Criar relatório".** Os ficheiros serão copiados para o Ambiente de Trabalho. Para mais informações consulte o capítulo [Obtenção do relatório para análise através do menu Configurações](#obtenção-do-relatório-para-análise-através-do-menu-configurações).
+  **A partir da versão 3.5.0 da aplicação, para todos os sistemas operativos, para ajudar a obter os ficheiros de log, existe uma nova funcionalidade que permite criar um "Relatório de Suporte". Para isso só é necessario pressionar o botão "Criar relatório".** Ao pressionar o botão **Criar relatório** é criada uma pasta comprimida (ficheiro zip) no Ambiente de Trabalho que contem todos os ficheiros de log. Deve enviar esta pasta (zip), anexada à descrição do problema, para o contacto de suporte. Para mais informações consulte o capítulo [Obtenção do relatório para análise através do menu Configurações](#obtenção-do-relatório-para-análise-através-do-menu-configurações).
 
   Os ficheiros de *log* por omissão são criados nas seguintes localizações e têm
   como nome o prefixo .PTEID:
@@ -1542,17 +1542,21 @@ Servidores CRL:
 
 ## Obtenção do relatório para análise através do menu Configurações
 
-A partir da versão 3.5.0, para ajudar a diagnosticar um problema com aplicação Autenticação.gov, a equipa de suporte pode pedir que lhe sejam enviados os "ficheiros de log"(ou relatório). Estes ficheiros contêm informações sobre o funcionamento da aplicação, essenciais para o diagnóstico de eventuais problemas.  
-Para obter os ficheiros de log deve:
+A partir da versão 3.5.0 da aplicação, para todos os sistemas operativos, para ajudar a diagnosticar um problema com a aplicação local **Autenticação.gov**, é possivel criar um **Relatório de Suporte**. Este **Relatório de Suporte** contêm os ficheiros de log com informações sobre o funcionamento da aplicação, essenciais para o diagnóstico de eventuais problemas.
+
+Para obter o **Relatório de Suporte** deve:
 
 1. Abrir a aplicação e navegar até ao menu **Configurações -> Configurações da Aplicação**.
 2. Na secção "Modo diagnóstico" selecionar a opção **Ativar modo diagnóstico**.
 3. Reiniciar a aplicação.
-4. Repetir a ação que resultou na situação de erro/problema. Desta forma, com o modo diagnóstico ativo, as informações sobre o erro/problema constantes nos ficheiros de log serão mais detalhadas.
-5. Voltar a navegar até ao menu **Configurações -> Configurações da Aplicação**.
-6. Pressionar o botão **Criar relatório**.
+4. Após reiniciar, a aplicação deverá indicar o modo de diagnóstico ativo na barra de topo da aplicação, bem como a cor da mesma barra mudar para vermelho. Ver imagem seguinte.
+5. Repetir a ação que resultou na situação de erro/problema. Desta forma, com o modo diagnóstico ativo, as informações sobre o erro/problema constantes nos ficheiros de log serão mais detalhadas.
+6. Voltar a navegar até ao menu **Configurações -> Configurações da Aplicação**.
+7. Pressionar o botão **Criar relatório**. Ao pressionar o botão **Criar relatório** é criada um ficheiro zip no Ambiente de Trabalho que contem os ficheiros de log da aplicação, com um nome deste tipo: **Autenticacao.gov_logs_DATA.zip**. 
+8. Por fim, deve enviar este ficheiro zip, juntamente cum uma descrição o mais detalhada possivel do problema, para o contacto de suporte atravès do email **cartaodecidadao@irn.mj.pt**, anexado à descrição do problema.
 
-Ao pressionar o botão **Criar relatório** é criada uma pasta comprimida (ficheiro zip) no Ambiente de Trabalho que contem os ficheiros de log. Deve enviar esta pasta (zip), anexada à descrição do problema, para o contacto de suporte.
+    ![Ilustração: Criar Relatório de Suporte](Pictures/Autenticacao.Gov_Relatorio_Suporte.png "Criar Relatório de Suporte"){:.center}
+
 
 # Interface de linha de comandos
 
