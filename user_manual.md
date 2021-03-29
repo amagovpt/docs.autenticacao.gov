@@ -50,6 +50,9 @@
       - [Atualizações](#atualizações)
     - [Ajuda](#ajuda)
 - [Integração com aplicações](#integração-com-aplicações)
+    - [Integração com aplicações em Windows](#integração-com-aplicações-em-windows)
+    - [Integração com aplicações via interface PKCS\#11](#integração-com-aplicações-via-interface-pkcs11)
+    - [Assinatura digital e Autenticação](#assinatura-digital-e-autenticação)
   - [Assinatura digital na suite *Microsoft Office*](#assinatura-digital-na-suite-microsoft-office)
   - [Assinatura digital na suite *LibreOffice / OpenOffice*](#assinatura-digital-na-suite-libreoffice--openoffice)
   - [Assinatura digital de email com *Microsoft Outlook*](#assinatura-digital-de-email-com-microsoft-outlook)
@@ -963,31 +966,35 @@ A janela ajuda fornece um resumo das funcionalidades da aplicação, indica o ca
 
 # Integração com aplicações
 
-O *middleware* do Cartão de Cidadão, instalado com a aplicação Autenticação.Gov, permite a interação com outras aplicações do sistema operativo, disponibilizando duas funcionalidades: Autenticação e Assinatura Digital.
+O *middleware* do Cartão de Cidadão, instalado com a aplicação Autenticação.Gov, permite a integração com outras aplicações do sistema operativo, disponibilizando duas funcionalidades: Autenticação e Assinatura Digital.
 
-A instalação do *middleware* em Windows permite que, ao introduzir um Cartão de Cidadão no leitor, os certificados deste fiquem automaticamente registados no sistema operativo, ficando assim as funcionalidades de autenticação e assinatura disponíveis às aplicações
-que utilizam a camada criptográfica do sistema operativo. Alguns exemplos dessas aplicações são: *Microsoft Word*, *Microsoft Excel*, *Microsoft Outlook* e *Adobe Acrobat Reader*.
+O *middleware* disponibiliza suporte criptográfico às aplicações via suporte criptográfico nativo do sistema operativo Windows ou via interface PKCS\#11.
 
-Nessas aplicações é também possível assinar com a Chave Móvel Digital. Para tal, siga o procedimento descrito em [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-m%c3%b3vel-digital).
 
-Nos pontos seguintes será explicada a utilização das funcionalidades de
-assinatura digital e autenticação nas seguintes aplicações:
 
-**Assinatura digital:**
 
-- [Suite Microsoft Office](#assinatura-digital-na-suite-microsoft-office)
-- [Suite LibreOffice / OpenOffice](#assinatura-digital-na-suite-libreoffice--openoffice)
-- [Microsoft Outlook](#assinatura-digital-de-email-com-microsoft-outlook)
-- [Mozilla Thunderbird](#assinatura-digital-de-email-com-mozilla-thunderbird)
 
-**Autenticação:**
+### Integração com aplicações em Windows
 
-- [Internet Explorer](#autentica%c3%a7%c3%a3o-em-portais-web)
-- [Mozilla Firefox](#configurar-autenticação-para-mozilla-firefox)
+**Integração com aplicações com o Cartão de Cidadão:**
 
-Além das aplicações acima referidas, o *middleware* disponibiliza
-suporte criptográfico às aplicações com interface PKCS\#11 ou suporte
-criptográfico nativo do sistema operativo.
+A instalação do *middleware* em Windows permite que, ao introduzir um Cartão de Cidadão no leitor, os certificados deste fiquem automaticamente registados no sistema operativo, ficando assim as funcionalidades de autenticação e assinatura disponíveis às aplicações que utilizam a camada criptográfica do sistema operativo, para operações de autenticação e assinatura.
+
+Alguns exemplos dessas aplicações são: *Microsoft Word*, *Microsoft Excel*, *Microsoft Outlook* e *Adobe Acrobat Reader*. 
+
+Para que os certificados fiquem automaticamente registados é necessário:
+
+- A opção "Registar certificados com a inserção do cartão" disponível no separador [Configuração de assinaturas](#configura%c3%a7%c3%a3o-de-assinaturas) estar ativa.
+- 
+- Abrir a aplicação local Autenticação.Gov antes de inserir o cartão. É aconselhado fazer pelo menos uma leitura do cartão na aplicação.
+
+**Integração com aplicações com a Chave Móvel Digital:**
+
+A integração com aplicações é também possível com a Chave Móvel Digital, ao nível da componente de assinatura digital. Para tal, siga o procedimento descrito em [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-m%c3%b3vel-digital).
+
+
+
+### Integração com aplicações via interface PKCS\#11
 
 No caso das aplicações com suporte PKCS\#11, geralmente é necessário
 configurar a localização do ficheiro da aplicação, que permite o
@@ -1000,6 +1007,25 @@ ser utilizado.
 
 **MacOS:** `/usr/local/lib/libpteidpkcs11.dylib`
 
+### Assinatura digital e Autenticação
+
+Nos pontos seguintes será explicada a utilização das funcionalidades de
+assinatura digital e autenticação nas seguintes aplicações:
+
+**Assinatura digital:**
+
+- [Suite Microsoft Office](#assinatura-digital-na-suite-microsoft-office)
+- [Suite LibreOffice / OpenOffice](#assinatura-digital-na-suite-libreoffice--openoffice)
+- [Microsoft Outlook](#assinatura-digital-de-email-com-microsoft-outlook)
+- [Adobe Acrobat Reader](#assinatura-digital-em-adobe-acrobat-reader)
+- [Adobe Acrobat Reader em MacOS com PKCS#11](assinatura-digital-em-adobe-acrobat-reader-dc-em-macos-com-pkcs11)
+- [Mozilla Thunderbird com PKCS#11](#assinatura-digital-de-email-com-mozilla-thunderbird)
+
+**Autenticação:**
+
+- [Internet Explorer](#autentica%c3%a7%c3%a3o-em-portais-web)
+- [Mozilla Firefox](#configurar-autenticação-para-mozilla-firefox)
+  
 ## Assinatura digital na suite *Microsoft Office*
 
 Nesta secção é apresentada a assinatura digital de documentos em
