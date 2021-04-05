@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Portuguese eID Middleware SDK
-   &#160;<span id="projectnumber">Version: 3.4.0</span>
+   &#160;<span id="projectnumber">Version: 3.5.0</span>
    </div>
   </td>
  </tr>
@@ -160,7 +160,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">    <span class="keywordtype">bool</span> bResult = pin.changePin(<span class="stringliteral">&quot;&quot;</span>,<span class="stringliteral">&quot;&quot;</span>, triesLeft, pin.getLabel());</div>
 <div class="line">    <span class="keywordflow">if</span> (!bResult &amp;&amp; -1 == triesLeft) <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2>Signing Documents</h2>
+</div><!-- fragment --><h1>Signatures with eID card (citizen signature certificate)</h1>
 <p>Make sure to initialize the underlying classes that will be used to sign documents, as follows </p><h3>How to sign PDF documents (PAdES)</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include “eidlib.h”</span></div>
 <div class="line">(...)</div>
@@ -168,34 +168,39 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line"><span class="comment">//PDF file to sign</span></div>
 <div class="line">PTEID_PDFSignature signature(“/home/user/input.pdf”);</div>
 <div class="line"> </div>
-<div class="line">signature.enableSmallSignatureFormat();</div>
-<div class="line">signature.enableTimestamp(); <span class="comment">// use this if signature should contain a timestamp </span></div>
+<div class="line"><span class="comment">/* Optional settings for the signature */</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// add custom image to the signature can&#39;t be using in combination with enableSmallSignatureFormat() method</span></div>
-<div class="line"><span class="comment">// image_data pointer should point to a JPEG format image with recommended dimensions are 185x41 px</span></div>
+<div class="line"><span class="comment">// Apply a visible signature with half the height of regular visible signatures</span></div>
+<div class="line">signature.enableSmallSignatureFormat();  </div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/* Signature profile according to PAdES specification</span></div>
+<div class="line"><span class="comment">PAdES-B:   PTEID_SignatureLevel::PTEID_LEVEL_BASIC (default level)</span></div>
+<div class="line"><span class="comment">PAdES-T:   PTEID_SignatureLevel::PTEID_LEVEL_TIMESTAMP</span></div>
+<div class="line"><span class="comment">PAdES-LT:  PTEID_SignatureLevel::PTEID_LEVEL_LT</span></div>
+<div class="line"><span class="comment">PAdES-LTA: PTEID_SignatureLevel::PTEID_LEVEL_LTV */</span></div>
+<div class="line">signature.setSignatureLevel(PTEID_SignatureLevel::PTEID_LEVEL_BASIC);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// add custom image to the signature - it can&#39;t be used in combination with enableSmallSignatureFormat() method</span></div>
+<div class="line"><span class="comment">// image_data should point to a JPEG format image with recommended dimensions 185x41 px</span></div>
 <div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *image_data;</div>
-<div class="line"> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> image_length;</div>
+<div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> image_length;</div>
 <div class="line">signature.setCustomImage(image_data,image_length);</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">//Select the localization (sectors in page) of signature. </span></div>
-<div class="line"><span class="comment">// The parameter is_landscape serves to indicate if the file is landscape, hence it changes the sectors</span></div>
-<div class="line"><span class="comment">//select the sector number and page</span></div>
-<div class="line"><span class="keywordtype">int</span> sector = 1;</div>
+<div class="line"><span class="comment">//Select the location of visible signature in the document</span></div>
+<div class="line"><span class="comment">//X and Y coordinates of the signature location as percentage of page width and height [0-1]</span></div>
+<div class="line"><span class="comment">//To apply an invisible signature negative values should be specified for both parameters, e.g. -1</span></div>
+<div class="line"><span class="keywordtype">double</span> location_x = 0.2;</div>
+<div class="line"><span class="keywordtype">double</span> location_y = 0.2;</div>
 <div class="line"><span class="keywordtype">int</span> page = 1;</div>
-<div class="line"><span class="keywordtype">bool</span> is_landscape = <span class="keyword">false</span>;</div>
+<div class="line"> </div>
 <div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> * location = “Lisboa, Portugal”;</div>
 <div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> * reason = “Agree with the content in the file”;</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">//If batch signature the it should point to the output directory instead of a file</span></div>
+<div class="line"><span class="comment">//If the instance of PTEID_PDFSignature is in &quot;batch mode&quot; (see next section) output should have the output directory path instead of a file path</span></div>
 <div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> * output = “/home/user/output_signed.pdf”;</div>
-<div class="line">card.SignPDF(signature,  page, sector, is_landscape, location, reason, output_file);</div>
-</div><!-- fragment --><p>If instead want to use a precise location inside a file then can be achieved as follows </p><div class="fragment"><div class="line"><span class="comment">//The parameters pos_x e pos_y indicate the precise location in a file as a percentage of width and height of a page</span></div>
-<div class="line"><span class="comment">//For vertical A4 pages these value range between [0-1]</span></div>
-<div class="line"><span class="keywordtype">double</span> pos_x = 0.1; </div>
-<div class="line"><span class="keywordtype">double</span> pos_y = 0.1;</div>
-<div class="line">card.SignPDF(signature,  page, pos_x, pos_y, location, reason, output_file);</div>
+<div class="line">card.SignPDF(signature,  page, sector, location_x, location_y, location, reason, output_file);</div>
 </div><!-- fragment --><h3>How to sign multiple PDF documents</h3>
-<p>It's possible to sign multiple PDF files in batch mode, as follows </p><div class="fragment"><div class="line"><span class="preprocessor">#include “eidlib.h”</span></div>
+<p>It's possible to sign multiple PDF files in batch mode with a single PIN prompt, as follows </p><div class="fragment"><div class="line"><span class="preprocessor">#include “eidlib.h”</span></div>
 <div class="line">(...)</div>
 <div class="line">PTEID_EIDCard &amp;card = readerContext.getEIDCard();</div>
 <div class="line"><span class="comment">//Initialize the signature with a file as input</span></div>
@@ -205,22 +210,22 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">signature.addToBatchSigning( “Other_File.pdf” );</div>
 <div class="line">signature.addToBatchSigning( “Yet_Another_FILE.pdf” );</div>
 <div class="line">(...)</div>
-<div class="line"><span class="keywordtype">int</span> sector = 1;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">double</span> location_x = 0.2;</div>
+<div class="line"><span class="keywordtype">double</span> location_y = 0.2;</div>
 <div class="line"><span class="keywordtype">int</span> page = 1;</div>
-<div class="line"><span class="keywordtype">bool</span> is_landscape = <span class="keyword">false</span>;</div>
+<div class="line"> </div>
 <div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> * location = “Lisboa, Portugal”;</div>
 <div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> * reason = “I agree with the content in the file”;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">//In this case the output is a destination directory</span></div>
-<div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> * output = “/home/user/d”;</div>
-<div class="line">card.SignPDF(signature,  page, sector, is_landscape, location, reason, output_file);</div>
-</div><!-- fragment --><p>Note that when signing multiple files the <code>reason</code>, <code>localization</code>, <code>page</code> and <code>sector</code> are equal in documets.</p>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> * output = “/home/user/signed_documents/”;</div>
+<div class="line">card.SignPDF(signature,  page, location_x, location_y, is_landscape, location, reason, output_file);</div>
+</div><!-- fragment --><p>Note that when signing multiple files the signature profile selected with setSignatureLevel(), and the SignPDF() parameters <code>reason</code>, <code>location</code>, <code>page</code>, <code>location_x</code> and <code>location_y</code> are applied to all documents.</p>
 <h3>Verify a PAdES signature</h3>
-<p>One can verify the a PDF signature using the Java iText SDK. See <a href="https://github.com/itext/i7js-samples/tree/master/publications/signatures/src/test/java/com/itextpdf/samples/signatures/chapter05">iText-example</a> for a concrete example of how to verify a signature.</p>
-<h3>How to sign any document (XAdES)</h3>
-<p>Sign files in batch mode </p><div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> n_errors = 200; </div>
-<div class="line"><span class="keywordtype">char</span> errors[n_errors];</div>
-<div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> *files[] = {<span class="stringliteral">&quot;test/File1.txt&quot;</span>, </div>
+<p>One can verify a PAdES signature using the Java iText SDK. See <a href="https://github.com/itext/i7js-samples/tree/master/publications/signatures/src/test/java/com/itextpdf/samples/signatures/chapter05">iText-example</a> for a concrete example of how to verify a signature.</p>
+<h3>How to sign any type of file (XAdES signature format)</h3>
+<p>Sign files in batch mode </p><div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> *files[] = {<span class="stringliteral">&quot;test/File1.txt&quot;</span>, </div>
 <div class="line">                    <span class="stringliteral">&quot;test/File2.pdf&quot;</span>, </div>
 <div class="line">                    <span class="stringliteral">&quot;test/File3.md&quot;</span>, </div>
 <div class="line">                    <span class="stringliteral">&quot;test/File4.cpp&quot;</span>};</div>
@@ -228,14 +233,14 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line"><span class="keywordtype">int</span> n_paths = 4; <span class="comment">// size of files array</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// simple signature (1 unique signature for all files)</span></div>
-<div class="line">card.SignXades( destination, files, n_paths ); </div>
+<div class="line">card.SignXades(destination, files, n_paths); </div>
 <div class="line">(...)</div>
 <div class="line"><span class="comment">// timestamp signature (1 unique signature of type T (Timestamp) for all files)</span></div>
-<div class="line">card.SignXadesT( destination, files, n_paths ); </div>
+<div class="line">card.SignXadesT(destination, files, n_paths); </div>
 <div class="line">(...)</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// archival signature (1 unique signature of type A(archival) for all files)</span></div>
-<div class="line">card.SignXadesA( destination, files, n_paths ); </div>
+<div class="line">card.SignXadesA(destination, files, n_paths); </div>
 <div class="line">(...)</div>
 </div><!-- fragment --><p>Sign each file individually</p>
 <div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> *destination =”test/signed_files/”; <span class="comment">// directory where all files will be saved</span></div>

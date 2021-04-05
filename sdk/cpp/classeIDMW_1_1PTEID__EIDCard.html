@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Portuguese eID Middleware SDK
-   &#160;<span id="projectnumber">Version: 3.4.0</span>
+   &#160;<span id="projectnumber">Version: 3.5.0</span>
    </div>
   </td>
  </tr>
@@ -624,16 +624,16 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>PDF Signature with location by coordinates (expressed in percentage of page height/width). The coordinate system has its origin in the top left corner of the page If PTEID_Exception(EIDMW_TIMESTAMP_ERROR) is thrown, the resulting file is a PAdES-B signature. If PTEID_Exception(EIDMW_LTV_ERROR) is thrown, the resulting file is a PAdES-LT or PAdES-LTA depending where the timestamping fails.</p>
+<p>PDF Signature with location by coordinates (expressed in percentage of page height/width). The coordinate system has its origin in the top left corner of the page. To apply an invisible signature negative values should be specified for both coordinates, e.g. -1. If PTEID_Exception(EIDMW_TIMESTAMP_ERROR) is thrown, the resulting file is a PAdES-B signature. If PTEID_Exception(EIDMW_LTV_ERROR) is thrown, the resulting file is a PAdES-LT or PAdES-LTA depending where the timestamping fails.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sig_handler</td><td>this defines the input file and some signature options </td></tr>
     <tr><td class="paramname">page</td><td>in case of visible signature it defines the page where the signature will appear </td></tr>
-    <tr><td class="paramname">coord_x</td><td>X coordinate of the signature location (percentage of page width) </td></tr>
-    <tr><td class="paramname">coord_y</td><td>Y coordinate of the signature location (percentage of page height) </td></tr>
+    <tr><td class="paramname">coord_x</td><td>X coordinate of the signature location (percentage of page width [0-1]) </td></tr>
+    <tr><td class="paramname">coord_y</td><td>Y coordinate of the signature location (percentage of page height [0-1]) </td></tr>
     <tr><td class="paramname">location</td><td>Location field in the added signature metadata </td></tr>
-    <tr><td class="paramname">reason</td><td>Signature metadata field </td></tr>
-    <tr><td class="paramname">outfile_path</td><td>Native Filesystem path of the ouput file </td></tr>
+    <tr><td class="paramname">reason</td><td>Reason field in the added signature metadata </td></tr>
+    <tr><td class="paramname">outfile_path</td><td>Native filesystem path of the ouput file </td></tr>
   </table>
   </dd>
 </dl>
@@ -695,7 +695,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>PDF Signature with location by page sector (the portrait A4 page is split into 18 cells: 6 lines and 3 columns) If PTEID_Exception(EIDMW_TIMESTAMP_ERROR) is thrown, the resulting file is a PAdES-B signature. If PTEID_Exception(EIDMW_LTV_ERROR) is thrown, the resulting file is a PAdES-LT or PAdES-LTA depending where the timestamping fails.</p>
+<p>PDF Signature with location by page sector (the portrait A4 page is split into 18 cells: 6 lines and 3 columns). If PTEID_Exception(EIDMW_TIMESTAMP_ERROR) is thrown, the resulting file is a PAdES-B signature. If PTEID_Exception(EIDMW_LTV_ERROR) is thrown, the resulting file is a PAdES-LT or PAdES-LTA depending where the timestamping fails.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sig_handler</td><td>this defines the input file and some signature options </td></tr>
