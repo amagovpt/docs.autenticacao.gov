@@ -985,7 +985,6 @@ Alguns exemplos dessas aplicações são: *Microsoft Word*, *Microsoft Excel*, *
 Para que os certificados fiquem automaticamente registados é necessário:
 
 - A opção "Registar certificados com a inserção do cartão" disponível no separador [Configuração de assinaturas](#configura%c3%a7%c3%a3o-de-assinaturas) estar ativa.
-- 
 - Abrir a aplicação local Autenticação.Gov antes de inserir o cartão. É aconselhado fazer pelo menos uma leitura do cartão na aplicação.
 
 **Integração com aplicações com a Chave Móvel Digital:**
