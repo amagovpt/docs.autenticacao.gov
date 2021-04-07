@@ -590,9 +590,9 @@ PTEID_EIDCard &card;
 unsigned long triesLeft;
 
 (...)
-PTEID_Pins pins = card.getPins();
-PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
-if (pin.verifyPin("", &triesLeft, true){
+PTEID_Pins &pins = card.getPins();
+PTEID_Pin &pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
+if (pin.verifyPin("", &triesLeft, true)){
 	PTEID_Address &addr =  card.getAddr();
 	const char * municipio =  addr.getMunicipality();
 }
@@ -607,7 +607,7 @@ PTEID_Address addr;
 (...)
 PTEID_Pins pins = card.getPins();
 PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
-if (pin.verifyPin("", triesLeft, true){
+if (pin.verifyPin("", triesLeft, true)){
 	addr =  card.getAddr();
 	String municipio =  addr.getMunicipality();
 }
@@ -622,7 +622,7 @@ PTEID_Address addr;
 (...)
 PTEID_Pins pins = card.getPins();
 PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
-if (pin.verifyPin("", ref triesLeft, true){
+if (pin.verifyPin("", ref triesLeft, true)){
 	addr =  card.getAddr();
 	string municipio =  addr.getMunicipality();
 }
@@ -835,9 +835,9 @@ a sua alteração, deverá ser utilizado o método **changePin()**.
 PTEID_EIDCard& card;
 unsigned long triesLeft;
 (...)
-PTEID_Pins pins = card.getPins();
-PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
-if (pin.verifyPin("", &triesLeft, true){
+PTEID_Pins &pins = card.getPins();
+PTEID_Pin &pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
+if (pin.verifyPin("", &triesLeft, true)){
 	bool bResult = pin.changePin("","", triesLeft, pin.getLabel());
 	if (!bResult && -1 == triesLeft) return;
 }
@@ -851,7 +851,7 @@ PTEID_ulwrapper triesLeft = new PTEID_ulwrapper(-1);
 (...)
 PTEID_Pins pins = card.getPins();
 PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
-if (pin.verifyPin("", triesLeft, true){
+if (pin.verifyPin("", triesLeft, true)){
 	bool bResult = pin.changePin("","", triesLeft, pin.getLabel());
 	if (!bResult && -1 == triesLeft) return;
 }
@@ -865,7 +865,7 @@ uint triesLeft;
 (...)
 PTEID_Pins pins = card.getPins();
 PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
-if (pin.verifyPin("", ref triesLeft, true){
+if (pin.verifyPin("", ref triesLeft, true)){
 	bool bResult = pin.changePin("","", triesLeft, pin.getLabel());
 	if (!bResult && -1 == triesLeft) return;
 }
