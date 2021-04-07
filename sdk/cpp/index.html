@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">(...)</div>
 <div class="line">PTEID_Pins &amp;pins = card.getPins();</div>
 <div class="line">PTEID_Pin &amp;pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);    </div>
-<div class="line"><span class="keywordflow">if</span> (pin.verifyPin(“”, &amp;triesLeft, <span class="keyword">true</span>)){</div>
+<div class="line"><span class="keywordflow">if</span> (pin.verifyPin("", &amp;triesLeft, <span class="keyword">true</span>)){</div>
 <div class="line">    PTEID_Address &amp;addr =  card.getAddr();</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> * municipio =  addr.getMunicipality();</div>
 <div class="line">}</div>
@@ -156,7 +156,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">(...)</div>
 <div class="line">PTEID_Pins &amp;pins = card.getPins();</div>
 <div class="line">PTEID_Pin &amp;pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);    </div>
-<div class="line"><span class="keywordflow">if</span> (pin.verifyPin(“”, &amp;triesLeft, <span class="keyword">true</span>)){</div>
+<div class="line"><span class="keywordflow">if</span> (pin.verifyPin("", &amp;triesLeft, <span class="keyword">true</span>)){</div>
 <div class="line">    <span class="keywordtype">bool</span> bResult = pin.changePin(<span class="stringliteral">&quot;&quot;</span>,<span class="stringliteral">&quot;&quot;</span>, triesLeft, pin.getLabel());</div>
 <div class="line">    <span class="keywordflow">if</span> (!bResult &amp;&amp; -1 == triesLeft) <span class="keywordflow">return</span>;</div>
 <div class="line">}</div>
