@@ -864,7 +864,7 @@ suporte na resolução do problema.
 
         `/home/Utilizador/`
 
-    **No caso da aplicação não arrancar**, é possivel alterar essa opção usando as configurações do software Autenticação.gov (via Chaves de Registo em Windows ou ficheiro de configuração em Linux e MacOS).
+    **No caso da aplicação não arrancar**, é possível alterar essa opção usando as configurações do software Autenticação.gov (via Chaves de Registo em Windows ou ficheiro de configuração em Linux e MacOS).
 
     - Em **Windows**, a chave de registo:  
 **HKEY\_CURRENT\_USER\\Software\\PTEID\\logging\\log_level**;
@@ -1489,7 +1489,7 @@ No caso de existirem problemas com placas gráficas, consulte o tópico [Problem
 
 ## Aplicação não arranca
 
-No caso da aplicação não arrancar e consequentemente não ser possivel alterar as configurações da aplicação na aplicação, é possivel alterar as opções da aplicação usando as configurações do software Autenticação.gov (via Chaves de Registo em Windows ou ficheiro de configuração em Linux e MacOS).
+No caso da aplicação não arrancar e consequentemente não ser possível alterar as configurações da aplicação na aplicação, é possível alterar as opções da aplicação usando as configurações do software Autenticação.gov (via Chaves de Registo em Windows ou ficheiro de configuração em Linux e MacOS).
 
 Uma causa que pode causar problemas está relacionado com a placa gráfica do computador, consulte o tópico [Problemas gráficos na aplicação](#problemas-gráficos-na-aplicação).
 
@@ -1567,7 +1567,7 @@ Servidores CRL:
 
 ## Obtenção do relatório para análise através do menu Configurações
 
-A partir da versão 3.5.0 da aplicação, para todos os sistemas operativos, para ajudar a diagnosticar um problema com a aplicação local **Autenticação.gov**, é possivel criar um **Relatório de Suporte**. Este **Relatório de Suporte** contêm os ficheiros de log com informações sobre o funcionamento da aplicação, essenciais para o diagnóstico de eventuais problemas.
+A partir da versão 3.5.0 da aplicação, para todos os sistemas operativos, para ajudar a diagnosticar um problema com a aplicação local **Autenticação.gov**, é possível criar um **Relatório de Suporte**. Este **Relatório de Suporte** contêm os ficheiros de log com informações sobre o funcionamento da aplicação, essenciais para o diagnóstico de eventuais problemas.
 
 Para obter o **Relatório de Suporte** deve:
 
@@ -1578,7 +1578,7 @@ Para obter o **Relatório de Suporte** deve:
 5. Repetir a ação que resultou na situação de erro/problema. Desta forma, com o modo diagnóstico ativo, as informações sobre o erro/problema constantes nos ficheiros de log serão mais detalhadas.
 6. Voltar a navegar até ao menu **Configurações -> Configurações da Aplicação**.
 7. Pressionar o botão **Criar relatório**. Ao pressionar o botão **Criar relatório** é criada um ficheiro zip no Ambiente de Trabalho que contem os ficheiros de log da aplicação, com um nome deste tipo: **Autenticacao.gov_logs_DATA.zip**. 
-8. Por fim, deve enviar este ficheiro zip, juntamente cum uma descrição o mais detalhada possivel do problema, para o contacto de suporte atravès do email **cartaodecidadao@irn.mj.pt**, anexado à descrição do problema.
+8. Por fim, deve enviar este ficheiro zip, juntamente cum uma descrição o mais detalhada possível do problema, para o contacto de suporte atravès do email **cartaodecidadao@irn.mj.pt**, anexado à descrição do problema.
 
     ![Ilustração: Criar Relatório de Suporte](Pictures/Autenticacao.Gov_Relatorio_Suporte.png "Criar Relatório de Suporte"){:.center}
 

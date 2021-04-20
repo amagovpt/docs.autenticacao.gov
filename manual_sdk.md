@@ -772,7 +772,7 @@ estrangeiras)
 
 Os dados do cidadão existentes no cartão podem ser extraidos em formato
 xml. A fotografia é retornada em base-64 no formato aberto PNG. Para
-além dos dados do cidadão é possivel incluir também a área de notas
+além dos dados do cidadão é possível incluir também a área de notas
 pessoais.
 
 1.  Exemplo em C++
