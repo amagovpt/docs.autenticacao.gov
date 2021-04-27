@@ -786,7 +786,7 @@ imagem do cartão do cidadão por uma imagem à escolha do utilizador.
 
 O botão **Adicionar assinatura** permite selecionar uma imagem que será utilizada na assinatura personalizada. Após adicionar uma imagem, esta página da aplicação permitirá selecionar a opção **Usar assinatura padrão** ou **Usar assinatura personalizada**, conforme a escolha do utilizador.
 
-O tamanho recomendado para a imagem é de 185 x 41px.
+O tamanho mínimo recomendado para a imagem é de 351 x 77px.
 
 ![Ilustração: Personalização da Assinatura digital](Pictures/Autenticacao.Gov_personalizar_assinatura.png "Personalização da Assinatura digital"){:.center}
 

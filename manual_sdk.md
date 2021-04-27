@@ -1036,7 +1036,7 @@ PTEID_EIDCard &card = readerContext.getEIDCard();
 PTEID_PDFSignature signature("/home/user/input.pdf");
 /* Adicionar uma imagem customizada à assinatura visível
    O array de bytes image_data deve conter uma imagem em formato
-   JPEG com as dimensões recomendadas (185x41 px) */
+   JPEG com as dimensões recomendadas (351x77 px) */
 PTEID_ByteArray jpeg_data(image_data, image_length);
 
 signature.setCustomImage(jpeg_data);
