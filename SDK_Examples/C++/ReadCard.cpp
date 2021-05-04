@@ -1,0 +1,64 @@
+#include "eidlib.h"
+#include <iostream>
+
+using namespace eIDMW;
+
+int main(int argc, char **argv) {
+
+    //Initializes SDK (must always be called in the beginning of the program)
+    eIDMW::PTEID_InitSDK();
+
+    //As the name indicates, gets the number of connected readers, exits the program if no readers were found
+    //Also checks if there is a card present, if not exits the program
+    if (PTEID_ReaderSet::instance().readerCount() == 0) 
+    {
+		std::cout << "No readers found!" << std::endl;
+    }
+    else if (!PTEID_ReaderSet::instance().getReader().isCardPresent())
+	{
+		std::cout << "No card found in the reader!" << std::endl;
+	}
+    else 
+    {
+        //Gets the set of readers connected to the system
+        PTEID_ReaderSet& readerSet = PTEID_ReaderSet::instance();
+        
+        //Gets a reader connected to the system (useful if you only have one)
+        //Alternatively you can iterate through the readers using getReaderByNum(int index) instead of getReader()
+        PTEID_ReaderContext& readerContext = PTEID_ReaderSet::instance().getReader();
+        
+        //Gets the EIDCard and EId objects (with the cards information)
+        PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
+        PTEID_EId& eid = PTEID_ReaderSet::instance().getReader().getEIDCard().getID();
+
+        std::cout << "Name:                       " << eid.getGivenName() << " " << eid.getSurname() << std::endl;
+        std::cout << "Card Type:                  " << eid.getDocumentType() << std::endl;
+        std::cout << "Card Version:               " << eid.getDocumentVersion() << std::endl;
+        std::cout << "Validaty Status:            " << eid.getValidation() << std::endl;
+        std::cout << "Card Number:                " << eid.getDocumentNumber() << std::endl;
+        std::cout << "Local of Request:           " << eid.getLocalofRequest() << std::endl;   
+        std::cout << "Issuing Entity:             " << eid.getIssuingEntity() << std::endl;
+        std::cout << "Issuing Date:               " << eid.getValidityBeginDate() << std::endl;
+        std::cout << "Validity End Date:          " << eid.getValidityEndDate() << std::endl;
+        std::cout << "PAN Number:                 " << eid.getDocumentPAN() << std::endl;
+        std::cout << "Civilian ID :               " << eid.getCivilianIdNumber() << std::endl;
+        std::cout << "Tax ID:                     " << eid.getTaxNo() << std::endl;
+        std::cout << "Social Security ID:         " << eid.getSocialSecurityNumber() << std::endl;
+        std::cout << "Health ID:                  " << eid.getHealthNumber() << std::endl;
+        std::cout << "Parents:                    " << eid.getParents() << std::endl;
+        std::cout << "Father:                     " << eid.getGivenNameFather() << " " << eid.getSurnameFather() << std::endl;
+        std::cout << "Mother:                     " << eid.getGivenNameMother() << " " << eid.getSurnameMother() << std::endl;
+        std::cout << "Indications:                " << eid.getAccidentalIndications() << std::endl;
+        std::cout << "Nationality:                " << eid.getNationality() << std::endl;
+        std::cout << "Country:                    " << eid.getCountry() << std::endl;
+        std::cout << "Date of birth:              " << eid.getDateOfBirth() << std::endl;
+        std::cout << "Height:                     " << eid.getHeight() << std::endl;
+        std::cout << "Gender:                     " << eid.getGender() << std::endl;
+        std::cout << "MRZ:                        " << eid.getMRZ1() << std::endl;
+        std::cout << "                            " << eid.getMRZ2() << std::endl;
+        std::cout << "                            " << eid.getMRZ3() << std::endl;    
+    }
+
+    //Releases SDK (must always be called at the end of the program)
+    eIDMW::PTEID_ReleaseSDK();
+}
