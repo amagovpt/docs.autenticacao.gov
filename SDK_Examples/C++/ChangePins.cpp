@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
         //Sets of the card PINs
         PTEID_Pins& pins = eidCard.getPins();
         
-        //Gets the specific PIN we want
+        //Gets the specific PIN we want and proceeds to change it
         //ADDR_PIN - Address Pin
         //AUTH_PIN - Authentication Pin
         //SIGN_PIN - Signature Pin
