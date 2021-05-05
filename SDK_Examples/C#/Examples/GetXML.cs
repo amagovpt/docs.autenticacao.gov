@@ -1,9 +1,10 @@
 ﻿using System;
+using System.IO;
 using pt.portugal.eid;
 
 namespace Examples
 {
-    class ReadAddress
+    class GetXML
     {
         //Main attributes needed for SDK functionalities
         PTEID_ReaderSet readerSet = null;
@@ -17,7 +18,6 @@ namespace Examples
          */
         public void Initiate()
         {
-
             //Must always be called in the beginning of the program
             PTEID_ReaderSet.initSDK();
 
@@ -58,9 +58,9 @@ namespace Examples
         }
 
         /*
-         * Prints address info present in the card (requires address pin)
+         * Saves all card info in XML format and prints it to a file
          */
-        public void ShowAddressInfo()
+        public void SaveXML()
         {
             //The number of tries that the user has (updated with each call to verifyPin)
             uint triesLeft = uint.MaxValue;
@@ -79,29 +79,38 @@ namespace Examples
             if (pin.verifyPin("", ref triesLeft, true))
             {
 
-                //SDK class that handles address related information
-                PTEID_Address address = eidCard.getAddr();
+                //Selects information to be requested in XML format
+                //You can add or remove fields at will
+                PTEID_XmlUserRequestedInfo requestedInfo = new PTEID_XmlUserRequestedInfo();
 
-                Console.WriteLine("\n\nReading address details of: " + eid.getGivenName() + " " + eid.getSurname() + ":");
-                Console.WriteLine("Country:                        " + address.getCountryCode());
-                Console.WriteLine("District:                       " + address.getDistrict());
-                Console.WriteLine("District (code):                " + address.getDistrictCode());
-                Console.WriteLine("Municipality:                   " + address.getMunicipality());
-                Console.WriteLine("Municipality (code):            " + address.getMunicipalityCode());
-                Console.WriteLine("Parish:                         " + address.getCivilParish());
-                Console.WriteLine("Parish (code):                  " + address.getCivilParishCode());
-                Console.WriteLine("Street Type (Abbreviated):      " + address.getAbbrStreetType());
-                Console.WriteLine("Street Type:                    " + address.getStreetType());
-                Console.WriteLine("Street Name:                    " + address.getStreetName());
-                Console.WriteLine("Building Type (Abbreviated):    " + address.getAbbrBuildingType());
-                Console.WriteLine("Building Type:                  " + address.getBuildingType());
-                Console.WriteLine("Door nº:                        " + address.getDoorNo());
-                Console.WriteLine("Floor:                          " + address.getFloor());
-                Console.WriteLine("Side:                           " + address.getSide ());
-                Console.WriteLine("Locality:                       " + address.getLocality());
-                Console.WriteLine("Place:                          " + address.getPlace());
-                Console.WriteLine("Postal code:                    " + address.getZip4() + "-" + address.getZip3());
-                Console.WriteLine("Postal Locality:                " + address.getPostalLocality());
+                XMLUserData[] data = new XMLUserData[] { XMLUserData.XML_PHOTO, XMLUserData.XML_NAME, XMLUserData.XML_GIVEN_NAME,
+                        XMLUserData.XML_SURNAME, XMLUserData.XML_NIC, XMLUserData.XML_EXPIRY_DATE, XMLUserData.XML_GENDER, XMLUserData.XML_HEIGHT,
+                        XMLUserData.XML_NATIONALITY, XMLUserData.XML_DATE_OF_BIRTH, XMLUserData.XML_GIVEN_NAME_FATHER, XMLUserData.XML_SURNAME_FATHER,
+                        XMLUserData.XML_GIVEN_NAME_MOTHER, XMLUserData.XML_SURNAME_MOTHER, XMLUserData.XML_ACCIDENTAL_INDICATIONS, XMLUserData.XML_DOCUMENT_NO,
+                        XMLUserData.XML_TAX_NO, XMLUserData.XML_SOCIAL_SECURITY_NO, XMLUserData.XML_HEALTH_NO, XMLUserData.XML_MRZ1, XMLUserData.XML_MRZ2,
+                        XMLUserData.XML_MRZ3, XMLUserData.XML_CARD_VERSION, XMLUserData.XML_CARD_NUMBER_PAN, XMLUserData.XML_ISSUING_DATE, XMLUserData.XML_ISSUING_ENTITY,
+                        XMLUserData.XML_DOCUMENT_TYPE, XMLUserData.XML_LOCAL_OF_REQUEST, XMLUserData.XML_VERSION, XMLUserData.XML_DISTRICT, XMLUserData.XML_MUNICIPALITY,
+                        XMLUserData.XML_CIVIL_PARISH, XMLUserData.XML_ABBR_STREET_TYPE, XMLUserData.XML_STREET_TYPE, XMLUserData.XML_STREET_NAME, XMLUserData.XML_ABBR_BUILDING_TYPE,
+                        XMLUserData.XML_BUILDING_TYPE, XMLUserData.XML_DOOR_NO, XMLUserData.XML_FLOOR, XMLUserData.XML_SIDE, XMLUserData.XML_PLACE, XMLUserData.XML_LOCALITY,
+                        XMLUserData.XML_ZIP4,   XMLUserData.XML_ZIP3, XMLUserData.XML_POSTAL_LOCALITY, XMLUserData.XML_PERSONAL_NOTES,  XMLUserData.XML_FOREIGN_COUNTRY,
+                        XMLUserData.XML_FOREIGN_ADDRESS, XMLUserData.XML_FOREIGN_CITY,  XMLUserData.XML_FOREIGN_REGION, XMLUserData.XML_FOREIGN_LOCALITY,   XMLUserData.XML_FOREIGN_POSTAL_CODE};
+
+                //Adds each field of the vector to the request
+                foreach (XMLUserData field in data) {
+                    requestedInfo.add(field);
+                }
+
+                //Gets the XML information from the card and transforms it to a string
+                PTEID_CCXML_Doc ccxml = eidCard.getXmlCCDoc(requestedInfo);
+                String resultXml = ccxml.getCCXML();
+
+                using (var streamWriter = new StreamWriter("../../files/info.xml", false))
+                {
+                    streamWriter.WriteLine(resultXml);
+                    streamWriter.Close();
+                }
+
+                Console.WriteLine("Your XML info has been saved successfully in files/info.xml.");
             }
         }
 
@@ -110,7 +119,7 @@ namespace Examples
             try
             {
                 Initiate();
-                ShowAddressInfo();
+                SaveXML();
             }
             catch (Exception ex)
             {
@@ -125,7 +134,7 @@ namespace Examples
 
         static void Main(string[] args)
         {
-            new ReadAddress().start();
+            new GetXML().start();
         }
     }
 }
