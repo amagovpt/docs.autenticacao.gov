@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Examples.GetPhoto</StartupObject>
+    <StartupObject>Examples.SignMultipleFiles</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="pteidlib_dotnet">
@@ -50,7 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SignMultipleFiles.cs" />
+    <Compile Include="SignFile.cs" />
     <Compile Include="GetPhoto.cs" />
+    <Compile Include="ChangePins.cs" />
+    <Compile Include="ReadAndWriteNotes.cs" />
     <Compile Include="GetXML.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadAddress.cs" />

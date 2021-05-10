@@ -78,7 +78,6 @@ namespace Examples
             //Otherwise we can send the PIN as the first argument and the end result will be the same
             if (pin.verifyPin("", ref triesLeft, true))
             {
-
                 //Selects information to be requested in XML format
                 //You can add or remove fields at will
                 PTEID_XmlUserRequestedInfo requestedInfo = new PTEID_XmlUserRequestedInfo();
