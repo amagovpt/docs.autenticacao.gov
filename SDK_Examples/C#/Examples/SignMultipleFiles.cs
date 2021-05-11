@@ -12,7 +12,6 @@ namespace Examples
         PTEID_EIDCard eidCard = null;
         PTEID_EId eid = null;
 
-
         /*
          * Initializes the SDK and sets main variables
          */
@@ -23,19 +22,10 @@ namespace Examples
 
             //Gets the set of connected readers, if there is any inserted
             readerSet = PTEID_ReaderSet.instance();
-            if (readerSet.readerCount() == 0)
-            {
-                throw new Exception("No Readers found!");
-            }
 
-            //Gets the first reader (index 0) and checks if there is any card inserted
-            //When multiple readers are connected, you should iterate through the various indexes
-            String readerName = readerSet.getReaderName(0);
-            readerContext = readerSet.getReaderByName(readerName);
-            if (!readerContext.isCardPresent())
-            {
-                throw new Exception("No card found in the reader!");
-            }
+            //Gets the first reader
+            //When multiple readers are connected, you should iterate through the various indexes with the methods getReaderName and getReaderByName
+            readerContext = readerSet.getReader();
 
             //Gets the card instance
             eidCard = readerContext.getEIDCard();
@@ -98,6 +88,18 @@ namespace Examples
             {
                 Initiate();
                 Sign(args);
+            }
+            catch (PTEID_ExNoReader)
+            {
+                Console.WriteLine("No reader found.");
+            }
+            catch (PTEID_ExNoCardPresent)
+            {
+                Console.WriteLine("No card inserted.");
+            }
+            catch (PTEID_Exception ex)
+            {
+                Console.WriteLine(ex.GetMessage());
             }
             catch (Exception ex)
             {

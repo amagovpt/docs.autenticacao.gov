@@ -4,14 +4,13 @@ using pt.portugal.eid;
 
 namespace Examples
 {
-    class SignFile
+    class SignXAdES
     {
         //Main attributes needed for SDK functionalities
         PTEID_ReaderSet readerSet = null;
         PTEID_ReaderContext readerContext = null;
         PTEID_EIDCard eidCard = null;
         PTEID_EId eid = null;
-
 
         /*
          * Initializes the SDK and sets main variables
@@ -49,37 +48,37 @@ namespace Examples
         }
 
         /*
-         * Signs a pdf file
+         * Signs files using XML Advanced Electronic Signatures
          */
-        public void Sign(String input_file, String output_file)
+        public void Sign(String[] args)
         {
+            //Name of the files to be signed
+            String[] files = { "../../files/input.test", "../../files/input.pdf" };
 
-            //To sign a document you must initialize an instance of PTEID_PDFSignature 
-            //It takes the path for the input file as argument
-            PTEID_PDFSignature signature = new PTEID_PDFSignature(input_file);
+            //Output zips
+            String outputXades = "../../files/Xades.zip";
+            String outputXadesT = "../../files/XadesT.zip";
+            String outputXadesA = "../../files/XadesA.zip";
 
-            //You can set the location and reason of signature by simply changing this strings
-            String location = "Lisboa, Portugal";
-            String reason = "Concordo com o conteudo do documento";
+            //Sign all files with unique signature          
+            eidCard.SignXades(outputXades, files, (uint) files.Length);
 
-            //The page and coordinates where the signature will be printed
-            int page = 1;
-            double pos_x = 0.1;
-            double pos_y = 0.1;
+            //Sign all files with unique signature including timestamp            
+            eidCard.SignXadesT(outputXadesT, files, (uint) files.Length);
 
-            //To actually sign the document you invoke this method, your authentication PIN will be requested
-            //After this you can check the signed document in the path provided
-            eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, output_file);
+            //Sign all files with type A (archival) unique signature 
+            eidCard.SignXadesA(outputXadesA, files, (uint) files.Length);
 
-            Console.WriteLine("File signed with success.");
+            Console.WriteLine("Files signed with success.");
         }
+
 
         public void start(string[] args)
         {
             try
             {
                 Initiate();
-                Sign(args[0], args[1]);
+                Sign(args);
             }
             catch (PTEID_ExNoReader)
             {
@@ -106,7 +105,7 @@ namespace Examples
 
         static void Main(string[] args)
         {
-            new SignFile().start(args);
+            new SignXAdES().start(args);
         }
     }
 }
