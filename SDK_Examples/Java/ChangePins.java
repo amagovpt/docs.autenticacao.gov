@@ -66,18 +66,6 @@ public class ChangePins {
     }
 
     /**
-     * Prints notes present in the card (doesn't need any pin)
-     * @throws PTEID_Exception when there is some error with the SDK methods
-     */
-    public void ReadNotes() throws PTEID_Exception {
-
-        //Read current notes and print them
-        String my_notes = eidCard.readPersonalNotes(); 
-        System.out.println("Current notes: " + my_notes);
-    
-    }
-
-    /**
      * Changes the pin code
      * @throws PTEID_Exception when there is some error with the SDK methods
      * @throws Exception when the user didn't specify a valid type of pin

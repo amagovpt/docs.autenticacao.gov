@@ -142,7 +142,7 @@ A lista de compiladores suportados são:
 
   - C++:
 
-    - Windows: Visual Studio 2013
+    - Windows: Visual Studio 2017
     - Linux: GCC ou LLVM (clang);
     - MacOS: Compilador distribuído pela Apple. Dependendo da versão pode
     ser GCC ou LLVM (clang).
@@ -224,11 +224,11 @@ memória alocada é libertada.
 
 ```c++
 #include "eidlib.h"
-(...)
+
 int main(int argc, char **argv){
-	PTEID_InitSDK();
-	(...)
-	PTEID_ReleaseSDK();
+    PTEID_InitSDK();
+    // (...) - Código restante
+    PTEID_ReleaseSDK();
 }
 ```
 2.  Exemplo em Java
@@ -236,25 +236,26 @@ int main(int argc, char **argv){
 ```java
 package pteidsample;
 import pt.gov.cartaodecidadao.*;
-(...)
+
 /* NOTA: o bloco estático seguinte é estritamente necessário uma vez
 que é preciso carregar explicitamente a biblioteca JNI que implementa
 as funcionalidades do wrapper Java.*/
 
-static {
-	try {
-		System.loadLibrary("pteidlibj");
-	} catch (UnsatisfiedLinkError e) {
-		System.err.println("Native code library failed to load. \n" + e);
-		System.exit(1);
-	}
-}
 public class SamplePTEID {
-	public static void main(String[] args) {
-		PTEID_ReaderSet.initSDK();
-		(...)
-		PTEID_ReaderSet.releaseSDK();
-	}
+    static {
+        try {
+            System.loadLibrary("pteidlibj");
+        } catch (UnsatisfiedLinkError e) {
+            System.err.println("Native code library failed to load. \n" + e);
+            System.exit(1);
+        }
+    }
+
+    public static void main(String[] args) {
+        PTEID_ReaderSet.initSDK();
+        // (...) - Código restante
+        PTEID_ReaderSet.releaseSDK();
+    }
 }
 ```
 
@@ -263,10 +264,9 @@ public class SamplePTEID {
 ```c
 namespace PTEIDSample {
 	class Sample{
-		(...)
 		public static void Main(string[] args){
 			PTEID_ReaderSet.initSDK();
-			(...)
+			// (...) - Código restante
 			PTEID_ReaderSet.releaseSDK();
 		}
 	}
@@ -328,11 +328,11 @@ método **PTEID_ReaderContext.getEIDCard()** que devolve um objecto do tipo
 ```c++
 PTEID_ReaderSet& readerSet = PTEID_ReaderSet::instance();
 for( int i=0; i < readerSet.readerCount(); i++){
-	PTEID_ReaderContext& context = readerSet.getReaderByNum(i);
-	if (context.isCardPresent()){
-		PTEID_EIDCard &card = context.getEIDCard();
-		(...)
-	}
+  PTEID_ReaderContext& context = readerSet.getReaderByNum(i);
+  if (context.isCardPresent()){
+    PTEID_EIDCard &card = context.getEIDCard();
+    (...)
+  }
 }
 ```
 
@@ -586,46 +586,67 @@ Para mais informação sobre tratamento de erros gerados pelo SDK ver a secção
 1.  Exemplo C++
 
 ```c++
-PTEID_EIDCard &card;
+// (...) - Inicialização 
+
+PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
 unsigned long triesLeft;
 
-(...)
-PTEID_Pins &pins = card.getPins();
-PTEID_Pin &pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
-if (pin.verifyPin("", &triesLeft, true)){
-	PTEID_Address &addr =  card.getAddr();
-	const char * municipio =  addr.getMunicipality();
-}
+PTEID_Pins& pins = eidCard.getPins();
+PTEID_Pin& pin = pins.getPinByPinRef(PTEID_Pin::ADDR_PIN); //ADDR_PIN - Código de Morada
+
+if (pin.verifyPin("", triesLeft, true)){
+    PTEID_Address& address = eidCard.getAddr();
+
+    std::cout << "Country:                        " << address.getCountryCode() << std::endl;
+    // (...) - Código restante
+    std::cout << "Postal Locality:                " << address.getPostalLocality() << std::endl;
+}  
+
+// (...) - Finalização
 ```
 
 2.  Exemplo Java
 
 ```java
-PTEID_EIDCard card;
+// (...) - Inicialização 
+
+PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
 PTEID_ulwrapper triesLeft = new PTEID_ulwrapper(-1);
-PTEID_Address addr;
-(...)
-PTEID_Pins pins = card.getPins();
-PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
+
+PTEID_Pins pins = eidCard.getPins();
+PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN); //ADDR_PIN - Código de Morada
+
 if (pin.verifyPin("", triesLeft, true)){
-	addr =  card.getAddr();
-	String municipio =  addr.getMunicipality();
+    PTEID_Address address = eidCard.getAddr();
+
+    System.out.println("Country:                        " + address.getCountryCode());
+    // (...) - Código restante
+    System.out.println("Postal Locality:                " + address.getPostalLocality());
 }
+
+// (...) - Finalização 
 ```
 
 3.  Exemplo C\#
 
 ```c
-PTEID_EIDCard card;
-uint triesLeft;
-PTEID_Address addr;
-(...)
-PTEID_Pins pins = card.getPins();
-PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
+// (...) - Inicialização 
+
+PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
+uint triesLeft = uint.MaxValue;
+
+PTEID_Pins pins = eidCard.getPins();
+PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN); //ADDR_PIN - Código de Morada
+
 if (pin.verifyPin("", ref triesLeft, true)){
-	addr =  card.getAddr();
-	string municipio =  addr.getMunicipality();
+    PTEID_Address address = eidCard.getAddr();
+
+    System.out.println("Country:                        " + address.getCountryCode());
+    // (...) - Código restante
+    System.out.println("Postal Locality:                " + address.getPostalLocality());
 }
+
+// (...) - Finalização 
 ```
 
 ### Leitura e escrita das notas pessoais
@@ -639,44 +660,78 @@ têm um limite de 1000 bytes (codificação recomendada: UTF-8).
 1.  Exemplo C++
 
 ```c++
-PTEID_EIDCard &card  = readerContext.getEIDCard();
-std::string notes("a few notes");
-PTEID_ByteArray personalNotes(notes.c_str(), notes.size() + 1);
-bool bOk;
-(...)
-// Leitura
-string pdata = card.readPersonalNotes();
-// Escrita
-bOk = card.writePersonalNotes(personalNotes, card.getPins().getPinByPinRef(PTEID_Pin.AUTH_PIN));
+// (...) - Inicialização 
+
+PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
+
+//Ler notas atuais e imprimir na consola
+const char *my_notes = eidCard.readPersonalNotes(); 
+std::cout << "Current notes: " << my_notes << std::endl;
+
+//Escrever novas notas
+std::string notes("We wrote successfully to the card!");
+PTEID_ByteArray personalNotes((const unsigned char*) notes.c_str(), notes.size() + 1);
+bool ok;
+
+PTEID_Pins& pins = eidCard.getPins();
+PTEID_Pin& pin = pins.getPinByPinRef(PTEID_Pin::AUTH_PIN); // AUTH_PIN - Código de Autenticação
+
+ok = eidCard.writePersonalNotes(personalNotes, &pin); 
+std::cout << "Was writing successful? " << (ok ? "Yes!" : "No.") << std::endl;
+
+// (...) - Finalização 
 ```
 
 2.  Exemplo Java
 
 ```java
-PTEID_EIDCard card;
-(...)
-// Leitura
-String pdata = card.readPersonalNotes();
-// Escrita
-String notes = "a few notes";
-PTEID_ByteArray pb = new PTEID_ByteArray(notes.getBytes(), notes.getBytes().length);
-boolean bOk = card.writePersonalNotes(pb, card.getPins().getPinByPinRef(PTEID_Pin.AUTH_PIN));
-(...)
+// (...) - Inicialização 
+
+PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
+
+//Ler notas atuais e imprimir na consola
+String my_notes = eidCard.readPersonalNotes(); 
+System.out.println("Current notes: " + my_notes);
+
+//Escrever novas notas
+String notes = "We wrote successfully to the card!";
+PTEID_ByteArray personalNotes = new PTEID_ByteArray(notes.getBytes(), notes.getBytes().length);
+boolean ok;
+
+PTEID_Pins pins = eidCard.getPins();
+PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.AUTH_PIN); // AUTH_PIN - Código de Autenticação
+
+ok = eidCard.writePersonalNotes(personalNotes, pin); 
+System.out.println("Was writing successful? " + (ok ? "Yes!" : "No."));
+ 
+// (...) - Finalização 
 ```
 
 3.  Exemplo C\#
 
 ```c
-PTEID_EIDCard card;
-PTEID_ByteArray pb;
-boolean bOk;
-(...)
-// Leitura
-string pdata = card.readPersonalNotes();
+// (...) - Inicialização 
 
-// Escrita
-bOk = card.writePersonalNotes( pb, card.getPins().getPinByPinRef(PTEID_Pin.AUTH_PIN));
-(...)
+PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
+
+//Ler notas atuais e imprimir na consola
+String my_notes = eidCard.readPersonalNotes(); 
+Console.WriteLine("Current notes: " + my_notes);
+
+//Escrever novas notas
+String notes = "We wrote successfully to the card!";
+
+byte[] notesBytes = Encoding.UTF8.GetBytes(notes);
+PTEID_ByteArray personalNotes = new PTEID_ByteArray(notesBytes, (uint) notesBytes.Length);
+Boolean ok;
+
+PTEID_Pins pins = eidCard.getPins();
+PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.AUTH_PIN); // AUTH_PIN - Código de Autenticação
+
+ok = eidCard.writePersonalNotes(personalNotes, pin);
+Console.WriteLine("Was writing successful? " + (ok ? "Yes!" : "No."));
+
+// (...) - Finalização   
 ```
 
 ### Leitura dos dados de identidade do Cidadão e da Morada
@@ -1022,25 +1077,24 @@ localizações que produzem uma assinatura truncada na página já que o
 método de assinatura não valida se a localização é válida para o
 "selo de assinatura" a apresentar.
 
-Será apresentado apenas um exemplo C++ para esta funcionalidade embora
-os wrappers Java e C\# contenham exactamente as mesmas classes e métodos
-necessários **PTEID_PdfSignature()** e **PTEID_EIDCard.SignPDF()**.
 
 Exemplo C++:
 
 ```c++
-#include "eidlib.h"
-(...)
-PTEID_EIDCard &card = readerContext.getEIDCard();
+// (...) - Inicialização
+
+PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
+
 //Ficheiro PDF a assinar
-PTEID_PDFSignature signature("/home/user/input.pdf");
+PTEID_PDFSignature signature("/home/user/input.pdf");    
+
 /* Adicionar uma imagem customizada à assinatura visível
    O array de bytes image_data deve conter uma imagem em formato
    JPEG com as dimensões recomendadas (351x77 px) */
 PTEID_ByteArray jpeg_data(image_data, image_length);
-
 signature.setCustomImage(jpeg_data);
 
+// No caso de se querer o formato pequeno da assinatura
 signature.enableSmallSignatureFormat();
 
 /* Configurar o perfil da assinatura:
@@ -1050,17 +1104,94 @@ PAdES-LT: PTEID_SignatureLevel::PTEID_LEVEL_LT
 PAdES-LTA: PTEID_SignatureLevel::PTEID_LEVEL_LTV */
 signature.setSignatureLevel(PTEID_SignatureLevel::PTEID_LEVEL_TIMESTAMP);
 
+ //Especificar local da assinatura e motivo
+String location = "Lisboa, Portugal";
+String reason = "Concordo com o conteudo do documento";
 
-/* Assinatura utilizando localização precisa: os parâmetros pos_x e pos_y
-   indicam a localização em percentagem da largura e altura da página */
-const char * location = "Lisboa, Portugal";
-const char * reason = "Concordo com o conteudo do documento";
+//Especificar o número da página e a posicação nessa mesma página onde a indicação visual da assinatura aparece
 int page = 1;
+double pos_x = 0.1; //Valores de 0 a 1
+double pos_y = 0.1; //Valores de 0 a 1
+eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, "/home/user/output.pdf");
 
-//Estes valores podem variar no intervalo [0-1]
-double pos_x = 0.1;
-double pos_y = 0.1;
-card.SignPDF(signature,  page, pos_x, pos_y, location, reason, output_file);
+// (...) - Finalização
+```
+
+Exemplo Java:
+
+```java
+// (...) - Inicialização
+
+PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
+
+//Ficheiro PDF a assinar
+PTEID_PDFSignature signature = new PTEID_PDFSignature("/home/user/input.pdf");
+
+/* Adicionar uma imagem customizada à assinatura visível
+   O array de bytes image_data deve conter uma imagem em formato
+   JPEG com as dimensões recomendadas (351x77 px) */
+PTEID_ByteArray jpeg_data(image_data, image_length);
+signature.setCustomImage(jpeg_data);
+
+// No caso de se querer o formato pequeno da assinatura
+signature.enableSmallSignatureFormat();
+
+/* Configurar o perfil da assinatura:
+PAdES-B: PTEID_SignatureLevel.PTEID_LEVEL_BASIC (configurado por defeito)
+PAdES-T: PTEID_SignatureLevel.PTEID_LEVEL_TIMESTAMP
+PAdES-LT: PTEID_SignatureLevel.PTEID_LEVEL_LT
+PAdES-LTA: PTEID_SignatureLevel.PTEID_LEVEL_LTV */
+signature.setSignatureLevel(PTEID_SignatureLevel.PTEID_LEVEL_TIMESTAMP);
+
+ //Especificar local da assinatura e motivo
+String location = "Lisboa, Portugal";
+String reason = "Concordo com o conteudo do documento";
+
+//Especificar o número da página e a posicação nessa mesma página onde a indicação visual da assinatura aparece
+int page = 1;
+double pos_x = 0.1; //Valores de 0 a 1
+double pos_y = 0.1; //Valores de 0 a 1
+eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, "/home/user/output.pdf");
+
+// (...) - Finalização
+```
+
+Exemplo C#:
+```c
+// (...) - Inicialização
+
+PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
+
+//Ficheiro PDF a assinar
+PTEID_PDFSignature signature = new PTEID_PDFSignature("/home/user/input.pdf");
+
+/* Adicionar uma imagem customizada à assinatura visível
+   O array de bytes image_data deve conter uma imagem em formato
+   JPEG com as dimensões recomendadas (351x77 px) */
+PTEID_ByteArray jpeg_data(image_data, image_length);
+signature.setCustomImage(jpeg_data);
+
+// No caso de se querer o formato pequeno da assinatura
+signature.enableSmallSignatureFormat();
+
+/* Configurar o perfil da assinatura:
+PAdES-B: PTEID_SignatureLevel.PTEID_LEVEL_BASIC (configurado por defeito)
+PAdES-T: PTEID_SignatureLevel.PTEID_LEVEL_TIMESTAMP
+PAdES-LT: PTEID_SignatureLevel.PTEID_LEVEL_LT
+PAdES-LTA: PTEID_SignatureLevel.PTEID_LEVEL_LTV */
+signature.setSignatureLevel(PTEID_SignatureLevel.PTEID_LEVEL_TIMESTAMP);
+
+ //Especificar local da assinatura e motivo
+String location = "Lisboa, Portugal";
+String reason = "Concordo com o conteudo do documento";
+
+//Especificar o número da página e a posicação nessa mesma página onde a indicação visual da assinatura aparece
+int page = 1;
+double pos_x = 0.1; //Valores de 0 a 1
+double pos_y = 0.1; //Valores de 0 a 1
+eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, "/home/user/output.pdf");
+
+// (...) - Finalização
 ```
 
 **Nota:** Se for emitida a exceção com código ```EIDMW_TIMESTAMP_ERROR``` durante uma assinatura PAdES-T, PAdES-LT ou PAdES-LTA, significa que a aplicação do *timestamp* em uma ou mais assinaturas falhou. Neste caso, as assinaturas cujo *timestamping* falhou ficam com nível PAdES-B.
@@ -1125,30 +1256,93 @@ necessários na classe **PTEID_PDFSignature()**.
 Exemplo C++
 
 ```c++
-#include "eidlib.h"
-(...)
-PTEID_EIDCard &card = readerContext.getEIDCard();
-//Ficheiro PDF a assinar
-PTEID_PDFSignature signature("/home/user/first-file-to-sign.pdf");
+// (...) - Inicialização
+
+PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
+//Inicializar assinatura
+PTEID_PDFSignature signature;
 
 //Para realizar uma assinatura em batch adicionar todos os ficheiros usando o seguinte método antes de invocar o card.SignPDF()
-signature.addToBatchSigning("Other_File.pdf");
-signature.addToBatchSigning("Yet_Another_FILE.pdf");
-(...)
+signature.addToBatchSigning("ficheiro1.pdf");
+signature.addToBatchSigning("ficheiro2.pdf");
+// (...) - Restantes ficheiros
 
+ //Especificar local da assinatura e motivo
+String location = "Lisboa, Portugal";
+String reason = "Concordo com o conteudo do documento";
+
+//Especificar o número da página e a posicação nessa mesma página onde a indicação visual da assinatura aparece
 int page = 1;
-//Estes valores podem variar no intervalo [0-1], ver exemplos anteriores
-double pos_x = 0.1;
-double pos_y = 0.1;
-
-const char * location = "Lisboa, Portugal";
-const char * reason = "Concordo com o conteudo do documento";
+double pos_x = 0.1; //Valores de 0 a 1
+double pos_y = 0.1; //Valores de 0 a 1
 
 //Para uma assinatura em batch, este parâmetro aponta para a directoria de destino
 const char * output_folder = "/home/user/signed-documents/";
-card.SignPDF(signature,  page, pos_x, pos_y, location, reason, output_folder);
-(...)
+eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, output_folder);
+
+// (...) - Finalização
 ```
+
+Exemplo Java
+
+```java
+// (...) - Inicialização
+
+PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
+
+//To sign a document you must initialize an instance of PTEID_PDFSignature 
+PTEID_PDFSignature signature = new PTEID_PDFSignature();
+
+//Para realizar uma assinatura em batch adicionar todos os ficheiros usando o seguinte método antes de invocar o card.SignPDF()
+signature.addToBatchSigning("ficheiro1.pdf");
+signature.addToBatchSigning("ficheiro2.pdf");
+// (...) - Restantes ficheiros
+
+ //Especificar local da assinatura e motivo
+String location = "Lisboa, Portugal";
+String reason = "Concordo com o conteudo do documento";
+
+//Especificar o número da página e a posicação nessa mesma página onde a indicação visual da assinatura aparece
+int page = 1;
+double pos_x = 0.1; //Valores de 0 a 1
+double pos_y = 0.1; //Valores de 0 a 1
+
+//Para uma assinatura em batch, este parâmetro aponta para a directoria de destino
+eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, "/home/user/signed-documents/");
+
+// (...) - Finalização
+```
+
+Exemplo C#
+
+```c
+// (...) - Inicialização
+
+PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
+
+//To sign a document you must initialize an instance of PTEID_PDFSignature 
+PTEID_PDFSignature signature = new PTEID_PDFSignature();
+
+//Para realizar uma assinatura em batch adicionar todos os ficheiros usando o seguinte método antes de invocar o card.SignPDF()
+signature.addToBatchSigning("ficheiro1.pdf");
+signature.addToBatchSigning("ficheiro2.pdf");
+// (...) - Restantes ficheiros
+
+ //Especificar local da assinatura e motivo
+String location = "Lisboa, Portugal";
+String reason = "Concordo com o conteudo do documento";
+
+//Especificar o número da página e a posicação nessa mesma página onde a indicação visual da assinatura aparece
+int page = 1;
+double pos_x = 0.1; //Valores de 0 a 1
+double pos_y = 0.1; //Valores de 0 a 1
+
+//Para uma assinatura em batch, este parâmetro aponta para a directoria de destino
+eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, "/home/user/signed-documents/");
+
+// (...) - Finalização
+```
+
 
 ### Configurar o servidor de selo temporal
 
