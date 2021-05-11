@@ -26,26 +26,18 @@ public class ChangePins {
     /**
      * Initializes the SDK and sets main variables
      * @throws PTEID_Exception when there is some error with the SDK methods
-     * @throws Exception when no reader or no card is found/inserted
      */
-    public void initiate() throws PTEID_Exception, Exception {
+    public void initiate() throws PTEID_Exception {
        
         //Must always be called in the beginning of the program
         PTEID_ReaderSet.initSDK();
 
-        //Gets the set of connected readers, if there is any inserted
+        //Gets the set of connected readers
         readerSet = PTEID_ReaderSet.instance();
-        if (readerSet.readerCount() == 0) {
-            throw new Exception("No Readers found!");
-        }
 
-        //Gets the first reader (index 0) and checks if there is any card inserted
-        //When multiple readers are connected, you should iterate through the various indexes
-        String readerName = readerSet.getReaderName(0);
-        readerContext = readerSet.getReaderByName(readerName);
-        if (!readerContext.isCardPresent()) {
-            throw new Exception("No card found in the reader!");
-        }
+        //Gets the first reader
+        //When multiple readers are connected, you should iterate through the various indexes with the methods getReaderName and getReaderByName
+        readerContext = readerSet.getReader();
 
         //Gets the card instance
         eidCard = readerContext.getEIDCard();
@@ -68,9 +60,8 @@ public class ChangePins {
     /**
      * Changes the pin code
      * @throws PTEID_Exception when there is some error with the SDK methods
-     * @throws Exception when the user didn't specify a valid type of pin
      */
-    public void ChangePin(String pin_type) throws PTEID_Exception, Exception {
+    public void ChangePin(String pin_type) throws PTEID_Exception {
 
         //Gets authentication pin
         PTEID_Pins pins = eidCard.getPins();
@@ -83,19 +74,20 @@ public class ChangePins {
         //SIGN_PIN - Signature Pin
         if (pin_type.equals("-addr")) {
             pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
+            pin.changePin("", "", triesLeft, pin.getLabel(), false);
         }
         else if (pin_type.equals("-auth")) {
             pin = pins.getPinByPinRef(PTEID_Pin.AUTH_PIN);
+            pin.changePin("", "", triesLeft, pin.getLabel(), false);
         }
         else if (pin_type.equals("-sign")) {
             pin = pins.getPinByPinRef(PTEID_Pin.SIGN_PIN);
+            pin.changePin("", "", triesLeft, pin.getLabel(), false);
         }       
         else {
-            throw new Exception("Pin type doesn't exist");
+            System.out.println("Pin type doesn't exist");
         }
 
-        //Changes the pin
-        pin.changePin("", "", triesLeft, pin.getLabel(), false);
     }
 
     public void start(String pin_type) {
@@ -105,11 +97,14 @@ public class ChangePins {
             initiate();
             ChangePin(pin_type);
             
+        } catch (PTEID_ExNoReader ex) {
+            System.out.println("No reader found.");
+        } catch (PTEID_ExNoCardPresent ex) {
+            System.out.println("No card inserted.");
         } catch (PTEID_Exception ex) {
-            Logger.getLogger(ChangePins.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        } finally {
+            Logger.getLogger(ReadCard.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        finally {
             release();
         }
     }

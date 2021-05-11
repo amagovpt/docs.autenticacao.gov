@@ -21,36 +21,27 @@ public class SignXAdES {
     PTEID_EIDCard eidCard = null;
     PTEID_EId eid = null;
 
-
     /**
      * Initializes the SDK and sets main variables
      * @throws PTEID_Exception when there is some error with the SDK methods
-     * @throws Exception when no reader or no card is found/inserted
      */
-    public void initiate() throws PTEID_Exception, Exception {
+    public void initiate() throws PTEID_Exception {
        
         //Must always be called in the beginning of the program
         PTEID_ReaderSet.initSDK();
 
-        //Gets the set of connected readers, if there is any inserted
+        //Gets the set of connected readers
         readerSet = PTEID_ReaderSet.instance();
-        if (readerSet.readerCount() == 0) {
-            throw new Exception("No Readers found!");
-        }
 
-        //Gets the first reader (index 0) and checks if there is any card inserted
-        //When multiple readers are connected, you should iterate through the various indexes
-        String readerName = readerSet.getReaderName(0);
-        readerContext = readerSet.getReaderByName(readerName);
-        if (!readerContext.isCardPresent()) {
-            throw new Exception("No card found in the reader!");
-        }
+        //Gets the first reader
+        //When multiple readers are connected, you should iterate through the various indexes with the methods getReaderName and getReaderByName
+        readerContext = readerSet.getReader();
 
         //Gets the card instance
         eidCard = readerContext.getEIDCard();
         eid = eidCard.getID();
     }
-
+    
     /**
      * Releases the SDK (must always be done at the end of the program)
      */
@@ -97,11 +88,14 @@ public class SignXAdES {
             
             sign();
         
+        } catch (PTEID_ExNoReader ex) {
+            System.out.println("No reader found.");
+        } catch (PTEID_ExNoCardPresent ex) {
+            System.out.println("No card inserted.");
         } catch (PTEID_Exception ex) {
             Logger.getLogger(ReadCard.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        } finally {
+        } 
+        finally {
             release();
         }
     }
