@@ -52,6 +52,11 @@ elif [ $TYPE == "-sign" ]; then
     javac -cp $JAR_PATH:. SignMultipleFiles.java
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignMultipleFiles "files/" "files/input1.pdf" "files/input2.pdf" 
 
+    echo "Running Java SDK Example - SignXAdES"
+
+    javac -cp $JAR_PATH:. SignXAdES.java
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignXAdES
+
 
 elif [ $TYPE == "-all" ]; then
 
@@ -89,6 +94,11 @@ elif [ $TYPE == "-all" ]; then
     javac -cp $JAR_PATH:. SignMultipleFiles.java
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignMultipleFiles "files/" "files/input1.pdf" "files/input2.pdf" 
 
+    echo "Running Java SDK Example - SignXAdES"
+
+    javac -cp $JAR_PATH:. SignXAdES.java
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignXAdES
+    
     echo "Running Java SDK Example - ChangePins"
 
     javac -cp $JAR_PATH:. ChangePins.java

@@ -54,6 +54,12 @@ elif [ $TYPE == "-sign" ]; then
     g++ -o SignMultipleFiles.example SignMultipleFiles.o -lpteidlib
     ./SignMultipleFiles.example "files/" "files/input1.pdf" "files/input2.pdf" "files/input3.pdf"
 
+    echo "Running C++ SDK Example - SignXAdES"
+
+    g++ -c -std=c++17 SignXAdES.cpp
+    g++ -o SignXAdES.example SignXAdES.o -lpteidlib
+    ./SignXAdES.example
+
 elif [ $TYPE == "-all" ]; then
 
     echo "Running C++ SDK Example - ReadCard"
@@ -99,6 +105,12 @@ elif [ $TYPE == "-all" ]; then
     g++ -o SignMultipleFiles.example SignMultipleFiles.o -lpteidlib
     ./SignMultipleFiles.example "files/" "files/input1.pdf" "files/input2.pdf" "files/input3.pdf"
 
+    echo "Running C++ SDK Example - SignXAdES"
+
+    g++ -c -std=c++17 SignXAdES.cpp
+    g++ -o SignXAdES.example SignXAdES.o -lpteidlib
+    ./SignXAdES.example
+    
     echo "Running C++ SDK Example - ChangePins"
 
     g++ -c -std=c++17 ChangePins.cpp
