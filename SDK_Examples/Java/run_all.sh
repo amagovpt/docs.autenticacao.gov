@@ -5,7 +5,9 @@ JAR_PATH="pteidlibj.jar"
 LIB_PATH="/usr/local/lib/"
 
 
-#You can pass to the script the following flags: "-simple", "-addr", "-auth", "-sign", "-all"
+#Possible options for example programs () : "-simple", "-addr", "-auth", "-sign", "-all"
+#Only -simple can be used with no PIN prompts
+
 TYPE=$1
 
 if [ $TYPE = "-simple" ]; then
@@ -56,6 +58,10 @@ elif [ $TYPE == "-sign" ]; then
 
     javac -cp $JAR_PATH:. SignXAdES.java
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignXAdES
+	
+	echo "Running Java SDK Example - SignData"
+	javac -cp $JAR_PATH:. SignData.java
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignData
 
 
 elif [ $TYPE == "-all" ]; then
