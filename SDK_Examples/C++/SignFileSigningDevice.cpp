@@ -48,7 +48,7 @@ int main(int argc, char **argv) {
 
         if (!flag.compare("-CMD")) 
         {
-            //You only want CMD, so you disallow normal authentication by setting the first argument to false
+            //You only want CMD, so you disallow normal signature by setting the first argument to false
             PTEID_SigningDeviceFactory factory(false, true);
             
             //You then get a SigningDevice by calling getSigningDevice()
@@ -61,7 +61,7 @@ int main(int argc, char **argv) {
         }
         else if (!flag.compare("-CARD")) 
         {
-            //You only want the card authentication, so you disallow CMD by setting the second argument to false
+            //You only want the card signature, so you disallow CMD by setting the second argument to false
             PTEID_SigningDeviceFactory factory(true, false);
             
             //You then get a SigningDevice by calling getSigningDevice()
@@ -74,7 +74,7 @@ int main(int argc, char **argv) {
         } 
         else if (!flag.compare("-BOTH")) 
         {
-            //If you want both methods to be available (CMD and CARD authentication) you either initialize "factory(true, true)" or use the default constructor:
+            //If you want both methods to be available (CMD and CARD signature) you either initialize "factory(true, true)" or use the default constructor:
             PTEID_SigningDeviceFactory factory;
             
             //You then get a SigningDevice by calling getSigningDevice()
