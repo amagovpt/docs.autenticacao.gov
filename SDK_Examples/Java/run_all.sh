@@ -25,7 +25,8 @@ if [ $OPTION == "-identity" ]; then
     echo "Running Java SDK Example - GetPhoto"
 
     javac -cp $JAR_PATH:. GetPhoto.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "files/image.png"
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "-png" "files/image.png"
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "-jp2" "files/image.jp2"
 
 elif [ $OPTION == "-addr" ]; then
 

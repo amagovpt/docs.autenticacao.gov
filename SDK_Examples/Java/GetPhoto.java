@@ -1,6 +1,7 @@
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -63,10 +64,11 @@ public class GetPhoto {
 
     /**
      * Saves the card's holder photo only in png format (ImageIO doesn't support jpeg2000 format, however you can still access to its byte format)
+     * @param extension - extension of the picture (jp2 or png)
      * @param output_file - name for the photo to be stored
      * @throws PTEID_Exception when no reader or no card is found/inserted
      */
-    public void savePhoto(String output_file) throws PTEID_Exception {
+    public void savePhoto(String extension, String output_file) throws PTEID_Exception {
 
         //Gets the object representing the photograph present in the card
         PTEID_Photo photoObj = eid.getPhotoObj();
@@ -81,15 +83,23 @@ public class GetPhoto {
         System.out.println("Size of JPEG2000:       " + praw.Size());
         System.out.println("Size of PNG:            " + ppng.Size());
 
-        //Saves the PNG format photo, with the name specified by the user
+        //Saves the PNG or JP2 format photo, with the name specified by the user
         try {
-            ByteArrayInputStream bis = new ByteArrayInputStream(ppng.GetBytes());
-            BufferedImage bImage = ImageIO.read(bis);
-            ImageIO.write(bImage, "png", new File(output_file));
+            FileOutputStream fos = new FileOutputStream(output_file);
+
+            if (extension.equals("-png")) {
+                fos.write(ppng.GetBytes());
+            }
+            else {
+                fos.write(praw.GetBytes());
+            }
+
+            fos.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Exception while writing image file. Message: " + e.getMessage());
         }
  
+        System.out.println("Photo saved successfully!");
     }
 
     public void start(String[] args) {
@@ -100,7 +110,7 @@ public class GetPhoto {
             System.out.println("User:                        " + eid.getGivenName() + " " + eid.getSurname());
             System.out.println("Card Number:                 " + eid.getDocumentNumber());
 
-            savePhoto(args[0]);
+            savePhoto(args[0], args[1]);
         
         } catch (PTEID_ExNoReader ex) {
             System.out.println("No reader found.");
@@ -115,8 +125,8 @@ public class GetPhoto {
     }
 
     public static void main(String[] args) {
-        if (args.length != 1) {
-            System.out.println("Incorrect usage. Should pass 1 argument: the name for the saved photo.");
+        if (args.length != 2 || (!args[0].equals("-png") && (!args[0].equals("-jp2")))) {
+            System.out.println("Incorrect usage. Should pass 2 arguments: the first is the extension [-png|-jp2] and the second is the name for the saved photo.");
         }
         else {
             new GetPhoto().start(args);

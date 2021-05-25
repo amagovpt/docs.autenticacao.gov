@@ -1,9 +1,16 @@
 #!/bin/bash
 
-TYPE=$1
+#Possible options for example programs () : "-identity", "-addr", "-auth", "-sign", "-all"
+#Only -identity can be used with no PIN prompts
 
-#You can pass to the script the following flags: "-simple", "-addr", "-auth", "-sign", "-all"
-if [ $TYPE = "-simple" ]; then
+OPTION=$1
+
+if [ -z $OPTION ]; then
+    echo "Usage: ./run_all.sh [-identity/-addr/-auth/-sign/-all]"
+    exit 0
+fi
+
+if [ $OPTION = "-identity" ]; then
 
     echo "Running C++ SDK Example - ReadCard"
 
@@ -18,7 +25,7 @@ if [ $TYPE = "-simple" ]; then
     ./GetPhoto.example -png "files/image.png"
     ./GetPhoto.example -jp2 "files/image.jp2"
 
-elif [ $TYPE == "-addr" ]; then
+elif [ $OPTION == "-addr" ]; then
 
     echo "Running C++ SDK Example - ReadAddress"
 
@@ -32,7 +39,7 @@ elif [ $TYPE == "-addr" ]; then
     g++ -o GetXML.example GetXML.o -lpteidlib 
     ./GetXML.example
 
-elif [ $TYPE == "-auth" ]; then
+elif [ $OPTION == "-auth" ]; then
 
     echo "Running C++ SDK Example - ReadAndWriteNotes"
 
@@ -40,7 +47,7 @@ elif [ $TYPE == "-auth" ]; then
     g++ -o ReadAndWriteNotes.example ReadAndWriteNotes.o -lpteidlib
     ./ReadAndWriteNotes.example
 
-elif [ $TYPE == "-sign" ]; then
+elif [ $OPTION == "-sign" ]; then
 
     echo "Running C++ SDK Example - SignFile"
 
@@ -60,7 +67,7 @@ elif [ $TYPE == "-sign" ]; then
     g++ -o SignXAdES.example SignXAdES.o -lpteidlib
     ./SignXAdES.example
 
-elif [ $TYPE == "-all" ]; then
+elif [ $OPTION == "-all" ]; then
 
     echo "Running C++ SDK Example - ReadCard"
 
