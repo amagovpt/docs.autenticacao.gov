@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #You can and should change these paths according to your project and library locations
-JAR_PATH="pteidlibj.jar"
+JAR_PATH="/usr/local/lib/pteid_jni/pteidlibj.jar"
 LIB_PATH="/usr/local/lib/"
 
 
