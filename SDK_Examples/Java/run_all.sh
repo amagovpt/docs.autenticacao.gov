@@ -5,12 +5,17 @@ JAR_PATH="/usr/local/lib/pteid_jni/pteidlibj.jar"
 LIB_PATH="/usr/local/lib/"
 
 
-#Possible options for example programs () : "-simple", "-addr", "-auth", "-sign", "-all"
-#Only -simple can be used with no PIN prompts
+#Possible options for example programs () : "-identity", "-addr", "-auth", "-sign", "-all"
+#Only -identity can be used with no PIN prompts
 
-TYPE=$1
+OPTION=$1
 
-if [ $TYPE = "-simple" ]; then
+if [ -z $OPTION ]; then
+    echo "Usage: ./run_all.sh [-identity/-addr/-auth/-sign/-all]"
+    exit 0
+fi
+
+if [ $OPTION == "-identity" ]; then
 
     echo "Running Java SDK Example - ReadCard"
 
@@ -22,7 +27,7 @@ if [ $TYPE = "-simple" ]; then
     javac -cp $JAR_PATH:. GetPhoto.java
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "files/image.png"
 
-elif [ $TYPE == "-addr" ]; then
+elif [ $OPTION == "-addr" ]; then
 
     echo "Running Java SDK Example - ReadAddress"
 
@@ -32,17 +37,17 @@ elif [ $TYPE == "-addr" ]; then
     echo "Running Java SDK Example - GetXML"
 
     javac -cp $JAR_PATH:. GetXML.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetXML 
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetXML
 
-elif [ $TYPE == "-auth" ]; then
+elif [ $OPTION == "-auth" ]; then
 
     echo "Running Java SDK Example - ReadAndWriteNotes"
 
     javac -cp $JAR_PATH:. ReadAndWriteNotes.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. ReadAndWriteNotes 
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. ReadAndWriteNotes
 
 
-elif [ $TYPE == "-sign" ]; then
+elif [ $OPTION == "-sign" ]; then
 
     echo "Running Java SDK Example - SignFile"
 
@@ -52,19 +57,19 @@ elif [ $TYPE == "-sign" ]; then
     echo "Running Java SDK Example - SignMultipleFiles"
 
     javac -cp $JAR_PATH:. SignMultipleFiles.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignMultipleFiles "files/" "files/input1.pdf" "files/input2.pdf" 
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignMultipleFiles "files/" "files/input1.pdf" "files/input2.pdf"
 
     echo "Running Java SDK Example - SignXAdES"
 
     javac -cp $JAR_PATH:. SignXAdES.java
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignXAdES
-	
+
 	echo "Running Java SDK Example - SignData"
 	javac -cp $JAR_PATH:. SignData.java
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignData
 
 
-elif [ $TYPE == "-all" ]; then
+elif [ $OPTION == "-all" ]; then
 
     echo "Running Java SDK Example - ReadCard"
 
@@ -84,11 +89,11 @@ elif [ $TYPE == "-all" ]; then
     echo "Running Java SDK Example - GetXML"
 
     javac -cp $JAR_PATH:. GetXML.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetXML 
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetXML
     echo "Running Java SDK Example - ReadAndWriteNotes"
 
     javac -cp $JAR_PATH:. ReadAndWriteNotes.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. ReadAndWriteNotes 
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. ReadAndWriteNotes
 
     echo "Running Java SDK Example - SignFile"
 
@@ -98,13 +103,13 @@ elif [ $TYPE == "-all" ]; then
     echo "Running Java SDK Example - SignMultipleFiles"
 
     javac -cp $JAR_PATH:. SignMultipleFiles.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignMultipleFiles "files/" "files/input1.pdf" "files/input2.pdf" 
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignMultipleFiles "files/" "files/input1.pdf" "files/input2.pdf"
 
     echo "Running Java SDK Example - SignXAdES"
 
     javac -cp $JAR_PATH:. SignXAdES.java
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignXAdES
-    
+
     echo "Running Java SDK Example - ChangePins"
 
     javac -cp $JAR_PATH:. ChangePins.java
