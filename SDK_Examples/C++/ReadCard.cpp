@@ -25,7 +25,6 @@ int main(int argc, char **argv) {
         std::cout << "Name:                       " << eid.getGivenName() << " " << eid.getSurname() << std::endl;
         std::cout << "Card Type:                  " << eid.getDocumentType() << std::endl;
         std::cout << "Card Version:               " << eid.getDocumentVersion() << std::endl;
-        std::cout << "Validaty Status:            " << eid.getValidation() << std::endl;
         std::cout << "Card Number:                " << eid.getDocumentNumber() << std::endl;
         std::cout << "Local of Request:           " << eid.getLocalofRequest() << std::endl;   
         std::cout << "Issuing Entity:             " << eid.getIssuingEntity() << std::endl;
@@ -45,9 +44,9 @@ int main(int argc, char **argv) {
         std::cout << "Date of birth:              " << eid.getDateOfBirth() << std::endl;
         std::cout << "Height:                     " << eid.getHeight() << std::endl;
         std::cout << "Gender:                     " << eid.getGender() << std::endl;
-        std::cout << "MRZ:                        " << eid.getMRZ1() << std::endl;
-        std::cout << "                            " << eid.getMRZ2() << std::endl;
-        std::cout << "                            " << eid.getMRZ3() << std::endl;   
+        std::cout << "MRZ (Machine Readable Zone): " << eid.getMRZ1() << std::endl;
+        std::cout << "                             " << eid.getMRZ2() << std::endl;
+        std::cout << "                             " << eid.getMRZ3() << std::endl;   
     }
     catch (PTEID_ExNoReader &e) 
     {

@@ -56,7 +56,6 @@ namespace Examples
             Console.WriteLine("Name:                       " + eid.getGivenName() + " " + eid.getSurname());
             Console.WriteLine("Card Type:                  " + eid.getDocumentType());
             Console.WriteLine("Card Version:               " + eid.getDocumentVersion());
-            Console.WriteLine("Validaty Status:            " + eid.getValidation());
             Console.WriteLine("Card Number:                " + eid.getDocumentNumber());
             Console.WriteLine("Local of Request:           " + eid.getLocalofRequest());
             Console.WriteLine("Issuing Entity:             " + eid.getIssuingEntity());
@@ -76,9 +75,9 @@ namespace Examples
             Console.WriteLine("Date of birth:              " + eid.getDateOfBirth());
             Console.WriteLine("Height:                     " + eid.getHeight());
             Console.WriteLine("Gender:                     " + eid.getGender());
-            Console.WriteLine("MRZ:                        " + eid.getMRZ1());
-            Console.WriteLine("                            " + eid.getMRZ2());
-            Console.WriteLine("                            " + eid.getMRZ3());
+            Console.WriteLine("MRZ (Machine Readable Zone): " + eid.getMRZ1());
+            Console.WriteLine("                             " + eid.getMRZ2());
+            Console.WriteLine("                             " + eid.getMRZ3());
         }
 
         public void start()

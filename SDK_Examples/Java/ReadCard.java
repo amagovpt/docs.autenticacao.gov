@@ -67,7 +67,6 @@ public class ReadCard {
         System.out.println("Name:                       " + eid.getGivenName() + " " + eid.getSurname());
         System.out.println("Card Type:                  " + eid.getDocumentType());
         System.out.println("Card Version:               " + eid.getDocumentVersion());
-        System.out.println("Validaty Status:            " + eid.getValidation());
         System.out.println("Card Number:                " + eid.getDocumentNumber());
         System.out.println("Local of Request:           " + eid.getLocalofRequest());   
         System.out.println("Issuing Entity:             " + eid.getIssuingEntity());
@@ -87,9 +86,9 @@ public class ReadCard {
         System.out.println("Date of birth:              " + eid.getDateOfBirth());
         System.out.println("Height:                     " + eid.getHeight());
         System.out.println("Gender:                     " + eid.getGender());
-        System.out.println("MRZ:                        " + eid.getMRZ1());
-        System.out.println("                            " + eid.getMRZ2());
-        System.out.println("                            " + eid.getMRZ3());
+        System.out.println("MRZ (Machine Readable Zone): " + eid.getMRZ1());
+        System.out.println("                             " + eid.getMRZ2());
+        System.out.println("                             " + eid.getMRZ3());
         
     }
 
