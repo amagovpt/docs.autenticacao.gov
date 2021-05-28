@@ -11,7 +11,7 @@
   - [Sistemas Operativos suportados](#sistemas-operativos-suportados)
   - [Linguagens de programação](#linguagens-de-programação)
   - [Compiladores](#compiladores)
-  - [Instalação do Middleware](#instalação-do-middleware)
+  - [Instalação do SDK](#instalação-do-sdk)
     - [Windows](#windows)
     - [Linux](#linux)
     - [MacOS](#macos)
