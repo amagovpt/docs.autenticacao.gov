@@ -149,7 +149,10 @@ A lista de compiladores suportados são:
 
   - Java - Oracle JDK 8 ou superior
 
-## Instalação do Middleware
+## Instalação do SDK
+
+O SDK é distribuído nos pacotes de instalação Autenticação.gov que incluem também a aplicação GUI para o utilizador final.
+Os referidos pacotes de instalação são disponibilizados pela AMA em <https://www.autenticacao.gov.pt/web/guest/cc-aplicacao>
 
 ### Windows
 
@@ -166,9 +169,11 @@ neste caso o SDK estará disponível em `{directoria_seleccionada}\sdk\` .
 Para instalar o SDK é necessario efectuar o *download* do pacote em
 formato deb ou rpm conforme a distribuição Linux que utiliza.
 
-As bibliotecas C++ (libpteidlib.so) e Java (pteidlibj.jar) estão
-disponíveis em `/usr/local/lib` e os respectivos C++
-*header files* estão em `/usr/local/include`
+A biblioteca C++ libpteidlib.so ficará
+disponível em `/usr/local/lib` e os respectivos C++
+*header files* em `/usr/local/include`
+
+O SDK Java ficará disponível em `/usr/local/lib/pteid_jni` 
 
 Se a instalação for feita a partir do código fonte disponível em
 <https://github.com/amagovpt/autenticacao.gov> devem ser seguidas as
@@ -177,8 +182,10 @@ instruções de compilação que constam do ficheiro README do projeto.
 ### MacOS
 
 Para instalar o SDK é necessário efectuar o *download* do pacote de
-instalação e executar. O SDK Java ficará disponível em
-`/usr/local/lib/pteid_jni` . No que diz respeito ao SDK C++, os
+instalação e executar.
+
+O SDK Java ficará disponível em `/usr/local/lib/pteid_jni` .
+No que diz respeito ao SDK C++, os
 *header files* ficam localizados em `/usr/local/include` e a
 biblioteca à qual as aplicações deverão linkar está no
 caminho `/usr/local/lib/libpteidlib.dylib` .
@@ -198,10 +205,10 @@ caminho `/usr/local/lib/libpteidlib.dylib` .
 
 2\. **Java**
 
-  - Incluir o ficheiro **pteidlibj.jar** como biblioteca no projecto e
-  adicionar à library path do java a localização das bibliotecas nativas
-  do SDK (se necessário). De notar que as classes e métodos de
-  compatibilidade estão disponíveis no package **pteidlib** enquanto que
+  - Incluir o ficheiro **pteidlibj.jar** como biblioteca no projecto.
+  - Em sistemas MacOS ou Linux, adicionar à propriedade de sistema `java.library.path` do projecto/aplicação Java a localização das bibliotecas nativas do SDK: `/usr/local/lib`
+  - As classes e métodos de
+  compatibilidade com o middleware versão 1.x estão disponíveis no package **pteidlib** enquanto que
   as novas classes estão no *package* **pt.gov.cartaodecidadao**.
 
 3\. **C\#**
@@ -214,11 +221,11 @@ caminho `/usr/local/lib/libpteidlib.dylib` .
 ## Inicialização / Finalização do SDK
 
 A biblioteca **pteidlib** é inicializada através da invocação do método
-**PTEID_initSDK()** (não é contudo obrigatório efectuar a inicialização). A
-finalização do SDK (é obrigatória) deve ser efectuada através da
-invocação do método **PTEID_releaseSDK()**, a invocação deste método
-garante que todos os processos em segundo plano são terminados e que a
-memória alocada é libertada.
+**PTEID_initSDK()** (não é contudo obrigatório efectuar a inicialização). 
+A finalização do SDK é obrigatória e deve ser efectuada através da
+invocação do método **PTEID_releaseSDK()**, este método
+garante que todas as *threads* em segundo plano são terminadas e que a
+memória alocada para objectos internos do SDK é libertada.
 
 1.  Exemplo em C++
 
@@ -522,8 +529,8 @@ string nrCC = eid.getDocumentNumber();
 
 ### Obtenção da fotografia
 
-A fotografia do cidadão está disponível no CC apenas no formato
-JPEG2000, o SDK disponibiliza a fotografia no formato original e em
+A fotografia do cidadão está guardada no CC no formato
+JPEG2000 mas o SDK disponibiliza a fotografia no formato original e alternativamente em
 formato PNG.
 
 1.  Exemplo C++
@@ -533,8 +540,8 @@ formato PNG.
 PTEID_EIDCard& card = context.getEIDCard();
 PTEID_EId& eid = card.getID();
 PTEID_Photo& photoObj = eid.getPhotoObj();
-PTEID_ByteArray& praw = photoObj.getphotoRAW();	// formato jpeg2000
-PTEID_ByteArray& ppng = photoObj.getphoto();	// formato PNG
+PTEID_ByteArray& praw = photoObj.getphotoRAW();	// formato JPEG2000
+PTEID_ByteArray& ppng = photoObj.getphoto();	  // formato PNG
 ```
 
 2.  Exemplo Java
@@ -544,8 +551,8 @@ PTEID_ByteArray& ppng = photoObj.getphoto();	// formato PNG
 PTEID_EIDCard card = context.getEIDCard();
 PTEID_EId eid = card.getID();
 PTEID_Photo photoObj = eid.getPhotoObj();
-PTEID_ByteArray praw = photoObj.getphotoRAW();	// formato jpeg2000
-PTEID_ByteArray ppng = photoObj.getphoto();	// formato PNG
+PTEID_ByteArray praw = photoObj.getphotoRAW();	// formato JPEG2000
+PTEID_ByteArray ppng = photoObj.getphoto();	    // formato PNG
 ```
 
 3.  Exemplo C\#
@@ -555,8 +562,8 @@ PTEID_ByteArray ppng = photoObj.getphoto();	// formato PNG
 PTEID_EIDCard card = context.getEIDCard();
 PTEID_EId eid = card.getID();
 PTEID_Photo photoObj = eid.getPhotoObj();
-PTEID_ByteArray praw = photoObj.getphotoRAW();	// formato jpeg2000
-PTEID_ByteArray ppng = photoObj.getphoto();	// formato PNG
+PTEID_ByteArray praw = photoObj.getphotoRAW();	// formato JPEG2000
+PTEID_ByteArray ppng = photoObj.getphoto();	    // formato PNG
 (...)
 ```
 
