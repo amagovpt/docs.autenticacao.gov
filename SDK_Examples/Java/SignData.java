@@ -88,7 +88,7 @@ public class SignData {
 
             System.out.println("RSA-SHA256 signature is: " + (verified ? "OK": "NOK"));
         } catch (NoSuchAlgorithmException e) {
-            System.err.println("Non-conforming JVM, this algo is one of the Java Security Standard Algorithm Names Specification!");
+            System.err.println("Non-conforming JVM, this algo is present in the Java Security Standard Algorithm Names Specification!");
             e.printStackTrace();
         }
         catch (InvalidKeyException e) {

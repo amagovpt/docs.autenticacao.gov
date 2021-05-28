@@ -3,7 +3,7 @@ import java.util.logging.Logger;
 import pt.gov.cartaodecidadao.*;
 
 
-public class SignMultipleFiles {
+public class SignPDFDocument {
 
     //This static block is needed to load the sdk library
     static {
@@ -41,7 +41,7 @@ public class SignMultipleFiles {
         eidCard = readerContext.getEIDCard();
         eid = eidCard.getID();
     }
-    
+
     /**
      * Releases the SDK (must always be done at the end of the program)
      */
@@ -55,23 +55,19 @@ public class SignMultipleFiles {
     }
 
     /**
-     * Signs multiple pdf files
-     * @param args An array starting with the output directory and followed by various pdf files to sign
+     * Signs a pdf file
+     * @param input_file The path of the document to be signed
+     * @param output_file The path for the signed document
      * @throws PTEID_Exception
      */
-    public void sign(String[] args) throws PTEID_Exception {
-
-        //Get the output directory
-        String output_directory = args[0];
+    public void sign(String input_file, String output_file) throws PTEID_Exception {
 
         //To sign a document you must initialize an instance of PTEID_PDFSignature 
-        PTEID_PDFSignature signature = new PTEID_PDFSignature();
+        //It takes the path for the input file as argument
+        PTEID_PDFSignature signature = new PTEID_PDFSignature(input_file);
 
-        //Iterate through the various files to sign and add them to the batch to be signed
-        for (int i = 1; i < args.length; i++) 
-        {
-            signature.addToBatchSigning(args[i]);
-        }
+        //Set the signature level: BASIC/TIMESTAMP/LT/LTV - see SDK manual for details
+        signature.setSignatureLevel(PTEID_SignatureLevel.PTEID_LEVEL_BASIC);
 
         //You can set the location and reason of signature by simply changing this strings
         String location = "Lisboa, Portugal";
@@ -84,7 +80,7 @@ public class SignMultipleFiles {
         
         //To actually sign the document you invoke this method, your authentication PIN will be requested
         //After this you can check the signed document in the path provided
-        eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, output_directory);
+        eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, output_file);
     }
 
     public void start(String[] args) {
@@ -92,10 +88,10 @@ public class SignMultipleFiles {
         try {
             initiate();
 
-            System.out.println("User:                        " + eid.getGivenName() + " " + eid.getSurname());
+            System.out.println("Citizen name:                " + eid.getGivenName() + " " + eid.getSurname());
             System.out.println("Card Number:                 " + eid.getDocumentNumber());
             
-            sign(args);
+            sign(args[0], args[1]);
         
         } catch (PTEID_ExNoReader ex) {
             System.out.println("No reader found.");
@@ -110,12 +106,12 @@ public class SignMultipleFiles {
     }
 
     public static void main(String[] args) {
-        if (args.length < 2) {
-            System.out.println("Incorrect usage. Should pass at least 3 arguments.");
-            System.out.println("The first is the output directory and the others are the names of the documents to sign.");
+        if (args.length != 2) {
+            System.out.println("Incorrect usage. Should pass 2 arguments.");
+            System.out.println("The first is the file to sign and the second is the name for the signed document.");
         }
         else {
-            new SignMultipleFiles().start(args);
+            new SignPDFDocument().start(args);
         }
     }
 }

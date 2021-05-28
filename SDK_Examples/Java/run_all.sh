@@ -50,20 +50,15 @@ elif [ $OPTION == "-auth" ]; then
 
 elif [ $OPTION == "-sign" ]; then
 
-    echo "Running Java SDK Example - SignFile"
+    echo "Running Java SDK Example - SignPDFDocument"
 
-    javac -cp $JAR_PATH:. SignFile.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignFile "files/input.pdf" "files/output.pdf"
+    javac -cp $JAR_PATH:. SignPDFDocument.java
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignPDFDocument "files/input.pdf" "files/output.pdf"
 
-    echo "Running Java SDK Example - SignMultipleFiles"
+    echo "Running Java SDK Example - SignPDFMultipleFiles (2 documents)"
 
-    javac -cp $JAR_PATH:. SignMultipleFiles.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignMultipleFiles "files/" "files/input1.pdf" "files/input2.pdf"
-
-    echo "Running Java SDK Example - SignXAdES"
-
-    javac -cp $JAR_PATH:. SignXAdES.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignXAdES
+    javac -cp $JAR_PATH:. SignPDFMultipleFiles.java
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignPDFMultipleFiles "files/" "files/input1.pdf" "files/input2.pdf"
 
 	echo "Running Java SDK Example - SignData"
 	javac -cp $JAR_PATH:. SignData.java
@@ -96,15 +91,15 @@ elif [ $OPTION == "-all" ]; then
     javac -cp $JAR_PATH:. ReadAndWriteNotes.java
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. ReadAndWriteNotes
 
-    echo "Running Java SDK Example - SignFile"
+    echo "Running Java SDK Example - SignPDFDocument"
 
-    javac -cp $JAR_PATH:. SignFile.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignFile "files/input.pdf" "files/output.pdf"
+    javac -cp $JAR_PATH:. SignPDFDocument.java
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignPDFDocument "files/input.pdf" "files/output.pdf"
 
-    echo "Running Java SDK Example - SignMultipleFiles"
+    echo "Running Java SDK Example - SignPDFMultipleFiles"
 
-    javac -cp $JAR_PATH:. SignMultipleFiles.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignMultipleFiles "files/" "files/input1.pdf" "files/input2.pdf"
+    javac -cp $JAR_PATH:. SignPDFMultipleFiles.java
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignPDFMultipleFiles "files/" "files/input1.pdf" "files/input2.pdf"
 
     echo "Running Java SDK Example - SignXAdES"
 

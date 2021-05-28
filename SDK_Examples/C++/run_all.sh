@@ -49,23 +49,17 @@ elif [ $OPTION == "-auth" ]; then
 
 elif [ $OPTION == "-sign" ]; then
 
-    echo "Running C++ SDK Example - SignFile"
+    echo "Running C++ SDK Example - SignPDFDocument"
 
-    g++ -c -std=c++17 SignFile.cpp
-    g++ -o SignFile.example SignFile.o -lpteidlib 
-    ./SignFile.example "files/input.pdf" "files/output.pdf"
+    g++ -c -std=c++17 SignPDFDocument.cpp
+    g++ -o SignPDFDocument.example SignPDFDocument.o -lpteidlib 
+    ./SignPDFDocument.example "files/input.pdf" "files/output.pdf"
 
-    echo "Running C++ SDK Example - SignMultipleFiles"
+    echo "Running C++ SDK Example - SignPDFMultipleFiles (3 documents)"
 
-    g++ -c -std=c++17 SignMultipleFiles.cpp
-    g++ -o SignMultipleFiles.example SignMultipleFiles.o -lpteidlib
-    ./SignMultipleFiles.example "files/" "files/input1.pdf" "files/input2.pdf" "files/input3.pdf"
-
-    echo "Running C++ SDK Example - SignXAdES"
-
-    g++ -c -std=c++17 SignXAdES.cpp
-    g++ -o SignXAdES.example SignXAdES.o -lpteidlib
-    ./SignXAdES.example
+    g++ -c -std=c++17 SignPDFMultipleFiles.cpp
+    g++ -o SignPDFMultipleFiles.example SignPDFMultipleFiles.o -lpteidlib
+    ./SignPDFMultipleFiles.example "files/" "files/input1.pdf" "files/input2.pdf" "files/input3.pdf"
 
 elif [ $OPTION == "-all" ]; then
 
@@ -100,17 +94,17 @@ elif [ $OPTION == "-all" ]; then
     g++ -o ReadAndWriteNotes.example ReadAndWriteNotes.o -lpteidlib
     ./ReadAndWriteNotes.example
 
-    echo "Running C++ SDK Example - SignFile"
+    echo "Running C++ SDK Example - SignPDFDocument"
 
-    g++ -c -std=c++17 SignFile.cpp
-    g++ -o SignFile.example SignFile.o -lpteidlib 
-    ./SignFile.example "files/input.pdf" "files/output.pdf"
+    g++ -c -std=c++17 SignPDFDocument.cpp
+    g++ -o SignPDFDocument.example SignPDFDocument.o -lpteidlib 
+    ./SignPDFDocument.example "files/input.pdf" "files/output.pdf"
 
-    echo "Running C++ SDK Example - SignMultipleFiles"
+    echo "Running C++ SDK Example - SignPDFMultipleFiles"
 
-    g++ -c -std=c++17 SignMultipleFiles.cpp
-    g++ -o SignMultipleFiles.example SignMultipleFiles.o -lpteidlib
-    ./SignMultipleFiles.example "files/" "files/input1.pdf" "files/input2.pdf" "files/input3.pdf"
+    g++ -c -std=c++17 SignPDFMultipleFiles.cpp
+    g++ -o SignPDFMultipleFiles.example SignPDFMultipleFiles.o -lpteidlib
+    ./SignPDFMultipleFiles.example "files/" "files/input1.pdf" "files/input2.pdf" "files/input3.pdf"
 
     echo "Running C++ SDK Example - SignXAdES"
 

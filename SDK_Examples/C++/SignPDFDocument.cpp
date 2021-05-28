@@ -8,7 +8,7 @@ int main(int argc, char **argv) {
 
     if (argc != 3) 
     {
-        std::cout << "Incorrect usage. Should be:\n./sign_file #input_file #output_file" << std::endl;
+        std::cout << "Incorrect usage. Should be:\n./sign_file [input_file] [output_file]" << std::endl;
         return -1;
     }
 
@@ -32,13 +32,14 @@ int main(int argc, char **argv) {
         const char * location = "Lisboa, Portugal";
         const char * reason = "Concordo com o conteudo do documento";
         
-        //The page and coordinates where the signature will be printed
+        //The page number where the visible signature will be printed
         int page = 1;
+
+        //The location in the page where the visible signature will be printed in percentage of page height/width
         double pos_x = 0.1;
         double pos_y = 0.1;
 
-        //To actually sign the document you invoke this method, your authentication PIN will be requested
-        //After this you can check the signed document in the path provided
+        //To actually sign the document you invoke this method, and the signature PIN will be requested in an SDK dialog
         eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, output_file);
     }
     catch (PTEID_ExNoReader &e) 

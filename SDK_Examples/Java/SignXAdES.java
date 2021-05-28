@@ -68,11 +68,17 @@ public class SignXAdES {
         String outputXadesT = "files/XadesT.zip";
         String outputXadesA = "files/XadesA.zip";
 
+        System.out.println("Performing XAdES-B signature (2 files)");
+
         //Sign all files with unique signature          
         eidCard.SignXades(outputXades, files, files.length);
 
+        System.out.println("Performing XAdES-T signature (2 files)");
+
         //Sign all files with unique signature including timestamp            
         eidCard.SignXadesT(outputXadesT, files, files.length);
+
+        System.out.println("Performing XAdES-LTA signature (2 files)");
       
         //Sign all files with type A (archival) unique signature 
         eidCard.SignXadesA(outputXadesA, files, files.length);

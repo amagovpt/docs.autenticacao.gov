@@ -62,13 +62,14 @@ namespace Examples
             String location = "Lisboa, Portugal";
             String reason = "Concordo com o conteudo do documento";
 
-            //The page and coordinates where the signature will be printed
+            //The page number where the signature will be printed
             int page = 1;
+
+            //The location in the page where the visible signature will be printed in percentage of page height/width
             double pos_x = 0.1;
             double pos_y = 0.1;
 
-            //To actually sign the document you invoke this method, your authentication PIN will be requested
-            //After this you can check the signed document in the path provided
+            //To actually sign the document you invoke this method, and the signature PIN will be requested in an SDK dialog
             eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, output_file);
 
             Console.WriteLine("File signed with success.");
