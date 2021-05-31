@@ -3,8 +3,6 @@ import java.security.*;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.nio.charset.StandardCharsets;
 
 import pt.gov.cartaodecidadao.*;
@@ -136,12 +134,18 @@ public class SignData {
                 }
 			}
         
-        } catch (PTEID_ExNoReader ex) {
+        } 
+        catch (PTEID_ExNoReader ex) {
             System.out.println("No reader found.");
-        } catch (PTEID_ExNoCardPresent ex) {
+        } 
+        catch (PTEID_ExNoCardPresent ex) {
             System.out.println("No card inserted.");
-        } catch (PTEID_Exception ex) {
-            Logger.getLogger(SignData.class.getName()).log(Level.SEVERE, ex.GetMessage(), ex);
+        } 
+        catch (PTEID_Exception ex) {
+            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
+        }
+        catch (Exception ex) {
+            System.out.println("Exception caught: " + ex.getMessage());
         }
         finally {
             release();
@@ -156,7 +160,7 @@ public class SignData {
         try {
             PTEID_ReaderSet.releaseSDK();
         } catch (PTEID_Exception ex) {
-            Logger.getLogger(SignData.class.getName()).log(Level.SEVERE, ex.GetMessage(), ex);
+            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
         }
     }
 	
@@ -164,5 +168,4 @@ public class SignData {
 		
 		new SignData().start();
 	}
-
 }

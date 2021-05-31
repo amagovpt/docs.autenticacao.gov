@@ -1,5 +1,3 @@
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import pt.gov.cartaodecidadao.*;
 
 
@@ -50,7 +48,7 @@ public class SignPDFDocument {
         try {
             PTEID_ReaderSet.releaseSDK();
         } catch (PTEID_Exception ex) {
-            Logger.getLogger(ReadCard.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
         }
     }
 
@@ -92,14 +90,19 @@ public class SignPDFDocument {
             System.out.println("Card Number:                 " + eid.getDocumentNumber());
             
             sign(args[0], args[1]);
-        
-        } catch (PTEID_ExNoReader ex) {
-            System.out.println("No reader found.");
-        } catch (PTEID_ExNoCardPresent ex) {
-            System.out.println("No card inserted.");
-        } catch (PTEID_Exception ex) {
-            Logger.getLogger(ReadCard.class.getName()).log(Level.SEVERE, null, ex);
         } 
+        catch (PTEID_ExNoReader ex) {
+            System.out.println("No reader found.");
+        } 
+        catch (PTEID_ExNoCardPresent ex) {
+            System.out.println("No card inserted.");
+        } 
+        catch (PTEID_Exception ex) {
+            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
+        }
+        catch (Exception ex) {
+            System.out.println("Exception caught: " + ex.getMessage());
+        }
         finally {
             release();
         }
@@ -107,8 +110,7 @@ public class SignPDFDocument {
 
     public static void main(String[] args) {
         if (args.length != 2) {
-            System.out.println("Incorrect usage. Should pass 2 arguments.");
-            System.out.println("The first is the file to sign and the second is the name for the signed document.");
+            System.out.println("Usage: SignPDFDocument [input_file] [output_file]");
         }
         else {
             new SignPDFDocument().start(args);

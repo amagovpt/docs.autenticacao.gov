@@ -8,7 +8,11 @@ int main(int argc, char **argv) {
 
     if (argc != 2) 
     {
-        std::cout << "Incorrect usage. Should be:\n./ChangePins [-auth|-addr|-sign]" << std::endl;
+        std::cout << "Usage: ChangePins [pin]" << std::endl; 
+        std::cout << "Pin:" << std::endl; 
+        std::cout << "\t-auth\t\tChange Authentication Pin." << std::endl; 
+        std::cout << "\t-sign\t\tChange Signature Pin." << std::endl; 
+        std::cout << "\t-addr\t\tChange Address Pin." << std::endl; 
         return -1;
     }
 

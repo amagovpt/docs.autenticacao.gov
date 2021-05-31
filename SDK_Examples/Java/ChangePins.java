@@ -1,5 +1,4 @@
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.smartcardio.Card;
 
 import pt.gov.cartaodecidadao.*;
 
@@ -53,7 +52,7 @@ public class ChangePins {
             PTEID_ReaderSet.releaseSDK();
 
         } catch (PTEID_Exception ex) {
-            Logger.getLogger(ChangePins.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
         }
     }
 
@@ -93,17 +92,21 @@ public class ChangePins {
     public void start(String pin_type) {
 
         try {
-            
             initiate();
-            ChangePin(pin_type);
-            
-        } catch (PTEID_ExNoReader ex) {
-            System.out.println("No reader found.");
-        } catch (PTEID_ExNoCardPresent ex) {
-            System.out.println("No card inserted.");
-        } catch (PTEID_Exception ex) {
-            Logger.getLogger(ReadCard.class.getName()).log(Level.SEVERE, null, ex);
+            ChangePin(pin_type); 
         } 
+        catch (PTEID_ExNoReader ex) {
+            System.out.println("No reader found.");
+        } 
+        catch (PTEID_ExNoCardPresent ex) {
+            System.out.println("No card inserted.");
+        } 
+        catch (PTEID_Exception ex) {
+            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
+        }
+        catch (Exception ex) {
+            System.out.println("Exception caught: " + ex.getMessage());
+        }
         finally {
             release();
         }
@@ -111,7 +114,11 @@ public class ChangePins {
 
     public static void main(String[] args) {
         if (args.length != 1) {
-            System.out.println("Incorrect usage. Should pass 1 argument (type of pin you want to modify).");
+            System.out.println("Usage: ChangePins [pin]");
+            System.out.println("Pin:");
+            System.out.println("\t-auth\t\tChange Authentication Pin.");
+            System.out.println("\t-sign\t\tChange Signature Pin.");
+            System.out.println("\t-addr\t\tChange Address Pin.");
         }
         else {
             new ChangePins().start(args[0]);

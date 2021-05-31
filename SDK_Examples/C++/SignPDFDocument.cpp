@@ -8,7 +8,7 @@ int main(int argc, char **argv) {
 
     if (argc != 3) 
     {
-        std::cout << "Incorrect usage. Should be:\n./sign_file [input_file] [output_file]" << std::endl;
+        std::cout << "Usage: SignPDFDocument [input_file] [output_file]" << std::endl;
         return -1;
     }
 

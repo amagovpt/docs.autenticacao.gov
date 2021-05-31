@@ -1,6 +1,3 @@
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import pt.gov.cartaodecidadao.*;
 
 
@@ -53,7 +50,7 @@ public class ReadCard {
             PTEID_ReaderSet.releaseSDK();
 
         } catch (PTEID_Exception ex) {
-            Logger.getLogger(ReadCard.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
         }
     }
 
@@ -95,17 +92,21 @@ public class ReadCard {
     public void start() {
 
         try {
-
             initiate();
             showCardInfo();
-
-        } catch (PTEID_ExNoReader ex) {
-            System.out.println("No reader found.");
-        } catch (PTEID_ExNoCardPresent ex) {
-            System.out.println("No card inserted.");
-        } catch (PTEID_Exception ex) {
-            Logger.getLogger(ReadCard.class.getName()).log(Level.SEVERE, null, ex);
         } 
+        catch (PTEID_ExNoReader ex) {
+            System.out.println("No reader found.");
+        } 
+        catch (PTEID_ExNoCardPresent ex) {
+            System.out.println("No card inserted.");
+        } 
+        catch (PTEID_Exception ex) {
+            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
+        }
+        catch (Exception ex) {
+            System.out.println("Exception caught: " + ex.getMessage());
+        }
         finally {
             release();
         }

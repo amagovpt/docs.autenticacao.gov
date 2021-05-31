@@ -7,6 +7,16 @@ using namespace eIDMW;
 
 int main(int argc, char **argv) {
 
+    if (argc != 3) 
+    {
+        std::cout << "Usage: GetPhoto [extension] [photo_name]" << std::endl; 
+        std::cout << "Extension:" << std::endl; 
+        std::cout << "\t-png\t\tSaves photo in png format." << std::endl; 
+        std::cout << "\t-jp2\t\tSaves photo in JPEG2000 format." << std::endl; 
+        return -1;
+    }
+
+
     std::string type_flag = argv[1]; 
     const char* output_file_name = argv[2];
 

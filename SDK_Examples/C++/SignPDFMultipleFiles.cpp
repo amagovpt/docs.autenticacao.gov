@@ -8,8 +8,7 @@ int main(int argc, char **argv) {
 
     if (argc < 3) 
     {
-        std::cout << "Incorrect usage. Should pass at least 3 arguments." << std::endl;
-        std::cout << "The first is the output directory and the others are the names of the documents to sign." << std::endl;
+        std::cout << "Usage: SignPDFMultipleFiles [output_directory] [filename_1] [filename_2] ... [filename_n]" << std::endl;
         return -1;
     }
 

@@ -1,12 +1,5 @@
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.imageio.ImageIO;
 
 import pt.gov.cartaodecidadao.*;
 
@@ -58,7 +51,7 @@ public class GetPhoto {
         try {
             PTEID_ReaderSet.releaseSDK();
         } catch (PTEID_Exception ex) {
-            Logger.getLogger(ReadCard.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
         }
     }
 
@@ -111,14 +104,19 @@ public class GetPhoto {
             System.out.println("Card Number:                 " + eid.getDocumentNumber());
 
             savePhoto(args[0], args[1]);
-        
-        } catch (PTEID_ExNoReader ex) {
-            System.out.println("No reader found.");
-        } catch (PTEID_ExNoCardPresent ex) {
-            System.out.println("No card inserted.");
-        } catch (PTEID_Exception ex) {
-            Logger.getLogger(ReadCard.class.getName()).log(Level.SEVERE, null, ex);
         } 
+        catch (PTEID_ExNoReader ex) {
+            System.out.println("No reader found.");
+        } 
+        catch (PTEID_ExNoCardPresent ex) {
+            System.out.println("No card inserted.");
+        } 
+        catch (PTEID_Exception ex) {
+            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
+        }
+        catch (Exception ex) {
+            System.out.println("Exception caught: " + ex.getMessage());
+        }
         finally {
             release();
         }
@@ -126,7 +124,10 @@ public class GetPhoto {
 
     public static void main(String[] args) {
         if (args.length != 2 || (!args[0].equals("-png") && (!args[0].equals("-jp2")))) {
-            System.out.println("Incorrect usage. Should pass 2 arguments: the first is the extension [-png|-jp2] and the second is the name for the saved photo.");
+            System.out.println("Usage: GetPhoto [extension] [photo_name]");
+            System.out.println("Extension:");
+            System.out.println("\t-png\t\tSaves photo in png format.");
+            System.out.println("\t-jp2\t\tSaves photo in JPEG2000 format.");
         }
         else {
             new GetPhoto().start(args);

@@ -1,8 +1,6 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import pt.gov.cartaodecidadao.*;
 
@@ -55,7 +53,7 @@ public class GetXML {
             PTEID_ReaderSet.releaseSDK();
 
         } catch (PTEID_Exception ex) {
-            Logger.getLogger(GetXML.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
         }
     }
 
@@ -121,17 +119,21 @@ public class GetXML {
     public void start() {
 
         try {
-
             initiate();
             saveXML();
-            
-        } catch (PTEID_ExNoReader ex) {
-            System.out.println("No reader found.");
-        } catch (PTEID_ExNoCardPresent ex) {
-            System.out.println("No card inserted.");
-        } catch (PTEID_Exception ex) {
-            Logger.getLogger(ReadCard.class.getName()).log(Level.SEVERE, null, ex);
         } 
+        catch (PTEID_ExNoReader ex) {
+            System.out.println("No reader found.");
+        } 
+        catch (PTEID_ExNoCardPresent ex) {
+            System.out.println("No card inserted.");
+        } 
+        catch (PTEID_Exception ex) {
+            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
+        }
+        catch (Exception ex) {
+            System.out.println("Exception caught: " + ex.getMessage());
+        }
         finally {
             release();
         }
