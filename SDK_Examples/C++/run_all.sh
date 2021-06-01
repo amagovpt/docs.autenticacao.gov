@@ -25,6 +25,12 @@ if [ $OPTION = "-identity" ]; then
     ./GetPhoto.example -png "files/image.png"
     ./GetPhoto.example -jp2 "files/image.jp2"
 
+    echo "Running C++ SDK Example - PinInfo"
+
+    g++ -c -std=c++17 PinInfo.cpp
+    g++ -o PinInfo.example PinInfo.o -lpteidlib 
+    ./PinInfo.example
+
 elif [ $OPTION == "-addr" ]; then
 
     echo "Running C++ SDK Example - ReadAddress"
@@ -75,6 +81,12 @@ elif [ $OPTION == "-all" ]; then
     g++ -o GetPhoto.example GetPhoto.o -lpteidlib
     ./GetPhoto.example -png "files/image.png"
     ./GetPhoto.example -jp2 "files/image.jp2"
+
+    echo "Running C++ SDK Example - PinInfo"
+
+    g++ -c -std=c++17 PinInfo.cpp
+    g++ -o PinInfo.example PinInfo.o -lpteidlib 
+    ./PinInfo.example
 
     echo "Running C++ SDK Example - ReadAddress"
 
