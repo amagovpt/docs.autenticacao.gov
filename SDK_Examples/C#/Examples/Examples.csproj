@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Examples.SignFile</StartupObject>
+    <StartupObject>Examples.PinInfo</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="pteidlib_dotnet">
@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PinInfo.cs" />
     <Compile Include="SignXAdES.cs" />
     <Compile Include="SignMultipleFiles.cs" />
     <Compile Include="SignFile.cs" />
