@@ -1370,8 +1370,8 @@ Acrobat Reader* para a versão **DC**.
 
 ## Impossibilidade de assinatura em *Adobe Reader*, *Microsoft Office* e *LibreOffice* com Cartão de Cidadão
 
-Deverá aceder ao ficheiro “pteidmdrv.inf”, presente por defeito na
-diretoria “ C:\\ProgramFiles\\PTeID Minidriver” (ou na directoria
+Deverá aceder ao ficheiro `pteidmdrv.inf`, presente por defeito na
+diretoria `C:\Program Files\Portugal Identity Card\PTeID Minidriver` (ou na directoria
 selecionada durante a instalação). Após ter aberto a directoria, abra
 o menu de opções do ficheiro e selecionar a opção **Instalar**.
 
@@ -1379,8 +1379,8 @@ o menu de opções do ficheiro e selecionar a opção **Instalar**.
   "Impossibilidade de assinatura"){:.center}
 
 Após a escolha desta opção, poderá aparecer uma janela de diálogo (Ver
-imagem seguinte) com o título “Ficheiros Necessários”, na qual terá de
-selecionar a pasta “drivers” que esta na diretoria “C:\\Windows\\System32“.
+imagem seguinte) com o título "Ficheiros Necessários", na qual terá de
+selecionar a pasta "drivers" que esta na diretoria `C:\Windows\System32`.
 
 ![Ilustração: Impossibilidade de assinatura](Pictures/Autenticacao.Gov_web_impossibilidade2.png
   "Impossibilidade de assinatura"){:.center}
