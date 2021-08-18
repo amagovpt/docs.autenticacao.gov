@@ -67,6 +67,14 @@ elif [ $OPTION == "-sign" ]; then
     g++ -o SignPDFMultipleFiles.example SignPDFMultipleFiles.o -lpteidlib
     ./SignPDFMultipleFiles.example "files/" "files/input1.pdf" "files/input2.pdf" "files/input3.pdf"
 
+    echo "Running C++ SDK Example - SignPDFDocumentCustomSize"
+
+    g++ -c -std=c++17 SignPDFCustomSize.cpp
+    g++ -o SignPDFCustomSize.example SignPDFCustomSize.o -lpteidlib
+    ./SignPDFCustomSize.example "files/input.pdf" "files/output_custom.pdf"
+
+
+
 elif [ $OPTION == "-all" ]; then
 
     echo "Running C++ SDK Example - ReadCard"

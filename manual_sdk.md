@@ -1334,6 +1334,58 @@ eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, "/home/user/sig
 // (...) - Finalização
 ```
 
+### Customização do selo de assinatura visível
+
+Através do método `setCustomSealSize(width, height)`, é possível alterar as dimensões do selo de assinatura vísivel utilizando o SDK. Para tal, é só necessário chamar o método com as dimensões pretendidas, após inicializar uma instância de `PTEID_PDFSignature`. Este método pode ser chamado para a assinatura de um único ficheiro ou para multi-assinatura.
+Exemplo C++
+
+```c++
+// (...) - Inicialização
+
+//Inicializar assinatura
+PTEID_PDFSignature signature;
+
+// (...) - Adicionar ficheiros e outras configurações (motivo, localização, etc)
+
+
+//Para definir as dimensões do selo de assinatura é necessário invocar o seguinte método com as dimensões pretendidas. 
+signature.setCustomSealSize(200, 200);
+
+// (...) - Assinar e Finalização
+```
+
+Exemplo Java
+
+```java
+// (...) - Inicialização
+
+PTEID_PDFSignature signature = new PTEID_PDFSignature();
+
+// (...) - Adicionar ficheiros e outras configurações (motivo, localização, etc)
+
+//Para definir as dimensões do selo de assinatura é necessário invocar o seguinte método com as dimensões pretendidas. 
+signature.setCustomSealSize(200, 200);
+
+// (...) - Assinar e Finalização
+```
+
+Exemplo C#
+
+```c
+// (...) - Inicialização
+
+PTEID_PDFSignature signature = new PTEID_PDFSignature();
+
+// (...) - Adicionar ficheiros e outras configurações (motivo, localização, etc)
+
+
+//Para definir as dimensões do selo de assinatura é necessário invocar o seguinte método com as dimensões pretendidas. 
+signature.setCustomSealSize(200, 200);
+
+// (...) - Assinar e Finalização
+```
+
+É também possível escolher incluir, ou não, a data de assinatura e o número de identificação civil através da aplicação, no menu `Personalização de Assinatura`, selecionando as respetivas checkboxes, ou através do ficheiro `~/.config/pteid.conf`, modificando o valor de `signature_seal_options`. Estas alterações são depois refletidas no selo da assinatura através do SDK.
 
 ### Configurar o servidor de selo temporal
 

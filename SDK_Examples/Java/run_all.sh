@@ -65,6 +65,11 @@ elif [ $OPTION == "-sign" ]; then
     javac -cp $JAR_PATH:. SignPDFMultipleFiles.java
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignPDFMultipleFiles "files/" "files/input1.pdf" "files/input2.pdf"
 
+    echo "Running Java SDK Example - SignPDFCustomSize"
+
+    javac -cp $JAR_PATH:. SignPDFCustomSize.java
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignPDFCustomSize "files/input.pdf" "files/output_custom.pdf"
+
 	echo "Running Java SDK Example - SignData"
 	javac -cp $JAR_PATH:. SignData.java
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignData

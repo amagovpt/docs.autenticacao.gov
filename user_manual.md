@@ -622,9 +622,10 @@ secção “Escolha os ficheiros”, como podemos visualizar na imagem seguinte.
     serem assinados.
   - É possível remover ficheiros individualmente, utilizando o botão que se encontra junto ao nome
     de cada ficheiro, ou todos, pressionando o botão **Remover todos**.
+
 - **Pré-visualização da assinatura:** Permite visualizar o documento a ser assinado e ajustar a
-  posição do selo de assinatura, movendo-o para o locar pretendido. A pré-visualização existe apenas
-  para assinatura do tipo **PDF**.
+  posição e o tamanho do selo de assinatura, movendo-o para o local pretendido com as dimensões desejadas. A pré-visualização existe apenas
+  para assinatura do tipo **PDF**, sendo possível pre-visualizar qualquer um dos ficheiros de uma multi-assinatura através de um clique no nome do ficheiro na aplicação.
 
 - **Opções avançadas - Configurações:**
 
@@ -787,6 +788,8 @@ imagem do cartão do cidadão por uma imagem à escolha do utilizador.
 O botão **Adicionar assinatura** permite selecionar uma imagem que será utilizada na assinatura personalizada. Após adicionar uma imagem, esta página da aplicação permitirá selecionar a opção **Usar assinatura padrão** ou **Usar assinatura personalizada**, conforme a escolha do utilizador.
 
 O tamanho mínimo recomendado para a imagem é de 351 x 77px.
+
+É, também, possível escolher incluir, ou não, a data de assinatura e o número de identificação civil na assinatura. Para tal, basta selecionar as checkboxes pretendidas neste menu. 
 
 ![Ilustração: Personalização da Assinatura digital](Pictures/Autenticacao.Gov_personalizar_assinatura.png "Personalização da Assinatura digital"){:.center}
 
