@@ -11,7 +11,7 @@ sed 's/{:.center}//g' manual_sdk_no_header_no_footer.md > manual_sdk_filtered.md
 
 #generate pdf from ast
 echo "Generating pdf manual."
-pandoc -f gfm manual_sdk_filtered.md -o Manual_de_SDK.pdf --template=template_sdk.tex --toc --number-sections --variable version=$VERSION --variable date=$NOW --pdf-engine=xelatex --listings --variable colorlinks=true
+pandoc -f gfm manual_sdk_filtered.md -o Manual_de_SDK.pdf --template=template_sdk.tex --toc --number-sections --variable version=$VERSION --variable date=$NOW --pdf-engine=xelatex --listings --variable colorlinks=true -V papersize:a4
 
 
 if [ $? -eq 0 ]
