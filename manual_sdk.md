@@ -573,7 +573,8 @@ O ficheiro da morada só pode ser lido após a verificação do pin da
 morada correcto.
 
 Para obter os dados da morada deverá ser utilizado o método **PTEID_EIDCard.getAddr()**.
-*Importante*: Desde a versão lançada em Outubro de 2021 do Middleware a morada do CC é lida a partir dos serviços centrais
+
+**Importante**: Desde a versão lançada em Outubro de 2021 do Middleware a morada do CC é lida a partir dos serviços centrais
 o que implica ligação à Internet funcional para a utilização da classe `PTEID_Address` para além da presença do cartão no leitor.
 
 Existem a partir da referida versão novos códigos de erro relacionados com a utilização deste serviço online e que seguidamente são descritos:
