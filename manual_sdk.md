@@ -1626,7 +1626,7 @@ pelo CC através de uma API comum se tiverem em conta as especificidades que ind
 Por exemplo em aplicações Java é possível utilizar o módulo pteid-pkcs11 incluído no middleware do CC através do *Security Provider* "SunPKCS11"
 da seguinte forma:
 
-```Java
+```java
     /* Exemplo de carregamento do "token" PKCS#11 que permite aceder às operações do CC */
     
     /*
