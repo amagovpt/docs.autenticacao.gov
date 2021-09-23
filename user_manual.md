@@ -390,7 +390,7 @@ seguintes são apresentados os ecrãs utilizando Linux Ubuntu 18.04.3 LTS.
 
     Gestor de pacotes baseado em ficheiros .rpm, execute o comando:
 
-    `sudo rpm -U pteid-mw`
+    `sudo rpm -e pteid-mw`
 
 2.  Após este passo, a aplicação terá sido removida do computador.
 
