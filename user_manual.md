@@ -32,7 +32,8 @@
     - [Menu Cartão](#menu-cartão)
       - [Identidade](#identidade)
       - [Outros dados](#outros-dados)
-      - [Morada e Alteração de morada](#morada-e-alteração-de-morada)
+      - [Morada e Alteração de morada (Desde a versão lançada em Outubro de 2021)](#morada-e-alteração-de-morada-desde-a-versão-lançada-em-outubro-de-2021)
+      - [Morada e Alteração de morada (Versões anteriores a Outubro de 2021)](#morada-e-alteração-de-morada-versões-anteriores-a-outubro-de-2021)
       - [Notas](#notas)
       - [Imprimir](#imprimir)
     - [Assinatura digital](#assinatura-digital)
@@ -493,7 +494,34 @@ estado do Cartão de Cidadão.
 
 ![Ilustração: Outros dados](Pictures/Autenticacao.Gov_Outros_Dados.png "Outros dados"){:.center}
 
-#### Morada e Alteração de morada
+#### Morada e Alteração de morada (Desde a versão lançada em Outubro de 2021)
+
+> **⚠ IMPORTANTE: Consulta de Morada do Cartão de Cidadão.**  
+> Desde a versão lançada em Outubro de 2021 do Middleware a morada do Cartão de Cidadão é lida a partir dos serviços centrais.
+> Isto implica uma ligação à Internet funcional para a leitura da morada.
+> Para processos de alteração de morada iniciados após Outubro de 2021 (data a confirmar), a confirmação de morada fica apenas disponível no portal **eportugal.gov.pt**.
+
+Dentro do separador “Morada” é possível visualizar a morada atual e aceder a uma página para completar o processo de alteração da morada. 
+Ambas as funcionalidades requerem uma ligação à Internet. Por favor certifique-se que está ligado
+antes de iniciar o processo.
+
+Para terminar o processo de alteração de morada, consultes os seguintes *websites*:
+
+[Alteracao de morada](https://www.autenticacao.gov.pt/cartao-cidadao/alteracao-morada).
+
+[Confirmar a alteracao de morada](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao).
+
+
+**Nota:** Durante o processo de alteração de morada, o cidadão terá de
+se autenticar, por isso deverá ter presente e desbloqueado o seu PIN de
+autenticação.
+  
+#### Morada e Alteração de morada (Versões anteriores a Outubro de 2021)
+
+> **⚠ IMPORTANTE: Consulta de Morada do Cartão de Cidadão.**  
+> Desde a versão lançada em Outubro de 2021 do Middleware a morada do Cartão de Cidadão é lida a partir dos serviços centrais.
+> Isto implica uma ligação à Internet funcional para a leitura da morada.
+> Para processos de alteração de morada iniciados após Outubro de 2021 (data a confirmar), a confirmação de morada fica apenas disponível no portal **eportugal.gov.pt**.
 
 Dentro do separador “Morada” é possível visualizar a morada atual e
 completar o processo de alteração da morada. Esta última funcionalidade
