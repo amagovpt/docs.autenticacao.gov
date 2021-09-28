@@ -575,7 +575,7 @@ morada correcto.
 Para obter os dados da morada deverá ser utilizado o método **PTEID_EIDCard.getAddr()**.
 
 **Importante**: Desde a versão lançada em Outubro de 2021 do Middleware a morada do CC é lida a partir dos serviços centrais
-o que implica ligação à Internet funcional para a utilização da classe `PTEID_Address` para além da presença do cartão no leitor.
+o que implica ligação à Internet funcional para a utilização da classe `PTEID_Address` para além da presença do cartão no leitor. É por isso necessário garantir que não existe *firewall* ou outro *software* na rede local que impeça a ligação ao endereço `morada.cartaodecidadao.pt`, porto 443.
 
 Existem a partir da referida versão novos códigos de erro relacionados com a utilização deste serviço online e que seguidamente são descritos:
 
