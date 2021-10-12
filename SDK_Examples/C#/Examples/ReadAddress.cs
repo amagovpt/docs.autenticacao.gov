@@ -55,43 +55,53 @@ namespace Examples
             //The number of tries that the user has (updated with each call to verifyPin)
             uint triesLeft = uint.MaxValue;
 
-            //Sets of the card PINs
+            //Get the collection of card PINs
             PTEID_Pins pins = eidCard.getPins();
 
-            //Gets the specific PIN we want
-            //ADDR_PIN - Address Pin
-            //AUTH_PIN - Authentication Pin
-            //SIGN_PIN - Signature Pin
+            //Get the specific PIN we want
             PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
 
             //If the method verifyPin is called with "" as the first argument it prompts the middleware GUI for the user to insert its PIN
-            //Otherwise we can send the PIN as the first argument and the end result will be the same
+            //Otherwise we can provide the PIN as the first argument and the end result will be the same
             if (pin.verifyPin("", ref triesLeft, true))
             {
 
                 //SDK class that handles address related information
                 PTEID_Address address = eidCard.getAddr();
-
                 Console.WriteLine("\n\nReading address details of: " + eid.getGivenName() + " " + eid.getSurname() + ":");
-                Console.WriteLine("Country:                        " + address.getCountryCode());
-                Console.WriteLine("District:                       " + address.getDistrict());
-                Console.WriteLine("District (code):                " + address.getDistrictCode());
-                Console.WriteLine("Municipality:                   " + address.getMunicipality());
-                Console.WriteLine("Municipality (code):            " + address.getMunicipalityCode());
-                Console.WriteLine("Parish:                         " + address.getCivilParish());
-                Console.WriteLine("Parish (code):                  " + address.getCivilParishCode());
-                Console.WriteLine("Street Type (Abbreviated):      " + address.getAbbrStreetType());
-                Console.WriteLine("Street Type:                    " + address.getStreetType());
-                Console.WriteLine("Street Name:                    " + address.getStreetName());
-                Console.WriteLine("Building Type (Abbreviated):    " + address.getAbbrBuildingType());
-                Console.WriteLine("Building Type:                  " + address.getBuildingType());
-                Console.WriteLine("Door nº:                        " + address.getDoorNo());
-                Console.WriteLine("Floor:                          " + address.getFloor());
-                Console.WriteLine("Side:                           " + address.getSide ());
-                Console.WriteLine("Locality:                       " + address.getLocality());
-                Console.WriteLine("Place:                          " + address.getPlace());
-                Console.WriteLine("Postal code:                    " + address.getZip4() + "-" + address.getZip3());
-                Console.WriteLine("Postal Locality:                " + address.getPostalLocality());
+
+                if (address.isNationalAddress())
+                {
+                    Console.WriteLine("---National Address---");
+                    Console.WriteLine("District:                       " + address.getDistrict());
+                    Console.WriteLine("District (code):                " + address.getDistrictCode());
+                    Console.WriteLine("Municipality:                   " + address.getMunicipality());
+                    Console.WriteLine("Municipality (code):            " + address.getMunicipalityCode());
+                    Console.WriteLine("Parish:                         " + address.getCivilParish());
+                    Console.WriteLine("Parish (code):                  " + address.getCivilParishCode());
+                    Console.WriteLine("Street Type (Abbreviated):      " + address.getAbbrStreetType());
+                    Console.WriteLine("Street Type:                    " + address.getStreetType());
+                    Console.WriteLine("Street Name:                    " + address.getStreetName());
+                    Console.WriteLine("Building Type (Abbreviated):    " + address.getAbbrBuildingType());
+                    Console.WriteLine("Building Type:                  " + address.getBuildingType());
+                    Console.WriteLine("Door nº:                        " + address.getDoorNo());
+                    Console.WriteLine("Floor:                          " + address.getFloor());
+                    Console.WriteLine("Side:                           " + address.getSide());
+                    Console.WriteLine("Locality:                       " + address.getLocality());
+                    Console.WriteLine("Place:                          " + address.getPlace());
+                    Console.WriteLine("Postal code:                    " + address.getZip4() + "-" + address.getZip3());
+                    Console.WriteLine("Postal Locality:                " + address.getPostalLocality());
+                }
+                else
+                {
+                    Console.WriteLine("---Foreign Address---");
+                    Console.WriteLine("Address:     " + address.getForeignAddress());
+                    Console.WriteLine("City:        " + address.getForeignCity());
+                    Console.WriteLine("Locality:    " + address.getForeignLocality());
+                    Console.WriteLine("Postal Code: " + address.getForeignPostalCode());
+                    Console.WriteLine("Region:      " + address.getForeignRegion());
+                    Console.WriteLine("Country:     " + address.getForeignCountry());
+                }
             }
         }
 
@@ -112,7 +122,16 @@ namespace Examples
             }
             catch (PTEID_Exception ex)
             {
-                Console.WriteLine(ex.GetMessage());
+                Console.WriteLine("Error in address reading functions. Detail: " + ex.GetMessage());
+
+                /* Possible new error codes for Online address reading returned in ex.GetError()
+                   These are constants defined in class pteidlib_dotNet:
+                   EIDMW_REMOTEADDR_CONNECTION_ERROR
+                   EIDMW_REMOTEADDR_SERVER_ERROR
+                   EIDMW_REMOTEADDR_CONNECTION_TIMEOUT
+                   EIDMW_REMOTEADDR_SMARTCARD_ERROR
+                   EIDMW_REMOTEADDR_UNKNOWN_ERROR
+                */
             }
             catch (Exception ex)
             {
