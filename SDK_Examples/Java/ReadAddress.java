@@ -125,7 +125,15 @@ public class ReadAddress {
             System.out.println("No card inserted.");
         } 
         catch (PTEID_Exception ex) {
-            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
+            System.out.println("Error in address reading functions. Error detail: " + ex.GetMessage());
+			/* Possible new error codes for Online address reading returned in ex.GetError()
+			   These are constants defined in interface pt.gov.cartaodecidadao.pteidlibJava_WrapperConstants:
+			    EIDMW_REMOTEADDR_CONNECTION_ERROR
+				EIDMW_REMOTEADDR_SERVER_ERROR
+				EIDMW_REMOTEADDR_CONNECTION_TIMEOUT
+				EIDMW_REMOTEADDR_SMARTCARD_ERROR
+				EIDMW_REMOTEADDR_UNKNOWN_ERROR
+			*/
         }
         catch (Exception ex) {
             System.out.println("Exception caught: " + ex.getMessage());
