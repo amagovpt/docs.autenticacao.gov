@@ -13,12 +13,11 @@ public class ReadCard {
         }
     }
     
-    //Main attributes needed for SDK functionalities
+    //Main objects needed for SDK functionalities
     PTEID_ReaderSet readerSet = null;
     PTEID_ReaderContext readerContext = null;
     PTEID_EIDCard eidCard = null;
     PTEID_EId eid = null;
-
 
     /**
      * Initializes the SDK and sets main variables
@@ -32,11 +31,13 @@ public class ReadCard {
         //Gets the set of connected readers
         readerSet = PTEID_ReaderSet.instance();
 
-        //Gets the first reader
-        //When multiple readers are connected, you should iterate through the various indexes with the methods getReaderName and getReaderByName
+        //Get the first reader
+        /* When multiple readers are connected readerSet.readerCount() returns greater than 1 
+		   and you should iterate through the various readers with getReaderByNum()
+		   and check if there is a card present with PTEID_ReaderContext.isCardPresent() */
         readerContext = readerSet.getReader();
 
-        //Gets the card instance
+        //Get the card instance for the first reader
         eidCard = readerContext.getEIDCard();
         eid = eidCard.getID();
     }
@@ -50,17 +51,17 @@ public class ReadCard {
             PTEID_ReaderSet.releaseSDK();
 
         } catch (PTEID_Exception ex) {
-            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
+            System.out.println("Caught exception in releaseSDK(). Error: " + ex.GetMessage());
         }
     }
 
     /**
-     * Prints main info present in the card (that doesn't need address pin)
+     * Prints Citizen Identity info present in the card
      * @throws PTEID_Exception when there is some error with the SDK methods
      */
     public void showCardInfo() throws PTEID_Exception {
 
-        System.out.println("\n\nReading card details:");
+        System.out.println("\n\nReading citizen identity info:");
         System.out.println("Name:                       " + eid.getGivenName() + " " + eid.getSurname());
         System.out.println("Card Type:                  " + eid.getDocumentType());
         System.out.println("Card Version:               " + eid.getDocumentVersion());

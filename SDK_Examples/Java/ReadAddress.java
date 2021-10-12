@@ -13,7 +13,7 @@ public class ReadAddress {
         }
     }
     
-    //Main attributes needed for SDK functionalities
+    //Main objects needed for SDK functionalities
     PTEID_ReaderSet readerSet = null;
     PTEID_ReaderContext readerContext = null;
     PTEID_EIDCard eidCard = null;
@@ -28,14 +28,16 @@ public class ReadAddress {
         //Must always be called in the beginning of the program
         PTEID_ReaderSet.initSDK();
 
-        //Gets the set of connected readers
+        //Get the set of connected readers
         readerSet = PTEID_ReaderSet.instance();
 
-        //Gets the first reader
-        //When multiple readers are connected, you should iterate through the various indexes with the methods getReaderName and getReaderByName
+        //Get the first reader
+        /* When multiple readers are connected readerSet.readerCount() returns greater than 1 
+		   and you should iterate through the various readers with getReaderByNum()
+		   and check if there is a card present with PTEID_ReaderContext.isCardPresent() */
         readerContext = readerSet.getReader();
 
-        //Gets the card instance
+        //Get the card instance for the first reader
         eidCard = readerContext.getEIDCard();
         eid = eidCard.getID();
     }
@@ -49,7 +51,7 @@ public class ReadAddress {
             PTEID_ReaderSet.releaseSDK();
 
         } catch (PTEID_Exception ex) {
-            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
+            System.out.println("Caught exception in releaseSDK(). Error: " + ex.GetMessage());
         }
     }
 
@@ -62,14 +64,14 @@ public class ReadAddress {
         //The number of tries that the user has (updated with each call to verifyPin)
         PTEID_ulwrapper triesLeft = new PTEID_ulwrapper(-1);
 
-        //Sets of the card PINs
+        //Get the collection of card PINs
         PTEID_Pins pins = eidCard.getPins();
         
-        //Gets the specific PIN we want
+        //Get the specific PIN we want
         PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
 
         //If the method verifyPin is called with "" as the first argument it prompts the middleware GUI for the user to insert its PIN
-        //Otherwise we can send the PIN as the first argument and the end result will be the same
+        //Otherwise we can provide the PIN as the first argument and the end result will be the same
         if (pin.verifyPin("", triesLeft, true)){
 
             //SDK class that handles address related information
