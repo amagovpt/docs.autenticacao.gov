@@ -874,7 +874,7 @@ aplicação, nomeadamente:
 - **Início:** Opções relativas ao arranque da aplicação.
 
 - **Atualizações automáticas**: Permite ativar ou desativar a verificação de
-novas atualizações quando se inicia a aplicação.
+novas atualizações quando se inicia a aplicação. Esta opção apenas ativa ou desativa a verificação de novas versões da aplicação e não tem qualquer influência na atualização dos certificados, esta é feita automaticamente, sempre que necessário, aquando do início da aplicação. 
 
 - **Idioma:** Selecionar o idioma da aplicação.
 
