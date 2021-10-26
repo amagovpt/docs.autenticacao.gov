@@ -1358,6 +1358,35 @@ em *Firefox*.
 
 3.  Ao clicar em **Enviar**, será solicitado o PIN de assinatura e o seu email será assinado e enviado.
 
+## Assinatura digital de ficheiros DWG e DWF
+
+**1.** Em primeiro lugar  deverá ter instalado no seu computador o **Autodesk Design Review**.
+
+**2.** Abra o ficheiro DWF ou DWG na aplicação.
+
+**3.** Aceda ao menu no campo superior esquerdo:
+
+![Ilustração: Assinatura DWF 1](Pictures/Autenticacao.Gov_dwf1.png "Assinatura de ficheiros DWF"){:.center}
+
+**4.** Aceda à opção **Security**:
+
+![Ilustração: Assinatura DWF 2](Pictures/Autenticacao.Gov_dwf2.png "Assinatura de ficheiros DWF"){:.center}
+
+**5.** Selecione a opção **Add Digital Signature**:
+
+![Ilustração: Assinatura DWF 3](Pictures/Autenticacao.Gov_dwf3.png "Assinatura de ficheiros DWF"){:.center}
+
+**6.** Nesta janela vai aparecer os certificados presentes do computador, pode carregar em **More choices** para selecionar outro certificado. Caso não seja necessário, basta carregar **OK**:
+![Ilustração: Assinatura DWF 4](Pictures/Autenticacao.Gov_dwf4.png "Assinatura de ficheiros DWF"){:.center}
+
+**7.** Introduza o pin pedido na janela:
+
+![Ilustração: Assinatura DWF 5](Pictures/Autenticacao.Gov_dwf5.png "Assinatura de ficheiros DWF"){:.center}
+
+**8.** Após este procedimento, o processo de assinatura digital está concluído e vai aparecer uma janela a confirmar que assinatura está valida:
+![Ilustração: Assinatura DWF 6](Pictures/Autenticacao.Gov_dwf6.png "Assinatura de ficheiros DWF"){:.center}
+
+
 ## Autenticação em portais WEB
 
 Existem duas formas de se autenticar perante um portal web utilizando o
