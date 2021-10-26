@@ -517,7 +517,21 @@ Para terminar o processo de alteração de morada, consultes os seguintes *websi
 **Nota:** Durante o processo de alteração de morada, o cidadão terá de
 se autenticar, por isso deverá ter presente e desbloqueado o seu PIN de
 autenticação.
+
+**Erros durante a consulta e/ou alteração de morada:**
+
+Caso a aplicação não consiga consultar ou efetuar a confirmação da alteração de morada será mostrada uma mensagem de erro.
+
+* **Este erro pode ser resultado da interferência na rede, por um software externo à aplicação Autenticação.Gov.**
+
+  A consulta e alteração de morada requerem a ligação a serviços online para funcionarem corretamente. É por isso necessário garantir que não existe firewall ou outro software na rede local que impeça a ligação a estes serviços. Garanta que os seguintes serviços não são bloqueados:
+  * pki.cartaodecidadao.pt (porto 443) 
+  * (Desde a versão lançada em Outubro de 2021): morada.cartaodecidadao.pt (porto 443)
   
+  No caso de estar ligado a uma rede empresarial, contacte o seu administrador de rede e peça uma configuração de rede que resolva o problema.
+  
+![Ilustração: Erro na alteração de morada](Pictures/Autenticacao.Gov_morada5.png "Pedido de confirmação em processamento"){:.center}
+
 #### Morada e Alteração de morada (Versões anteriores a Outubro de 2021)
 
 > **⚠ IMPORTANTE: Consulta de Morada do Cartão de Cidadão.**  
