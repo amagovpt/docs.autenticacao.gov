@@ -61,6 +61,7 @@
   - [Assinatura digital em *Adobe Acrobat Reader DC* em MacOS com PKCS#11](#assinatura-digital-em-adobe-acrobat-reader-dc-em-macos-com-pkcs11)
   - [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-móvel-digital)
   - [Assinatura digital de email com Mozilla Thunderbird](#assinatura-digital-de-email-com-mozilla-thunderbird)
+  - [Assinatura digital de ficheiros DWG e DWF](#assinatura-digital-de-ficheiros-DWG-e-DWF)
   - [Autenticação em portais WEB](#autenticação-em-portais-web)
     - [Configurar autenticação para *Mozilla Firefox*](#configurar-autenticação-para-mozilla-firefox)
 - [Resolução de Problemas](#resolução-de-problemas)
