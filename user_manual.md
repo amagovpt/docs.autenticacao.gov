@@ -1361,7 +1361,7 @@ em *Firefox*.
 
 ## Assinatura digital de ficheiros DWG e DWF
 
-**1.** Em primeiro lugar  deverá ter instalado no seu computador o **Autodesk Design Review**.
+**1.** Em primeiro lugar  deverá ter instalado no seu computador o **Autodesk Design Review 2013** (as versões mais recentes não disponibilizam a funcionalidade de assinatura digital).
 
 **2.** Abra o ficheiro DWF ou DWG na aplicação.
 
@@ -1377,7 +1377,8 @@ em *Firefox*.
 
 ![Ilustração: Assinatura DWF 3](Pictures/Autenticacao.Gov_dwf3.png "Assinatura de ficheiros DWF"){:.center}
 
-**6.** Nesta janela vai aparecer os certificados presentes do computador, pode carregar em **More choices** para selecionar outro certificado. Caso não seja necessário, basta carregar **OK**:
+**6.** Nesta janela vai aparecer os certificados presentes do computador, pode carregar em **Mais Opções** para selecionar outro certificado. Certifique-se que o certificado selecionado corresponde ao de assinatura digital. Por fim, basta carregar **OK**:
+
 ![Ilustração: Assinatura DWF 4](Pictures/Autenticacao.Gov_dwf4.png "Assinatura de ficheiros DWF"){:.center}
 
 **7.** Introduza o pin pedido na janela:
@@ -1385,6 +1386,7 @@ em *Firefox*.
 ![Ilustração: Assinatura DWF 5](Pictures/Autenticacao.Gov_dwf5.png "Assinatura de ficheiros DWF"){:.center}
 
 **8.** Após este procedimento, o processo de assinatura digital está concluído e vai aparecer uma janela a confirmar que assinatura está valida:
+
 ![Ilustração: Assinatura DWF 6](Pictures/Autenticacao.Gov_dwf6.png "Assinatura de ficheiros DWF"){:.center}
 
 
