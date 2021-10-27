@@ -893,7 +893,7 @@ novas atualizações quando se inicia a aplicação. Esta opção apenas ativa o
 
 - **Idioma:** Selecionar o idioma da aplicação.
 
-- **Aparência:** Opções relativas à aparência da aplicação.
+- **Aparência:** Opções relativas à aparência da aplicação. Nesta secção há uma opção que permite ativar e desativar as animações de transição entre menus.
 
 - **Escala da aplicação:** Opções relativas ao tamanho do texto e outros componentes da aplicação.
 
