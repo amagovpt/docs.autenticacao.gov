@@ -62,7 +62,6 @@
   - [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-móvel-digital)
   - [Assinatura digital de email com Mozilla Thunderbird](#assinatura-digital-de-email-com-mozilla-thunderbird)
   - [Assinatura digital de ficheiros DWF](#assinatura-digital-de-ficheiros-dwf)
-
   - [Assinatura digital de ficheiros DWG](#assinatura-digital-de-ficheiros-dwg)
   - [Autenticação em portais WEB](#autenticação-em-portais-web)
     - [Configurar autenticação para *Mozilla Firefox*](#configurar-autenticação-para-mozilla-firefox)
@@ -1363,7 +1362,7 @@ em *Firefox*.
 
 ## Assinatura digital de ficheiros DWF
 
-**NOTA: A assinatura de ficheiros DWF apenas suporta assinatura com cartão de cidadão** 
+**NOTA: A assinatura de ficheiros DWF apenas suporta assinatura com Cartão de Cidadão** 
 
 **1.** Em primeiro lugar, deverá ter instalado no seu computador o **Autodesk Design Review 2013** (as versões mais recentes não disponibilizam a funcionalidade de assinatura digital).
 
@@ -1396,7 +1395,7 @@ em *Firefox*.
 
 ## Assinatura digital de ficheiros DWG
 
-**1.** Em primeiro lugar, deverá ter instalado no seu computador a versão mais recente da aplicação **AutoCAD** (a versão testada e cujo funcionamento foi confirmado foi a versão **AutoCAD 2022**).
+**1.** Em primeiro lugar, deverá ter instalado no seu computador uma versão atualizada da aplicação **AutoCAD** (a versão testada e cujo funcionamento foi confirmado foi a versão **AutoCAD 2022**).
 
 **2.** Abra o ficheiro DWG na aplicação.
 
