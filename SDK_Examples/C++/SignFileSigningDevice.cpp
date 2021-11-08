@@ -28,13 +28,13 @@ int main(int argc, char **argv) {
         //You need to call this method before being able to use CMD with the SDK
         PTEID_CMDSignatureClient::setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
 
-        //To sign a document you must initialize an instance of PTEID_PDFSignature with the input file
+        //To sign a document you must initialize an instance of PTEID_PDFSignature
         PTEID_PDFSignature signature(input_file);        
 
         //You can set the various signature levels by calling this method
         signature.setSignatureLevel(PTEID_SignatureLevel::PTEID_LEVEL_TIMESTAMP);
 
-        //You can set the location and reason of signature by simply changing this strings
+        //You can set the location and reason fields of the signature
         const char * location = "Lisboa, Portugal";
         const char * reason = "Concordo com o conteudo do documento";
         

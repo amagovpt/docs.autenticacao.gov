@@ -23,7 +23,7 @@ public class SignFileCMD {
         //Must always be called in the beginning of the program
         PTEID_ReaderSet.initSDK();
 
-        //You need define the 3 values: "BASIC_AUTH_USER", "BASIC_AUTH_PASSWORD" and "BASIC_AUTH_APPID"
+        //You need to define the 3 values: "BASIC_AUTH_USER", "BASIC_AUTH_PASSWORD" and "BASIC_AUTH_APPID"
         //and then call this method before being able to use CMD with the SDK
         PTEID_CMDSignatureClient.setCredentials(CMDCredentials.BASIC_AUTH_USER, CMDCredentials.BASIC_AUTH_PASSWORD, CMDCredentials.BASIC_AUTH_APPID);
     }
@@ -49,10 +49,10 @@ public class SignFileCMD {
     public void sign(String input_file, String output_file) throws PTEID_Exception {
 
         //To sign a document you must initialize an instance of PTEID_PDFSignature 
-        //It takes the path for the input file as argument
+        //It may take the path for the input file as an argument
         PTEID_PDFSignature signature = new PTEID_PDFSignature(input_file);
 
-        //You can set the location and reason of signature by simply changing this strings
+        //You can set the location and reason fields of the signature
         String location = "Lisboa, Portugal";
         String reason = "Concordo com o conteudo do documento";
 
