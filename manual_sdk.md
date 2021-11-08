@@ -1239,17 +1239,16 @@ Exemplo C++
 ```c++
 #include "eidlib.h"
 (...)
-//Ficheiro PDF a assinar
-PTEID_PDFSignature signature("/home/user/first-file-to-sign.pdf");
+PTEID_PDFSignature signature;
 
-//Para realizar uma assinatura em batch adicionar todos os ficheiros usando o seguinte método antes de invocar o signginDev.SignPDF()
+//Para realizar uma assinatura em batch adicionar todos os ficheiros usando o seguinte método antes de invocar o signingDev.SignPDF()
+signature.addToBatchSigning("File_to_Sign.pdf");
 signature.addToBatchSigning("Other_File.pdf");
-signature.addToBatchSigning("Yet_Another_FILE.pdf");
 (...)
 
  //Especificar local da assinatura e motivo
-String location = "Lisboa, Portugal";
-String reason = "Concordo com o conteudo do documento";
+const char * location = "Lisboa, Portugal";
+const char * reason = "Concordo com o conteudo do documento";
 
 //Especificar o número da página e a posicação nessa mesma página onde a indicação visual da assinatura aparece
 int page = 1;
