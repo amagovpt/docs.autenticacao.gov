@@ -1414,6 +1414,9 @@ em *Firefox*.
 
 **6.** Ative a checkbox **Anexar assinatura digital após salvar o desenho**. Nesta janela vai aparecer os certificados presentes do computador, selecione **EC de Chave Móvel Digital...**, se pretender assinar com a Chave Móvel, ou **EC de Assinatura Digital Qualificada do Cartão...**, se pretender assinar com o Cartão de Cidadão. Por fim, basta carregar **OK**:
 
+**NOTA**: Para efetuar a assinatura com Chave Móvel Digital deve efetuar o procedimento descrito nesta secção [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-móvel-digital) .
+
+
 * Chave Móvel Digital:
 
 ![Ilustração: Assinatura DWG 4](Pictures/Autenticacao.Gov_dwg4.png "Assinatura de ficheiros DWG"){:.center}
