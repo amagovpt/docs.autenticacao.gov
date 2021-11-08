@@ -61,7 +61,9 @@
   - [Assinatura digital em *Adobe Acrobat Reader DC* em MacOS com PKCS#11](#assinatura-digital-em-adobe-acrobat-reader-dc-em-macos-com-pkcs11)
   - [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-móvel-digital)
   - [Assinatura digital de email com Mozilla Thunderbird](#assinatura-digital-de-email-com-mozilla-thunderbird)
-  - [Assinatura digital de ficheiros DWG e DWF](#assinatura-digital-de-ficheiros-DWG-e-DWF)
+  - [Assinatura digital de ficheiros DWF](#assinatura-digital-de-ficheiros-dwf)
+
+  - [Assinatura digital de ficheiros DWG](#assinatura-digital-de-ficheiros-dwg)
   - [Autenticação em portais WEB](#autenticação-em-portais-web)
     - [Configurar autenticação para *Mozilla Firefox*](#configurar-autenticação-para-mozilla-firefox)
 - [Resolução de Problemas](#resolução-de-problemas)
@@ -1359,11 +1361,13 @@ em *Firefox*.
 
 3.  Ao clicar em **Enviar**, será solicitado o PIN de assinatura e o seu email será assinado e enviado.
 
-## Assinatura digital de ficheiros DWG e DWF
+## Assinatura digital de ficheiros DWF
 
-**1.** Em primeiro lugar  deverá ter instalado no seu computador o **Autodesk Design Review 2013** (as versões mais recentes não disponibilizam a funcionalidade de assinatura digital).
+**NOTA: A assinatura de ficheiros DWF apenas suporta assinatura com cartão de cidadão** 
 
-**2.** Abra o ficheiro DWF ou DWG na aplicação.
+**1.** Em primeiro lugar, deverá ter instalado no seu computador o **Autodesk Design Review 2013** (as versões mais recentes não disponibilizam a funcionalidade de assinatura digital).
+
+**2.** Abra o ficheiro DWF na aplicação.
 
 **3.** Aceda ao menu no campo superior esquerdo:
 
@@ -1389,6 +1393,56 @@ em *Firefox*.
 
 ![Ilustração: Assinatura DWF 6](Pictures/Autenticacao.Gov_dwf6.png "Assinatura de ficheiros DWF"){:.center}
 
+
+## Assinatura digital de ficheiros DWG
+
+**1.** Em primeiro lugar, deverá ter instalado no seu computador a versão mais recente da aplicação **AutoCAD** (a versão testada e cujo funcionamento foi confirmado foi a versão **AutoCAD 2022**).
+
+**2.** Abra o ficheiro DWG na aplicação.
+
+**3.** Aceda ao menu no campo superior esquerdo:
+
+![Ilustração: Assinatura DWG 1](Pictures/Autenticacao.Gov_dwg1.png "Assinatura de ficheiros DWG"){:.center}
+
+**4.** Aceda à opção **Salvar como** e selecione **Desenho**:
+
+![Ilustração: Assinatura DWG 2](Pictures/Autenticacao.Gov_dwg2.png "Assinatura de ficheiros DWG"){:.center}
+
+**5.** Aceda à opção **Ferramentas** e selecione **Assinaturas digitais...**:
+
+![Ilustração: Assinatura DWG 3](Pictures/Autenticacao.Gov_dwg3.png "Assinatura de ficheiros DWG"){:.center}
+
+**6.** Ative a checkbox **Anexar assinatura digital após salvar o desenho**. Nesta janela vai aparecer os certificados presentes do computador, selecione **EC de Chave Móvel Digital...**, se pretender assinar com a Chave Móvel, ou **EC de Assinatura Digital Qualificada do Cartão...**, se pretender assinar com o Cartão de Cidadão. Por fim, basta carregar **OK**:
+
+* Chave Móvel Digital:
+
+![Ilustração: Assinatura DWG 4](Pictures/Autenticacao.Gov_dwg4.png "Assinatura de ficheiros DWG"){:.center}
+
+* Cartão de Cidadão:
+
+![Ilustração: Assinatura DWG 5](Pictures/Autenticacao.Gov_dwg5.png "Assinatura de ficheiros DWG"){:.center}
+
+**7.** No caso da assinatura com o Cartão de Cidadão basta introduzir o pin de não rejeição e carregar **OK**. No caso da assinatura com Chave Móvel Digital vai-lhe ser pedido o seu pin de assinatura da Chave Móvel Digital e, após o ter introduzido corretamente, ser-lhe-á pedido o código de confirmação, enviado para o número de telemóvel registado. 
+
+* Chave Móvel Digital:
+
+![Ilustração: Assinatura DWG 6](Pictures/Autenticacao.Gov_dwg6.png "Assinatura de ficheiros DWG"){:.center}
+
+![Ilustração: Assinatura DWG 7](Pictures/Autenticacao.Gov_dwg7.png "Assinatura de ficheiros DWG"){:.center}
+
+* Cartão de Cidadão:
+
+![Ilustração: Assinatura DWG 8](Pictures/Autenticacao.Gov_dwg8.png "Assinatura de ficheiros DWG"){:.center}
+
+**8.** Após este procedimento, o processo de assinatura digital está concluído. Pode confirmar a assinatura, carregando com o botão direito do rato no documento, selecionando **Propriedades** e acedendo ao menu **Assinatura Digital**:
+
+* Chave Móvel Digital:
+
+![Ilustração: Assinatura DWG 9](Pictures/Autenticacao.Gov_dwg9.png "Assinatura de ficheiros DWG"){:.center}
+
+* Cartão de Cidadão:
+
+![Ilustração: Assinatura DWG 10](Pictures/Autenticacao.Gov_dwg10.png "Assinatura de ficheiros DWG"){:.center}
 
 ## Autenticação em portais WEB
 
