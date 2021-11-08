@@ -73,7 +73,19 @@ elif [ $OPTION == "-sign" ]; then
     g++ -o SignPDFCustomSize.example SignPDFCustomSize.o -lpteidlib
     ./SignPDFCustomSize.example "files/input.pdf" "files/output_custom.pdf"
 
+elif [ $OPTION == "-signCMD" ]; then
 
+    echo "Running C++ SDK Example - SignFileCMD"
+
+    g++ -c -std=c++17 SignFileCMD.cpp
+    g++ -o SignFileCMD.example SignFileCMD.o -lpteidlib
+    ./SignFileCMD.example
+
+    echo "Running C++ SDK Example - SignFileSigningDevice"
+
+    g++ -c -std=c++17 SignFileSigningDevice.cpp
+    g++ -o SignFileSigningDevice.example SignFileSigningDevice.o -lpteidlib
+    ./SignFileSigningDevice.example -CMD
 
 elif [ $OPTION == "-all" ]; then
 
