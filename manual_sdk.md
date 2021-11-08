@@ -937,6 +937,56 @@ if (pin.verifyPin("", ref triesLeft, true)){
 
 ## Assinatura Digital
 
+A funcionalidade de assinatura está disponível para classes que implementam `PTEID_SigningDevice` como `PTEID_EIDCard` e `PTEID_CMDSignatureClient`. 
+
+Ao assinar com `PTEID_EIDCard` será apresentada uma janela para introdução do PIN de assinatura do cartão inserido no leitor. 
+
+Com `PTEID_CMDSignatureClient`, é apresentada uma janela para introdução do número de telemóvel e PIN associados à conta da Chave Móvel Digital do assinante seguido de uma janela para introdução do código de segurança enviado para o telemóvel. Antes de utilizar os serviços da CMD deve configurar as credenciais de acesso ao serviço através do método `setCredentials`. Para mais informação, deverá contactar a AMA pelo email info.cidadao@ama.pt.
+
+Para obter um `PTEID_SigningDevice` deve utilizar a classe `PTEID_SigningDeviceFactory`. No construtor pode indicar qual dos tipos de `PTEID_SigningDevice` deseja obter. Se ativar múltiplas opções, será apresentada uma janela ao utilizador para escolher: Cartão de Cidadão ou Chave Móvel Digital.
+
+**NOTA:** As classes `PTEID_SigningDevice`, `PTEID_CMDSignatureClient` e `PTEID_SigningDeviceFactory` só estão disponíveis a partir da versão 3.6.0 do Middleware. Para versões anteriores, só as classes do cartão suportavam as funcionalidades de assinatura.
+
+**ATENÇÃO:** A alocação e libertação de memória das instâncias de `PTEID_CMDSignatureClient` são geridas pela instância `PTEID_SigningDeviceFactory` de onde foram obtidas! Em linguagens com *garbage collection* como Java e C#, isto implica que é necessário manter a referência para `PTEID_SigningDeviceFactory` enquanto `PTEID_CMDSignatureClient` for usada.
+
+1.  Exemplo C++
+
+```c++
+(...)
+// Necessário para chamadas com PTEID_CMDSignatureClient
+PTEID_CMDSignatureClient::setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
+(...)
+// Neste exemplo ambas as opções estão ativas e, por isso, será apresentada uma janela
+PTEID_SigningDeviceFactory factory(true, true);
+PTEID_SigningDevice signingDev = factory.getSigningDevice();
+(...)
+```
+2.  Exemplo Java
+
+```java
+(...)
+// Necessário para chamadas com PTEID_CMDSignatureClient
+PTEID_CMDSignatureClient.setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
+(...)
+// Neste exemplo ambas as opções estão ativas e, por isso, será apresentada uma janela
+PTEID_SigningDeviceFactory factory = new PTEID_SigningDeviceFactory(true, true);
+PTEID_SigningDevice signingDev = factory.getSigningDevice();
+(...)
+```
+
+3.  Exemplo C#
+
+```csharp
+(...)
+// Necessário para chamadas com PTEID_CMDSignatureClient
+PTEID_CMDSignatureClient.setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
+(...)
+// Neste exemplo ambas as opções estão ativas e, por isso, será apresentada uma janela
+PTEID_SigningDeviceFactory factory = new PTEID_SigningDeviceFactory(true, true);
+PTEID_SigningDevice signingDev = factory.getSigningDevice();
+(...)
+```
+
 ### Formato XML Advanced Electronic Signatures (XAdES)
 
 Esta funcionalidade permite a assinar um ou múltiplos ficheiros em
@@ -947,6 +997,8 @@ ficheiros assinados e um ficheiro XML com a assinatura (XAdES-B/XAdES-T/XAdES-LT
 ficheiro .zip segue a
 [norma europeia ASIC](https://www.etsi.org/deliver/etsi_ts/102900_102999/102918/01.01.01_60/ts_102918v010101p.pdf)
 para *containers* de assinatura.
+
+**NOTA:** A assinatura XAdES ainda não está implementada para `PTEID_CMDSignatureClient`. Neste caso,invocar os métodos de assinatura XAdES irá mandar uma `PTEID_Exception` com código de erro `EIDMW_ERR_NOT_IMPLEMENTED`.
 
 1.  Exemplo C++
 
@@ -995,7 +1047,7 @@ card.SignXadesA( destino, ficheiros, ficheiros.length );
 
 3.  Exemplo C\#
 
-```c
+```csharp
 string ficheiros[] = new string[4];
 ficheiros[0]=@"c:\teste\Ficheiro1";
 ficheiros[1]=@"c:\teste\Ficheiro2";
@@ -1084,14 +1136,15 @@ localizações que produzem uma assinatura truncada na página já que o
 método de assinatura não valida se a localização é válida para o
 "selo de assinatura" a apresentar.
 
+Será apresentado apenas um exemplo C++ para esta funcionalidade embora
+os wrappers Java e C\# contenham exactamente as mesmas classes e métodos
+necessários **PTEID_PdfSignature()** e **PTEID_SigningDevice.SignPDF()**.
 
 Exemplo C++:
 
 ```c++
-// (...) - Inicialização
-
-PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
-
+#include "eidlib.h"
+(...)
 //Ficheiro PDF a assinar
 PTEID_PDFSignature signature("/home/user/input.pdf");    
 
@@ -1121,84 +1174,10 @@ double pos_x = 0.1; //Valores de 0 a 1
 double pos_y = 0.1; //Valores de 0 a 1
 eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, "/home/user/output.pdf");
 
-// (...) - Finalização
-```
-
-Exemplo Java:
-
-```java
-// (...) - Inicialização
-
-PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
-
-//Ficheiro PDF a assinar
-PTEID_PDFSignature signature = new PTEID_PDFSignature("/home/user/input.pdf");
-
-/* Adicionar uma imagem customizada à assinatura visível
-   O array de bytes image_data deve conter uma imagem em formato
-   JPEG com as dimensões recomendadas (351x77 px) */
-PTEID_ByteArray jpeg_data(image_data, image_length);
-signature.setCustomImage(jpeg_data);
-
-// No caso de se querer o formato pequeno da assinatura
-signature.enableSmallSignatureFormat();
-
-/* Configurar o perfil da assinatura:
-PAdES-B: PTEID_SignatureLevel.PTEID_LEVEL_BASIC (configurado por defeito)
-PAdES-T: PTEID_SignatureLevel.PTEID_LEVEL_TIMESTAMP
-PAdES-LT: PTEID_SignatureLevel.PTEID_LEVEL_LT
-PAdES-LTA: PTEID_SignatureLevel.PTEID_LEVEL_LTV */
-signature.setSignatureLevel(PTEID_SignatureLevel.PTEID_LEVEL_TIMESTAMP);
-
- //Especificar local da assinatura e motivo
-String location = "Lisboa, Portugal";
-String reason = "Concordo com o conteudo do documento";
-
-//Especificar o número da página e a posicação nessa mesma página onde a indicação visual da assinatura aparece
-int page = 1;
-double pos_x = 0.1; //Valores de 0 a 1
-double pos_y = 0.1; //Valores de 0 a 1
-eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, "/home/user/output.pdf");
-
-// (...) - Finalização
-```
-
-Exemplo C#:
-```c
-// (...) - Inicialização
-
-PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
-
-//Ficheiro PDF a assinar
-PTEID_PDFSignature signature = new PTEID_PDFSignature("/home/user/input.pdf");
-
-/* Adicionar uma imagem customizada à assinatura visível
-   O array de bytes image_data deve conter uma imagem em formato
-   JPEG com as dimensões recomendadas (351x77 px) */
-PTEID_ByteArray jpeg_data(image_data, image_length);
-signature.setCustomImage(jpeg_data);
-
-// No caso de se querer o formato pequeno da assinatura
-signature.enableSmallSignatureFormat();
-
-/* Configurar o perfil da assinatura:
-PAdES-B: PTEID_SignatureLevel.PTEID_LEVEL_BASIC (configurado por defeito)
-PAdES-T: PTEID_SignatureLevel.PTEID_LEVEL_TIMESTAMP
-PAdES-LT: PTEID_SignatureLevel.PTEID_LEVEL_LT
-PAdES-LTA: PTEID_SignatureLevel.PTEID_LEVEL_LTV */
-signature.setSignatureLevel(PTEID_SignatureLevel.PTEID_LEVEL_TIMESTAMP);
-
- //Especificar local da assinatura e motivo
-String location = "Lisboa, Portugal";
-String reason = "Concordo com o conteudo do documento";
-
-//Especificar o número da página e a posicação nessa mesma página onde a indicação visual da assinatura aparece
-int page = 1;
-double pos_x = 0.1; //Valores de 0 a 1
-double pos_y = 0.1; //Valores de 0 a 1
-eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, "/home/user/output.pdf");
-
-// (...) - Finalização
+//Estes valores podem variar no intervalo [0-1]
+double pos_x = 0.1;
+double pos_y = 0.1;
+signingDev.SignPDF(signature,  page, pos_x, pos_y, location, reason, output_file);
 ```
 
 **Nota:** Se for emitida a exceção com código ```EIDMW_TIMESTAMP_ERROR``` durante uma assinatura PAdES-T, PAdES-LT ou PAdES-LTA, significa que a aplicação do *timestamp* em uma ou mais assinaturas falhou. Neste caso, as assinaturas cujo *timestamping* falhou ficam com nível PAdES-B.
@@ -1210,7 +1189,7 @@ eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, "/home/user/out
 Esta funcionalidade permite assinar um bloco de dados usando ou não o
 certificado de assinatura.
 
-Para isso deverá ser utilizado o método **Sign()** da classe **PTEID_EIDCard**.
+Para isso deverá ser utilizado o método **Sign()** duma classe que implemente **PTEID_SigningDevice**.
 
 O Algoritmo de assinatura suportado é o **RSA-SHA256** mas o *smartcard*
 apenas implementa o algoritmo RSA e como tal o bloco de input deve ser o
@@ -1221,9 +1200,7 @@ apenas implementa o algoritmo RSA e como tal o bloco de input deve ser o
 ```c++
 PTEID_ByteArray data_to_sign;
 (...)
-PTEID_EIDCard &card = readerContext.getEIDCard();
-(...)
-PTEID_ByteArray output = card.Sign(data_to_sign, true);
+PTEID_ByteArray output = signingDev.Sign(data_to_sign, true);
 (...)
 ```
 
@@ -1232,9 +1209,7 @@ PTEID_ByteArray output = card.Sign(data_to_sign, true);
 ```java
 PTEID_ByteArray data_to_sign;
 (...)
-PTEID_EIDCard card = context.getEIDCard();
-(...)
-PTEID_ByteArray output= card.Sign(data_to_sign, true);
+PTEID_ByteArray output= signingDev.Sign(data_to_sign, true);
 (...)
 ```
 
@@ -1243,9 +1218,8 @@ PTEID_ByteArray output= card.Sign(data_to_sign, true);
 ```c
 PTEID_ByteArray data_to_sign, output;
 (...)
-PTEID_EIDCard card = readerContext.getEIDCard();
 PTEID_ByteArray output;
-output = card.Sign(data_to_sign, true);
+output = signingDev.Sign(data_to_sign, true);
 (...)
 ```
 
@@ -1263,16 +1237,15 @@ necessários na classe **PTEID_PDFSignature()**.
 Exemplo C++
 
 ```c++
-// (...) - Inicialização
+#include "eidlib.h"
+(...)
+//Ficheiro PDF a assinar
+PTEID_PDFSignature signature("/home/user/first-file-to-sign.pdf");
 
-PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
-//Inicializar assinatura
-PTEID_PDFSignature signature;
-
-//Para realizar uma assinatura em batch adicionar todos os ficheiros usando o seguinte método antes de invocar o card.SignPDF()
-signature.addToBatchSigning("ficheiro1.pdf");
-signature.addToBatchSigning("ficheiro2.pdf");
-// (...) - Restantes ficheiros
+//Para realizar uma assinatura em batch adicionar todos os ficheiros usando o seguinte método antes de invocar o signginDev.SignPDF()
+signature.addToBatchSigning("Other_File.pdf");
+signature.addToBatchSigning("Yet_Another_FILE.pdf");
+(...)
 
  //Especificar local da assinatura e motivo
 String location = "Lisboa, Portugal";
@@ -1285,69 +1258,8 @@ double pos_y = 0.1; //Valores de 0 a 1
 
 //Para uma assinatura em batch, este parâmetro aponta para a directoria de destino
 const char * output_folder = "/home/user/signed-documents/";
-eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, output_folder);
-
-// (...) - Finalização
-```
-
-Exemplo Java
-
-```java
-// (...) - Inicialização
-
-PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
-
-//To sign a document you must initialize an instance of PTEID_PDFSignature 
-PTEID_PDFSignature signature = new PTEID_PDFSignature();
-
-//Para realizar uma assinatura em batch adicionar todos os ficheiros usando o seguinte método antes de invocar o card.SignPDF()
-signature.addToBatchSigning("ficheiro1.pdf");
-signature.addToBatchSigning("ficheiro2.pdf");
-// (...) - Restantes ficheiros
-
- //Especificar local da assinatura e motivo
-String location = "Lisboa, Portugal";
-String reason = "Concordo com o conteudo do documento";
-
-//Especificar o número da página e a posicação nessa mesma página onde a indicação visual da assinatura aparece
-int page = 1;
-double pos_x = 0.1; //Valores de 0 a 1
-double pos_y = 0.1; //Valores de 0 a 1
-
-//Para uma assinatura em batch, este parâmetro aponta para a directoria de destino
-eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, "/home/user/signed-documents/");
-
-// (...) - Finalização
-```
-
-Exemplo C#
-
-```c
-// (...) - Inicialização
-
-PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
-
-//To sign a document you must initialize an instance of PTEID_PDFSignature 
-PTEID_PDFSignature signature = new PTEID_PDFSignature();
-
-//Para realizar uma assinatura em batch adicionar todos os ficheiros usando o seguinte método antes de invocar o card.SignPDF()
-signature.addToBatchSigning("ficheiro1.pdf");
-signature.addToBatchSigning("ficheiro2.pdf");
-// (...) - Restantes ficheiros
-
- //Especificar local da assinatura e motivo
-String location = "Lisboa, Portugal";
-String reason = "Concordo com o conteudo do documento";
-
-//Especificar o número da página e a posicação nessa mesma página onde a indicação visual da assinatura aparece
-int page = 1;
-double pos_x = 0.1; //Valores de 0 a 1
-double pos_y = 0.1; //Valores de 0 a 1
-
-//Para uma assinatura em batch, este parâmetro aponta para a directoria de destino
-eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, "/home/user/signed-documents/");
-
-// (...) - Finalização
+signingDev.SignPDF(signature,  page, pos_x, pos_y, location, reason, output_folder);
+(...)
 ```
 
 ### Customização do selo de assinatura visível
@@ -1429,68 +1341,32 @@ configurado para obter os selos temporais ao assinar.
 
 ## Certificados digitais
 
-### Leitura dos certificados digitais presentes no cartão de cidadão
+### Leitura dos certificados digitais no cartão de cidadão ou da Chave Móvel Digital
 
-Para a obtenção do **certificado root** , deverá ser utilizado o método **getRoot()**.
+Os métodos para leitura dos certificados estão expostos nas classes que implementam `PTEID_SigningDevice`.
 
-Para a obtenção do **certificado CA**, deverá ser utilizado o método **getCA()**.
+Os métodos `getRoot()`, `getCA()`, `getSignature()` e `getAuthentication()` estão descontinuados.  Para obter os certificados sugere-se invocar o método `getCertificates()` e obter o certificado/construir a cadeia manualmente.
 
-Para a obtenção do **certificado de assinatura** , deverá ser utilizado o método **getSignature()**.
+Para `PTEID_EIDCard`, o método `getCertificates()` devolve uma instância `PTEID_Certificates` que contém os certificados do cartão inserido no leitor e das CAs necessárias à construção da cadeia completa.
 
-Para a obtenção do **certificado de autenticação** , deverá ser utilizado o método **getAuthentication()**.
+Para `PTEID_CMDSignatureClient`, o método `getCertificates()` devolve uma instância `PTEID_Certificates` com a cadeia de certificados usada na última assinatura com essa instância de `PTEID_CMDSignatureClient`. Se nenhuma assinatura tiver sido efetuada, é mostrada uma janela para autenticar com a conta da Chave Móvel Digital para a qual se desejam obter os certificados. Este método requer credenciais de acesso ao serviço CMD tal como os métodos de assinatura (ver secção [Assinatura Digital](#assinatura-digital)).
+
+**NOTA:** As classes `PTEID_SigningDevice`, `PTEID_CMDSignatureClient` e `PTEID_SigningDeviceFactory` só estão disponíveis a partir da versão 3.6.0 do Middleware. Para versões anteriores, só as classes do cartão suportavam as funcionalidades de obtenção dos certificados.
+
+**ATENÇÃO:** A alocação e libertação de memória das instâncias de `PTEID_Certificates` obtidas a partir de uma instância de `PTEID_CMDSignatureClient` são geridas por essa mesma instância. Em linguagens com *garbage collection* como Java e C#, isto implica que é necessário manter a referência para `PTEID_CMDSignatureClient` enquanto as respetivas instâncias de `PTEID_Certificates` forem usadas.
 
 1.  Exemplo C++
 
 ```c++
-PTEID_EIDCard &card = readerContext.getEIDCard();
-// Get the root certificate from the card
-PTEID_Certificate &root=card.getRoot();
-
-// Get the ca certificate from the card
-PTEID_Certificate &ca=card.getCA();
-
-// Get the signature certificate from the card
-PTEID_Certificate &signature=card.getSignature();
-
-// Get the authentication certificate from the card
-PTEID_Certificate &authentication=card.getAuthentication();
+(...)
+PTEID_Certificates &certificates = signingDev.getCertificates();
 ```
 
-2.  Exemplo Java
+2.  Exemplo Java/C#
 
 ```java
-PTEID_EIDCard card = context.getEIDCard();
-
-// Get the root certificate from the card
-PTEID_Certificate root=card.getRoot();
-
-// Get the ca certificate from the card
-PTEID_Certificate ca=card.getCA();
-
-// Get the signature certificate from the card
-PTEID_Certificate signature=card.getSignature();
-
-// Get the authentication certificate from the card
-PTEID_Certificate authentication=card.getAuthentication();
-```
-
-3.  Exemplo C\#
-
-```c
-PTEID_EIDCard card = context.getEIDCard();
-PTEID_EId eid = card.getID();
-
-// Get the root certificate from the card
-PTEID_Certificate root=card.getRoot();
-
-// Get the ca certificate from the card
-PTEID_Certificate ca=card.getCA();
-
-// Get the signature certificate from the card
-PTEID_Certificate signature=card.getSignature();
-
-// Get the authentication certificate from the card
-PTEID_Certificate authentication=card.getAuthentication();
+(...)
+PTEID_Certificates certs = card.getCertificates();
 ```
 
 ## Sessão segura
