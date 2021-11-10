@@ -1049,12 +1049,17 @@ A integração com aplicações é também possível com a Chave Móvel Digital,
 
 Na assinatura com Chave Móvel Digital, a mensagem de verificação enviada ao utizador segue um dos 2 seguintes formatos:
 
-- No caso de aplicações como o *Adobe Acrobat Reader* ou *Microsoft Office*: **Código de segurança: <código>. Assinatura de documento "<título do documento/email>".** Exemplo:
+- No caso de aplicações como o *Adobe Acrobat Reader* ou *Microsoft Office*:  
+  **Código de segurança: \<código\>.  
+  Assinatura de documento "\<título do documento/email\>".**  
+  Exemplo:
 
 ![Ilustração: Formato de Mensagem de CMD 1](Pictures/Mensagem_cmd_tipo_1.png "Assinatura em Microsoft Office"){:.center}
 
-- No caso de outras aplicações que suportem assinatura digital ou quando não é possível verificar o nome do documento: 
-**Código de segurança: <código>. Assinatura de documento "Aplicação: <Nome da aplicação> - Id: <últimos 8 dígitos da hash do conteúdo a ser assinado>".** Exemplo:
+- No caso de outras aplicações que suportem assinatura digital ou quando não é possível verificar o nome do documento:  
+**Código de segurança: \<código\>.  
+  Assinatura de documento "Aplicação: \<Nome da aplicação\> - Id: \<últimos 8 dígitos da hash do conteúdo a ser assinado\>".**  
+  Exemplo:
 
 ![Ilustração: Formato de Mensagem de CMD 2](Pictures/Mensagem_cmd_tipo_2.png "Assinatura em Microsoft Office"){:.center}
 
