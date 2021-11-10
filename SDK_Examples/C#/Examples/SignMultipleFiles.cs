@@ -65,7 +65,7 @@ namespace Examples
                 signature.addToBatchSigning(args[i]);
             }
 
-            //You can set the location and reason of signature by simply changing this strings
+            //You can set the location and reason fields of the signature
             String location = "Lisboa, Portugal";
             String reason = "Concordo com o conteudo do documento";
 

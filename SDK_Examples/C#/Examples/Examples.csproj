@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>Examples</RootNamespace>
     <AssemblyName>Examples</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Examples.PinInfo</StartupObject>
+    <StartupObject>Examples.SignFileSigningDevice</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="pteidlib_dotnet">
@@ -51,6 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PinInfo.cs" />
+    <Compile Include="SignFileCMD.cs" />
+    <Compile Include="SignFileCustomSize.cs" />
+    <Compile Include="SignFileSigningDevice.cs" />
     <Compile Include="SignXAdES.cs" />
     <Compile Include="SignMultipleFiles.cs" />
     <Compile Include="SignFile.cs" />

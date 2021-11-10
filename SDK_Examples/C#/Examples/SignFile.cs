@@ -55,10 +55,10 @@ namespace Examples
         {
 
             //To sign a document you must initialize an instance of PTEID_PDFSignature 
-            //It takes the path for the input file as argument
+            //It may take the path for the input file as argument
             PTEID_PDFSignature signature = new PTEID_PDFSignature(input_file);
 
-            //You can set the location and reason of signature by simply changing this strings
+            //You can set the location and reason fields of the signature
             String location = "Lisboa, Portugal";
             String reason = "Concordo com o conteudo do documento";
 
