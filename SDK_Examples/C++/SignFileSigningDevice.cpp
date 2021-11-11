@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
         PTEID_CMDSignatureClient::setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
 
         //To sign a document you must initialize an instance of PTEID_PDFSignature
-        PTEID_PDFSignature signature(input_file);        
+        PTEID_PDFSignature signature(input_file);
 
         //You can set the various signature levels by calling this method
         signature.setSignatureLevel(PTEID_SignatureLevel::PTEID_LEVEL_TIMESTAMP);
@@ -43,29 +43,26 @@ int main(int argc, char **argv) {
         double pos_x = 0.1;
         double pos_y = 0.1;
 
-        //Instead of calling the getEIDCard() method, you can now call getSigningDevice() after initializing a SigningDeviceFactory
+        //Instead of calling the getEIDCard() method, you can now call PTEID_SigningDeviceFactory::getSigningDevice()
         //This way you can choose to use CMD or your card to sign the files
+
+        //Get SigningDeviceFactory instance
+        PTEID_SigningDeviceFactory &factory = PTEID_SigningDeviceFactory::instance();
 
         if (!flag.compare("-CMD")) 
         {
-            //You only want CMD, so you disallow normal signature by setting the first argument to false
-            PTEID_SigningDeviceFactory factory(false, true);
-            
-            //You then get a SigningDevice by calling getSigningDevice()
-            PTEID_SigningDevice& device = factory.getSigningDevice();
+            //If you only want CMD signature, you can disallow card signature by setting the first argument to false
+            PTEID_SigningDevice& device = factory.getSigningDevice(false, true);
 
             //And you sign the file normally as you would in the previous versions of the SDK 
             device.SignPDF(signature, page, pos_x, pos_y, location, reason, output_file);    
-        
+
             std::cout << "File signed successfully" << std::endl;
         }
         else if (!flag.compare("-CARD")) 
         {
-            //You only want the card signature, so you disallow CMD by setting the second argument to false
-            PTEID_SigningDeviceFactory factory(true, false);
-            
-            //You then get a SigningDevice by calling getSigningDevice()
-            PTEID_SigningDevice& device = factory.getSigningDevice();
+            //If you only want card signature, you can disallow CMD signature by setting the second argument to false
+            PTEID_SigningDevice& device = factory.getSigningDevice(true, false);
 
             //And you sign the file normally as you would in the previous versions of the SDK 
             device.SignPDF(signature, page, pos_x, pos_y, location, reason, output_file);    
@@ -74,10 +71,7 @@ int main(int argc, char **argv) {
         } 
         else if (!flag.compare("-BOTH")) 
         {
-            //If you want both methods to be available (CMD and CARD signature) you either initialize "factory(true, true)" or use the default constructor:
-            PTEID_SigningDeviceFactory factory;
-            
-            //You then get a SigningDevice by calling getSigningDevice()
+            //If you want both methods to be available (CMD and CARD signature) you can set both arguments to true(default)
             PTEID_SigningDevice& device = factory.getSigningDevice();
 
             //And you sign the file normally as you would in the previous versions of the SDK 
