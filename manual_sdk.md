@@ -1165,8 +1165,8 @@ PAdES-LTA: PTEID_SignatureLevel::PTEID_LEVEL_LTV */
 signature.setSignatureLevel(PTEID_SignatureLevel::PTEID_LEVEL_TIMESTAMP);
 
  //Especificar local da assinatura e motivo
-String location = "Lisboa, Portugal";
-String reason = "Concordo com o conteudo do documento";
+const char * location = "Lisboa, Portugal";
+const char * reason = "Concordo com o conteudo do documento";
 
 //Especificar o número da página e a posicação nessa mesma página onde a indicação visual da assinatura aparece
 int page = 1;
