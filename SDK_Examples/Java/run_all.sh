@@ -74,6 +74,16 @@ elif [ $OPTION == "-sign" ]; then
 	javac -cp $JAR_PATH:. SignData.java
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignData
 
+elif [ $OPTION == "-signCMD" ]; then
+
+    echo "Running Java SDK Example - SignFileCMD"
+    javac -cp $JAR_PATH:. SignFileCMD.java
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignFileCMD "files/input.pdf" "files/output.pdf"
+
+
+    echo "Running Java SDK Example - SignFileSigningDevice"
+    javac -cp $JAR_PATH:. SignFileSigningDevice.java
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. SignFileSigningDevice -BOTH "files/input.pdf" "files/output.pdf"
 
 elif [ $OPTION == "-all" ]; then
 
