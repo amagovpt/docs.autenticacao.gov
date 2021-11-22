@@ -33,10 +33,10 @@
   - [Assinatura Digital](#assinatura-digital)
     - [Formato XML Advanced Electronic Signatures (XAdES)](#formato-xml-advanced-electronic-signatures-xades)
     - [Ficheiros PDF](#ficheiros-pdf)
-    - [Bloco de dados](#bloco-de-dados)
     - [Multi-assinatura com uma única introdução de PIN](#multi-assinatura-com-uma-única-introdução-de-pin)
     - [Customização do selo de assinatura visível](#customização-do-selo-de-assinatura-visível)
     - [Configurar o servidor de selo temporal](#configurar-o-servidor-de-selo-temporal)
+    - [Bloco de dados](#bloco-de-dados)
   - [Certificados digitais](#certificados-digitais)
     - [Leitura dos certificados digitais no cartão de cidadão ou da Chave Móvel Digital](#leitura-dos-certificados-digitais-no-cartão-de-cidadão-ou-da-chave-móvel-digital)
   - [Sessão segura](#sessão-segura)
@@ -1168,45 +1168,6 @@ signingDev.SignPDF(signature,  page, pos_x, pos_y, location, reason, output_file
 
 **Nota 2:** De modo semelhante à nota anterior, se for emitida a exceção com código ```EIDMW_LTV_ERROR``` numa assinatura PAdES-LT ou PAdES-LTA, significa que não foi possível adicionar os dados de revogação ou o selo temporal sobre esses dados. Nesse caso, as assinaturas cujo *timestamping* falhou ficam com nível PAdES-T ou PAdES-LT dependendo se os dados de revogação foram corretamente adicionados.
 
-### Bloco de dados
-
-Esta funcionalidade permite assinar um bloco de dados usando ou não o
-certificado de assinatura.
-
-Para isso deverá ser utilizado o método **Sign()** duma classe que implemente **PTEID_SigningDevice**.
-
-O Algoritmo de assinatura suportado é o **RSA-SHA256** mas o *smartcard*
-apenas implementa o algoritmo RSA e como tal o bloco de input deve ser o
-*hash* **SHA-256** dos dados que se pretende assinar.
-
-1.  Exemplo C++
-
-```c++
-PTEID_ByteArray data_to_sign;
-(...)
-PTEID_ByteArray output = signingDev.Sign(data_to_sign, true);
-(...)
-```
-
-2.  Exemplo Java
-
-```java
-PTEID_ByteArray data_to_sign;
-(...)
-PTEID_ByteArray output= signingDev.Sign(data_to_sign, true);
-(...)
-```
-
-3.  Exemplo C\#
-
-```c
-PTEID_ByteArray data_to_sign, output;
-(...)
-PTEID_ByteArray output;
-output = signingDev.Sign(data_to_sign, true);
-(...)
-```
-
 ### Multi-assinatura com uma única introdução de PIN
 
 Esta funcionalidade permite assinar vários documentos PDF introduzindo o PIN
@@ -1321,6 +1282,45 @@ config.setString("http://sha256timestamp.ws.symantec.com/sha256/timestamp");
 Após esta configuração tanto as assinaturas de documentos PDF (PAdES)
 bem como a assinaturas em formato XAdES vão usar este novo servidor
 configurado para obter os selos temporais ao assinar.
+
+### Bloco de dados
+
+Esta funcionalidade permite assinar um bloco de dados usando ou não o
+certificado de assinatura.
+
+Para isso deverá ser utilizado o método **Sign()** duma classe que implemente **PTEID_SigningDevice**.
+
+O Algoritmo de assinatura suportado é o **RSA-SHA256** mas o *smartcard*
+apenas implementa o algoritmo RSA e como tal o bloco de input deve ser o
+*hash* **SHA-256** dos dados que se pretende assinar.
+
+1.  Exemplo C++
+
+```c++
+PTEID_ByteArray data_to_sign;
+(...)
+PTEID_ByteArray output = signingDev.Sign(data_to_sign, true);
+(...)
+```
+
+2.  Exemplo Java
+
+```java
+PTEID_ByteArray data_to_sign;
+(...)
+PTEID_ByteArray output= signingDev.Sign(data_to_sign, true);
+(...)
+```
+
+3.  Exemplo C\#
+
+```c
+PTEID_ByteArray data_to_sign, output;
+(...)
+PTEID_ByteArray output;
+output = signingDev.Sign(data_to_sign, true);
+(...)
+```
 
 ## Certificados digitais
 
