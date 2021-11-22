@@ -35,9 +35,10 @@
     - [Ficheiros PDF](#ficheiros-pdf)
     - [Bloco de dados](#bloco-de-dados)
     - [Multi-assinatura com uma única introdução de PIN](#multi-assinatura-com-uma-única-introdução-de-pin)
+    - [Customização do selo de assinatura visível](#customização-do-selo-de-assinatura-visível)
     - [Configurar o servidor de selo temporal](#configurar-o-servidor-de-selo-temporal)
   - [Certificados digitais](#certificados-digitais)
-    - [Leitura dos certificados digitais presentes no cartão de cidadão](#leitura-dos-certificados-digitais-presentes-no-cartão-de-cidadão)
+    - [Leitura dos certificados digitais no cartão de cidadão ou da Chave Móvel Digital](#leitura-dos-certificados-digitais-no-cartão-de-cidadão-ou-da-chave-móvel-digital)
   - [Sessão segura](#sessão-segura)
 - [Tratamento de erros](#tratamento-de-erros)
 - [API PKCS#11](#api-pkcs11)
@@ -945,7 +946,7 @@ Com `PTEID_CMDSignatureClient`, é apresentada uma janela para introdução do n
 
 Para obter um `PTEID_SigningDevice` deve utilizar a classe `PTEID_SigningDeviceFactory`. Na chamada ao método `getSigningDevice` pode indicar qual dos tipos de `PTEID_SigningDevice` deseja obter. Se ativar múltiplas opções, será apresentada uma janela ao utilizador para escolher: Cartão de Cidadão ou Chave Móvel Digital.
 
-**NOTA:** As classes `PTEID_SigningDevice`, `PTEID_CMDSignatureClient` e `PTEID_SigningDeviceFactory` só estão disponíveis a partir da versão 3.7.0 do Middleware. Para versões anteriores, só as classes do cartão suportavam as funcionalidades de assinatura.
+**NOTA:** As classes `PTEID_SigningDevice`, `PTEID_CMDSignatureClient` e `PTEID_SigningDeviceFactory` ainda não estão disponíveis na versão de produção do Middleware. Está previsto ser disponibilizado em breve. Para a versão atual, só as classes do cartão suportavam as funcionalidades de assinatura.
 
 1.  Exemplo C++
 
@@ -1348,7 +1349,7 @@ Para `PTEID_EIDCard`, o método `getCertificates()` devolve uma instância `PTEI
 
 Para `PTEID_CMDSignatureClient`, o método `getCertificates()` devolve uma instância `PTEID_Certificates` com a cadeia de certificados usada na última assinatura com essa instância de `PTEID_CMDSignatureClient`. Se nenhuma assinatura tiver sido efetuada, é mostrada uma janela para autenticar com a conta da Chave Móvel Digital para a qual se desejam obter os certificados. Este método requer credenciais de acesso ao serviço CMD tal como os métodos de assinatura (ver secção [Assinatura Digital](#assinatura-digital)).
 
-**NOTA:** As classes `PTEID_SigningDevice`, `PTEID_CMDSignatureClient` e `PTEID_SigningDeviceFactory` só estão disponíveis a partir da versão 3.7.0 do Middleware. Para versões anteriores, só as classes do cartão suportavam as funcionalidades de obtenção dos certificados.
+**NOTA:** As classes `PTEID_SigningDevice`, `PTEID_CMDSignatureClient` e `PTEID_SigningDeviceFactory` ainda não estão disponíveis na versão de produção do Middleware. Está previsto ser disponibilizado em breve. Para a versão atual, só as classes do cartão suportavam as funcionalidades de assinatura.
 
 
 1.  Exemplo C++
