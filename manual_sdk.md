@@ -33,7 +33,7 @@
   - [Assinatura Digital](#assinatura-digital)
     - [Formato XML Advanced Electronic Signatures (XAdES)](#formato-xml-advanced-electronic-signatures-xades)
     - [Ficheiros PDF](#ficheiros-pdf)
-    - [Multi-assinatura com uma única introdução de PIN](#multi-assinatura-com-uma-única-introdução-de-pin)
+    - [Assinatura de vários documentos PDF com uma única introdução de PIN](#assinatura-de-vários-documentos-pdf-com-uma-única-introdução-de-pin)
     - [Customização do selo de assinatura visível](#customização-do-selo-de-assinatura-visível)
     - [Configurar o servidor de selo temporal](#configurar-o-servidor-de-selo-temporal)
     - [Bloco de dados](#bloco-de-dados)
@@ -1157,18 +1157,13 @@ int page = 1;
 double pos_x = 0.1; //Valores de 0 a 1
 double pos_y = 0.1; //Valores de 0 a 1
 eidCard.SignPDF(signature, page, pos_x, pos_y, location, reason, "/home/user/output.pdf");
-
-//Estes valores podem variar no intervalo [0-1]
-double pos_x = 0.1;
-double pos_y = 0.1;
-signingDev.SignPDF(signature,  page, pos_x, pos_y, location, reason, output_file);
 ```
 
 **Nota:** Se for emitida a exceção com código ```EIDMW_TIMESTAMP_ERROR``` durante uma assinatura PAdES-T, PAdES-LT ou PAdES-LTA, significa que a aplicação do *timestamp* em uma ou mais assinaturas falhou. Neste caso, as assinaturas cujo *timestamping* falhou ficam com nível PAdES-B.
 
 **Nota 2:** De modo semelhante à nota anterior, se for emitida a exceção com código ```EIDMW_LTV_ERROR``` numa assinatura PAdES-LT ou PAdES-LTA, significa que não foi possível adicionar os dados de revogação ou o selo temporal sobre esses dados. Nesse caso, as assinaturas cujo *timestamping* falhou ficam com nível PAdES-T ou PAdES-LT dependendo se os dados de revogação foram corretamente adicionados.
 
-### Multi-assinatura com uma única introdução de PIN
+### Assinatura de vários documentos PDF com uma única introdução de PIN
 
 Esta funcionalidade permite assinar vários documentos PDF introduzindo o PIN
 somente uma vez. O selo visual de assinatura será aplicado na mesma página e localização em todos
