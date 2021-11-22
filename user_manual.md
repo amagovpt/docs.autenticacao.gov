@@ -675,12 +675,12 @@ secção “Escolha os ficheiros”, como podemos visualizar na imagem seguinte.
       Serviço de Selos Temporais na página Configuração de
       assinaturas](#configuração-de-assinaturas)
 
-      - **Adicionar LTV:** LTV (*Long-Term Validation*). Com a opção ativa, os dados necessários
+      - **Validação de longo prazo:** Com a opção ativa, os dados necessários
         para validar a assinatura digital serão incluidos no ficheiro final assinado. Deste modo, é
         possível provar no futuro que no momento da assinatura o certificado do cartão (ou Chave
         Móvel Digital) e respectiva cadeia não estavam revogados ou expirados. Este nível é
         recomendado para documentos que estão destinados a serem arquivados por um longo período de
-        tempo. A assinatura LTV obedece à especificação do perfil PAdES-LTA.
+        tempo. A assinatura com validação de longo prazo obedece à especificação do perfil PAdES-LTA.
 
         **Nota**: Disponível a partir da versão 3.4.0 da aplicação.
 
