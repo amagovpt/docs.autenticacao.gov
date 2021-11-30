@@ -1928,7 +1928,7 @@ Os seguintes registos podem ser adicionados:
 
 `HKLM\Software\PTEID\certificatecache\cert_cache_validity`
 
-  - **Tipo**: Número (0 a 65535)
+  - **Tipo**: Número (0 a 2147483647)
   - **Descrição**:  Tempo de cache local (em segundos) do estado de validade dos certificados.
   - **Valor por omissão**: 60
 
