@@ -1523,8 +1523,13 @@ da seguinte forma:
 
     /* Os algoritmos de assinatura suportados pelo Cartão de Cidadão via PKCS#11 são 
        os seguintes e podem ser especificados através do método Signature.getInstance():
-       - SHA256withRSA (recomendado)
-       - SHA1withRSA
+	   - SHA512WithRSA
+	   - SHA384WithRSA
+       - SHA256withRSA  (recomendado por ser compatível com todos os cartões em circulação)
+	   - SHA512WithRSASSA-PSS
+	   - SHA384WithRSASSA-PSS
+	   - SHA256withRSASSA-PSS
+       - SHA1withRSA    (Não utilizar a não ser por razões de retro-compatibilidade com sistemas antigos)
     */
 
 ```
