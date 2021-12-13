@@ -117,7 +117,8 @@ bits, são:
 
       - Windows 7;
       - Windows 8/8.1;
-      - Windows 10
+      - Windows 10;
+      - Windows 11.
 
   - Distribuições de Linux:
 

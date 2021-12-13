@@ -133,6 +133,7 @@ A lista de sistemas operativos suportados, nas suas arquiteturas de 32 e
     -   Microsoft Windows 8
     -   Microsoft Windows 8.1
     -   Microsoft Windows 10
+    -   Microsoft Windows 11
 -   Distribuições de Linux suportadas:
     -   Fedora 28 e superiores
     -   OpenSuse Leap 15 e superiores
@@ -305,7 +306,7 @@ sistema operativo utilizado.
     Recomenda-se que o computador seja reiniciado no final destes
     passos.
 
-### Remoção em *Microsoft Windows 10*
+### Remoção em *Microsoft Windows 10 ou 11*
 #### Através do Painel de Controlo <!-- omit in toc -->
 
 1.  Aceda ao **Painel de Controlo**.
