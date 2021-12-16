@@ -967,6 +967,10 @@ Neste separador é possível apagar os dados de cache armazenados das
 leituras dos cartões e do carregamento de atributos profissionais e
 empresariais.
 
+Os dados armazenados relativos ao Cartão de Cidadão são os dados de identidade, a foto e a cadeia de certificação de autenticação e assinatura.
+
+Relativamente aos atributos profissionais e empresariais são armazenados a lista de atributos pré-carregados.
+
 Existe também a possibilidade de desabilitar a cache dos dados dos cartões, desativando a opção "Utilizar cache de dados do cartão".
 
 ![Ilustração: Janela Dados Aplicação](Pictures/Autenticacao.Gov_dados_app.png "Janela Dados Aplicação"){:.center}
