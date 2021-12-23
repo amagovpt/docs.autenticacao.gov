@@ -52,16 +52,16 @@
 - [Integração com aplicações](#integração-com-aplicações)
   - [Integração com aplicações em Windows](#integração-com-aplicações-em-windows)
   - [Integração com aplicações via interface PKCS\#11](#integração-com-aplicações-via-interface-pkcs11)
-  - [Assinatura digital e Autenticação](#assinatura-digital-e-autenticação)
-  - [Assinatura digital na suite *Microsoft Office*](#assinatura-digital-na-suite-microsoft-office)
-  - [Assinatura digital na suite *LibreOffice / OpenOffice*](#assinatura-digital-na-suite-libreoffice--openoffice)
-  - [Assinatura digital de email com *Microsoft Outlook*](#assinatura-digital-de-email-com-microsoft-outlook)
-  - [Assinatura digital em *Adobe Acrobat Reader*](#assinatura-digital-em-adobe-acrobat-reader)
-  - [Assinatura digital em *Adobe Acrobat Reader DC* em MacOS com PKCS#11](#assinatura-digital-em-adobe-acrobat-reader-dc-em-macos-com-pkcs11)
-  - [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-móvel-digital)
-  - [Assinatura digital de email com Mozilla Thunderbird](#assinatura-digital-de-email-com-mozilla-thunderbird)
-  - [Assinatura digital de ficheiros DWF](#assinatura-digital-de-ficheiros-dwf)
-  - [Assinatura digital de ficheiros DWG](#assinatura-digital-de-ficheiros-dwg)
+  - [Assinatura digital em aplicações comuns](#assinatura-digital-em-aplicações-comuns)
+    - [Assinatura digital na suite *Microsoft Office*](#assinatura-digital-na-suite-microsoft-office)
+    - [Assinatura digital na suite *LibreOffice / OpenOffice*](#assinatura-digital-na-suite-libreoffice--openoffice)
+    - [Assinatura digital de email com *Microsoft Outlook*](#assinatura-digital-de-email-com-microsoft-outlook)
+    - [Assinatura digital em *Adobe Acrobat Reader*](#assinatura-digital-em-adobe-acrobat-reader)
+    - [Assinatura digital em *Adobe Acrobat Reader DC* em MacOS com PKCS#11](#assinatura-digital-em-adobe-acrobat-reader-dc-em-macos-com-pkcs11)
+    - [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-móvel-digital)
+    - [Assinatura digital de email com Mozilla Thunderbird](#assinatura-digital-de-email-com-mozilla-thunderbird)
+    - [Assinatura digital de ficheiros DWF](#assinatura-digital-de-ficheiros-dwf)
+    - [Assinatura digital de ficheiros DWG](#assinatura-digital-de-ficheiros-dwg)
   - [Autenticação em portais WEB](#autenticação-em-portais-web)
     - [Configurar autenticação para *Mozilla Firefox*](#configurar-autenticação-para-mozilla-firefox)
 - [Resolução de Problemas](#resolução-de-problemas)
@@ -185,7 +185,7 @@ sistema operativo utilizado.
 
     ![Ilustração: Instalação da aplicação em Windows](Pictures/Autenticacao.Gov_Instalacao_termos.png "Instalação da aplicação em Windows"){:.center}
 
-3.  Após selecionar **Avançadas**, poderá escolher a pasta onde deseja instalar a aplicação. Se desejar alterar a pasta predefinida, carrege em
+3.  Após selecionar **Avançadas**, poderá escolher a pasta onde deseja instalar a aplicação. Se desejar alterar a pasta predefinida, carregue em
     **Alterar** e na janela que surgir, navegue até à pasta de destino
     e carregue **OK**. Para continuar a instalação na pasta de destino,
     deverá premir o botão **Seguinte**.
@@ -370,7 +370,7 @@ seguintes são apresentados os ecrãs utilizando Linux Ubuntu 18.04.3 LTS.
 
     ![Ilustração: Remoção da aplicação em Linux](Pictures/Autenticacao.Gov_Desinstalar_Linux3.png "Remoção da aplicação em Linux"){:.center}
 
-4.  Confirme a operação, voltando a primir o botão **Remover**.
+4.  Confirme a operação, voltando a escolher o botão **Remover**.
 
     ![Ilustração: Remoção da aplicação em Linux](Pictures/Autenticacao.Gov_Desinstalar_Linux4.png "Remoção da aplicação em Linux"){:.center}
 
@@ -524,7 +524,7 @@ seguintes passos:
     morada será escrita no Cartão de Cidadão.
 
     **Por favor, não retire o cartão do leitor, não desligue a aplicação
-    e não desligue a internet, enquanto o processo não estiver
+    e não desligue a Internet, enquanto o processo não estiver
     terminado.**
 
     ![Ilustração: Pedido de confirmação em processamento](Pictures/Autenticacao.Gov_morada3.png "Pedido de confirmação em processamento"){:.center}
@@ -545,7 +545,7 @@ seguintes passos:
 
       - **Não existe uma alteração de morada registada para este cartão.**
 
-        Caso tenha solicitado uma alteração de morada, verifique que está a usar o Cartão de Cidadão correcto.
+        Caso tenha solicitado uma alteração de morada, verifique que está a usar o Cartão de Cidadão correto.
 
         ![Ilustração: Erro na alteração de morada](Pictures/Autenticacao.Gov_morada4.png "Erro na alteração de morada"){:.center}
 
@@ -642,7 +642,7 @@ secção “Escolha os ficheiros”, como podemos visualizar na imagem seguinte.
 
 - **Pré-visualização da assinatura:** Permite visualizar o documento a ser assinado e ajustar a
   posição e o tamanho do selo de assinatura, movendo-o para o local pretendido com as dimensões desejadas. A pré-visualização existe apenas
-  para assinatura do tipo **PDF**, sendo possível pre-visualizar qualquer um dos ficheiros de uma multi-assinatura através de um clique no nome do ficheiro na aplicação.
+  para assinatura do tipo **PDF**, sendo possível pré-visualizar qualquer um dos ficheiros de uma multi-assinatura através de um clique no nome do ficheiro na aplicação.
 
 - **Opções avançadas - Configurações:**
 
@@ -657,7 +657,7 @@ secção “Escolha os ficheiros”, como podemos visualizar na imagem seguinte.
           Disponível para assinaturas com **Cartão de Cidadão**. Este pacote é um arquivo ZIP criado
           de acordo com a especificação ASiC (Associated Signature Container) desenvolvido pela ETSI
           (European Telecommunications Standards Institute) e segue os padrões da UE. Este arquivo
-          contêm a informação assinada (ficheiros originais) e a respetiva assinatura no formato
+          contém a informação assinada (ficheiros originais) e a respetiva assinatura no formato
           XAdES.
 
     - **Motivo:** Motivo da assinatura – campo opcional – permite ao signatário indicar o motivo da
@@ -677,9 +677,9 @@ secção “Escolha os ficheiros”, como podemos visualizar na imagem seguinte.
       assinaturas](#configuração-de-assinaturas)
 
       - **Validação de longo prazo:** Com a opção ativa, os dados necessários
-        para validar a assinatura digital serão incluidos no ficheiro final assinado. Deste modo, é
+        para validar a assinatura digital serão incluídos no ficheiro final assinado. Deste modo, é
         possível provar no futuro que no momento da assinatura o certificado do cartão (ou Chave
-        Móvel Digital) e respectiva cadeia não estavam revogados ou expirados. Este nível é
+        Móvel Digital) e respetiva cadeia não estavam revogados ou expirados. Este nível é
         recomendado para documentos que estão destinados a serem arquivados por um longo período de
         tempo. A assinatura com validação de longo prazo obedece à especificação do perfil PAdES-LTA.
 
@@ -701,7 +701,7 @@ secção “Escolha os ficheiros”, como podemos visualizar na imagem seguinte.
     - **Página:** Poderá escolher a página onde será apresentada a assinatura. Disponível para
       assinaturas do tipo **PDF**.
 
-    - **Última:** Poderá escolher a última página para apresentadar a assinatura. Disponível para
+    - **Última:** Poderá escolher a última página para apresentar a assinatura. Disponível para
       assinaturas do tipo **PDF**.
 
     - **Reduzida:** Permite utilizar um selo de assinatura de tamanho reduzido. O selo reduzido
@@ -715,7 +715,7 @@ pré-visualização do selo de assinatura para a localização pretendida e de s
 **Assinar com Cartão de Cidadão** ou **Assinar com Chave Móvel Digital**.
 
 O botão **Assinar com Cartão de Cidadão** só está disponível quando o Cartão de Cidadão estiver
-inserido no leitor de cartões e for correctamente lido pela aplicação. O botão
+inserido no leitor de cartões e for corretamente lido pela aplicação. O botão
 **Assinar com Chave Móvel Digital** só está disponível nas assinaturas do tipo **PDF**.
 
 Após clicar em **Assinar** deverá escolher a localização da pasta e do ficheiro onde guardar o
@@ -867,7 +867,7 @@ aplicação. Este modo eleva o nível de detalhe do *log* para *debug*, o
 que, em caso de problemas com a aplicação, pode ajudar a equipa de
 suporte na resolução do problema.
 
-  **A partir da versão 3.5.0 da aplicação, para todos os sistemas operativos, para ajudar a obter os ficheiros de log, existe uma nova funcionalidade que permite criar um "Relatório de Suporte". Para isso só é necessario pressionar o botão "Criar relatório".** Ao pressionar o botão **Criar relatório** é criada uma pasta comprimida (ficheiro zip) no Ambiente de Trabalho que contem todos os ficheiros de log. Deve enviar esta pasta (zip), anexada à descrição do problema, para o contacto de suporte. Para mais informações consulte o capítulo [Obtenção do relatório para análise através do menu Configurações](#obtenção-do-relatório-para-análise-através-do-menu-configurações).
+  **A partir da versão 3.5.0 da aplicação, para todos os sistemas operativos, para ajudar a obter os ficheiros de log, existe uma nova funcionalidade que permite criar um "Relatório de Suporte". Para isso só é necessário pressionar o botão "Criar relatório".** Ao pressionar o botão **Criar relatório** é criada uma pasta comprimida (ficheiro zip) no Ambiente de Trabalho que contem todos os ficheiros de log. Deve enviar esta pasta (zip), anexada à descrição do problema, para o contacto de suporte. Para mais informações consulte o capítulo [Obtenção do relatório para análise através do menu Configurações](#obtenção-do-relatório-para-análise-através-do-menu-configurações).
 
   Os ficheiros de *log* por omissão são criados nas seguintes localizações e têm
   como nome o prefixo .PTEID:
@@ -998,7 +998,7 @@ O *middleware* disponibiliza suporte criptográfico às aplicações via suporte
 
 
 
-### Integração com aplicações em Windows
+## Integração com aplicações em Windows
 
 **Integração com aplicações com o Cartão de Cidadão:**
 
@@ -1015,7 +1015,7 @@ Para que os certificados fiquem automaticamente registados é necessário:
 
 A integração com aplicações é também possível com a Chave Móvel Digital, ao nível da componente de assinatura digital. Para tal, siga o procedimento descrito em [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-m%c3%b3vel-digital).
 
-Na assinatura com Chave Móvel Digital, a mensagem de verificação enviada ao utizador segue um dos 2 seguintes formatos:
+Na assinatura com Chave Móvel Digital, a mensagem de verificação enviada ao utilizador segue um dos 2 seguintes formatos:
 
 - No caso de aplicações como o *Adobe Acrobat Reader* ou *Microsoft Office*:  
   **Código de segurança: \<código\>.  
@@ -1032,7 +1032,7 @@ Na assinatura com Chave Móvel Digital, a mensagem de verificação enviada ao u
 ![Ilustração: Formato de Mensagem de CMD 2](Pictures/Mensagem_cmd_tipo_2.png "Assinatura em Microsoft Office"){:.center}
 
 
-### Integração com aplicações via interface PKCS\#11
+## Integração com aplicações via interface PKCS\#11
 
 No caso das aplicações com suporte PKCS\#11, geralmente é necessário
 configurar a localização do ficheiro da aplicação, que permite o
@@ -1045,10 +1045,10 @@ ser utilizado.
 
 **MacOS:** `/usr/local/lib/libpteidpkcs11.dylib`
 
-### Assinatura digital e Autenticação
+## Assinatura digital em aplicações comuns
 
 Nos pontos seguintes será explicada a utilização das funcionalidades de
-assinatura digital e autenticação nas seguintes aplicações:
+assinatura digital nas seguintes aplicações:
 
 **Assinatura digital:**
 
@@ -1059,12 +1059,7 @@ assinatura digital e autenticação nas seguintes aplicações:
 - [Adobe Acrobat Reader em MacOS com PKCS#11](assinatura-digital-em-adobe-acrobat-reader-dc-em-macos-com-pkcs11)
 - [Mozilla Thunderbird com PKCS#11](#assinatura-digital-de-email-com-mozilla-thunderbird)
 
-**Autenticação:**
-
-- [Internet Explorer](#autentica%c3%a7%c3%a3o-em-portais-web)
-- [Mozilla Firefox](#configurar-autenticação-para-mozilla-firefox)
-  
-## Assinatura digital na suite *Microsoft Office*
+### Assinatura digital na suite *Microsoft Office*
 
 Nesta secção é apresentada a assinatura digital de documentos em
 ficheiros *Office*, nomeadamente, nas aplicações: *Word*, *Excel* e
@@ -1090,7 +1085,7 @@ passos:
 Poderá encontrar informação mais detalhada no seguinte link: [Adicionar/Remover uma Assinatura Digital nos ficheiros do Office](https://support.office.com/pt-pt/article/Adicionar-ou-remover-uma-assinatura-digital-nos-ficheiros-do-Office-70d26dc9-be10-46f1-8efa-719c8b3f1a2d).
 
 
-## Assinatura digital na suite *LibreOffice / OpenOffice*
+### Assinatura digital na suite *LibreOffice / OpenOffice*
 
 Nesta secção é apresentada a assinatura digital de documentos em
 ficheiros *LibreOffice*, nomeadamente, nas aplicações, *Calc*, *Write* e
@@ -1126,7 +1121,7 @@ passos:
 
 
 
-## Assinatura digital de email com *Microsoft Outlook*
+### Assinatura digital de email com *Microsoft Outlook*
 
 A assinatura digital no *Outlook*, por omissão, obriga a que o
 certificado digital inclua o endereço de email, e este corresponda com o
@@ -1193,7 +1188,7 @@ assinado.
     ![Ilustração: Assinatura em Outlook: Escolha do certificado](Pictures/Autenticacao.Gov_outlook6.png
       "Assinatura em Outlook: Escolha do certificado"){:.center}
 
-## Assinatura digital em *Adobe Acrobat Reader*
+### Assinatura digital em *Adobe Acrobat Reader*
 
 **Nota**: para assinar um documento no *Adobe Acrobat Reader DC* em MacOS, siga as instruções da secção [Assinatura digital em *Adobe Acrobat Reader* em MacOS com PKCS#11](#assinatura-digital-em-adobe-acrobat-reader-em-macos-com-pkcs11).
 
@@ -1213,7 +1208,13 @@ Para assinar um documento aberto no *Adobe Acrobat Reader* deve:
 
 6. Para concluir, introduza o seu PIN de assinatura.
 
-## Assinatura digital em *Adobe Acrobat Reader DC* em MacOS com PKCS#11
+### Assinatura digital em *Adobe Acrobat Reader DC* em MacOS com PKCS#11
+
+**Nota**: Em computadores MacOS com processador ARM, Apple M1 ou sucessores, só é possível utilizar o módulo de assinatura no Adobe Reader se esta aplicação for executada em modo Intel emulado.
+
+Pode consultar as instruções do fabricante para desligar o modo nativo na página de ajuda: 
+* https://helpx.adobe.com/pt/acrobat/kb/apple-silicon-m1-processor-support.html
+
 
 Para assinar um documento aberto no *Adobe Acrobat Reader DC*, em MacOS, deve primeiro carregar o módulo PKCS#11. Para tal, siga as seguintes instruções:
 
@@ -1251,7 +1252,7 @@ Depois de ter adicionado o módulo PKCS#11, para assinar um documento aberto no 
 
 6. Para concluir, introduza o seu PIN de assinatura.
 
-## Assinatura digital com Chave Móvel Digital
+### Assinatura digital com Chave Móvel Digital
 
 Pode assinar documentos ou emails com a Chave Móvel Digital no Windows em aplicações como *Microsoft Word*, *Microsoft Excel*, *Microsoft Outlook* e *Adobe Acrobat Reader*. O procedimento é muito semelhante aos descritos nas secções anteriores mas difere em dois aspetos:
 
@@ -1274,7 +1275,7 @@ No caso de ainda não ter registado o seu certificado após uma re-ativação da
 - Após confirmar na aplicação em uso que pretende assinar será mostrada uma janela onde, tal como no registo do certificado, deverá introduzir o seu PIN de assinatura da Chave Móvel Digital. Se o PIN estiver correto, deverá receber um SMS com o código de confirmação que deverá introduzir na janela para concluir a assinatura.
 
 
-## Assinatura digital de email com Mozilla Thunderbird
+### Assinatura digital de email com Mozilla Thunderbird
 
 Para poder assinar digitalmente um email no *Thunderbird*, é necessário
 inicialmente efetuar a respetiva configuração. Os passos descritos de
@@ -1333,7 +1334,7 @@ em *Firefox*.
 
 3.  Ao clicar em **Enviar**, será solicitado o PIN de assinatura e o seu email será assinado e enviado.
 
-## Assinatura digital de ficheiros DWF
+### Assinatura digital de ficheiros DWF
 
 **NOTA: A assinatura de ficheiros DWF apenas suporta assinatura com Cartão de Cidadão** 
 
@@ -1366,7 +1367,7 @@ em *Firefox*.
 ![Ilustração: Assinatura DWF 6](Pictures/Autenticacao.Gov_dwf6.png "Assinatura de ficheiros DWF"){:.center}
 
 
-## Assinatura digital de ficheiros DWG
+### Assinatura digital de ficheiros DWG
 
 **1.** Em primeiro lugar, deverá ter instalado no seu computador uma versão atualizada da aplicação **AutoCAD** (a versão testada e cujo funcionamento foi confirmado foi a versão **AutoCAD 2022**).
 
@@ -1447,7 +1448,7 @@ A autenticação por certificado através do portal autenticação.gov.pt não e
 
 Para mais informação, consulte esta página de ajuda:
 
-- <https://autenticacao.gov.pt/fa/ajuda/autenticacaogovpt.aspx>
+* <https://autenticacao.gov.pt/fa/ajuda/autenticacaogovpt.aspx>
 
 De forma a que a configuração do seu computador suporte qualquer uma das
 alternativas, recomenda-se que instale a aplicação no seu computador
