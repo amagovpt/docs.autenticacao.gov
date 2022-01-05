@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tproxyinfo_262',['tProxyInfo',['../structtProxyInfo.html',1,'']]]
+  ['tproxyinfo_266',['tProxyInfo',['../structtProxyInfo.html',1,'']]]
 ];

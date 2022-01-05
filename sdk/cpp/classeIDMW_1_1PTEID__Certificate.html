@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Portuguese eID Middleware SDK
-   &#160;<span id="projectnumber">Version: 3.5.0</span>
+   &#160;<span id="projectnumber">Version: 3.7.0</span>
    </div>
   </td>
  </tr>
@@ -114,6 +114,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a53ae8f20a412f5979721556b343616a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31bac6fa7aa28fceec53307261b6f5b9"><td class="memItemLeft" align="right" valign="top">PTEIDSDK_API const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeIDMW_1_1PTEID__Certificate.html#a31bac6fa7aa28fceec53307261b6f5b9">getOwnerName</a> ()</td></tr>
 <tr class="separator:a31bac6fa7aa28fceec53307261b6f5b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5ccb4294c1d568fd69f913791d34cfc"><td class="memItemLeft" align="right" valign="top">PTEIDSDK_API const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeIDMW_1_1PTEID__Certificate.html#ad5ccb4294c1d568fd69f913791d34cfc">getSubjectSerialNumber</a> ()</td></tr>
+<tr class="separator:ad5ccb4294c1d568fd69f913791d34cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56624dabe541406354feb4d5361e34aa"><td class="memItemLeft" align="right" valign="top">PTEIDSDK_API const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeIDMW_1_1PTEID__Certificate.html#a56624dabe541406354feb4d5361e34aa">getIssuerName</a> ()</td></tr>
 <tr class="separator:a56624dabe541406354feb4d5361e34aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a130c115239ed61329f3d7153b702b4f1"><td class="memItemLeft" align="right" valign="top">PTEIDSDK_API const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeIDMW_1_1PTEID__Certificate.html#a130c115239ed61329f3d7153b702b4f1">getValidityBegin</a> ()</td></tr>
@@ -130,6 +132,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a492f7b1095511978a6e5fbba6ddfcdcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acca321fec6d19891d258b110709e2374"><td class="memItemLeft" align="right" valign="top">PTEIDSDK_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeIDMW_1_1PTEID__Certificate.html#acca321fec6d19891d258b110709e2374">isFromCard</a> ()</td></tr>
 <tr class="separator:acca321fec6d19891d258b110709e2374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0273e4775cdb549760485eb214b03ae3"><td class="memItemLeft" align="right" valign="top">PTEIDSDK_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeIDMW_1_1PTEID__Certificate.html#a0273e4775cdb549760485eb214b03ae3">verifyDateValidity</a> ()</td></tr>
+<tr class="separator:a0273e4775cdb549760485eb214b03ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a862c84ee4be11b9deea8dcad14ade878"><td class="memItemLeft" align="right" valign="top">PTEIDSDK_API <a class="el" href="classeIDMW_1_1PTEID__Certificate.html">PTEID_Certificate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeIDMW_1_1PTEID__Certificate.html#a862c84ee4be11b9deea8dcad14ade878">getIssuer</a> ()</td></tr>
 <tr class="separator:a862c84ee4be11b9deea8dcad14ade878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac37cfe42013db34211a831c8ade8a5fc"><td class="memItemLeft" align="right" valign="top">PTEIDSDK_API unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeIDMW_1_1PTEID__Certificate.html#ac37cfe42013db34211a831c8ade8a5fc">countChildren</a> ()</td></tr>
@@ -484,6 +488,24 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="ad5ccb4294c1d568fd69f913791d34cfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5ccb4294c1d568fd69f913791d34cfc">&#9670;&nbsp;</a></span>getSubjectSerialNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PTEIDSDK_API const char* eIDMW::PTEID_Certificate::getSubjectSerialNumber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the serial number of the subject of the certificate </p>
+
+</div>
+</div>
 <a id="a025537471c9a6dcd71077dc001c2b8cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a025537471c9a6dcd71077dc001c2b8cd">&#9670;&nbsp;</a></span>getType()</h2>
 
@@ -610,6 +632,24 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>true if test certificate </dd>
 <dd>
 false if good one </dd></dl>
+
+</div>
+</div>
+<a id="a0273e4775cdb549760485eb214b03ae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0273e4775cdb549760485eb214b03ae3">&#9670;&nbsp;</a></span>verifyDateValidity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PTEIDSDK_API bool eIDMW::PTEID_Certificate::verifyDateValidity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return true if the current time is between the certificate's notBefore and notAfter </p>
 
 </div>
 </div>

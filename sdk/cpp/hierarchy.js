@@ -6,6 +6,7 @@ var hierarchy =
     [ "eIDMW::PTEID_Exception", "classeIDMW_1_1PTEID__Exception.html", [
       [ "eIDMW::PTEID_ExBadTransaction", "classeIDMW_1_1PTEID__ExBadTransaction.html", null ],
       [ "eIDMW::PTEID_ExBadUsage", "classeIDMW_1_1PTEID__ExBadUsage.html", null ],
+      [ "eIDMW::PTEID_ExBatchSignatureFailed", "classeIDMW_1_1PTEID__ExBatchSignatureFailed.html", null ],
       [ "eIDMW::PTEID_ExCardBadType", "classeIDMW_1_1PTEID__ExCardBadType.html", null ],
       [ "eIDMW::PTEID_ExCardChanged", "classeIDMW_1_1PTEID__ExCardChanged.html", null ],
       [ "eIDMW::PTEID_ExCardTypeUnknown", "classeIDMW_1_1PTEID__ExCardTypeUnknown.html", null ],

@@ -12,6 +12,7 @@ var classeIDMW_1_1PTEID__Pin =
     [ "getTriesLeft", "classeIDMW_1_1PTEID__Pin.html#ab813a80c1d2b5cb432a014dd2cb2bd49", null ],
     [ "getType", "classeIDMW_1_1PTEID__Pin.html#ae2074e68266f612456bd0a2012401d05", null ],
     [ "getUsageCode", "classeIDMW_1_1PTEID__Pin.html#a7f4fb171a011bba128c4e8298ca66e4c", null ],
+    [ "isVerified", "classeIDMW_1_1PTEID__Pin.html#ac2118ee3b300cb091136ebe24c045786", null ],
     [ "unlockPin", "classeIDMW_1_1PTEID__Pin.html#ab8ab9f8cef7bd419f4594624468916f3", null ],
     [ "verifyPin", "classeIDMW_1_1PTEID__Pin.html#abc6e7b41462361f206cef4f9794755af", null ],
     [ "verifyPin", "classeIDMW_1_1PTEID__Pin.html#a607cdb3a73dd5784fab0ab86461de11c", null ],

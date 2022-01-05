@@ -14,6 +14,7 @@ var classeIDMW_1_1PTEID__PDFSignature =
     [ "isLandscapeFormat", "classeIDMW_1_1PTEID__PDFSignature.html#a043702d9cbbf5a1d6db0368f7adff97a", null ],
     [ "setCustomImage", "classeIDMW_1_1PTEID__PDFSignature.html#a6a49f5eb0ee634e28e24850fe18535bc", null ],
     [ "setCustomImage", "classeIDMW_1_1PTEID__PDFSignature.html#ae55768246a66929dd263d36c0ce04b5f", null ],
+    [ "setCustomSealSize", "classeIDMW_1_1PTEID__PDFSignature.html#a24e38a6905c536126dc315d40186ed58", null ],
     [ "setFileSigning", "classeIDMW_1_1PTEID__PDFSignature.html#aafd61b41e37d2ca54c4ec48a18de821d", null ],
     [ "setSignatureLevel", "classeIDMW_1_1PTEID__PDFSignature.html#aebc17fdd3bd9567e2da9298f52c7668f", null ],
     [ "PTEID_EIDCard", "classeIDMW_1_1PTEID__PDFSignature.html#a83baaf810c86b5b6e4026018af5a6fa8", null ]

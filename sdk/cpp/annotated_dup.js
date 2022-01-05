@@ -15,6 +15,7 @@ var annotated_dup =
       [ "PTEID_EIDCard", "classeIDMW_1_1PTEID__EIDCard.html", "classeIDMW_1_1PTEID__EIDCard" ],
       [ "PTEID_ExBadTransaction", "classeIDMW_1_1PTEID__ExBadTransaction.html", "classeIDMW_1_1PTEID__ExBadTransaction" ],
       [ "PTEID_ExBadUsage", "classeIDMW_1_1PTEID__ExBadUsage.html", "classeIDMW_1_1PTEID__ExBadUsage" ],
+      [ "PTEID_ExBatchSignatureFailed", "classeIDMW_1_1PTEID__ExBatchSignatureFailed.html", "classeIDMW_1_1PTEID__ExBatchSignatureFailed" ],
       [ "PTEID_ExCardBadType", "classeIDMW_1_1PTEID__ExCardBadType.html", "classeIDMW_1_1PTEID__ExCardBadType" ],
       [ "PTEID_ExCardChanged", "classeIDMW_1_1PTEID__ExCardChanged.html", "classeIDMW_1_1PTEID__ExCardChanged" ],
       [ "PTEID_ExCardTypeUnknown", "classeIDMW_1_1PTEID__ExCardTypeUnknown.html", "classeIDMW_1_1PTEID__ExCardTypeUnknown" ],
