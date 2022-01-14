@@ -11,8 +11,6 @@ namespace Examples
         PTEID_ReaderSet readerSet = null;
         PTEID_ReaderContext readerContext = null;
         PTEID_EIDCard eidCard = null;
-        PTEID_EId eid = null;
-
 
         /*
          * Initializes the SDK and sets main variables
@@ -31,7 +29,6 @@ namespace Examples
 
             //Gets the card instance
             eidCard = readerContext.getEIDCard();
-            eid = eidCard.getID();
         }
 
         /*

@@ -20,7 +20,6 @@ int main(int argc, char **argv) {
         
         //Gets the EIDCard and EId objects (with the cards information)
         PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
-        PTEID_EId& eid = PTEID_ReaderSet::instance().getReader().getEIDCard().getID();
 
         //Read current notes and print them
         const char *my_notes = eidCard.readPersonalNotes(); 

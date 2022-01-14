@@ -17,7 +17,6 @@ public class ReadAndWriteNotes {
     PTEID_ReaderSet readerSet = null;
     PTEID_ReaderContext readerContext = null;
     PTEID_EIDCard eidCard = null;
-    PTEID_EId eid = null;
 
     /**
      * Initializes the SDK and sets main variables
@@ -37,7 +36,6 @@ public class ReadAndWriteNotes {
 
         //Gets the card instance
         eidCard = readerContext.getEIDCard();
-        eid = eidCard.getID();
     }
 
     /**
