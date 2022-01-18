@@ -930,6 +930,8 @@ com o Cartão de Cidadão:
 - **Certificados**: Opções relativas ao registo e remoção de certificados
 durante a inserção e remoção do cartão.
 
+    As opções de registo e remoção de certificados requerem que esta aplicação esteja em funcionamento (minimizada ou maximizada).
+
 - **Serviço de Selos Temporais:** Configurar um serviço de selos temporais
 personalizado.
 
@@ -957,9 +959,9 @@ aplicações do Microsoft Office.
 
 - **Novo certificado raiz do Estado (Windows):** Permite instalar o certificado raiz da nova cadeia de certificados do cartão de cidadão na *Store* de certificados raiz confiáveis do Windows. Para saber mais consulte a secção [Problemas com a nova cadeia de confiança](#problemas-com-a-nova-cadeia-de-confiança).
 
-A imagem seguinte permite visualizar o menu de configurações de assinaturas.
+    A imagem seguinte permite visualizar o menu de configurações de assinaturas.
 
-![Ilustração: Janela de configurações de assinaturas](Pictures/Autenticacao.Gov_configuracao_assinaturas.png "Janela de configurações de assinaturas"){:.center}
+    ![Ilustração: Janela de configurações de assinaturas](Pictures/Autenticacao.Gov_configuracao_assinaturas.png "Janela de configurações de assinaturas"){:.center}
 
 #### Dados da aplicação
 
@@ -1897,7 +1899,7 @@ Os seguintes registos podem ser adicionados:
 `HKLM\Software\PTEID\configuretool\registrate_certificate`
 
   - **Tipo**: Número (0 / 1)
-  - **Descrição**:  Registar certificados no Windows com a inserção do cartão.
+  - **Descrição**:  Registar certificados no Windows com a inserção do cartão. As opções de registo e remoção de certificados requerem que esta aplicação esteja em funcionamento (minimizada ou maximizada).
   - **Valor por omissão**: 1 (Sim)
 
 ---
