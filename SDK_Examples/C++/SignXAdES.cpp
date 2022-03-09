@@ -8,7 +8,7 @@ int main(int argc, char **argv) {
 
     try 
     {
-        //Initializes SDK (must always be called in the beginning of the program)
+        //Initialize SDK (must always be called in the beginning of the program)
         PTEID_InitSDK();
 
         PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
@@ -18,33 +18,36 @@ int main(int argc, char **argv) {
         int n_paths = 2; 
 
         //Output zips
-        const char *outputXades = "files/Xades.zip";
-        const char *outputXadesT = "files/XadesT.zip";
-        const char *outputXadesA = "files/XadesA.zip";
-
-        //Sign all files with unique signature          
+        const char *outputXades = "files/Xades.asic";
+        const char *outputXadesT = "files/XadesT.asic";
+        const char *outputXadesA = "files/XadesA.asic";
+        
+        std::cout << "Performing XAdES-B signature (2 input files)" << std::endl;
+        //Sign all files with just one basic signature
         eidCard.SignXades(outputXades, files, n_paths);
 
-        //Sign all files with unique signature including timestamp            
+        std::cout << "Performing XAdES-T signature (2 input files)" << std::endl;
+        //Sign all files with just one timestamped signature
         eidCard.SignXadesT(outputXadesT, files, n_paths);
       
-        //Sign all files with type A (archival) unique signature 
+        std::cout << "Performing XAdES-LTA signature (2 input files)" << std::endl;
+        //Sign all files with type A (archival) signature (includes certificate revocation info and 2 timestamps)
         eidCard.SignXadesA(outputXadesA, files, n_paths);
     }
     catch (PTEID_ExNoReader &e) 
     {
-        std::cout << "No readers found!" << std::endl;
+        std::cerr << "No readers found!" << std::endl;
     }
     catch (PTEID_ExNoCardPresent &e) 
     {
-        std::cout << "No card found in the reader!" << std::endl;
+        std::cerr << "No card found in the reader!" << std::endl;
     }
     catch (PTEID_Exception &e) 
     {
-        std::cout << "Caught exception in some SDK method. Error: " << e.GetMessage() << std::endl;
+        std::cerr << "Caught exception in some SDK method. Error: " << e.GetMessage() << std::endl;
     }
  
-    //Releases SDK (must always be called at the end of the program)
+    //Release SDK (must always be called at the end of the program)
     PTEID_ReleaseSDK();
     return 0;
 }
