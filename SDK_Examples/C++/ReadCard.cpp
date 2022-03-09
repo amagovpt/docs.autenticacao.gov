@@ -13,14 +13,23 @@ int main(int argc, char **argv) {
 
         //Gets the set of readers connected to the system
         PTEID_ReaderSet& readerSet = PTEID_ReaderSet::instance();
-        
+
+        unsigned long reader_count = ReaderSet.readerCount();
+        const char * const * reader_list = ReaderSet.readerList();
+        std::cout << "Connected Readers: " << std::endl;
+
+        for (int i=0; i < reader_count; i++) {
+            std::cout << i << ": " << reader_list[i] << std::endl;
+        }
+
         //Gets a reader connected to the system (useful if you only have one)
         //Alternatively you can iterate through the readers using getReaderByNum(int index) instead of getReader()
-        PTEID_ReaderContext& readerContext = PTEID_ReaderSet::instance().getReader();
-        
+        PTEID_ReaderContext& reader = PTEID_ReaderSet::instance().getReader();
+        //                                                        getReaderByNum(3);
+
         //Gets the EIDCard and EId objects (with the cards information)
-        PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
-        PTEID_EId& eid = PTEID_ReaderSet::instance().getReader().getEIDCard().getID();
+        PTEID_EIDCard& eidCard = reader.getEIDCard();
+        PTEID_EId& eid = eidCard.getID();
 
         std::cout << "Name:                       " << eid.getGivenName() << " " << eid.getSurname() << std::endl;
         std::cout << "Card Type:                  " << eid.getDocumentType() << std::endl;
@@ -50,15 +59,15 @@ int main(int argc, char **argv) {
     }
     catch (PTEID_ExNoReader &e) 
     {
-        std::cout << "No readers found!" << std::endl;
+        std::cerr << "No readers found!" << std::endl;
     }
     catch (PTEID_ExNoCardPresent &e) 
     {
-        std::cout << "No card found in the reader!" << std::endl;
+        std::cerr << "No card found in the reader!" << std::endl;
     }
     catch (PTEID_Exception &e) 
     {
-        std::cout << "Caught exception in some SDK method. Error: " << e.GetMessage() << std::endl;
+        std::cerr << "Caught exception in some SDK method. Error: " << e.GetMessage() << std::endl;
     }
 
     //Releases SDK (must always be called at the end of the program)

@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
 
     try 
     {
-        //Initializes SDK (must always be called in the beginning of the program)
+        //Initialize the SDK (must always be called in the beginning of the program)
         PTEID_InitSDK();
 
         PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
@@ -44,15 +44,15 @@ int main(int argc, char **argv) {
     }
     catch (PTEID_ExNoReader &e) 
     {
-        std::cout << "No readers found!" << std::endl;
+        std::cerr << "No readers found!" << std::endl;
     }
     catch (PTEID_ExNoCardPresent &e) 
     {
-        std::cout << "No card found in the reader!" << std::endl;
+        std::cerr << "No card found in the reader!" << std::endl;
     }
     catch (PTEID_Exception &e) 
     {
-        std::cout << "Caught exception in some SDK method. Error: " << e.GetMessage() << std::endl;
+        std::cerr << "Caught exception in some SDK method. Error: " << e.GetMessage() << std::endl;
     }
     
     PTEID_ReleaseSDK();

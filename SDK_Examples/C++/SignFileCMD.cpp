@@ -14,14 +14,14 @@ int main(int argc, char **argv) {
     
     try 
     {
-        //Initializes SDK (must always be called in the beginning of the program)
+        //Initialize SDK (must always be called in the beginning of the program)
         PTEID_InitSDK();
 
-        //You need to call this method before being able to use CMD with the SDK
+        //You need to call this static method before using any other method on class PTEID_CMDSignatureClient
         PTEID_CMDSignatureClient::setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
 
         //To sign a document you must initialize an instance of PTEID_PDFSignature
-        PTEID_PDFSignature signature(input_file);        
+        PTEID_PDFSignature signature(input_file);
 
         //You can set the various signature levels by calling this method
         signature.setSignatureLevel(PTEID_SignatureLevel::PTEID_LEVEL_TIMESTAMP);
@@ -44,17 +44,9 @@ int main(int argc, char **argv) {
         std::cout << "File signed successfully" << std::endl;
 
     }
-    catch (PTEID_ExNoReader &e) 
-    {
-        std::cout << "No readers found!" << std::endl;
-    }
-    catch (PTEID_ExNoCardPresent &e) 
-    {
-        std::cout << "No card found in the reader!" << std::endl;
-    }
     catch (PTEID_Exception &e) 
     {
-        std::cout << "Caught exception in some SDK method. Error: " << e.GetMessage() << std::endl;
+        std::cerr << "Caught exception in some SDK method. Error: " << e.GetMessage() << std::endl;
     }
     
     PTEID_ReleaseSDK();
