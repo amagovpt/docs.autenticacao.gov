@@ -990,6 +990,16 @@ A janela ajuda fornece um resumo das funcionalidades da aplicação, indica o ca
 
 ![Ilustração: Janela Acerca](Pictures/Autenticacao.Gov_acerca.png "Janela Acerca"){:.center}
 
+### Centro de Notificações
+
+Este menu disponibiliza aos utilizadores informações relativas a notícias, configurações e atualizações, no formato de notificações, e é aberto automaticamente no arranque da aplicação, caso existam notificações novas para mostrar ao utilizador.
+![Ilustração: Centro de Notificações](Pictures/Autenticacao.Gov_centro_notificacoes.png "Centro de Notificações"){:.center}
+
+No que diz respeito às configurações, podem existir notificações de caráter obrigatório cuja interação é necessária para utilizar a aplicação, como é o caso do uso da cache:
+
+![Ilustração: Centro de Notificações - Cache](Pictures/Autenticacao.Gov_centro_notificacoes_cache.png "Centro de Notificações - Cache"){:.center}
+
+
 # Integração com aplicações
 
 O *middleware* do Cartão de Cidadão, instalado com a aplicação Autenticação.Gov, permite a integração com outras aplicações do sistema operativo, disponibilizando duas funcionalidades: Autenticação e Assinatura Digital.
