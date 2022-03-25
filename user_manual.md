@@ -1589,11 +1589,13 @@ Para mais informações consultar a página de ajuda:
 
 ## Problemas gráficos na aplicação
 
+O modo de renderização que está configurado na aplicação no momento da instalação é o que permite o melhor desempenho na maioria dos casos: a renderização por Hardware. No entanto este modo exige um driver OpenGL funcional no sistema para a placa gráfica do computador.
+
 No caso de existirem problemas gráficos, recomenda-se alterar o modo de renderização gráfica. Pode fazê-lo na secção Aceleração gráfica do submenu [Configuração da aplicação](#configuração-da-aplicação).
 
 **No caso da aplicação não arrancar ou tiver problemas no arranque**, é possível alterar essa opção de três formas distintas:
 
-1. [Exclusivo para Windows a partir da versão 3.4.0 da aplicação] Na pasta da instalação da aplicação (que por defeito é "C:\Program Files\Portugal Identity Card") existe três atalhos que ao clicar vai abrir a aplicação alterando o modo de renderização gráfica. Os atalhos são ícones clicáveis com o símbolo da aplicação e têm os seguintes nomes:
+1. [Exclusivo para Windows a partir da versão 3.4.0 da aplicação] Na pasta de instalação da aplicação (que por omissão é `C:\Program Files\Portugal Identity Card`) existem três atalhos que permitem abrir a aplicação alterando o modo de renderização gráfica. Os atalhos são ícones clicáveis com o símbolo da aplicação e têm os seguintes nomes:
 
     - **Autenticação.Gov Software** para renderização por Software (OpenGL);
     - **Autenticação.Gov Hardware** para renderização por Hardware (Placa gráfica);
