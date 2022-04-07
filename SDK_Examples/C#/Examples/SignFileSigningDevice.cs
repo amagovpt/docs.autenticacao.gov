@@ -52,16 +52,16 @@ namespace Examples
             int page = 1;
             double pos_x = 0.1;
             double pos_y = 0.1;
+            PTEID_SigningDeviceFactory factory = PTEID_SigningDeviceFactory.instance();
 
             //Instead of calling the getEIDCard() method, you can now call getSigningDevice() after initializing a SigningDeviceFactory
             //This way you can choose to use CMD or your card to sign the files
             if (flag.Equals("-CMD"))
             {
-                //You only want CMD, so you disallow normal signature by setting the first argument to false
-                PTEID_SigningDeviceFactory factory = new PTEID_SigningDeviceFactory(false, true);
 
                 //You then get a SigningDevice by calling getSigningDevice()
-                PTEID_SigningDevice device = factory.getSigningDevice();
+                //We only want CMD, so you disallow normal signature by setting the first argument to false
+                PTEID_SigningDevice device = factory.getSigningDevice(false, true);
 
                 //And you sign the file normally as you would in the previous versions of the SDK 
                 device.SignPDF(signature, page, pos_x, pos_y, location, reason, output_file);
@@ -70,10 +70,9 @@ namespace Examples
             }
             else if (flag.Equals("-CARD"))
             {
-                //You only want the card signature, so you disallow CMD by setting the second argument to false
-                PTEID_SigningDeviceFactory factory = new PTEID_SigningDeviceFactory(true, false);
 
                 //You then get a SigningDevice by calling getSigningDevice()
+                //We only want card signature, so you disallow CMD by setting the second argument to false
                 PTEID_SigningDevice device = factory.getSigningDevice();
 
                 //And you sign the file normally as you would in the previous versions of the SDK 
@@ -83,8 +82,6 @@ namespace Examples
             }
             else if (flag.Equals("-BOTH"))
             {
-                //If you want both methods to be available (CMD and CARD signature) you either initialize "factory(true, true)" or use the default constructor:
-                PTEID_SigningDeviceFactory factory = new PTEID_SigningDeviceFactory();
 
                 //You then get a SigningDevice by calling getSigningDevice()
                 PTEID_SigningDevice device = factory.getSigningDevice();
