@@ -1439,7 +1439,7 @@ if ( ret != 0 ){
 
 # Atualizações do Middleware
 
-Os SDKs Java e .net estão dependentes de bibliotecas nativas que são alteradas em cada nova release do middleware.
+Os SDKs Java e .Net estão dependentes de bibliotecas nativas que são alteradas em cada nova versão do middleware.
 Não é garantida a compatibilidade entre diferentes versões dos componentes Java/.Net e nativos.
 
 A garantia de retro-compatibilidade deste projeto é apenas a nível da API Java ou .Net disponibilizada.
@@ -1468,8 +1468,8 @@ Cenário: Foi adicionada uma referência para a versão X da DLL `pteidlib_dotne
 </runtime>
 ```
 
-**Nota**: O mecanismo descrito anteriormente é apenas possível se a `pteidlib_dotnet.dll` original era um *strong-named assembly*. 
-Isto pode ser confirmado verificando a identidade do módulo com o comando `sn.exe -T pteidlib_dotnet.dll`. Deverá ser retornado o valor indicado no bloco de código acima: `1fa91d379e36932f`.
+**Nota**: O procedimento descrito anteriormente só é possível se a `pteidlib_dotnet.dll` original era um *strong-named assembly*.
+Isto pode ser confirmado verificando a identidade de uma determinada DLL com o comando `sn.exe -T pteidlib_dotnet.dll`. Deverá ser retornado o valor indicado no bloco de código acima: `1fa91d379e36932f`.
 As versões da `pteidlib_dotnet.dll` anteriores à 3.0.15 (Setembro de 2018) não eram *strong-named assemblies* e como tal não podem ser atualizadas por este método, ou seja,
 exigem uma recompilação da aplicação com a referida DLL atualizada.
 
