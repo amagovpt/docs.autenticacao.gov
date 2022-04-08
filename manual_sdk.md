@@ -40,6 +40,7 @@
   - [Certificados digitais](#certificados-digitais)
     - [Leitura dos certificados digitais no cartão de cidadão ou da Chave Móvel Digital](#leitura-dos-certificados-digitais-no-cartão-de-cidadão-ou-da-chave-móvel-digital)
   - [Sessão segura](#sessão-segura)
+- [Atualizações do Middleware](#atualizações-do-middleware)
 - [Tratamento de erros](#tratamento-de-erros)
 - [API PKCS#11](#api-pkcs11)
 - [Compatibilidade com o SDK da versão 1](#compatibilidade-com-o-sdk-da-versão-1)
@@ -1435,6 +1436,45 @@ if ( ret != 0 ){
 	return 1;
 }
 ```
+
+# Atualizações do Middleware
+
+Os SDKs Java e .net estão dependentes de bibliotecas nativas que são alteradas em cada nova release do middleware.
+Não é garantida a compatibilidade entre diferentes versões dos componentes Java/.Net e nativos.
+
+A garantia de retro-compatibilidade deste projeto é apenas a nível da API Java ou .Net disponibilizada.
+
+A recomendação que fazemos é que as aplicações Java que utilizem o SDK deverão carregar o `pteidlibj.jar` a partir da versão instalada pelo Middleware
+em vez de incluir a versão inicial que existia no momento do desenvolvimento.
+
+Para o **SDK Java** é apenas necessário adicionar à *classpath* da aplicação o caminho para o `pteidlibj.jar` que é indicado na secção [**Instalação do SDK**](#Instalação-do-SDK) e garantir que na instalação da aplicação não é incluída outra versão do mesmo JAR.
+
+Para o **SDK .Net** recomendamos o seguinte método para fazer uma atualização do Middleware e garantir a compatibilidade com as aplicações:
+
+Cenário: Foi adicionada uma referência para a versão X da DLL `pteidlib_dotnet` na aplicação e pretende-se atualizar o middleware para a versão X + Y.
+  É possível fazê-lo sem alteração ou recompilação do projeto através do ficheiro de configuração da aplicação usando um *assembly binding redirect*
+  Por exemplo, para atualizar para a versão 3.7.0 suportando uma aplicação desenvolvida com a 3.1.2, adicionar no ficheiro `Program.exe.config` o seguinte bloco:
+```
+<runtime>
+   <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+     <dependentAssembly>
+         <assemblyIdentity name="pteidlib_dotnet"
+                              publicKeyToken="1fa91d379e36932f"
+                              culture="neutral" />
+         <bindingRedirect oldVersion="3.1.2.3831" newVersion="3.7.0.4572"/>
+         <codeBase version="3.7.0.4572" href="file:\\\c:\Program Files\Portugal Identity Card\sdk\dotnet\pteidlib_dotnet.dll" />
+       </dependentAssembly>
+   </assemblyBinding>
+</runtime>
+```
+
+**Nota**: O mecanismo descrito anteriormente é apenas possível se a `pteidlib_dotnet.dll` original era um *strong-named assembly*. 
+Isto pode ser confirmado verificando a identidade do módulo com o comando `sn.exe -T pteidlib_dotnet.dll`. Deverá ser retornado o valor indicado no bloco de código acima: `1fa91d379e36932f`.
+As versões da `pteidlib_dotnet.dll` anteriores à 3.0.15 (Setembro de 2018) não eram *strong-named assemblies* e como tal não podem ser atualizadas por este método, ou seja,
+exigem uma recompilação da aplicação com a referida DLL atualizada.
+
+Referência:
+https://docs.microsoft.com/en-us/dotnet/framework/tools/sn-exe-strong-name-tool
 
 # Tratamento de erros
 
