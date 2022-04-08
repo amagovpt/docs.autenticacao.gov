@@ -1,5 +1,3 @@
-import javax.smartcardio.Card;
-
 import pt.gov.cartaodecidadao.*;
 
 
@@ -66,6 +64,7 @@ public class ChangePins {
         PTEID_Pins pins = eidCard.getPins();
         PTEID_ulwrapper triesLeft = new PTEID_ulwrapper(-1);
         PTEID_Pin pin;
+        boolean pin_changed = false;
 
         //Gets the specific PIN we want
         //ADDR_PIN - Address Pin
@@ -73,20 +72,20 @@ public class ChangePins {
         //SIGN_PIN - Signature Pin
         if (pin_type.equals("-addr")) {
             pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
-            pin.changePin("", "", triesLeft, pin.getLabel(), false);
         }
         else if (pin_type.equals("-auth")) {
             pin = pins.getPinByPinRef(PTEID_Pin.AUTH_PIN);
-            pin.changePin("", "", triesLeft, pin.getLabel(), false);
         }
         else if (pin_type.equals("-sign")) {
             pin = pins.getPinByPinRef(PTEID_Pin.SIGN_PIN);
-            pin.changePin("", "", triesLeft, pin.getLabel(), false);
-        }       
+        }
         else {
-            System.out.println("Pin type doesn't exist");
+            System.err.println("Pin type doesn't exist!");
+            return;
         }
 
+        pin_changed = pin.changePin("", "", triesLeft, pin.getLabel(), false);
+        System.out.println("PIN successfully changed?: " + pin_changed);
     }
 
     public void start(String pin_type) {
