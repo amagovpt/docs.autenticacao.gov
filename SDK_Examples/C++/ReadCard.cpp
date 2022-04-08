@@ -24,8 +24,7 @@ int main(int argc, char **argv) {
 
         //Gets a reader connected to the system (useful if you only have one)
         //Alternatively you can iterate through the readers using getReaderByNum(int index) instead of getReader()
-        PTEID_ReaderContext& reader = PTEID_ReaderSet::instance().getReader();
-        //                                                        getReaderByNum(3);
+        PTEID_ReaderContext& reader = readerSet.getReader();
 
         //Gets the EIDCard and EId objects (with the cards information)
         PTEID_EIDCard& eidCard = reader.getEIDCard();

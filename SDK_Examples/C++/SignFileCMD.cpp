@@ -23,22 +23,23 @@ int main(int argc, char **argv) {
         //To sign a document you must initialize an instance of PTEID_PDFSignature
         PTEID_PDFSignature signature(input_file);
 
-        //You can set the various signature levels by calling this method
         signature.setSignatureLevel(PTEID_SignatureLevel::PTEID_LEVEL_TIMESTAMP);
 
-        //You can set the location and reason of signature by simply changing this strings
+        //You can set the location and reason of signature by providing these string parameters
         const char * location = "Lisboa, Portugal";
         const char * reason = "Concordo com o conteudo do documento";
         
-        //The page and coordinates where the signature will be printed
+        //The page and coordinates where the visible signature seal will be printed
         int page = 1;
-        double pos_x = 0.1;
-        double pos_y = 0.1;
 
-        //Instead of calling the getEIDCard() method, you can now also initialize an instance of the CMDSignatureClient to sign files with CMD
+        //The location in the page where the visible signature will be printed in percentage of page height/width
+        double pos_x = 0.5;
+        double pos_y = 0.5;
+
+        //You can now initialize an instance of the CMDSignatureClient to sign files with Chave Movel Digital service
         PTEID_CMDSignatureClient client;
 
-        //And you sign the file normally as you would in the previous versions of the SDK 
+        //And you sign the document normally as you would in the previous versions of the SDK 
         client.SignPDF(signature, page, pos_x, pos_y, location, reason, output_file);    
 
         std::cout << "File signed successfully" << std::endl;
