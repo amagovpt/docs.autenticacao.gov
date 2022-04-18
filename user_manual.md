@@ -1707,7 +1707,7 @@ Servidores CRL:
 
 ## Obtenção do relatório para análise através do menu Configurações
 
-A partir da versão 3.5.0 da aplicação, para todos os sistemas operativos, para ajudar a diagnosticar um problema com a aplicação local **Autenticação.gov**, é possível criar um **Relatório de Suporte**. Este **Relatório de Suporte** contêm os ficheiros de log com informações sobre o funcionamento da aplicação, essenciais para o diagnóstico de eventuais problemas.
+A partir da versão 3.5.0 da aplicação, para todos os sistemas operativos, para ajudar a diagnosticar um problema com a aplicação local **Autenticação.gov**, é possível criar um **Relatório de Suporte**. Este **Relatório de Suporte** contém os ficheiros de log com informações sobre o funcionamento da aplicação, essenciais para o diagnóstico de eventuais problemas.
 
 Para obter o **Relatório de Suporte** deve:
 
@@ -1717,8 +1717,8 @@ Para obter o **Relatório de Suporte** deve:
 4. Após reiniciar, a aplicação deverá indicar o modo de diagnóstico ativo na barra de topo da aplicação, bem como a cor da mesma barra mudar para vermelho. Ver imagem seguinte.
 5. Repetir a ação que resultou na situação de erro/problema. Desta forma, com o modo diagnóstico ativo, as informações sobre o erro/problema constantes nos ficheiros de log serão mais detalhadas.
 6. Voltar a navegar até ao menu **Configurações -> Configurações da Aplicação**.
-7. Pressionar o botão **Criar relatório**. Ao pressionar o botão **Criar relatório** é criada um ficheiro zip no Ambiente de Trabalho que contem os ficheiros de log da aplicação, com um nome deste tipo: **Autenticacao.gov_logs_DATA.zip**. 
-8. Por fim, deve enviar este ficheiro zip, juntamente cum uma descrição o mais detalhada possível do problema, para o contacto de suporte atravès do email **cartaodecidadao@irn.mj.pt**, anexado à descrição do problema.
+7. Pressionar o botão **Criar relatório**. Ao pressionar o botão **Criar relatório** é criado um ficheiro zip no Ambiente de Trabalho que contém os ficheiros de log da aplicação, com um nome deste tipo: **Autenticacao.gov_logs_DATA.zip**. 
+8. Por fim, deve enviar este ficheiro zip, juntamente com uma descrição o mais detalhada possível do problema, para o contacto de suporte através do email **cartaodecidadao@irn.mj.pt**.
 
     ![Ilustração: Criar Relatório de Suporte](Pictures/Autenticacao.Gov_Relatorio_Suporte.png "Criar Relatório de Suporte"){:.center}
 
