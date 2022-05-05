@@ -1008,8 +1008,6 @@ O *middleware* disponibiliza suporte criptográfico às aplicações via suporte
 
 
 
-
-
 ## Integração com aplicações em Windows
 
 **Integração com aplicações com o Cartão de Cidadão:**
@@ -1208,17 +1206,18 @@ assinado.
 
 Para assinar um documento aberto no *Adobe Acrobat Reader* deve:
 
-1. Aceder ao separador **Ferramentas** e selecionar **Certificados**.
+1. Certos documentos PDF foram criados pelo seu autor com campos de assinatura. Se for esse o caso do seu documento deve localizar o campo de assinatura que pretende utilizar e clicar no mesmo. Em seguida pode saltar para o ponto 4 deste procedimento. 
+Caso contrário será necessário criar um novo campo de assinatura num local á sua escolha. Para isso deve aceder ao separador **Ferramentas** e selecionar **Certificados**.
 
 2. Clique em **Assinar Digitalmente** na barra horizontal por cima do documento.
 
 3. Clique e arraste o rato para determinar a posição do selo de assinatura no documento.
 
-4. Escolha o seu certificado de assinatura, emitido por **EC de Assinatura Digital Qualificada do Cartão de Cidadão X** (onde "X" é um número com 4 dígitos, por exemplo 0010), e carregue **Continuar**.
+4. Certifique-se de que o cartão de cidadão está inserido no leitor e escolha o seu certificado de assinatura, emitido por **EC de Assinatura Digital Qualificada do Cartão de Cidadão X** (onde "X" é um número com 4 dígitos, por exemplo 0010), e carregue **Continuar**.
 
-5. Clique em **Assinar** e escolha o nome e local onde deseja guardar o documento assinado.
+5. Clique em **Assinar** e escolha o nome e pasta onde deseja guardar o documento assinado.
 
-6. Para concluir, introduza o seu PIN de assinatura.
+6. Para concluir, introduza o seu PIN de assinatura. A janela de introdução de PIN deverá ter o título de "Segurança do Windows" e a mensagem "Introduza o PIN de não rejeição".
 
 ### Assinatura digital em *Adobe Acrobat Reader DC* em MacOS com PKCS#11
 
@@ -1370,7 +1369,7 @@ em *Firefox*.
 
 ![Ilustração: Assinatura DWF 4](Pictures/Autenticacao.Gov_dwf4.png "Assinatura de ficheiros DWF"){:.center}
 
-**7.** Introduza o pin pedido na janela:
+**7.** Introduza o PIN de assinatura pedido na janela:
 
 ![Ilustração: Assinatura DWF 5](Pictures/Autenticacao.Gov_dwf5.png "Assinatura de ficheiros DWF"){:.center}
 
@@ -1410,7 +1409,7 @@ em *Firefox*.
 
 ![Ilustração: Assinatura DWG 5](Pictures/Autenticacao.Gov_dwg5.png "Assinatura de ficheiros DWG"){:.center}
 
-**7.** No caso da assinatura com o Cartão de Cidadão basta introduzir o pin de não rejeição e carregar **OK**. No caso da assinatura com Chave Móvel Digital vai-lhe ser pedido o seu pin de assinatura da Chave Móvel Digital e, após o ter introduzido corretamente, ser-lhe-á pedido o código de confirmação, enviado para o número de telemóvel registado. 
+**7.** No caso da assinatura com o Cartão de Cidadão basta introduzir o PIN de assinatura (denominado na janela como PIN de não rejeição) e carregar **OK**. No caso da assinatura com Chave Móvel Digital vai-lhe ser pedido o seu pin de assinatura da Chave Móvel Digital e, após o ter introduzido corretamente, ser-lhe-á pedido o código de confirmação, enviado para o número de telemóvel registado. 
 
 * Chave Móvel Digital:
 
