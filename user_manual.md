@@ -19,7 +19,7 @@
     - [Instalação em Mac OS](#instalação-em-mac-os)
   - [Remoção da aplicação](#remoção-da-aplicação)
     - [Remoção em *Microsoft Windows 7*](#remoção-em-microsoft-windows-7)
-    - [Remoção em *Microsoft Windows 10*](#remoção-em-microsoft-windows-10)
+    - [Remoção em *Microsoft Windows 10 ou 11*](#remoção-em-microsoft-windows-10-ou-11)
     - [Remoção em Linux](#remoção-em-linux)
       - [Remoção através do *Software Center*](#remoção-através-do-software-center)
       - [Remoção através da linha de comandos](#remoção-através-da-linha-de-comandos)
@@ -49,6 +49,7 @@
       - [Dados da aplicação](#dados-da-aplicação)
       - [Atualizações](#atualizações)
     - [Ajuda](#ajuda)
+    - [Centro de Notificações](#centro-de-notificações)
 - [Integração com aplicações](#integração-com-aplicações)
   - [Integração com aplicações em Windows](#integração-com-aplicações-em-windows)
   - [Integração com aplicações via interface PKCS\#11](#integração-com-aplicações-via-interface-pkcs11)
@@ -775,9 +776,16 @@ Cidadão.
 #### Certificados
 
 Neste menu é possível verificar os certificados do Cidadão e a cadeia de confiança formada pelas várias Entidades de Certificação do Cartão de Cidadão e do Estado Português.
-O preenchimento do campo "Estado do certificado" corresponde a uma validação junto da Infraestrutura do Cartão de Cidadão e como tal exige ligação à Internet.
 
-![Ilustração: Visualização do certificados](Pictures/Autenticacao.Gov_certificados.png "Visualização do certificados"){:.center}
+![Ilustração: Visualização do certificados](Pictures/Autenticacao.Gov_certificados_vazio.png "Visualização do certificados"){:.center}
+
+O preenchimento dos campos "Estado do certificado" correspondem a uma validação junto da Infraestrutura do Cartão de Cidadão e como tal exige ligação à Internet. Esta validação é acionada ao pressionar o botão *Validar Certificados*.
+
+![Ilustração: Visualização do certificados](Pictures/Autenticacao.Gov_certificados_validar.png "Visualização do certificados"){:.center}
+
+É possível consultar a cadeia de certificados e os detalhes de cada certificado pressionando o botão *Ver detalhes*, visível na imagem anterior.
+
+![Ilustração: Visualização do certificados - detalhes](Pictures/Autenticacao.Gov_certificados.png "Visualização do certificados - detalhes"){:.center}
 
 #### Código PIN
 
