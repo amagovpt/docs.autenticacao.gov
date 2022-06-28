@@ -1306,43 +1306,38 @@ assinatura propriamente dita.
 e os passos descritos aplicam-se também à configuração dos certificados
 em *Firefox*.
 
-1.  Abra a janela de escrita de email, clique na caixa de opções **Segurança** e clique em **Assinar digitalmente esta mensagem**.
+1. Abra as **Preferências** e selecione o separador **Privacidade e segurança**. Navege até à secção **Segurança** -> **Certificados**.
+2. Pressione o botão **Dispositivos de segurança**.
 
-    ![Ilustração: Assinatura de E-mail com Mozilla Thunderbird](Pictures/Autenticacao.Gov_thunderbird.png "Assinatura de E-mail com Mozilla Thunderbird"){:.center}
+   ![Ilustração: Assinatura de E-mail com Mozilla Thunderbird](Pictures/Autenticacao.Gov_thunderbird8.png "Assinatura de E-mail com Mozilla Thunderbird"){:.center}
 
-    Será apresentada uma mensagem informando que é necessário configurar os certificados antes de utilizar as funcionalidades de segurança. Clique em **Sim**.
+3. Clique no botão **Carregar**.
+4. Na nova janela, preencha o nome do módulo (p.e. "Cartão de Cidadão")
+e o caminho para o módulo **PKCS\#11**, que se encontra numa das seguintes
+localizações (recomendação: copie o caminho para o módulo, de acordo com o
+seu sistema operativo, da lista seguinte):
 
-    ![Ilustração: Assinatura de E-mail com Mozilla Thunderbird](Pictures/Autenticacao.Gov_thunderbird2.png "Assinatura de E-mail com Mozilla Thunderbird"){:.center}
+**Em Windows:**
+- C:\\Windows\\SysWOW64\\pteidpkcs11.dll (Windows 32-bits)
+- C:\\Windows\\System32\\pteidpkcs11.dll (Windows 64-bits)
 
-3.  No ecrã seguinte, clique no botão **Dispositivos de Segurança**.
-4.  Clique no botão **Carregar**, e selecione o módulo **PKCS\#11**, que se
-    encontra numa das seguintes localizações:
+**Em Linux:** /usr/local/lib/libpteidpkcs11.so
 
-    **Em Windows:**
-    - C:\\Windows\\SysWOW64\\pteidpkcs11.dll (Windows
-    32-bits)
-    - C:\\Windows\\System32\\pteidpkcs11.dll (Windows 64-bits)
+**Em MacOS:** /usr/local/lib/libpteidpkcs11.dylib
 
-    **Em Linux:** /usr/local/lib/libpteidpkcs11.so
+  ![Ilustração: Assinatura de E-mail com Mozilla Thunderbird](Pictures/Autenticacao.Gov_thunderbird7.png "Assinatura de E-mail com Mozilla Thunderbird"){:.center}
 
-    **Em MacOS:** /usr/local/lib/libpteidpkcs11.dylib
 
-    Após carregado o módulo, deverá ter uma entrada "**CARTAO DE CIDADAO**"
-    conforme a imagem abaixo. Clique em **OK**.
+5. Pressione **OK** em todas as janelas.
+6. Abra as **Definições de conta** e selecione a sua conta de email.
+7. Selecione o separador **Criptografia de ponta a ponta**.
+8. Na secção **S/MIME**, pressione o botão **Selecionar** no campo com a indicação *"Certificado pessoal para a assinatura digital"*.
 
-    ![Ilustração: Assinatura de E-mail com Mozilla Thunderbird](Pictures/Autenticacao.Gov_thunderbird3.png "Assinatura de E-mail com Mozilla Thunderbird"){:.center}
+    ![Ilustração: Assinatura de E-mail com Mozilla Thunderbird](Pictures/Autenticacao.Gov_thunderbird9.png "Assinatura de E-mail com Mozilla Thunderbird"){:.center}
 
-5.  Voltando ao ecrã anterior (**“Configurações”** → **“Segurança”**), clique
-    agora na opção **Selecionar**.
-
-    ![Ilustração: Assinatura de E-mail com Mozilla Thunderbird](Pictures/Autenticacao.Gov_thunderbird4.png "Assinatura de E-mail com Mozilla Thunderbird"){:.center}
-
-6.  Selecione o Certificado com a descrição "**CARTAO DE CIDADAO:CITIZEN SIGNATURE CERTIFICATE**".
+9. Selecione o Certificado com a descrição "**CARTAO DE CIDADAO:CITIZEN SIGNATURE CERTIFICATE**" e clique **OK**.
 
     ![Ilustração: Assinatura de E-mail com Mozilla Thunderbird](Pictures/Autenticacao.Gov_thunderbird5.png "Assinatura de E-mail com Mozilla Thunderbird"){:.center}
-
-7.  Adicionar um certificado da PKI do Cartão de Cidadão. No gestor de certificados do *ThunderBird*, aceder ao separador **Autoridade** e clicar em **Importar**.
-8.  Clique em **OK** em todas as janelas de configuração abertas. A configuração está terminada.
 
 **Assinatura** - a efetuar cada vez que pretenda enviar um email assinado.
 
