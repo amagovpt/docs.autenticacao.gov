@@ -933,8 +933,6 @@ Com `PTEID_CMDSignatureClient`, é apresentada uma janela para introdução do n
 
 Para obter um `PTEID_SigningDevice` deve utilizar a classe `PTEID_SigningDeviceFactory`. Na chamada ao método `getSigningDevice` pode indicar qual dos tipos de `PTEID_SigningDevice` deseja obter. Se ativar múltiplas opções, será apresentada uma janela ao utilizador para escolher: Cartão de Cidadão ou Chave Móvel Digital.
 
-**NOTA:** As classes `PTEID_SigningDevice`, `PTEID_CMDSignatureClient` e `PTEID_SigningDeviceFactory` ainda não estão disponíveis na versão de produção do Middleware. Está previsto ser disponibilizado em breve. Para a versão atual, só as classes do cartão suportavam as funcionalidades de assinatura.
-
 1.  Exemplo C++
 
 ```c++
@@ -975,37 +973,33 @@ PTEID_SigningDevice signingDev = factory.getSigningDevice(true, true);
 
 ### Formato XML Advanced Electronic Signatures (XAdES)
 
-Esta funcionalidade permite a assinar um ou múltiplos ficheiros em
+Esta funcionalidade permite assinar um ou múltiplos ficheiros em
 qualquer formato utilizando ou não selos temporais.
 
 Os métodos **SignXades**/**SignXadesT**/**SignXadesA** produzem um ficheiro .zip que contém os
-ficheiros assinados e um ficheiro XML com a assinatura (XAdES-B/XAdES-T/XAdES-LTA, respetivamente). O formato deste
-ficheiro .zip segue a
+ficheiros assinados e um ficheiro XML com a assinatura (XAdES-B/XAdES-T/XAdES-LTA, respetivamente).
+O formato deste ficheiro .zip segue a
 [norma europeia ASIC](https://www.etsi.org/deliver/etsi_ts/102900_102999/102918/01.01.01_60/ts_102918v010101p.pdf)
 para *containers* de assinatura.
-
-**NOTA:** A assinatura XAdES ainda não está implementada para `PTEID_CMDSignatureClient`. Neste caso,invocar os métodos de assinatura XAdES irá mandar uma `PTEID_Exception` com código de erro `EIDMW_ERR_NOT_IMPLEMENTED`.
 
 1.  Exemplo C++
 
 ```c++
-unsigned long n_errors = 200;
-char errors[n_errors];
 const char *ficheiros[] = {"teste/Ficheiro1",
 					"teste/Ficheiro2",
 					"teste/Ficheiro3",
 					"teste/Ficheiro4"};
-const char *destino ="teste/ficheiros_assinados.zip";
-int n_paths = 4; // tamanho do array ficheiros
+const char *destino ="teste/ficheiros_assinados.asice";
+int n_paths = 4; // tamanho do array de ficheiros
 
 // assinar (1 única assinatura para todos os ficheiros)
-card.SignXades( destino, ficheiros, n_paths );
+signingDev.SignXades(destino, ficheiros, n_paths);
 (...)
 // assinar com selo temporal (1 única assinatura para todos os ficheiros)
-card.SignXadesT( destino, ficheiros, n_paths );
+signingDev.SignXadesT(destino, ficheiros, n_paths);
 (...)
 // assinar (1 única assinatura tipo A (archival) para todos os ficheiros)
-card.SignXadesA( destino, ficheiros, n_paths );
+signingDev.SignXadesA(destino, ficheiros, n_paths);
 (...)
 ```
 
@@ -1018,16 +1012,16 @@ ficheiros[0]="teste/Ficheiro1";
 ficheiros[1]="teste/Ficheiro2";
 ficheiros[2]="teste/Ficheiro3";
 ficheiros[3]="teste/Ficheiro4";
-String destino = "teste/ficheiros_assinados.zip";
+String destino = "teste/ficheiros_assinados.asice";
 
 //assinar (1 única assinatura para todos os ficheiros)
-card.SignXades( destino, ficheiros, ficheiros.length );
+signingDev.SignXades(destino, ficheiros, ficheiros.length);
 (...)
 //assinar com selo temporal (1 única assinatura para todos os ficheiros)
-card.SignXadesT( destino, ficheiros, ficheiros.length );
+signingDev.SignXadesT(destino, ficheiros, ficheiros.length);
 (...)
 // assinar (1 única assinatura tipo A (archival) para todos os ficheiros)
-card.SignXadesA( destino, ficheiros, ficheiros.length ); 
+signingDev.SignXadesA(destino, ficheiros, ficheiros.length);
 (...)
 ```
 
@@ -1039,15 +1033,16 @@ ficheiros[0]=@"c:\teste\Ficheiro1";
 ficheiros[1]=@"c:\teste\Ficheiro2";
 ficheiros[2]=@"c:\teste\Ficheiro3";
 ficheiros[3]=@"c:\teste\Ficheiro4";
-string destino = @"c:\teste\ficheiros_assinados.zip";
+string destino = @"c:\teste\ficheiros_assinados.asice";
 
 //assinar (1 única assinatura para todos os ficheiros)
-card.SignXades( destino, ficheiros, ficheiros.length );
+signingDev.SignXades(destino, ficheiros, ficheiros.length);
 (...)
 //assinar com selo temporal (1 única assinatura para todos os ficheiros)
-card.SignXadesT( destino, ficheiros, ficheiros.length );
+signingDev.SignXadesT(destino, ficheiros, ficheiros.length);
+(...)
 // assinar (1 única assinatura tipo A (archival) para todos os ficheiros)
-card.SignXadesA( destino, ficheiros, ficheiros.length );
+signingDev.SignXadesA(destino, ficheiros, ficheiros.length);
 (...)
 ```
 
@@ -1330,9 +1325,6 @@ Os métodos `getRoot()`, `getCA()`, `getSignature()` e `getAuthentication()` est
 Para `PTEID_EIDCard`, o método `getCertificates()` devolve uma instância `PTEID_Certificates` que contém os certificados do cartão inserido no leitor e das CAs necessárias à construção da cadeia completa.
 
 Para `PTEID_CMDSignatureClient`, o método `getCertificates()` devolve uma instância `PTEID_Certificates` com a cadeia de certificados usada na última assinatura com essa instância de `PTEID_CMDSignatureClient`. Se nenhuma assinatura tiver sido efetuada, é mostrada uma janela para autenticar com a conta da Chave Móvel Digital para a qual se desejam obter os certificados. Este método requer credenciais de acesso ao serviço CMD tal como os métodos de assinatura (ver secção [Assinatura Digital](#assinatura-digital)).
-
-**NOTA:** As classes `PTEID_SigningDevice`, `PTEID_CMDSignatureClient` e `PTEID_SigningDeviceFactory` ainda não estão disponíveis na versão de produção do Middleware. Está previsto ser disponibilizado em breve. Para a versão atual, só as classes do cartão suportavam as funcionalidades de assinatura.
-
 
 1.  Exemplo C++
 
