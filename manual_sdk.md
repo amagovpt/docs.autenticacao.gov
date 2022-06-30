@@ -992,6 +992,8 @@ const char *ficheiros[] = {"teste/Ficheiro1", "teste/Ficheiro2", "teste/Ficheiro
 const char *destino ="teste/ficheiros_assinados.asice";
 int n_paths = 3; // tamanho do array de ficheiros
 
+/* perfil da assinatura:
+PTEID_LEVEL_BASIC (XAdES-B), PTEID_LEVEL_T (XAdES-T), PTEID_LEVEL_LTV (XAdES-LTA) */
 PTEID_SignatureLevel level = PTEID_LEVEL_BASIC;
 
 // assinar (1 única assinatura para todos os ficheiros)
