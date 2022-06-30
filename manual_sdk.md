@@ -993,7 +993,7 @@ const char *destino ="teste/ficheiros_assinados.asice";
 int n_paths = 3; // tamanho do array de ficheiros
 
 /* perfil da assinatura:
-PTEID_LEVEL_BASIC (XAdES-B), PTEID_LEVEL_T (XAdES-T), PTEID_LEVEL_LTV (XAdES-LTA) */
+PTEID_LEVEL_BASIC (XAdES-B), PTEID_LEVEL_TIMESTAMP (XAdES-T), PTEID_LEVEL_LTV (XAdES-LTA) */
 PTEID_SignatureLevel level = PTEID_LEVEL_BASIC;
 
 // assinar (1 única assinatura para todos os ficheiros)
@@ -1047,7 +1047,7 @@ O método **SignASiC** adiciona um ficheiro XML com a assinatura (XAdES-B/XAdES-
 pacote ASiC existente, cujo formato siga a [norma europeia ASIC](https://www.etsi.org/deliver/etsi_ts/102900_102999/102918/01.01.01_60/ts_102918v010101p.pdf)
 para *containers* de assinatura.  
 Este método recebe como primeiro parâmetro o caminho para o pacote ASiC. Como segundo parâmetro o
-nível/perfil da assinatura a incluir: XAdES-B (PTEID_LEVEL_BASIC), XAdES-T (PTEID_LEVEL_T), 
+nível/perfil da assinatura a incluir: XAdES-B (PTEID_LEVEL_BASIC), XAdES-T (PTEID_LEVEL_TIMESTAMP), 
 XAdES-LTA (PTEID_LEVEL_LTV).
 
 Será apresentado apenas um exemplo C++ para esta funcionalidade embora os wrappers Java e C\#
