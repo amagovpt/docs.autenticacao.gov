@@ -18,21 +18,31 @@ int main(int argc, char **argv) {
         int n_paths = 2; 
 
         //Output zips
-        const char *outputXades = "files/Xades.asic";
-        const char *outputXadesT = "files/XadesT.asic";
-        const char *outputXadesA = "files/XadesA.asic";
-        
+        const char *outputXades = "files/Xades.asice";
+        const char *outputXadesT = "files/XadesT.asice";
+        const char *outputXadesLTA = "files/XadesLTA.asice";
+
         std::cout << "Performing XAdES-B signature (2 input files)" << std::endl;
         //Sign all files with just one basic signature
-        eidCard.SignXades(outputXades, files, n_paths);
+        eidCard.SignXades(outputXades, files, n_paths, PTEID_LEVEL_BASIC);
 
         std::cout << "Performing XAdES-T signature (2 input files)" << std::endl;
         //Sign all files with just one timestamped signature
-        eidCard.SignXadesT(outputXadesT, files, n_paths);
+        eidCard.SignXades(outputXadesT, files, n_paths, PTEID_LEVEL_TIMESTAMP);
       
         std::cout << "Performing XAdES-LTA signature (2 input files)" << std::endl;
-        //Sign all files with type A (archival) signature (includes certificate revocation info and 2 timestamps)
-        eidCard.SignXadesA(outputXadesA, files, n_paths);
+        //Sign all files with type LTA (archival) signature (includes certificate revocation info and 2 timestamps)
+        eidCard.SignXades(outputXadesLTA, files, n_paths, PTEID_LEVEL_LTV);
+
+        std::cout << "Add a XAdES-B signature to 'files/Xades.asice'" << std::endl;
+        eidCard.SignASiC(outputXades, PTEID_LEVEL_BASIC);
+
+        std::cout << "Add a XAdES-T signature to 'files/Xades.asice'" << std::endl;
+        eidCard.SignASiC(outputXades, PTEID_LEVEL_TIMESTAMP);
+
+        std::cout << "Add a XAdES-LTA signature to 'files/Xades.asice'" << std::endl;
+        eidCard.SignASiC(outputXades, PTEID_LEVEL_LTV);
+
     }
     catch (PTEID_ExNoReader &e) 
     {

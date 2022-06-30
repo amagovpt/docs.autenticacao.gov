@@ -62,24 +62,31 @@ public class SignXAdES {
         String[] files = {"files/input.test", "files/input.pdf"};
 
         //Output zips
-        String outputXades = "files/Xades.zip";
-        String outputXadesT = "files/XadesT.zip";
-        String outputXadesA = "files/XadesA.zip";
+        String outputXades = "files/Xades.asice";
+        String outputXadesT = "files/XadesT.asice";
+        String outputXadesLTA = "files/XadesLTA.asice";
 
         System.out.println("Performing XAdES-B signature (2 files)");
-
         //Sign all files with unique signature          
-        eidCard.SignXades(outputXades, files, files.length);
+        eidCard.SignXades(outputXades, files, files.length, PTEID_SignatureLevel.PTEID_LEVEL_BASIC);
 
         System.out.println("Performing XAdES-T signature (2 files)");
-
         //Sign all files with unique signature including timestamp            
-        eidCard.SignXadesT(outputXadesT, files, files.length);
+        eidCard.SignXades(outputXadesT, files, files.length, PTEID_SignatureLevel.PTEID_LEVEL_TIMESTAMP);
 
         System.out.println("Performing XAdES-LTA signature (2 files)");
-      
         //Sign all files with type A (archival) unique signature 
-        eidCard.SignXadesA(outputXadesA, files, files.length);
+        eidCard.SignXades(outputXadesLTA, files, files.length, PTEID_SignatureLevel.PTEID_LEVEL_LTV);
+
+        System.out.println("Add a XAdES-B signature to 'files/Xades.asice'");
+        eidCard.SignASiC(outputXades, PTEID_SignatureLevel.PTEID_LEVEL_BASIC);
+
+        System.out.println("Add a XAdES-T signature to 'files/Xades.asice'");
+        eidCard.SignASiC(outputXades, PTEID_SignatureLevel.PTEID_LEVEL_TIMESTAMP);
+
+        System.out.println("Add a XAdES-LTA signature to 'files/Xades.asice'");
+        eidCard.SignASiC(outputXades, PTEID_SignatureLevel. PTEID_LEVEL_LTV);
+
     }
 
     public void start() {
