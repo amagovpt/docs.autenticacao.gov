@@ -1,6 +1,6 @@
 import pt.gov.cartaodecidadao.*;
 
-
+//NOTE: This example demonstrates a method - SignASiC() which was introduced on version 3.8.0 of the SDK
 public class SignXAdES {
 
     //This static block is needed to load the sdk library

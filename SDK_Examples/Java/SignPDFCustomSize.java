@@ -1,6 +1,6 @@
 import pt.gov.cartaodecidadao.*;
 
-//NOTE: This example has a method - setCustomSealSize(width, height) - that will only be available when the next version of the middleware is released.
+//NOTE: This example demonstrates a method - setCustomSealSize(width, height) which was introduced on version 3.7.0 of the SDK
 public class SignPDFCustomSize {
 
     //This static block is needed to load the sdk library
