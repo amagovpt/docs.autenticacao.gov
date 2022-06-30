@@ -1447,7 +1447,7 @@ As versões da `pteidlib_dotnet.dll` anteriores à 3.0.15 (Setembro de 2018) nã
 exigem uma recompilação da aplicação com a referida DLL atualizada.
 
 Referência:
-https://docs.microsoft.com/en-us/dotnet/framework/tools/sn-exe-strong-name-tool
+[SN.exe - Microsoft docs](https://docs.microsoft.com/en-us/dotnet/framework/tools/sn-exe-strong-name-tool)
 
 # Tratamento de erros
 
@@ -1485,7 +1485,7 @@ estão expostas às aplicações em:
 # API PKCS#11
 
 É possível o acesso aos certificados e operações associadas do CC através de uma API standard e multi-plataforma para dispositivos criptográficos
-que está descrita na norma PKCS#11([http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html)).
+que está descrita na norma [PKCS#11](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html).
 
 
 Aplicações que possam utilizar vários tipos de certificados e/ou dispositivos de autenticação/assinatura podem deste modo aceder às operações disponibilizadas
