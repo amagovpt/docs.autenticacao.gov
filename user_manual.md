@@ -79,6 +79,7 @@
   - [Problemas com ficheiros PDF não suportados](#problemas-com-ficheiros-pdf-não-suportados)
   - [Serviços online usados pela aplicação](#serviços-online-usados-pela-aplicação)
   - [Obtenção do relatório para análise através do menu Configurações](#obtenção-do-relatório-para-análise-através-do-menu-configurações)
+  - [Remoção de metadados de ficheiros PDF](#remoção-de-metadados-de-ficheiros-pdf)
 - [Interface de linha de comandos](#interface-de-linha-de-comandos)
   - [Consultar ajuda e versão](#consultar-ajuda-e-versão)
   - [Atalho para configurar modo de renderização gráfica](#atalho-para-configurar-modo-de-renderização-gráfica)
@@ -1724,6 +1725,13 @@ Para obter o **Relatório de Suporte** deve:
 
     ![Ilustração: Criar Relatório de Suporte](Pictures/Autenticacao.Gov_Relatorio_Suporte.png "Criar Relatório de Suporte"){:.center}
 
+
+## Remoção de metadados de ficheiros PDF
+
+A remoção de metadados de ficheiros PDF, através, por exemplo, da opção "Imprimir para PDF" de alguns 
+browsers, pode remover as assinaturas digitais existentes no ficheiro, mesmo que o selo visual se mantenha.  
+Por este motivo, caso seja necessária a remoção de metadados, através desse ou de outro processo 
+semelhante, esta deve ser feita antes de realizar qualquer assinatura.
 
 # Interface de linha de comandos
 
