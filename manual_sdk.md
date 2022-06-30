@@ -977,76 +977,27 @@ PTEID_SigningDevice signingDev = factory.getSigningDevice(true, true);
 Esta funcionalidade permite assinar um ou múltiplos ficheiros em
 qualquer formato utilizando ou não selos temporais.
 
-Os métodos **SignXades**/**SignXadesT**/**SignXadesA** produzem um ficheiro .zip que contém os
-ficheiros assinados e um ficheiro XML com a assinatura (XAdES-B/XAdES-T/XAdES-LTA, respetivamente).
-O formato deste ficheiro .zip segue a
+O método **SignXades** produz um ficheiro .zip que contém os ficheiros assinados e um ficheiro XML
+com a assinatura. O formato deste ficheiro .zip segue a
 [norma europeia ASIC](https://www.etsi.org/deliver/etsi_ts/102900_102999/102918/01.01.01_60/ts_102918v010101p.pdf)
 para *containers* de assinatura.
+
+Será apresentado apenas um exemplo C++ para esta funcionalidade embora os wrappers Java e C\#
+contenham exactamente as mesmas classes e métodos necessários **PTEID_SigningDevice.SignXades()**.
 
 1.  Exemplo C++
 
 ```c++
-const char *ficheiros[] = {"teste/Ficheiro1",
-					"teste/Ficheiro2",
-					"teste/Ficheiro3",
-					"teste/Ficheiro4"};
+const char *ficheiros[] = {"teste/Ficheiro1", "teste/Ficheiro2", "teste/Ficheiro3"};
 const char *destino ="teste/ficheiros_assinados.asice";
-int n_paths = 4; // tamanho do array de ficheiros
+int n_paths = 3; // tamanho do array de ficheiros
+
+PTEID_SignatureLevel level = PTEID_LEVEL_BASIC;
 
 // assinar (1 única assinatura para todos os ficheiros)
-signingDev.SignXades(destino, ficheiros, n_paths);
-(...)
-// assinar com selo temporal (1 única assinatura para todos os ficheiros)
-signingDev.SignXadesT(destino, ficheiros, n_paths);
-(...)
-// assinar (1 única assinatura tipo A (archival) para todos os ficheiros)
-signingDev.SignXadesA(destino, ficheiros, n_paths);
+signingDev.SignXades(destino, ficheiros, n_paths, level);
 (...)
 ```
-
-2.  Exemplo Java
-
-
-```java
-String ficheiros[] = new String[4];
-ficheiros[0]="teste/Ficheiro1";
-ficheiros[1]="teste/Ficheiro2";
-ficheiros[2]="teste/Ficheiro3";
-ficheiros[3]="teste/Ficheiro4";
-String destino = "teste/ficheiros_assinados.asice";
-
-//assinar (1 única assinatura para todos os ficheiros)
-signingDev.SignXades(destino, ficheiros, ficheiros.length);
-(...)
-//assinar com selo temporal (1 única assinatura para todos os ficheiros)
-signingDev.SignXadesT(destino, ficheiros, ficheiros.length);
-(...)
-// assinar (1 única assinatura tipo A (archival) para todos os ficheiros)
-signingDev.SignXadesA(destino, ficheiros, ficheiros.length);
-(...)
-```
-
-3.  Exemplo C\#
-
-```csharp
-string ficheiros[] = new string[4];
-ficheiros[0]=@"c:\teste\Ficheiro1";
-ficheiros[1]=@"c:\teste\Ficheiro2";
-ficheiros[2]=@"c:\teste\Ficheiro3";
-ficheiros[3]=@"c:\teste\Ficheiro4";
-string destino = @"c:\teste\ficheiros_assinados.asice";
-
-//assinar (1 única assinatura para todos os ficheiros)
-signingDev.SignXades(destino, ficheiros, ficheiros.length);
-(...)
-//assinar com selo temporal (1 única assinatura para todos os ficheiros)
-signingDev.SignXadesT(destino, ficheiros, ficheiros.length);
-(...)
-// assinar (1 única assinatura tipo A (archival) para todos os ficheiros)
-signingDev.SignXadesA(destino, ficheiros, ficheiros.length);
-(...)
-```
-
 
 **Nota:** Alternativamente é possível assinar individualmente cada
 ficheiro da seguinte forma:
