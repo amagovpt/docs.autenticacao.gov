@@ -732,11 +732,11 @@ Console.WriteLine("Was writing successful? " + (ok ? "Yes!" : "No."));
 
 ### Leitura dos dados de identidade do Cidadão e da Morada
 
-Para estes métodos das classes **PTEID_EId**, **PTEID_Address** não
-apresentamos exemplos já que estes dados apenas são responsáveis pelas
+Para os métodos de prefixo "get" das classes **PTEID_EId** e **PTEID_Address** não
+apresentamos exemplos já que estes métodos apenas são responsáveis pelas
 tarefas de obtenção dos campos específicos dentro dos ficheiros de
-identidade e morada e todos eles devolvem resultados do tipo String (no
-caso de Java/C\#) ou const char \* (no caso da biblioteca C++)
+identidade e morada e todos eles devolvem resultados do tipo `String` (no
+caso de Java/C\#) ou `const char \*` (no caso da biblioteca C++)
 
 **PTEID_Eid**
 
@@ -745,29 +745,29 @@ caso de Java/C\#) ou const char \* (no caso da biblioteca C++)
 | getDocumentVersion()       | versão do documento de identificação                           |
 | getDocumentType()          | tipo de documento - "Cartão de cidadão"                        |
 | getCountry()               | código do país no formato ISO3166                              |
-| getGivenName()             | nomes próprios do detentor do cartão                           |
-| getSurname()               | apelidos do detentor do cartão                                 |
-| getGender()                | género do detentor do cartão                                   |
+| getGivenName()             | nomes próprios do titular do cartão                            |
+| getSurname()               | apelidos do titular do cartão                                  |
+| getGender()                | género do titular do cartão                                    |
 | getDateOfBirth()           | data de nascimento                                             |
 | getNationality()           | nacionalidade (código do país no formato ISO3166 )             |
 | getDocumentPAN()           | número PAN do cartão (PAN - primary account number)            |
 | getValidityBeginDate()     | data de emissão                                                |
 | getValidityEndDate()       | data de validade                                               |
 | getLocalofRequest()        | local de pedido do cartão                                      |
-| getHeight()                | altura do detentor do cartão                                   |
+| getHeight()                | altura do titular do cartão                                    |
 | getDocumentNumber()        | número do cartão de cidadão                                    |
 | getCivilianIdNumber()      | número de identificação civil                                  |
 | getTaxNo()                 | número de identificação fiscal                                 |
 | getSocialSecurityNumber()  | número de segurança social                                     |
 | getHealthNumber()          | número de utente de saúde                                      |
 | getIssuingEntity()         | entidade emissora do cartão                                    |
-| getGivenNameFather()       | nomes próprios do pai do detentor do cartão                    |
-| getSurnameFather()         | apelidos do pai do detentor do cartão                          |
-| getGivenNameMother()       | nomes próprios da mãe do detentor do cartão                    |
-| getSurnameMother()         | apelidos da mãe do detentor do cartão                          |
-| getParents()               | filiação do detentor do cartão sobre na forma seguinte "nome e |
-|                            | apelido do pai \* nome e apelida da mãe"                       |
-| getPhotoObj()              | objecto que contêm a foto do detentor do cartão                |
+| getGivenNameFather()       | nomes próprios do pai do titular do cartão                     |
+| getSurnameFather()         | apelidos do pai do titular do cartão                           |
+| getGivenNameMother()       | nomes próprios da mãe do titular do cartão                     |
+| getSurnameMother()         | apelidos da mãe do titular do cartão                           |
+| getParents()               | filiação do titular do cartão no seguinte formato "nome e      |
+|                            | apelido do pai \* nome e apelido da mãe"                       |
+| getPhotoObj()              | objecto que contém a foto do titular do cartão                 |
 | getCardAuthKeyObj()        | chave pública do cartão                                        |
 | getValidation()            | indica se cartão se encontra válido                            |
 | getMRZ1()                  | primeira linha do campo MRZ                                    |
@@ -817,12 +817,12 @@ estrangeiras)
 |            Método         |                          Descrição                             |
 | ------------------------- | -------------------------------------------------------------- |
 | getGeneratedAddressCode() | código do endereço                                             |
-| isNationalAddress()       | valor de retorno, em booleano, indica se é uma morada nacional |
+| isNationalAddress()       | booleano que indica se é uma morada nacional                   |
 
 ### Obtenção dos dados do cartão em formato XML
 
 Os dados do cidadão existentes no cartão podem ser extraidos em formato
-xml. A fotografia é retornada em base-64 no formato aberto PNG. Para
+XML. A fotografia é retornada em base-64 no formato aberto PNG. Para
 além dos dados do cidadão é possível incluir também a área de notas
 pessoais.
 
