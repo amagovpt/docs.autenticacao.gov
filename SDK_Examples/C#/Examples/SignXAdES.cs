@@ -1,9 +1,9 @@
 ﻿using System;
-using System.IO;
 using pt.portugal.eid;
 
 namespace Examples
 {
+    //NOTE: This example demonstrates a method - SignASiC() which was introduced on version 3.8.0 of the SDK
     class SignXAdES
     {
         //Main attributes needed for SDK functionalities
@@ -52,22 +52,25 @@ namespace Examples
          */
         public void Sign(String[] args)
         {
-            //Name of the files to be signed
-            String[] files = { "../../files/input.test", "../../files/input.pdf" };
+            //Paths of the files to be signed
+            String[] files = args;
 
             //Output zips
-            String outputXades = "../../files/Xades.zip";
-            String outputXadesT = "../../files/XadesT.zip";
-            String outputXadesA = "../../files/XadesA.zip";
+            String outputXades = "Xades-B.asice";
+            String outputXadesT = "Xades-T.asice";
+            String outputXadesA = "Xades-A.asice";
 
             //Sign all files with unique signature          
-            eidCard.SignXades(outputXades, files, (uint) files.Length);
+            eidCard.SignXades(outputXades, files, (uint) files.Length, PTEID_SignatureLevel.PTEID_LEVEL_BASIC);
 
             //Sign all files with unique signature including timestamp            
-            eidCard.SignXadesT(outputXadesT, files, (uint) files.Length);
+            eidCard.SignXades(outputXadesT, files, (uint) files.Length, PTEID_SignatureLevel.PTEID_LEVEL_TIMESTAMP);
 
             //Sign all files with type A (archival) unique signature 
-            eidCard.SignXadesA(outputXadesA, files, (uint) files.Length);
+            eidCard.SignXades(outputXadesA, files, (uint) files.Length, PTEID_SignatureLevel.PTEID_LEVEL_LTV);
+			
+			Console.WriteLine("Add a second XAdES-B signature to 'Xades-B.asice'");
+			eidCard.SignASiC(outputXades, PTEID_SignatureLevel.PTEID_LEVEL_BASIC);
 
             Console.WriteLine("Files signed with success.");
         }
@@ -92,10 +95,6 @@ namespace Examples
             {
                 Console.WriteLine(ex.GetMessage());
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
             finally
             {
                 Release();
@@ -105,6 +104,10 @@ namespace Examples
 
         static void Main(string[] args)
         {
+			if (args.Length == 0) {
+				Console.WriteLine("Missing arguments for signature input files!");
+				return;
+			}
             new SignXAdES().start(args);
         }
     }

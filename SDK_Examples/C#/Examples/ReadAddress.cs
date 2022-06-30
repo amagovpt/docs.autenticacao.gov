@@ -133,10 +133,6 @@ namespace Examples
                    EIDMW_REMOTEADDR_UNKNOWN_ERROR
                 */
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
             finally
             {
                 Release();

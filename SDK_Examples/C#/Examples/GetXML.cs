@@ -123,10 +123,6 @@ namespace Examples
             {
                 Console.WriteLine(ex.GetMessage());
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
             finally
             {
                 Release();
