@@ -32,6 +32,7 @@
     - [Verificação e alteração do PIN](#verificação-e-alteração-do-pin)
   - [Assinatura Digital](#assinatura-digital)
     - [Formato XML Advanced Electronic Signatures (XAdES)](#formato-xml-advanced-electronic-signatures-xades)
+    - [Adicionar uma assinatura (XAdES) a um pacote ASiC](#adicionar-uma-assinatura-xades-a-um-pacote-asic)
     - [Ficheiros PDF](#ficheiros-pdf)
     - [Assinatura de vários documentos PDF com uma única introdução de PIN](#assinatura-de-vários-documentos-pdf-com-uma-única-introdução-de-pin)
     - [Customização do selo de assinatura visível](#customização-do-selo-de-assinatura-visível)
@@ -1083,6 +1084,31 @@ colocados os ficheiros assinados.
 **Nota 2:** Se for emitida a exceção com código ```EIDMW_TIMESTAMP_ERROR``` durante uma assinatura XAdES-T ou XAdES-LTA, significa que a aplicação do *timestamp* na assinatura falhou ou, no caso dos métodos de assinatura individual, que falhou para pelo menos uma das assinaturas. Neste caso, as assinaturas cujo *timestamping* falhou ficam com nível XAdES-B.
 
 **Nota 3:** De modo semelhante à nota anterior, se for emitida a exceção com código ```EIDMW_LTV_ERROR``` numa assinatura XAdES-LTA, então a aplicação do *timestamp* sobre os dados de revogação não foi corretamente adicionado. Nesse caso, as assinaturas cujo *timestamping* falhou ficam com nível XAdES-T ou XAdES-LT.
+
+### Adicionar uma assinatura (XAdES) a um pacote ASiC
+
+Esta funcionalidade permite adicionar uma assinatura XAdES a um pacote ASiC existente, utilizando 
+ou não selos temporais. Esta assinatura cobre todos os ficheiros de *input* incluídos no pacote ASiC.
+
+O método **SignASiC** adiciona um ficheiro XML com a assinatura (XAdES-B/XAdES-T/XAdES-LTA), a um 
+pacote ASiC existente, cujo formato siga a [norma europeia ASIC](https://www.etsi.org/deliver/etsi_ts/102900_102999/102918/01.01.01_60/ts_102918v010101p.pdf)
+para *containers* de assinatura.  
+Este método recebe como primeiro parâmetro o caminho para o pacote ASiC. Como segundo parâmetro o
+nível/perfil da assinatura a incluir: XAdES-B (PTEID_LEVEL_BASIC), XAdES-T (PTEID_LEVEL_T), 
+XAdES-LTA (PTEID_LEVEL_LTV).
+
+Será apresentado apenas um exemplo C++ para esta funcionalidade embora os wrappers Java e C\#
+contenham exactamente as mesmas classes e métodos necessários **PTEID_SigningDevice.SignASiC()**.
+
+1.  Exemplo C++
+
+```c++
+const char *container = "teste/exemplo.asics";
+PTEID_SignatureLevel level = PTEID_LEVEL_BASIC;
+
+signingDev.SignASiC(container, level);
+(...)
+```
 
 ### Ficheiros PDF
 
