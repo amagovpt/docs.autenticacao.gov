@@ -653,14 +653,12 @@ secção “Escolha os ficheiros”, como podemos visualizar na imagem seguinte.
 
     - **Tipo:** Tipo de assinatura – campo obrigatório – permite selecionar assinatura de ficheiros:
 
-        - **PDF:** PAdES (*PDF Advanced Electronic Signatures*). Disponível para assinaturas com
-          **Cartão de Cidadão** e **Chave Móvel Digital**.
+        - **PDF:** PAdES (*PDF Advanced Electronic Signatures*).
         - **Outros ficheiros:** Pacote ASiC com *XML Advanced Electronic Signatures* (XAdES).
-          Disponível para assinaturas com **Cartão de Cidadão**. Este pacote é um arquivo ZIP criado
-          de acordo com a especificação ASiC (Associated Signature Container) desenvolvido pela ETSI
-          (European Telecommunications Standards Institute) e segue os padrões da UE. Este arquivo
-          contém a informação assinada (ficheiros originais) e a respetiva assinatura no formato
-          XAdES.
+          Este pacote é um arquivo ZIP criado de acordo com a especificação ASiC (Associated
+          Signature Container) desenvolvido pela ETSI (European Telecommunications Standards
+          Institute) e segue os padrões da UE. Este arquivo contém a informação assinada (ficheiros
+          originais) e a respetiva assinatura no formato XAdES.
 
     - **Motivo:** Motivo da assinatura – campo opcional – permite ao signatário indicar o motivo da
       sua assinatura. Disponível para assinaturas do tipo **PDF**.
@@ -717,8 +715,7 @@ pré-visualização do selo de assinatura para a localização pretendida e de s
 **Assinar com Cartão de Cidadão** ou **Assinar com Chave Móvel Digital**.
 
 O botão **Assinar com Cartão de Cidadão** só está disponível quando o Cartão de Cidadão estiver
-inserido no leitor de cartões e for corretamente lido pela aplicação. O botão
-**Assinar com Chave Móvel Digital** só está disponível nas assinaturas do tipo **PDF**.
+inserido no leitor de cartões e for corretamente lido pela aplicação.
 
 Após clicar em **Assinar** deverá escolher a localização da pasta e do ficheiro onde guardar o
 ficheiro assinado (Não é possível substituir o ficheiro original) e seguir o procedimento de
@@ -1699,10 +1696,10 @@ Servidores CRL:
 - raw.githubusercontent.com
   - Na obtenção do ficheiro em https://raw.githubusercontent.com/amagovpt/autenticacao.gov/master/pteid-mw-pt/_src/eidmw/news.json
 - github.com
-  - URLs da forma: https://github.com/amagovpt/autenticacao.gov/blob/master/pteid-mw-pt/_src/eidmw/misc/certs/\<nome do ficheiro>
+  - URLs da forma: https://github.com/amagovpt/autenticacao.gov/blob/master/pteid-mw-pt/_src/eidmw/misc/certs/NOME_DO_FICHEIRO
 
 **Documentação:**
-- URLs da forma: https://amagovpt.github.io/docs.autenticacao.gov/\<nome do ficheiro>
+- URLs da forma: https://amagovpt.github.io/docs.autenticacao.gov/NOME_DO_FICHEIRO
   
 **Selo temporal (por defeito):**
 
