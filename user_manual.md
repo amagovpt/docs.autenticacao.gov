@@ -73,6 +73,7 @@
   - [Não são detetados quaisquer certificados durante a tentativa de assinatura na suite *LibreOffice / Apache OpenOffice*](#não-são-detetados-quaisquer-certificados-durante-a-tentativa-de-assinatura-na-suite-libreoffice--apache-openoffice)
   - [Problemas gráficos na aplicação](#problemas-gráficos-na-aplicação)
   - [Problemas com placas gráficas integradas](#problemas-com-placas-gráficas-integradas)
+  - [Não é possível mover/arrastar a aplicação (Linux em Wayland)](#não-é-possível-moverarrastar-a-aplicação-linux-em-wayland)
   - [Aplicação não arranca](#aplicação-não-arranca)
   - [Problemas com a nova cadeia de confiança](#problemas-com-a-nova-cadeia-de-confiança)
   - [Problemas na validação das assinaturas](#problemas-na-validação-das-assinaturas)
@@ -1626,6 +1627,21 @@ Em ambiente empresariais deve alterar esta configuração conforme descrito no c
 ## Problemas com placas gráficas integradas
 
 No caso de existirem problemas com placas gráficas, consulte o tópico [Problemas gráficos na aplicação](#problemas-gráficos-na-aplicação).
+
+## Não é possível mover/arrastar a aplicação (Linux em Wayland)
+
+Em sistemas Linux que utilizem um sistema de interface gráfico baseado em Wayland foram detetados vários problemas de interação, entre os quais a impossibilidade de mover a janela arrastando-a a partir da barra de título.
+
+Recomendamos a seguinte solução temporária, assumindo que existe o componente XWayland:  
+Usar o parâmetro `-platform xcb`, ou a variável de ambiente `QT_QPA_PLATFORM=xcb`, para forçar a aplicação a correr em modo X11, usando o XWayland.
+
+```
+$ eidguiV2 -platform xcb
+```
+ou
+```
+$ QT_QPA_PLATFORM=xcb eidguiV2
+```
 
 ## Aplicação não arranca
 
