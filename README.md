@@ -32,6 +32,8 @@ A documentação da API disponibilizada pelo SDK está disponível nos seguintes
 
 [Documentação Técnica do SDK Java (online)](https://amagovpt.github.io/docs.autenticacao.gov/sdk/java/)
 
+[Exemplos de utilização do SDK](https://github.com/amagovpt/docs.autenticacao.gov/tree/main/SDK_Examples)
+
 
 ## Contactos
 Para questões, sugestões ou comentários envie um e-mail para info.cidadao@ama.pt.
