@@ -874,7 +874,7 @@ aplicação. Este modo eleva o nível de detalhe do *log* para *debug*, o
 que, em caso de problemas com a aplicação, pode ajudar a equipa de
 suporte na resolução do problema.
 
-  **A partir da versão 3.5.0 da aplicação, para todos os sistemas operativos, para ajudar a obter os ficheiros de log, existe uma nova funcionalidade que permite criar um "Relatório de Suporte". Para isso só é necessário pressionar o botão "Criar relatório".** Ao pressionar o botão **Criar relatório** é criada uma pasta comprimida (ficheiro zip) no Ambiente de Trabalho que contem todos os ficheiros de log. Deve enviar esta pasta (zip), anexada à descrição do problema, para o contacto de suporte. Para mais informações consulte o capítulo [Obtenção do relatório para análise através do menu Configurações](#obtenção-do-relatório-para-análise-através-do-menu-configurações).
+  **A partir da versão 3.5.0 da aplicação, para todos os sistemas operativos, para ajudar a obter os ficheiros de log, existe uma nova funcionalidade que permite criar um "Relatório de Suporte". Para isso só é necessário pressionar o botão "Criar relatório".** Ao pressionar o botão **Criar relatório** é criada uma pasta comprimida (ficheiro zip) no Ambiente de Trabalho que contém todos os ficheiros de log. Deve enviar esta pasta (zip), anexada à descrição do problema, para o contacto de suporte. Para mais informações consulte o capítulo [Obtenção do relatório para análise através do menu Configurações](#obtenção-do-relatório-para-análise-através-do-menu-configurações).
 
   Os ficheiros de *log* por omissão são criados nas seguintes localizações e têm
   como nome o prefixo .PTEID:
@@ -891,7 +891,7 @@ suporte na resolução do problema.
 
         `/home/Utilizador/`
 
-    **No caso da aplicação não arrancar**, é possível alterar essa opção usando as configurações do software Autenticação.gov (via Chaves de Registo em Windows ou ficheiro de configuração em Linux e MacOS).
+    **No caso da aplicação não arrancar**, é possível ativar o modo de diagnóstico usando as configurações do software Autenticação.gov via chaves de Registo em Windows ou ficheiro de configuração em Linux e MacOS.
 
     - Em **Windows**, a chave de registo:  
 **HKEY\_CURRENT\_USER\\Software\\PTEID\\logging\\log_level**;
@@ -903,10 +903,10 @@ suporte na resolução do problema.
 **$HOME/Library/Preferences/pteid.conf**.
 
     Os valores que a chave pode tomar são:
-    - debug ( em caso de problemas com a aplicação, pode ajudar a equipa de suporte na resolução do problema )
+    - debug (em caso de problemas com a aplicação, pode ajudar a equipa de suporte na resolução do problema)
     - info 
     - warning 
-    - error (default)
+    - error (valor por omissão)
 
     Em ambiente empresariais deve alterar a seguinte configuração conforme descrito no capítulo [Instruções de configuração em ambientes empresariais](#instruções-de-configuração-em-ambientes-empresariais).
 
@@ -924,8 +924,7 @@ informações de acesso:
     -   **Servidor proxy:** Endereço IP / Hostname / Porto.
     -   **Autenticação proxy:** Credenciais de acesso (se necessário).
 
-A imagem seguinte permite visualizar o menu de configurações da aplicação
-(com Modo de diagnóstico ativo)
+A imagem seguinte permite visualizar o menu de configurações da aplicação.
 
 ![Ilustração: Janela de configurações da aplicação (com Modo de diagnóstico ativo)](Pictures/Autenticacao.Gov_configuracao.png "Janela de configurações da aplicação (com Modo de diagnóstico ativo)"){:.center}
 
@@ -2001,6 +2000,12 @@ O formato do ficheiro segue o [formato INI](https://en.wikipedia.org/wiki/INI_fi
 configuração a ser indicada por uma tag. Os valores que se podem
 especificar em cada secção/tag são os que foram indicados na tabela anterior
 referente às [Configurações através de chaves de registo Windows](#configura%c3%a7%c3%b5es-atrav%c3%a9s-de-chaves-de-registo-windows).
+
+Por exemplo para ativar manualmente o modo de diagnóstico devem ser adicionadas ao ficheiro as 2 seguintes linhas:
+```
+[logging]
+log_level=debug
+```
 
 ## Instalação automatizada em ambientes Windows
 
