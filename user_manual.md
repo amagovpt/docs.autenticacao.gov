@@ -1914,6 +1914,14 @@ Os seguintes registos podem ser adicionados:
 
 ---
 
+`HKLM\Software\PTEID\configuretool\start_autoupdate`
+
+  - **Tipo**: Número (0 / 1)
+  - **Descrição**:  Verificar se existem atualizações de software ou certificados no arranque da aplicação e notificar o utilizador
+  - **Valor por omissão**: 1 (Sim)
+
+---
+
 `HKLM\Software\PTEID\configuretool\graphics_accelaration`
 
   - **Tipo**: Número (0 / 1 / 2 (somente em Windows))
