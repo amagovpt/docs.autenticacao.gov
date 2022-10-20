@@ -1097,6 +1097,7 @@ superior esquerdo da página. De notar que usando este método existem
 localizações que produzem uma assinatura truncada na página já que o
 método de assinatura não valida se a localização é válida para o
 "selo de assinatura" a apresentar.
+Se os valores das coordenadas forem negativos a assinatura fica sem "selo" visível.
 
 Será apresentado apenas um exemplo C++ para esta funcionalidade embora
 os wrappers Java e C\# contenham exactamente as mesmas classes e métodos
@@ -1130,7 +1131,7 @@ signature.setSignatureLevel(PTEID_SignatureLevel::PTEID_LEVEL_TIMESTAMP);
 const char * location = "Lisboa, Portugal";
 const char * reason = "Concordo com o conteudo do documento";
 
-//Especificar o número da página e a posicação nessa mesma página onde a indicação visual da assinatura aparece
+//Especificar o número da página e a posição nessa mesma página onde a indicação visual da assinatura aparece
 int page = 1;
 double pos_x = 0.1; //Valores de 0 a 1
 double pos_y = 0.1; //Valores de 0 a 1
@@ -1168,7 +1169,7 @@ signature.addToBatchSigning("Other_File.pdf");
 const char * location = "Lisboa, Portugal";
 const char * reason = "Concordo com o conteudo do documento";
 
-//Especificar o número da página e a posicação nessa mesma página onde a indicação visual da assinatura aparece
+//Especificar o número da página e a posição nessa mesma página onde a indicação visual da assinatura aparece
 int page = 1;
 double pos_x = 0.1; //Valores de 0 a 1
 double pos_y = 0.1; //Valores de 0 a 1

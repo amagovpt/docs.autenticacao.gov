@@ -72,6 +72,7 @@ public class SignPDFDocument {
         String reason = "Concordo com o conteudo do documento";
 
         //The page and coordinates where the signature will be printed
+        //If the values of pos_x and pos_y are negative this becomes an "invisible signature"
         int page = 1;
         double pos_x = 0.1;
         double pos_y = 0.1;

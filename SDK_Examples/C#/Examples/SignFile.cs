@@ -66,6 +66,7 @@ namespace Examples
             int page = 1;
 
             //The location in the page where the visible signature will be printed in percentage of page height/width
+            //If the values of pos_x and pos_y are negative this becomes an "invisible signature"
             double pos_x = 0.1;
             double pos_y = 0.1;
 
