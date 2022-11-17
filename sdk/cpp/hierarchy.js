@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "PTEID_ADDR", "structPTEID__ADDR.html", null ],
+    [ "eIDMW::PTEID_ASICContainer", "classeIDMW_1_1PTEID__ASICContainer.html", null ],
     [ "PTEID_Certif", "structPTEID__Certif.html", null ],
     [ "PTEID_Certifs", "structPTEID__Certifs.html", null ],
     [ "eIDMW::PTEID_Exception", "classeIDMW_1_1PTEID__Exception.html", [
@@ -28,11 +29,11 @@ var hierarchy =
     [ "eIDMW::PTEID_Object", "classeIDMW_1_1PTEID__Object.html", [
       [ "eIDMW::PTEID_ByteArray", "classeIDMW_1_1PTEID__ByteArray.html", null ],
       [ "eIDMW::PTEID_Card", "classeIDMW_1_1PTEID__Card.html", [
-        [ "eIDMW::PTEID_MemoryCard", "classeIDMW_1_1PTEID__MemoryCard.html", null ],
         [ "eIDMW::PTEID_SmartCard", "classeIDMW_1_1PTEID__SmartCard.html", [
           [ "eIDMW::PTEID_EIDCard", "classeIDMW_1_1PTEID__EIDCard.html", null ]
         ] ]
       ] ],
+      [ "eIDMW::PTEID_CMDSignatureClient", "classeIDMW_1_1PTEID__CMDSignatureClient.html", null ],
       [ "eIDMW::PTEID_Config", "classeIDMW_1_1PTEID__Config.html", null ],
       [ "eIDMW::PTEID_Photo", "classeIDMW_1_1PTEID__Photo.html", null ],
       [ "eIDMW::PTEID_PublicKey", "classeIDMW_1_1PTEID__PublicKey.html", null ],
@@ -58,7 +59,11 @@ var hierarchy =
     [ "eIDMW::PTEID_PDFSignature", "classeIDMW_1_1PTEID__PDFSignature.html", null ],
     [ "PTEID_PIC", "structPTEID__PIC.html", null ],
     [ "PTEID_RSAPublicKey", "structPTEID__RSAPublicKey.html", null ],
-    [ "eIDMW::PTEID_ScapConnection", "classeIDMW_1_1PTEID__ScapConnection.html", null ],
+    [ "eIDMW::PTEID_SigningDevice", "classeIDMW_1_1PTEID__SigningDevice.html", [
+      [ "eIDMW::PTEID_Card", "classeIDMW_1_1PTEID__Card.html", null ],
+      [ "eIDMW::PTEID_CMDSignatureClient", "classeIDMW_1_1PTEID__CMDSignatureClient.html", null ]
+    ] ],
+    [ "eIDMW::PTEID_SigningDeviceFactory", "classeIDMW_1_1PTEID__SigningDeviceFactory.html", null ],
     [ "PTEID_TokenInfo", "structPTEID__TokenInfo.html", null ],
     [ "PTEIDPin", "structPTEIDPin.html", null ],
     [ "PTEIDPins", "structPTEIDPins.html", null ],

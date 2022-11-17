@@ -7,7 +7,7 @@ var classeIDMW_1_1PTEID__Config =
     [ "~PTEID_Config", "classeIDMW_1_1PTEID__Config.html#a9df15bbd38946d12fe04b265b02d80fd", null ],
     [ "DeleteKeysByPrefix", "classeIDMW_1_1PTEID__Config.html#a762f6bf96cd43a814826592cc342649a", null ],
     [ "getLong", "classeIDMW_1_1PTEID__Config.html#a92d9ff4f6fcaeb669739fc0c619fbc3c", null ],
-    [ "getString", "classeIDMW_1_1PTEID__Config.html#ae3c09d588fede39f66f1433a3b946e33", null ],
+    [ "getString", "classeIDMW_1_1PTEID__Config.html#a732b74f2462118f0185f7a95b962c066", null ],
     [ "setLong", "classeIDMW_1_1PTEID__Config.html#af34a9d1b496525230ba376923d143ce3", null ],
     [ "setString", "classeIDMW_1_1PTEID__Config.html#ac13a66bfde0e4cf984aef63cee40afbd", null ]
 ];
