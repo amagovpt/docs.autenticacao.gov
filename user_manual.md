@@ -1304,7 +1304,7 @@ assinatura propriamente dita.
 e os passos descritos aplicam-se também à configuração dos certificados
 em *Firefox*.
 
-1. Abra as **Preferências** e selecione o separador **Privacidade e segurança**. Navege até à secção **Segurança** -> **Certificados**.
+1. Abra as **Preferências** e selecione o separador **Privacidade e segurança**. Navegue até à secção **Segurança** -> **Certificados**.
 2. Pressione o botão **Dispositivos de segurança**.
 
    ![Ilustração: Assinatura de E-mail com Mozilla Thunderbird](Pictures/Autenticacao.Gov_thunderbird8.png "Assinatura de E-mail com Mozilla Thunderbird"){:.center}
@@ -1336,6 +1336,12 @@ seu sistema operativo, da lista seguinte):
 9. Selecione o Certificado com a descrição "**CARTAO DE CIDADAO:CITIZEN SIGNATURE CERTIFICATE**" e clique **OK**.
 
     ![Ilustração: Assinatura de E-mail com Mozilla Thunderbird](Pictures/Autenticacao.Gov_thunderbird5.png "Assinatura de E-mail com Mozilla Thunderbird"){:.center}
+10. Para o Thunderbird poder utilizar o certificado do Cartão de Cidadão para assinatura é necessário registar e confiar no certificado raiz da cadeia de certificação do Estado Português.
+    
+  * Para cartões emitidos a partir de abril de 2020 o certificado a registar deve ser o certificado com nome "ECRaizEstado 002" disponível em: http://trust.ecee.gov.pt/ecraiz002.crt
+  * Para cartões emitidos antes de abril de 2020 o certificado a registar deve ser o certificado com nome "ECRaizEstado" disponível em: http://trust.ecee.gov.pt/ecraiz.crt
+  
+  Para importar o certificado raíz deve clicar em "Gerir certificados..." na janela utilizada no ponto 1 e seleccionar o separador "Autoridades". Deve importar o certificado raiz correto para o seu cartão e na questão "Pretende confiar em "ECRaizestado/EcRaizEstado 002" para os seguintes propósitos?" deve seleccionar a opção: "Confiar nesta CA para identificar utilizadores de email".
 
 **Assinatura** - a efetuar cada vez que pretenda enviar um email assinado.
 
