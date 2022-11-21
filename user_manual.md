@@ -1298,7 +1298,7 @@ Para poder assinar digitalmente um email no *Thunderbird*, é necessário
 inicialmente efetuar a respetiva configuração. Os passos descritos de
 seguida, estão divididos em **configuração**, consistindo na
 configuração inicial necessária, e **assinatura**, consistindo na
-assinatura propriamente dita.
+assinatura propriamente dita. Os printscreens coincidem com a versão 91 do Mozilla Thunderbird.
 
 **Configuração** – Esta configuração é necessária efetuar uma única vez
 e os passos descritos aplicam-se também à configuração dos certificados
@@ -1333,17 +1333,19 @@ seu sistema operativo, da lista seguinte):
 
     ![Ilustração: Assinatura de E-mail com Mozilla Thunderbird](Pictures/Autenticacao.Gov_thunderbird9.png "Assinatura de E-mail com Mozilla Thunderbird"){:.center}
 
-9. Selecione o Certificado com a descrição "**CARTAO DE CIDADAO:CITIZEN SIGNATURE CERTIFICATE**" e clique **OK**.
+9. Selecione o certificado com a descrição "**CARTAO DE CIDADAO:CITIZEN SIGNATURE CERTIFICATE**" e clique **OK**.
 
     ![Ilustração: Assinatura de E-mail com Mozilla Thunderbird](Pictures/Autenticacao.Gov_thunderbird5.png "Assinatura de E-mail com Mozilla Thunderbird"){:.center}
-10. Para o Thunderbird poder utilizar o certificado do Cartão de Cidadão para assinatura é necessário registar e confiar no certificado raiz da cadeia de certificação do Estado Português.
+10. Se utilizar o Thunderbird 102 ou superior, no separador **Criptografia de ponta a ponta** selecione a caixa "Adicionar a minha assinatura por predefinição".
+11. Para o Thunderbird poder utilizar o certificado do Cartão de Cidadão para assinatura é necessário registar e confiar no certificado raiz da cadeia de certificação do Estado Português.
     
   * Para cartões emitidos a partir de abril de 2020 o certificado a registar deve ser o certificado com nome "ECRaizEstado 002" disponível em: http://trust.ecee.gov.pt/ecraiz002.crt
   * Para cartões emitidos antes de abril de 2020 o certificado a registar deve ser o certificado com nome "ECRaizEstado" disponível em: http://trust.ecee.gov.pt/ecraiz.crt
   
-  Para importar o certificado raíz deve clicar em "Gerir certificados..." na janela utilizada no ponto 1 e seleccionar o separador "Autoridades". Deve importar o certificado raiz correto para o seu cartão e na questão "Pretende confiar em "ECRaizestado/EcRaizEstado 002" para os seguintes propósitos?" deve seleccionar a opção: "Confiar nesta CA para identificar utilizadores de email".
+  Para importar o certificado raíz clique em "Gerir certificados..." na janela utilizada no ponto 1 e selecione o separador "Autoridades". Deve importar o certificado raiz correto para o seu cartão e na questão "Pretende confiar em "ECRaizestado/EcRaizEstado 002" para os seguintes propósitos?" selecionar a opção: "Confiar nesta CA para identificar utilizadores de email".
 
 **Assinatura** - a efetuar cada vez que pretenda enviar um email assinado.
+Apenas necessário para versões do Thunderbird anteriores à versão 102.
 
 1.  Abra a janela de composição de email.
 2.  Clique na caixa de opções **Segurança** e clique em **Assinar digitalmente esta mensagem**. Esta opção ficará ativa.
