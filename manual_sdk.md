@@ -418,7 +418,7 @@ O parâmetro *lRet* é um código de erro que em caso de sucesso no acesso
 ao leitor terá sempre o valor 0.
 
 O parâmetro *callbackData* é uma referência/ponteiro para o objecto que
-terá sido associado ao *callback* na função **SetEventCallback()**.
+terá sido associado ao *callback* através do segundo argumento do método **SetEventCallback()**.
 
 1. Exemplo Java:
 
@@ -431,7 +431,7 @@ class CardEventsCallback implements Callback {
 
          System.err.println("DEBUG: Card Event:" +
                    " cardState: "+cardState + " Event Counter: "+ eventCounter);
-         if ((cardState & 0x0100) != 0)
+         if ((cardState & 0x20) != 0)
          {
             System.out.println("Card inserted");
          }
@@ -460,7 +460,7 @@ public static void CardEventsCallback(int lRet, uint ulState, IntPtr callbackDat
                          cardState,
                          eventCounter);
 
-       if ((cardState & 0x0100) != 0) {
+       if ((cardState & 0x20) != 0) {
              Console.WriteLine("Card inserted");
        }
        else {
