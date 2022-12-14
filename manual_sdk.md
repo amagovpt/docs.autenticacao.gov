@@ -146,12 +146,11 @@ A lista de compiladores suportados são:
 
   - C++:
 
-    - Windows: Visual Studio 2017
+    - Windows: Visual Studio 2017 (incluindo Visual C++ e .Net Framework 4);
     - Linux: GCC ou LLVM (clang);
-    - MacOS: Compilador distribuído pela Apple. Dependendo da versão pode
-    ser GCC ou LLVM (clang).
+    - MacOS: Compilador distribuído pela Apple no pacote *Command Line Tools for XCode* e no *XCode*: LLVM (clang).
 
-  - Java - Oracle JDK 8 ou superior
+  - Java - JDK 8 ou superior
 
 ## Instalação do SDK
 
