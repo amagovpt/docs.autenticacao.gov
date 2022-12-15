@@ -1707,9 +1707,12 @@ Servidores CRL:
 - scap.autenticacao.gov.pt (porto 443)
 - autenticacao.gov.pt (porto 443) (apenas para carregamento com CMD)
 
-**Alteração de morada:**
+**Confirmação de alteração de morada:**
 
 - pki.cartaodecidadao.pt (porto 443)
+
+**Leitura da morada:**
+- morada.teste.cartaodecidadao.pt (porto 443) (utilizado desde a versão 3.9.0 da aplicação)
 
 **Atualização da aplicação:**
 - autenticacao.gov.pt (porto 443)
