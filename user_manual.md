@@ -32,7 +32,8 @@
     - [Menu Cartão](#menu-cartão)
       - [Identidade](#identidade)
       - [Outros dados](#outros-dados)
-      - [Morada e Alteração de morada](#morada-e-alteração-de-morada)
+      - [Morada e Alteração de morada (Desde a versão 3.9.0)](#morada-e-alteração-de-morada-desde-a-versão-3.9.0)
+      - [Morada e Alteração de morada (Versões anteriores a 3.9.0)](#morada-e-alteração-de-morada-versões-anteriores-a-3.9.0)
       - [Notas](#notas)
       - [Imprimir](#imprimir)
     - [Assinatura digital](#assinatura-digital)
@@ -499,7 +500,50 @@ estado do Cartão de Cidadão.
 
 ![Ilustração: Outros dados](Pictures/Autenticacao.Gov_Outros_Dados.png "Outros dados"){:.center}
 
-#### Morada e Alteração de morada
+#### Morada e Alteração de morada (Desde a versão 3.9.0)
+
+> **⚠ IMPORTANTE: Consulta de Morada do Cartão de Cidadão.**
+> Desde a versão 3.9.0 da aplicação local Autenticação.Gov a morada do Cartão de Cidadão é lida a partir dos serviços centrais.
+> Isto implica uma ligação à Internet funcional para a leitura da morada. É por isso necessário garantir que não existe *firewall* ou outro *software* na rede local que impeça a ligação ao endereço `morada.cartaodecidadao.pt` no porto 443.
+> Para processos de alteração de morada iniciados desde o fim de dezembro de 2022, a confirmação de morada fica apenas disponível no portal [eportugal.gov.pt](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao).
+
+Dentro do separador “Morada” é possível visualizar a morada atual e aceder ao portal [eportugal.gov.pt](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao) para completar o processo de alteração da morada. 
+
+Ambas as funcionalidades requerem uma ligação à Internet. Por favor certifique-se que está ligado
+antes de iniciar o processo.
+
+Para terminar o processo de alteração de morada, consulte os seguintes *websites*:
+
+[Alteração de morada](https://www.autenticacao.gov.pt/cartao-cidadao/alteracao-morada).
+
+[Confirmar a alteracao de morada](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao).
+
+
+**Nota:** Durante o processo de alteração de morada, o cidadão terá de
+se autenticar, por isso deverá ter presente e desbloqueado o seu PIN de
+autenticação.
+
+**Erros durante a consulta e/ou alteração de morada:**
+
+Caso a aplicação não consiga consultar ou efetuar a confirmação da alteração de morada será mostrada uma mensagem de erro.
+
+* **Este erro pode ser resultado da interferência na rede, por um software externo à aplicação Autenticação.Gov.**
+
+  A consulta e alteração de morada requerem a ligação a serviços online para funcionarem corretamente. É por isso necessário garantir que não existe firewall ou outro software na rede local que impeça a ligação a estes serviços. Garanta que os seguintes serviços não são bloqueados:
+  * pki.cartaodecidadao.pt (porto 443) 
+  * (Desde a versão 3.9.0): morada.cartaodecidadao.pt (porto 443)
+  
+  No caso de estar ligado a uma rede empresarial, contacte o seu administrador de rede e peça uma configuração de rede que resolva o problema.
+  
+![Ilustração: Erro na alteração de morada](Pictures/Autenticacao.Gov_morada5.png "Pedido de confirmação em processamento"){:.center}
+
+#### Morada e Alteração de morada (Versões anteriores a 3.9.0)
+
+> **⚠ IMPORTANTE: Consulta de Morada do Cartão de Cidadão.**  
+> Desde a versão 3.9.0 da aplicação local Autenticação.Gov a morada do Cartão de Cidadão é lida a partir dos serviços centrais.
+> Isto implica uma ligação à Internet funcional para a leitura da morada.
+> Para processos de alteração de morada iniciados desde o fim de dezembro de 2022, a confirmação de morada fica apenas disponível no portal [eportugal.gov.pt](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao).
+> É por isso necessário garantir que não existe *firewall* ou outro *software* na rede local que impeça a ligação ao endereço `morada.cartaodecidadao.pt`, porto 443.
 
 Dentro do separador “Morada” é possível visualizar a morada atual e
 completar o processo de alteração da morada. Esta última funcionalidade
@@ -517,7 +561,7 @@ seguintes passos:
 
     ![Ilustração: Introduzir dados na confirmar de alteração de morada    ](Pictures/Autenticacao.Gov_Morada.png "Introduzir dados na confirmar de alteração de morada"){:.center}
 
-2.  Caso tenha solicitado uma alteração de morada, insira o número de processo e o código secreto recebidos pelo correio.
+2.  Alterações de morada iniciadas no fim de dezembro de 2022 ou mais tarde devem ser confirmadas no portal [eportugal.gov.pt](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao). Para processos de alteração de morada iniciados antes do fim de 2022, insira o número de processo e o código secreto recebidos pelo correio.
 
     ![Ilustração: Confirmar alteração de morada](Pictures/Autenticacao.Gov_morada2.png "Confirmar alteração de morada"){:.center}
 
@@ -548,7 +592,7 @@ seguintes passos:
 
       - **Não existe uma alteração de morada registada para este cartão.**
 
-        Caso tenha solicitado uma alteração de morada, verifique que está a usar o Cartão de Cidadão correto.
+        Para processos de alteração de morada iniciados no fim de dezembro de 2022, a confirmação de morada fica apenas disponível no portal [eportugal.gov.pt](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao). Para processos de alteração de morada iniciados antes do fim de dezembro de 2022, verifique que está a usar o Cartão de Cidadão correcto.
 
         ![Ilustração: Erro na alteração de morada](Pictures/Autenticacao.Gov_morada4.png "Erro na alteração de morada"){:.center}
 
@@ -558,14 +602,6 @@ seguintes passos:
 
         ![Ilustração: Erro na alteração de morada](Pictures/Autenticacao.Gov_Alteracao_morada_erro_n_confirmada.png "Erro na alteração de morada"){:.center}
 
-      - **Este erro pode ser resultado da interferência na rede, por um software externo à aplicação Autenticação.Gov.**
-
-        A alteração de morada requer a ligação a um serviço online para funcionar corretamente. É por isso necessário garantir que não existe firewall ou outro software na rede local que impeça a ligação a este serviço. Garanta que o seguinte serviço não é bloqueado:
-        * pki.cartaodecidadao.pt (porto 443) 
-
-        No caso de estar ligado a uma rede empresarial, contacte o seu administrador de rede e peça uma configuração de rede que resolva o problema.
-        
-        ![Ilustração: Erro na alteração de morada](Pictures/Autenticacao.Gov_morada5.png "Pedido de confirmação em processamento"){:.center}
       - **O prazo de confirmação da alteração de morada expirou. Por favor efetue um novo pedido através dos balcões de atendimento ou do portal ePortugal.**
 
         Neste caso deverá efectuar um novo pedido através dos balcões de atendimento ou do portal ePortugal.
