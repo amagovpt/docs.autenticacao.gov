@@ -32,8 +32,8 @@
     - [Menu Cartão](#menu-cartão)
       - [Identidade](#identidade)
       - [Outros dados](#outros-dados)
-      - [Morada e Alteração de morada (Desde a versão 3.9.0)](#morada-e-alteração-de-morada-desde-a-versão-3.9.0)
-      - [Morada e Alteração de morada (Versões anteriores a 3.9.0)](#morada-e-alteração-de-morada-versões-anteriores-a-3.9.0)
+      - [Morada e Alteração de morada (Desde a versão 3.9.0)](#morada-e-alteração-de-morada-desde-a-versão-390)
+      - [Morada e Alteração de morada (Versões anteriores a 3.9.0)](#morada-e-alteração-de-morada-versões-anteriores-a-390)
       - [Notas](#notas)
       - [Imprimir](#imprimir)
     - [Assinatura digital](#assinatura-digital)
@@ -502,7 +502,7 @@ estado do Cartão de Cidadão.
 
 #### Morada e Alteração de morada (Desde a versão 3.9.0)
 
-> **⚠ IMPORTANTE: Consulta de Morada do Cartão de Cidadão.**
+> ⚠ **IMPORTANTE: Consulta de Morada do Cartão de Cidadão.**
 > Desde a versão 3.9.0 da aplicação local Autenticação.Gov a morada do Cartão de Cidadão é lida a partir dos serviços centrais.
 > Isto implica uma ligação à Internet funcional para a leitura da morada. É por isso necessário garantir que não existe *firewall* ou outro *software* na rede local que impeça a ligação ao endereço `morada.cartaodecidadao.pt` no porto 443.
 > Para processos de alteração de morada iniciados desde o fim de dezembro de 2022, a confirmação de morada fica apenas disponível no portal [eportugal.gov.pt](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao).
@@ -539,7 +539,7 @@ Caso a aplicação não consiga consultar ou efetuar a confirmação da alteraç
 
 #### Morada e Alteração de morada (Versões anteriores a 3.9.0)
 
-> **⚠ IMPORTANTE: Consulta de Morada do Cartão de Cidadão.**  
+> ⚠ **IMPORTANTE: Consulta de Morada do Cartão de Cidadão.**
 > Desde a versão 3.9.0 da aplicação local Autenticação.Gov a morada do Cartão de Cidadão é lida a partir dos serviços centrais.
 > Isto implica uma ligação à Internet funcional para a leitura da morada.
 > Para processos de alteração de morada iniciados desde o fim de dezembro de 2022, a confirmação de morada fica apenas disponível no portal [eportugal.gov.pt](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao).
