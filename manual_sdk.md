@@ -582,13 +582,13 @@ o que implica ligação à Internet funcional para a utilização da classe `PTE
 
 Existem a partir da referida versão novos códigos de erro relacionados com a utilização deste serviço online e que seguidamente são descritos:
 
-| Constante associada ao código de erro |                    Descrição                       |
-| ------------------------------------- | -------------------------------------------------- |
-|  EIDMW_REMOTEADDR_CONNECTION_ERROR    | Erro de ligação ao serviço de leitura de morada (devido a falta de conectividade ou erro no handshake TLS )|
-|  EIDMW_REMOTEADDR_SERVER_ERROR        | Erro retornado pelo serviço de leitura de morada   |
-|  EIDMW_REMOTEADDR_CONNECTION_TIMEOUT  | Timeout na obtenção de resposta do serviço         |
-|  EIDMW_REMOTEADDR_SMARTCARD_ERROR     | Erro gerado pelo smartcard no processo de leitura de morada online |
-|  EIDMW_REMOTEADDR_UNKNOWN_ERROR       | Erro inesperado no processo de leitura de morada online            |
+| Constante associada ao código de erro |                    Descrição                                          |
+| ------------------------------------- | --------------------------------------------------------------------- |
+|  `EIDMW_REMOTEADDR_CONNECTION_ERROR`  | Erro de ligação ao serviço devido a falha de rede ou do handshake TLS |
+|  `EIDMW_REMOTEADDR_SERVER_ERROR`      | Erro retornado pelo serviço de leitura de morada   |
+|  `EIDMW_REMOTEADDR_CONNECTION_TIMEOUT`| Timeout na obtenção de resposta do serviço         |
+|  `EIDMW_REMOTEADDR_SMARTCARD_ERROR`   | Erro gerado pelo smartcard no processo de leitura de morada online |
+|  `EIDMW_REMOTEADDR_UNKNOWN_ERROR`     | Erro inesperado no processo de leitura de morada online            |
 
 Para mais informação sobre tratamento de erros gerados pelo SDK ver a secção [**Tratamento de Erros**](#tratamento-de-erros).
 
