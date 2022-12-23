@@ -239,6 +239,22 @@ Em alternativa, a aplicação poderá também ser [instalada recorrendo à linha
 
 #### Instalação através da linha de comandos
 
+**Instalação de pacote Flatpak**
+
+A partir da versão 3.9.0 da aplicação foi introduzido um novo formato de pacote para Linux.
+O formato Flatpak tem o objetivo de suportar um maior número de distribuições Linux de uma forma uniforme.
+
+Para instalar esta versão da aplicação deve seguir este procedimento:
+
+1.  Desinstalar alguma versão nativa do pacote pteid-mw que esteja instalada no sistema.
+   Por exemplo em Ubuntu deverá utilizar o comando:
+   `sudo apt remove pteid-mw`
+2.  Instalar o software flatpak seguindo as instruções específicas da distribuição: https://flatpak.org/setup/
+3.  Instalar o pacote `pcsc-lite/pcscd` no sistema usando os pacotes nativos da distribuição. A aplicação funciona sem este componente, apenas as funcionalidades que exigem acesso ao Cartão de Cidadão dependem do pcscd.
+4.  Executar o comando `flatpak install pteid-mw-linux.x86_64.flatpak` na diretoria onde estiver o pacote flatpak descarregado.
+
+**Instalação de pacotes nativos (.deb ou .rpm)**
+
 1.  Execute o comando de instalação de software no sistema, consoante o
     gestor de pacotes utilizado pelo seu sistema.
 
@@ -387,6 +403,14 @@ seguintes são apresentados os ecrãs utilizando Linux Ubuntu 18.04.3 LTS.
     aplicação está terminado.
 
 #### Remoção através da linha de comandos
+
+**Remoção de pacote Flatpak**
+
+1. Verifique se a aplicação está de facto instalada via flatpak:
+   isto acontece se existir uma entrada com o ID `pt.gov.autenticacao` na listagem devolvida  pelo comando `flatpak --columns=app list`.
+2. Em caso afirmativo pode remover o pacote com o seguinte comando: `flatpak remove pt.gov.autenticacao`
+
+**Remoção de pacote nativo (.deb ou .rpm)**
 
 1.  Execute o comando de remoção de software no sistema, consoante o
     gestor de pacotes utilizado pelo seu sistema.
