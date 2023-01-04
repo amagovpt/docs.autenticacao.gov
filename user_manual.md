@@ -1767,7 +1767,7 @@ Servidores CRL:
 - pki.cartaodecidadao.pt (porto 443)
 
 **Leitura da morada:**
-- morada.teste.cartaodecidadao.pt (porto 443) (utilizado desde a versão 3.9.0 da aplicação)
+- morada.cartaodecidadao.pt (porto 443) (utilizado desde a versão 3.9.0 da aplicação)
 
 **Atualização da aplicação:**
 - autenticacao.gov.pt (porto 443)
