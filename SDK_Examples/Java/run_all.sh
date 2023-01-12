@@ -4,6 +4,9 @@
 JAR_PATH="/usr/local/lib/pteid_jni/pteidlibj.jar"
 LIB_PATH="/usr/local/lib/"
 
+PHOTO_PNG="files/citizen_photo.png"
+PHOTO_JPEG2000="files/citizen_photo.jp2"
+
 
 #Possible options for example programs () : "-identity", "-addr", "-auth", "-sign", "-all"
 #Only -identity can be used with no PIN prompts
@@ -25,8 +28,8 @@ if [ $OPTION == "-identity" ]; then
     echo "Running Java SDK Example - GetPhoto"
 
     javac -cp $JAR_PATH:. GetPhoto.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "-png" "files/image.png"
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "-jp2" "files/image.jp2"
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "-png" $PHOTO_PNG
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "-jp2" $PHOTO_JPEG2000
 
     echo "Running Java SDK Example - PinInfo"
 
@@ -95,8 +98,8 @@ elif [ $OPTION == "-all" ]; then
     echo "Running Java SDK Example - GetPhoto"
 
     javac -cp $JAR_PATH:. GetPhoto.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "-png" "files/image.png"
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "-jp2" "files/image.jp2"
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "-png" $PHOTO_PNG
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "-jp2" $PHOTO_JPEG2000
 
     echo "Running Java SDK Example - PinInfo"
 
