@@ -1,5 +1,9 @@
 import pt.gov.cartaodecidadao.*;
 
+import java.io.FileInputStream;
+import java.io.File;
+import java.io.IOException;
+
 
 public class SignPDFDocument {
 
@@ -17,7 +21,6 @@ public class SignPDFDocument {
     PTEID_ReaderSet readerSet = null;
     PTEID_ReaderContext readerContext = null;
     PTEID_EIDCard eidCard = null;
-    PTEID_EId eid = null;
 
     /**
      * Initializes the SDK and sets main variables
@@ -37,7 +40,6 @@ public class SignPDFDocument {
 
         //Gets the card instance
         eidCard = readerContext.getEIDCard();
-        eid = eidCard.getID();
     }
 
     /**
@@ -48,7 +50,18 @@ public class SignPDFDocument {
         try {
             PTEID_ReaderSet.releaseSDK();
         } catch (PTEID_Exception ex) {
-            System.out.println("Caught exception in some SDK method. Error: " + ex.GetMessage());
+            System.err.println("Caught exception in releaseSDK(). Error: " + ex.GetMessage());
+        }
+    }
+
+    PTEID_ByteArray loadCustomImage(String file_path) throws IOException {
+
+        try (FileInputStream fis = new FileInputStream(new File(file_path))) {
+         byte[] img_bytes = fis.readAllBytes();
+         PTEID_ByteArray img_ba = new PTEID_ByteArray(img_bytes, img_bytes.length);
+
+         return img_ba;
+            
         }
     }
 
@@ -69,13 +82,23 @@ public class SignPDFDocument {
 
         //You can set the location and reason of signature by simply changing this strings
         String location = "Lisboa, Portugal";
-        String reason = "Concordo com o conteudo do documento";
+        String reason = "Concordo com o conteúdo do documento";
 
-        //The page and coordinates where the signature will be printed
-        //If the values of pos_x and pos_y are negative this becomes an "invisible signature"
+        // The page and coordinates where the signature will be printed
+        // If the values of pos_x and pos_y are negative this becomes an "invisible signature"
         int page = 1;
-        double pos_x = 0.1;
-        double pos_y = 0.1;
+        double pos_x = 0.2;
+        double pos_y = 0.7;
+
+        // Use a custom image in the visual signature seal.
+        // This image must be in JPEG format with mandatory size: 351x77 px
+        try {
+            PTEID_ByteArray ba_img = loadCustomImage("files/custom-image.jpg");
+            signature.setCustomImage(ba_img);
+        }
+        catch (IOException e) {
+            System.err.println("Failed to load custom signature image!");
+        }
         
         //To actually sign the document you invoke this method, your authentication PIN will be requested
         //After this you can check the signed document in the path provided
@@ -86,9 +109,6 @@ public class SignPDFDocument {
 
         try {
             initiate();
-
-            System.out.println("Citizen name:                " + eid.getGivenName() + " " + eid.getSurname());
-            System.out.println("Card Number:                 " + eid.getDocumentNumber());
             
             sign(args[0], args[1]);
         } 
