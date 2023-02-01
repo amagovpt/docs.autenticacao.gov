@@ -2124,7 +2124,7 @@ configuração no MW.
 O software tem neste momento uma limitação com alguns tipos de
 servidores de proxy designadamente com autenticação NTLM ou Kerberos.
 Para utilizar as funcionalidades que exigem acesso à Internet
-(confirmação de morada, validação de certificados, assinatura com
+(leitura de morada, desde a versão 3.9.0 da aplicação, confirmação de alteração de morada, validação de certificados, assinatura com
 atributos profissionais ou assinatura com Chave Móvel) será necessário
 nestes ambientes uma reconfiguração de rede ou o uso de uma proxy aberta
 ou com autenticação Basic.
