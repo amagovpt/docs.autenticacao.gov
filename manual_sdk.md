@@ -165,7 +165,13 @@ instalação e executar.
 As bibliotecas C++ (pteidlibCpp.lib e respectivos *header files*), Java
 e C\# ficarão disponíveis por defeito em `C:\Program Files\PortugalIdentity Card\sdk\`
 ou na directoria seleccionada durante a instalação da aplicação,
-neste caso o SDK estará disponível em `{directoria_seleccionada}\sdk\` .
+neste caso o SDK estará disponível em `{directoria_seleccionada}\sdk\`.
+
+É também possível instalar em Windows apenas os ficheiros necessários à utilização do SDK, excluíndo a aplicação Autenticação.gov.
+Para isto deverá utilizar-se uma instalação customizada seleccionando as _opções avançadas_ do instalador ou através do seguinte comando:
+
+* Em sistemas com Windows 10 ou superior: `msiexec /i Autenticacao.gov_Win_*.msi /qn /norestart ADDLOCAL=PteidRuntime,Crypto`
+* Em sistemas anteriores ao Windows 10:   `msiexec /i Autenticacao.gov_Win_*.msi /qn /norestart ADDLOCAL=VCRedist,PteidRuntime,Crypto`
 
 ### Linux
 
