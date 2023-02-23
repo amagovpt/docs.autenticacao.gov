@@ -44,4 +44,4 @@ A documentação da API disponibilizada pelo SDK está disponível nos seguintes
 
 
 ## Contactos
-Para questões, sugestões ou comentários envie um e-mail para info.cidadao@ama.pt.
+Para questões, sugestões ou comentários contacte-nos através da página: [Contactos](https://www.autenticacao.gov.pt/contactos?appRedirect=AutenticacaoGovDesktop).
