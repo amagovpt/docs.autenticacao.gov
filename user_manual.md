@@ -897,7 +897,7 @@ Seguidamente, deverá clicar num dos botões de carregamento de atributos, conso
     outro). Deverá carregar em **Autorizar** e preencher o formulário com
     número de telemóvel associado à sua Chave Móvel Digital e respetivo
     PIN. De seguida, carregue **Autenticar** e introduza o código de
-    segurança que recebeu por SMS no telemóvel. Pressione **Confirmar**
+    segurança que recebeu no telemóvel por SMS ou notificação da aplicação Autenticação.gov. Pressione **Confirmar**
     para completar a autenticação.
 
     Se concluiu a autenticação com sucesso, pode regressar à aplicação e
@@ -1334,7 +1334,7 @@ Pode assinar documentos ou emails com a Chave Móvel Digital no Windows em aplic
 
 2. Insira o número de telemóvel associado à sua conta da Chave Móvel Digital e o PIN de Assinatura da Chave Móvel Digital e pressione **OK**.
 
-3. Se as credenciais inseridas no passo anterior estavam corretas, deverá receber um SMS no número de telemóvel associado com um código que deverá introduzir para concluir o processo de registo do certificado.
+3. Se as credenciais inseridas no passo anterior estavam corretas, deverá receber no telemóvel um código que deverá introduzir para concluir o processo de registo do certificado. Esse código será enviado por SMS ou através de notificação da aplicação móvel Autenticação.gov.
 
 No caso de ainda não ter registado o seu certificado após uma re-ativação da Assinatura da Chave Móvel Digital ou o certificado atualmente registado estar expirado terá de repetir o procedimento de registo.
 
