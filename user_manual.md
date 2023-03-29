@@ -2024,7 +2024,7 @@ Os seguintes registos podem ser adicionados:
 
   - **Tipo**: Número (0 / 1)
   - **Descrição**:  Utilizar servidor de proxy definido no Windows/ MacOS.
-  - **Valor por omissão**: 0 (Não)
+  - **Valor por omissão**: 1 (Sim)
 
 ---
 
