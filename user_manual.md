@@ -253,6 +253,13 @@ Para instalar esta versão da aplicação deve seguir este procedimento:
 3.  Instalar o pacote `pcsc-lite/pcscd` no sistema usando os pacotes nativos da distribuição. A aplicação funciona sem este componente, apenas as funcionalidades que exigem acesso ao Cartão de Cidadão dependem do pcscd.
 4.  Executar o comando `flatpak install pteid-mw-linux.x86_64.flatpak` na diretoria onde estiver o pacote flatpak descarregado.
 
+<h5 id="linux-scard-notes">Notas sobre a comunicação com o cartão</h5>
+
+1. O software flatpak deverá ter versão igual ou superior à 1.3.2 para permitir que a aplicação aceda ao Cartão de Cidadão. Este requisito é cumprido por distribuições como o Ubuntu 20.04 e 22.04, OpenSUSE Leap 15.3 e 15.4, entre outras.
+2. Em Ubuntu 22.04 é importante executar um comando extra para garantir que o acesso ao Cartão funciona sempre:
+   ` sudo systemctl enable pcscd.socket`
+
+
 **Instalação de pacotes nativos (.deb ou .rpm)**
 
 1.  Execute o comando de instalação de software no sistema, consoante o
@@ -1564,7 +1571,6 @@ utilizar uma versão 64-bit do *Firefox* / *Thunderbird*.
 
 ## Não é possível adicionar o módulo PKCS\#11 ao *Adobe Acrobat Reader* em *MacOS*
 
-
 Em versões anteriores do *Adobe Acrobat Reader* para *MacOS* não é possível
 adicionar o módulo PKCS\#11. Recomendamos a atualização do *Adobe
 Acrobat Reader* para a versão **DC**.
@@ -1621,24 +1627,24 @@ Em caso de problemas verifique se está relacionado com o tópico [Problemas com
 
 ### Linux <!-- omit in toc -->
 
+⚠ Para sistemas Ubuntu 22.04 deve consultar a nota 2 [desta secção](#linux-scard-notes)
+
 1.  Verifique se o leitor de cartões é compatível com o standard PC/SC (consulte a documentação do leitor ou contacte o fabricante).
-2.  Verifique se os controladores do leitor estão corretamente instalados (consulte a documentação do leitor).
+2.  Verifique se o driver/controlador do leitor estão corretamente instalados (consulte a documentação do leitor). A maioria dos leitores de smartcards são suportados hoje em dia pelo driver de código aberto CCID: https://ccid.apdu.fr/
 3.  Verifique se o **pcsc daemon** está instalado e em execução:
 
     a\) Numa janela de terminal execute o seguinte comando:
 
-    `ps aux`
+    `ps -e | grep pcscd`
 
-    b\) Procure uma referência ao processo pcscd.
+    b\) Procure uma referência ao processo `pcscd`.
 
     c\) Caso não esteja listado por favor inicie o serviço através do
 comando:
-
-    `sudo /etc/init.d/pcscd start`
+  `sudo systemctl start pcscd`
 
     d\) Caso obtenha uma mensagem de erro é possível que o daemon não esteja
-instalado. Utilize o seu gestor de pacotes para instalar o pcscd (por
-vezes já vem incluído no pacote pcsc-lite).
+instalado. Utilize o gestor de pacotes da sua distribuição para instalar o pcscd (por vezes está incluído num pacote de nome pcsc-lite).
 
 ## Não são detetados quaisquer certificados durante a tentativa de assinatura na suite *LibreOffice / Apache OpenOffice*
 
