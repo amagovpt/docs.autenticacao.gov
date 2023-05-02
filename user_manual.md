@@ -148,12 +148,10 @@ A lista de sistemas operativos suportados, nas suas arquiteturas de 32 e
 ## Download do pacote de instalação da aplicação
 
 Para obter o pacote de instalação da aplicação, deverá aceder ao
-sítio oficial do Cartão de Cidadão em
-[http://www.autenticacao.gov.pt](http://www.autenticacao.gov.pt/) e pressionar "Descarregar" no rectângulo com título "Aplicação Autenticação.gov".
+site oficial do Cartão de Cidadão em
+[Aplicação Autenticação.gov para computador](https://www.autenticacao.gov.pt/web/guest/cc-aplicacao) e fazer download da versão correta para o seu sistema operativo.
 
-![Ilustração: Download](Pictures/Portal_Autenticacao.Gov_Homepage.png "Download"){:.center}
-
-Ao clicar no link "aplicação Autenticação.gov para computador" será efetuada uma tentativa de identificar o sistema operativo através dos dados
+Ao clicar no link será efetuada uma tentativa de identificar o sistema operativo através dos dados
 fornecidos pelo navegador e na área de conteúdos do lado direito será
 apresentada uma hiperligação que permite efetuar o descarregamento do
 pacote de instalação adequado ao seu sistema.
