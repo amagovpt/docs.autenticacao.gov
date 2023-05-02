@@ -827,6 +827,8 @@ criptográficas da mesma.
 
 ![Ilustração: Validação da assinatura digital](Pictures/Autenticacao.Gov_assinatura_verify.png "Validação da assinatura digital"){:.center}
 
+**Nota**: Ao utilizar a função do Adobe Reader "bloquear o conteúdo depois de assinar", evite assinar digitalmente o documento de novo. Apesar de ser permitido adicionar mais assinaturas segundo o standard PAdES, o Adobe Reader invalida a primeira assinatura neste processo.
+
 ### Segurança
 
 A aplicação permite efetuar operações relativas à segurança do Cartão de
