@@ -59,6 +59,7 @@
     - [Assinatura digital na suite *LibreOffice / OpenOffice*](#assinatura-digital-na-suite-libreoffice--openoffice)
     - [Assinatura digital de email com *Microsoft Outlook*](#assinatura-digital-de-email-com-microsoft-outlook)
     - [Assinatura digital em *Adobe Acrobat Reader*](#assinatura-digital-em-adobe-acrobat-reader)
+    - [Assinatura digital em *Adobe Acrobat Reader DC* em MacOS (desde a versão 3.11.0)](#assinatura-digital-em-adobe-acrobat-reader-dc-em-macos-desde-a-versão-3110)
     - [Assinatura digital em *Adobe Acrobat Reader DC* em MacOS com PKCS#11](#assinatura-digital-em-adobe-acrobat-reader-dc-em-macos-com-pkcs11)
     - [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-móvel-digital)
     - [Assinatura digital de email com Mozilla Thunderbird](#assinatura-digital-de-email-com-mozilla-thunderbird)
@@ -1287,7 +1288,25 @@ Caso contrário será necessário criar um novo campo de assinatura num local á
 
 6. Para concluir, introduza o seu PIN de assinatura. A janela de introdução de PIN deverá ter o título de "Segurança do Windows" e a mensagem "Introduza o PIN de não rejeição".
 
-### Assinatura digital em *Adobe Acrobat Reader DC* em MacOS com PKCS#11
+### Assinatura digital em *Adobe Acrobat Reader* em MacOS (desde a versão 3.11.0)
+
+Desde a versão 3.11.0 da aplicação é possível utilizar o Cartão de Cidadão em aplicações nativas MacOS utilizando o módulo *PteidToken* que implementa a framework CryptoTokenKit.
+
+A configuração inicial deste módulo no Acrobat Reader fica bastante facilitada face às versões anteriores.
+Para poder assinar um documento no *Adobe Acrobat Reader*, em MacOS, deve primeiro ativar a utilização do módulo CryptoTokenKit da seguinte forma:
+
+1. No *Adobe Acrobat Reader*, aceda ao menu **Preferências...**.
+
+2. Selecione a categoria **Assinaturas** e na secção "Criação e aparência" pressione **Mais...**.
+
+3. Clique na caixa de seleção "Habilitar suporte à estrutura CryptoTokenKit"
+
+Se já tinha assinado com CC usando versões anteriores da Autenticação.gov deve também garantir que o Acrobat Reader está a funcionar em modo nativo caso o seu computador tenha um processador Apple M1 ou sucessor. Neste sentido pode consultar a seguinte página de ajuda:
+* https://helpx.adobe.com/pt/acrobat/kb/apple-silicon-m1-processor-support.html
+
+Depois desta configuração que é necessária antes da primeira utilização, deve inserir o Cartão de Cidadão no leitor e já deverá ter disponível o seu certificado de assinatura na funcionalidade do menu **Certificados** -> **Assinar Digitalmente**.
+
+### Assinatura digital em *Adobe Acrobat Reader* em MacOS com PKCS#11
 
 **Nota**: Em computadores MacOS com processador ARM, Apple M1 ou sucessores, só é possível utilizar o módulo de assinatura no Adobe Reader se esta aplicação for executada em modo Intel emulado.
 
@@ -1295,27 +1314,27 @@ Pode consultar as instruções do fabricante para desligar o modo nativo na pág
 * https://helpx.adobe.com/pt/acrobat/kb/apple-silicon-m1-processor-support.html
 
 
-Para assinar um documento aberto no *Adobe Acrobat Reader DC*, em MacOS, deve primeiro carregar o módulo PKCS#11. Para tal, siga as seguintes instruções:
+Para assinar um documento aberto no *Adobe Acrobat Reader*, em MacOS, deve primeiro carregar o módulo PKCS#11. Para tal, siga as seguintes instruções:
 
-1. No *Adobe Acrobat Reader DC*, aceda a **Preferências**.
+1. No *Adobe Acrobat Reader*, aceda a **Preferências**.
 
-    ![Ilustração: Janela para assinar em *Microsoft Word*.](Pictures/Autenticacao.Gov_macos_adobe_pref.png)
+    ![Ilustração: Janela para assinar em *Adobe Reader*.](Pictures/Autenticacao.Gov_macos_adobe_pref.png)
 
 2. Selecione a Categoria **Assinaturas** e na secção "Certificados confiáveis e de identidade" pressione **Mais...**.
 
-    ![Ilustração: Janela para assinar em *Microsoft Word*.](Pictures/Autenticacao.Gov_macos_adobe_pref2.png)
+    ![Ilustração: Janela para assinar em *Adobe Reader*.](Pictures/Autenticacao.Gov_macos_adobe_pref2.png)
 
 3. No separador "IDs digitais" selecione **Módulos e tokens PKCS#11** e clique **Adicionar módulo**.
 
-    ![Ilustração: Janela para assinar em *Microsoft Word*.](Pictures/Autenticacao.Gov_macos_adobe_pkcs11.png)
+    ![Ilustração: Janela para assinar em *Adobe Reader*.](Pictures/Autenticacao.Gov_macos_adobe_pkcs11.png)
 
 4. No campo de texto insira o caminho da biblioteca: `/usr/local/lib/libpteidpkcs11.dylib` e pressione **OK**.
 
-    ![Ilustração: Janela para assinar em *Microsoft Word*.](Pictures/Autenticacao.Gov_macos_adobe_libpath.png)
+    ![Ilustração: Janela para assinar em *Adobe Reader*.](Pictures/Autenticacao.Gov_macos_adobe_libpath.png)
 
-Se o seu cartão de cidadão estiver inserido no leitor e o módulo tiver sido adicionado com sucesso, ao pressionar **Atualizar** os certificados ficarão disponíveis e visíveis conforme na imagem seguinte. No caso dos certificados não ficarem disponíveis como na imagem, verifique que o cartão está inserido no leitor, reinicie o *Adobe Acrobat Reader DC* e volte a verificar.
+Se o seu cartão de cidadão estiver inserido no leitor e o módulo tiver sido adicionado com sucesso, ao pressionar **Atualizar** os certificados ficarão disponíveis e visíveis conforme na imagem seguinte. No caso dos certificados não ficarem disponíveis como na imagem, verifique que o cartão está inserido no leitor, reinicie o *Adobe Acrobat Reader* e volte a verificar.
 
-![Ilustração: Janela para assinar em *Microsoft Word*.](Pictures/Autenticacao.Gov_macos_adobe_pkcs11_2.png)
+![Ilustração: Certificados do CC em *Adobe Reader*.](Pictures/Autenticacao.Gov_macos_adobe_pkcs11_2.png)
 
 Depois de ter adicionado o módulo PKCS#11, para assinar um documento aberto no *Adobe Acrobat Reader DC* deve, com o cartão de cidadão inserido no leitor:
 
