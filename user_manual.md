@@ -59,8 +59,8 @@
     - [Assinatura digital na suite *LibreOffice / OpenOffice*](#assinatura-digital-na-suite-libreoffice--openoffice)
     - [Assinatura digital de email com *Microsoft Outlook*](#assinatura-digital-de-email-com-microsoft-outlook)
     - [Assinatura digital em *Adobe Acrobat Reader*](#assinatura-digital-em-adobe-acrobat-reader)
-    - [Assinatura digital em *Adobe Acrobat Reader DC* em MacOS (desde a versão 3.11.0)](#assinatura-digital-em-adobe-acrobat-reader-dc-em-macos-desde-a-versão-3110)
-    - [Assinatura digital em *Adobe Acrobat Reader DC* em MacOS com PKCS#11](#assinatura-digital-em-adobe-acrobat-reader-dc-em-macos-com-pkcs11)
+    - [Assinatura digital em *Adobe Acrobat Reader* em MacOS (desde a versão 3.11.0)](#assinatura-digital-em-adobe-acrobat-reader-em-macos-desde-a-versão-3110)
+    - [Assinatura digital em *Adobe Acrobat Reader* em MacOS com PKCS#11](#assinatura-digital-em-adobe-acrobat-reader-em-macos-com-pkcs11)
     - [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-móvel-digital)
     - [Assinatura digital de email com Mozilla Thunderbird](#assinatura-digital-de-email-com-mozilla-thunderbird)
     - [Assinatura digital de ficheiros DWF](#assinatura-digital-de-ficheiros-dwf)
@@ -1135,7 +1135,8 @@ assinatura digital nas seguintes aplicações:
 - [Suite LibreOffice / OpenOffice](#assinatura-digital-na-suite-libreoffice--openoffice)
 - [Microsoft Outlook](#assinatura-digital-de-email-com-microsoft-outlook)
 - [Adobe Acrobat Reader](#assinatura-digital-em-adobe-acrobat-reader)
-- [Adobe Acrobat Reader em MacOS com PKCS#11](assinatura-digital-em-adobe-acrobat-reader-dc-em-macos-com-pkcs11)
+- [Adobe Acrobat Reader em MacOS (desde a versão 3.11.0)](#assinatura-digital-em-adobe-acrobat-reader-em-macos-desde-a-versão-3110)
+- [Adobe Acrobat Reader em MacOS com PKCS#11](#assinatura-digital-em-adobe-acrobat-reader-em-macos-com-pkcs11)
 - [Mozilla Thunderbird com PKCS#11](#assinatura-digital-de-email-com-mozilla-thunderbird)
 
 ### Assinatura digital na suite *Microsoft Office*
@@ -1269,7 +1270,7 @@ assinado.
 
 ### Assinatura digital em *Adobe Acrobat Reader*
 
-**Nota**: para assinar um documento no *Adobe Acrobat Reader DC* em MacOS, siga as instruções da secção [Assinatura digital em *Adobe Acrobat Reader* em MacOS com PKCS#11](#assinatura-digital-em-adobe-acrobat-reader-em-macos-com-pkcs11).
+**Nota**: para assinar um documento no *Adobe Acrobat Reader DC* em MacOS, siga as instruções da secção [Assinatura digital em *Adobe Acrobat Reader* em MacOS (desde a versão 3.11.0)](#assinatura-digital-em-adobe-acrobat-reader-em-macos-com-pkcs11).
 
 **Nota**: a assinatura com atributos profissionais só é possível na aplicação Autenticação.Gov.
 
