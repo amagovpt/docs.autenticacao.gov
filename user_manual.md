@@ -80,6 +80,7 @@
   - [Problemas com a nova cadeia de confiança](#problemas-com-a-nova-cadeia-de-confiança)
   - [Problemas na validação das assinaturas](#problemas-na-validação-das-assinaturas)
   - [Problemas com ficheiros PDF não suportados](#problemas-com-ficheiros-pdf-não-suportados)
+  - [Erro na Comunicação em assinatura com Chave Móvel Digital](#erro-na-comunicação-em-assinatura-com-chave-móvel-digital)
   - [Serviços online usados pela aplicação](#serviços-online-usados-pela-aplicação)
   - [Obtenção do relatório para análise através do menu Configurações](#obtenção-do-relatório-para-análise-através-do-menu-configurações)
   - [Remoção de metadados de ficheiros PDF](#remoção-de-metadados-de-ficheiros-pdf)
