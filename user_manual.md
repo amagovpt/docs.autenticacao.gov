@@ -1759,6 +1759,12 @@ No entanto, é possível assinar estes ficheiros com o cartão de cidadão ou Ch
 recorrendo a uma aplicação externa, por exemplo o *Adobe Acrobat Reader*. Para o fazer siga os passos
 descritos na secção [Assinatura digital em *Adobe Acrobat Reader*](#assinatura-digital-em-adobe-acrobat-reader).
 
+## Erro na Comunicação em assinatura com Chave Móvel Digital
+
+Neste tipo de problemas é comum o cidadão estar ligado numa rede empresarial. Caso se verifique, é provável que exista na rede uma *gateway* de segurança ou *proxy* HTTPS que filtra o tráfego HTTPS e interfere com a ligação ao serviço de assinatura com Chave Móvel Digital.
+
+Deve pedir ao Administrador de redes ou suporte informático da sua empresa para configurar uma exceção à filtragem do tráfego HTTPS para o serviço de **Assinatura com Chave Móvel Digital**. As informações necessárias estão na secção abaixo [Serviços online usados pela aplicação](#serviços-online-usados-pela-aplicação). Recomendamos que adicione à lista de exceções os endereços dos vários serviços online usados pela aplicação.
+
 ## Serviços online usados pela aplicação
 
 Algumas funcionalidades da aplicação requerem a ligação a serviços online para funcionarem corretamente. É por isso necessário garantir que não existe *firewall* ou outro *software* na rede local que impeça a ligação a estes serviços.
