@@ -32,8 +32,7 @@
     - [Menu Cartão](#menu-cartão)
       - [Identidade](#identidade)
       - [Outros dados](#outros-dados)
-      - [Morada e Alteração de morada (Desde a versão 3.9.0)](#morada-e-alteração-de-morada-desde-a-versão-390)
-      - [Morada e Alteração de morada (Versões anteriores a 3.9.0)](#morada-e-alteração-de-morada-versões-anteriores-a-390)
+      - [Morada e Alteração de morada](#morada-e-alteração-de-morada)
       - [Notas](#notas)
       - [Imprimir](#imprimir)
     - [Assinatura digital](#assinatura-digital)
@@ -531,7 +530,7 @@ estado do Cartão de Cidadão.
 
 ![Ilustração: Outros dados](Pictures/Autenticacao.Gov_Outros_Dados.png "Outros dados"){:.center}
 
-#### Morada e Alteração de morada (Desde a versão 3.9.0)
+#### Morada e Alteração de morada
 
 > ⚠ **IMPORTANTE: Consulta de Morada do Cartão de Cidadão.**
 >
@@ -550,103 +549,6 @@ Para terminar o processo de alteração de morada, consulte os seguintes *websit
 
 [Confirmar a alteracao de morada](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao).
 
-
-**Nota:** Durante o processo de alteração de morada, o cidadão terá de
-se autenticar, por isso deverá ter presente e desbloqueado o seu PIN de
-autenticação.
-
-**Erros durante a consulta e/ou alteração de morada:**
-
-Caso a aplicação não consiga consultar ou efetuar a confirmação da alteração de morada será mostrada uma mensagem de erro.
-
-* **Este erro pode ser resultado da interferência na rede, por um software externo à aplicação Autenticação.Gov.**
-
-  A consulta e alteração de morada requerem a ligação a serviços online para funcionarem corretamente. É por isso necessário garantir que não existe firewall ou outro software na rede local que impeça a ligação a estes serviços. Garanta que os seguintes serviços não são bloqueados:
-  * pki.cartaodecidadao.pt (porto 443) 
-  * (Desde a versão 3.9.0): morada.cartaodecidadao.pt (porto 443)
-  
-  No caso de estar ligado a uma rede empresarial, contacte o seu administrador de rede e peça uma configuração de rede que resolva o problema.
-  
-![Ilustração: Erro na alteração de morada](Pictures/Autenticacao.Gov_morada5.png "Pedido de confirmação em processamento"){:.center}
-
-#### Morada e Alteração de morada (Versões anteriores a 3.9.0)
-
-Dentro do separador “Morada” é possível visualizar a morada atual e
-completar o processo de alteração da morada. Esta última funcionalidade
-requer uma ligação à Internet. Por favor certifique-se que está ligado
-antes de iniciar o processo.
-
-**Nota:** Durante o processo de alteração de morada, o cidadão terá de
-se autenticar, por isso deverá ter presente e desbloqueado o seu PIN de
-autenticação.
-
-Para concluir um eventual processo de alteração de morada, siga os
-seguintes passos:
-
-1.  Clique no botão **Confirmar**.
-
-    ![Ilustração: Introduzir dados na confirmar de alteração de morada    ](Pictures/Autenticacao.Gov_Morada.png "Introduzir dados na confirmar de alteração de morada"){:.center}
-
-2.  Alterações de morada iniciadas no fim de dezembro de 2022 ou mais tarde devem ser confirmadas no portal [eportugal.gov.pt](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao). Para processos de alteração de morada iniciados antes do fim de 2022, insira o número de processo e o código secreto recebidos pelo correio.
-
-    ![Ilustração: Confirmar alteração de morada](Pictures/Autenticacao.Gov_morada2.png "Confirmar alteração de morada"){:.center}
-
-3.  Aguarde o processamento do pedido. Será efetuada uma ligação ao
-    serviço de alteração de morada e será pedido o seu PIN de
-    autenticação para obter os dados da nova morada e em seguida a nova
-    morada será escrita no Cartão de Cidadão.
-
-    **Por favor, não retire o cartão do leitor, não desligue a aplicação
-    e não desligue a Internet, enquanto o processo não estiver
-    terminado.**
-
-    ![Ilustração: Pedido de confirmação em processamento](Pictures/Autenticacao.Gov_morada3.png "Pedido de confirmação em processamento"){:.center}
-
-4.  Verifique o resultado da operação e siga as instruções:
-
-    - **A morada foi atualizada com sucesso:**
-
-      Caso a operação tenha sucesso, uma mensagem de Confirmação de alteração de morada com sucesso será mostrada.
-
-        ![Ilustração: Sucesso na alteração de morada](Pictures/Autenticacao.Gov_Alteracao_morada_sucesso.png "Sucesso na alteração de morada"){:.center}
-
-    - **Erro. Ocorreu um erro durante a alteração de morada:**
-
-      Caso a aplicação não consiga efetuar a confirmação da alteração de morada será mostrada uma mensagem de erro e respetivo código, que deverá anotar.
-
-      Nas seguintes mensagens de erro:
-
-      - **Não existe uma alteração de morada registada para este cartão.**
-
-        Para processos de alteração de morada iniciados no fim de dezembro de 2022, a confirmação de morada fica apenas disponível no portal [eportugal.gov.pt](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao). Para processos de alteração de morada iniciados antes do fim de dezembro de 2022, verifique que está a usar o Cartão de Cidadão correcto.
-
-        ![Ilustração: Erro na alteração de morada](Pictures/Autenticacao.Gov_morada4.png "Erro na alteração de morada"){:.center}
-
-      - **Processo de alteração de morada não foi concluído. A morada foi alterada no cartão mas não foi confirmada pelos serviços centrais.**
-
-        Caso a aplicação não consiga efetuar a confirmação da alteração de morada será mostrada uma mensagem de erro, que deverá anotar. Deverá aguardar cerca de 5 minutos e tentar novamente e, caso o erro persista, contactar a Linha Cartão de Cidadão através do número 211 950 500 ou do E-mail: cartaodecidadao@irn.mj.pt . (Tenha consigo as mensagens de erro e o número de processo de Alteração de Morada)
-
-        ![Ilustração: Erro na alteração de morada](Pictures/Autenticacao.Gov_Alteracao_morada_erro_n_confirmada.png "Erro na alteração de morada"){:.center}
-
-      - **O prazo de confirmação da alteração de morada expirou. Por favor efetue um novo pedido através dos balcões de atendimento ou do portal ePortugal.**
-
-        Neste caso deverá efectuar um novo pedido através dos balcões de atendimento ou do portal ePortugal.
-
-      Nas seguintes mensagens de erro:
-
-      - **Erro na comunicação.**
-
-      - **Verifique se introduziu corretamente o número de processo e código de confirmação.**
-
-      - **Verifique que tem o certificado de autenticação válido.**
-
-      - **Verifique que tem a última versão da aplicação.**
-
-        E em outras mensagens, sem descrição do erro, deverá tentar novamente seguindo as instruções e, caso o erro persista, contactar a Linha Cartão de Cidadão através do  número **211 950 500** ou do E-mail: **cartaodecidadao@irn.mj.pt**. (Tenha consigo as mensagens de erro e respectivos códigos de erro e o número de processo de Alteração de Morada).
-
-        A imagem seguinte é um exemplo da mensagem de erro.
-
-        ![Ilustração: Erro na alteração de morada](Pictures/Autenticacao.Gov_Alteracao_morada_erro.png "Erro na alteração de morada"){:.center}
 
 #### Notas
 
@@ -745,8 +647,6 @@ secção “Escolha os ficheiros”, como podemos visualizar na imagem seguinte.
         Móvel Digital) e respetiva cadeia não estavam revogados ou expirados. Este nível é
         recomendado para documentos que estão destinados a serem arquivados por um longo período de
         tempo. A assinatura com validação de longo prazo obedece à especificação do perfil PAdES-LTA.
-
-        **Nota**: Disponível a partir da versão 3.4.0 da aplicação.
 
     - **Adicionar atributos profissionais:** A funcionalidade de assinatura de profissionais permite
       ao cidadão autenticar-se na  qualidade das funções que desempenha na sociedade enquanto
@@ -1762,9 +1662,9 @@ descritos na secção [Assinatura digital em *Adobe Acrobat Reader*](#assinatura
 
 ## Erro na Comunicação em assinatura com Chave Móvel Digital
 
-Neste tipo de problemas é comum o cidadão estar ligado numa rede empresarial. Caso se verifique, é provável que exista na rede uma *gateway* de segurança ou *proxy* HTTPS que filtra o tráfego HTTPS e interfere com a ligação ao serviço de assinatura com Chave Móvel Digital.
+Neste tipo de ocorrências é comum o cidadão estar ligado numa rede empresarial. Caso se verifique, é provável que exista na rede uma *gateway* de segurança ou *proxy* HTTPS que filtra o tráfego HTTPS e interfere com a ligação ao serviço de assinatura com Chave Móvel Digital.
 
-Deve pedir ao Administrador de redes ou suporte informático da sua empresa para configurar uma exceção à filtragem do tráfego HTTPS para o serviço de **Assinatura com Chave Móvel Digital**. As informações necessárias estão na secção abaixo [Serviços online usados pela aplicação](#serviços-online-usados-pela-aplicação). Recomendamos que adicione à lista de exceções os endereços dos vários serviços online usados pela aplicação.
+Deve pedir ao Administrador de redes ou suporte informático da sua empresa ou organização para configurar uma exceção à filtragem do tráfego HTTPS para o serviço de **Assinatura com Chave Móvel Digital**. As informações necessárias estão na secção abaixo [Serviços online usados pela aplicação](#serviços-online-usados-pela-aplicação). Recomendamos que adicione à lista de exceções os endereços dos vários serviços online usados pela aplicação.
 
 ## Serviços online usados pela aplicação
 
@@ -1794,10 +1694,6 @@ Servidores CRL:
 
 - scap.autenticacao.gov.pt (porto 443)
 - autenticacao.gov.pt (porto 443) (apenas para carregamento com CMD)
-
-**Confirmação de alteração de morada:**
-
-- pki.cartaodecidadao.pt (porto 443)
 
 **Leitura da morada:**
 - morada.cartaodecidadao.pt (porto 443) (utilizado desde a versão 3.9.0 da aplicação)
@@ -1868,8 +1764,6 @@ $ eidguiV2 -h
 - *-c*: para renderização por Hardware (Placa gráfica)(Valor por omissão);
 
 No caso de existirem problemas gráficos, ou a aplicação não arrancar, deverá experimentar as três opções e ver qual tem melhor resultado. A última opção escolhida, ficará guardada e poderá voltar a arrancar a aplicação clicando no ícone no ambiente de trabalho, no menu iniciar ou mesmo pela linha de comandos sem passar este parâmetro.
-
-**Nota:** Disponível a partir da versão 3.4.0 da aplicação.
 
 No caso de existirem problemas com placas gráficas, consulte o tópico [Problemas gráficos na aplicação](#problemas-gráficos-na-aplicação).
 
