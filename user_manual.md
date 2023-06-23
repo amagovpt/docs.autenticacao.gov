@@ -466,8 +466,7 @@ digitais.
 Nesta aplicação poderá efetuar as seguintes operações:
 
 -   Visualização da informação e foto do cidadão;
--   Visualização da morada do cidadão e confirmação da alteração de
-    morada;
+-   Visualização da morada do cidadão;
 -   Edição das notas;
 -   Imprimir os dados do Cartão de Cidadão;
 -   Assinatura digital de documentos PDF e outros ficheiros;
@@ -512,7 +511,7 @@ principais: Menu Cartão, Menu Assinatura e Menu Segurança.
 ### Menu Cartão
 
 Permite visualizar a informação de identidade e foto do cidadão,
-visualizar a morada do cidadão e confirmar a alteração de morada, edição
+visualizar a morada do cidadão, edição
 das notas, bem como imprimir os dados do Cartão de Cidadão. A foto do cidadão
 pode ser exportada para um ficheiro.
 
@@ -759,8 +758,7 @@ Cidadão.
     sites e aplicações que suportem o Cartão de Cidadão.
 -   **PIN de Assinatura:** Este PIN é usado para assinar documentos ou
     transações em aplicações que suportem o Cartão de Cidadão.
--   **PIN de Morada:** Este PIN é usado para alteração e leitura de
-    morada.
+-   **PIN de Morada:** Este PIN é usado para leitura de morada.
 
     ![Ilustração: Verificar e modificar códigos PIN](Pictures/Autenticacao.Gov_codigos_pin.png "Verificar e modificar códigos PIN"){:.center}
 
@@ -2051,7 +2049,7 @@ configuração no MW.
 O software tem neste momento uma limitação com alguns tipos de
 servidores de proxy designadamente com autenticação NTLM ou Kerberos.
 Para utilizar as funcionalidades que exigem acesso à Internet
-(leitura de morada, desde a versão 3.9.0 da aplicação, confirmação de alteração de morada, validação de certificados, assinatura com
+(leitura de morada, desde a versão 3.9.0 da aplicação, validação de certificados, assinatura com
 atributos profissionais ou assinatura com Chave Móvel) será necessário
 nestes ambientes uma reconfiguração de rede ou o uso de uma proxy aberta
 ou com autenticação Basic.
@@ -2065,4 +2063,4 @@ _________________
 
 Desenvolvido pelo Estado Português<br>
 (Agência para a Modernização Administrativa, IP e Instituto dos Registos e do Notariado, IP)<br>
-© Copyright (C) 2010-2021
+© Copyright (C) 2010-2023
