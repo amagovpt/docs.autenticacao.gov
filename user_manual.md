@@ -542,11 +542,9 @@ Dentro do separador “Morada” é possível visualizar a morada atual e aceder
 Ambas as funcionalidades requerem uma ligação à Internet. Por favor certifique-se que está ligado
 antes de iniciar o processo.
 
-Para terminar o processo de alteração de morada, consulte os seguintes *websites*:
+Para terminar o processo de alteração de morada, consulte a seguinte página Web:
 
-[Alteração de morada](https://www.autenticacao.gov.pt/cartao-cidadao/alteracao-morada).
-
-[Confirmar a alteracao de morada](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao).
+[Confirmar a alteração de morada](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao).
 
 
 #### Notas
