@@ -14,14 +14,12 @@
   - [Instalação da aplicação](#instalação-da-aplicação)
     - [Instalação em Microsoft Windows](#instalação-em-microsoft-windows)
     - [Instalação em Linux](#instalação-em-linux)
-      - [Instalação através do *Software Center*](#instalação-através-do-software-center)
       - [Instalação através da linha de comandos](#instalação-através-da-linha-de-comandos)
     - [Instalação em Mac OS](#instalação-em-mac-os)
   - [Remoção da aplicação](#remoção-da-aplicação)
     - [Remoção em *Microsoft Windows 7*](#remoção-em-microsoft-windows-7)
     - [Remoção em *Microsoft Windows 10 ou 11*](#remoção-em-microsoft-windows-10-ou-11)
     - [Remoção em Linux](#remoção-em-linux)
-      - [Remoção através do *Software Center*](#remoção-através-do-software-center)
       - [Remoção através da linha de comandos](#remoção-através-da-linha-de-comandos)
     - [Remoção em MacOS](#remoção-em-macos)
   - [Atualização da aplicação](#atualização-da-aplicação)
@@ -205,37 +203,6 @@ sistema operativo utilizado.
 
 ### Instalação em Linux
 
-Algumas distribuições de Linux, disponibilizam um gestor de aplicações -
-“*Software Center*” - onde é possível instalar o software através de um
-assistente gráfico. Este ecrã poderá variar consoante a distribuição,
-neste manual apresenta-se as imagens da utilização do *Ubuntu Software*
-em Linux Ubuntu 18.04.3 LTS.
-
-Em alternativa, a aplicação poderá também ser [instalada recorrendo à linha de comandos](#instala%c3%a7%c3%a3o-atrav%c3%a9s-da-linha-de-comandos).
-
-#### Instalação através do *Software Center*
-
-1.  Executar o pacote de instalação: Após ter
-    descarregado o ficheiro de instalação, deverá fazer duplo clique
-    sobre este. O sistema deverá apresentar o ecrã de
-    gestão de aplicações - “Software Center” - para a instalação do
-    software. Este ecrã varia consoante a distribuição que está a
-    utilizar, no entanto, as opções são semelhantes em todos. Nos ecrãs
-    seguintes são apresentados os ecrãs utilizando Linux Ubuntu 18.04.3 LTS.
-
-    ![Ilustração: Instalação da aplicação em Linux](Pictures/Autenticacao.Gov_Instalacao_Linux.png "Instalação da aplicação em Linux"){:.center}
-
-2.  Deverá premir o botão **Instalar** para prosseguir.
-3.  Será pedida a introdução da sua senha de utilizador. (É necessário
-    que tenha privilégios de administração da máquina)
-
-    ![Ilustração: Instalação_Linux](Pictures/Autenticacao.Gov_Instalacao_Linux3.png "Instalação_Linux"){:.center}
-
-4.  Após a conclusão do passo acima, a instalação da aplicação está
-    terminada.
-5.  Recomenda-se a reinicialização do sistema para assegurar o bom
-    funcionamento da aplicação.
-
 #### Instalação através da linha de comandos
 
 **Instalação de pacote Flatpak**
@@ -258,36 +225,6 @@ Para instalar esta versão da aplicação deve seguir este procedimento:
 2. Em Ubuntu 22.04 é importante executar um comando extra para garantir que o acesso ao Cartão funciona sempre:
    ` sudo systemctl enable pcscd.socket`
 
-
-**Instalação de pacotes nativos (.deb ou .rpm)**
-
-1.  Execute o comando de instalação de software no sistema, consoante o
-    gestor de pacotes utilizado pelo seu sistema.
-
-    Sistema baseado em pacotes .deb, execute o comando:
-
-    `sudo apt install ./Autenticacao.gov*.deb`
-
-    Por exemplo, em *Ubuntu 20*:
-
-    `sudo apt install ./Autenticacao.gov_Ubuntu_20_x64`
-
-    Sistema baseado em pacotes .rpm, execute o comando:
-
-    `dnf install Autenticacao.gov*.rpm` em Fedora ou
-    `zypper install Autenticacao.gov*.rpm` em OpenSUSE
-
-    Por exemplo, em *Fedora*:
-
-    `dnf install Autenticacao.gov_Fedora_x64.rpm`
-
-    Por exemplo, em *OpenSUSE*:
-
-    `zypper install Autenticacao.gov_OpenSUSE_x64.rpm`
-
-2.  Após este passo, a aplicação terá sido instalada no computador.
-3.  Recomenda-se a reinicialização do sistema para assegurar o bom
-    funcionamento da aplicação.
 
 ### Instalação em Mac OS
 
@@ -370,44 +307,6 @@ sistema operativo utilizado.
 
 ### Remoção em Linux
 
-Algumas distribuições de Linux, disponibilizam um gestor de aplicações -
-“**Software Center**” - onde é possível remover o software através de um
-assistente gráfico. Este ecrã poderá variar consoante a distribuição,
-neste manual apresenta-se as imagens da utilização do *Ubuntu Software*
-em Linux Ubuntu 18.04.3 LTS.
-
-Em alternativa, a aplicação poderá também ser [removida recorrendo à linha de comandos](#remo%c3%a7%c3%a3o-atrav%c3%a9s-da-linha-de-comandos).
-
-#### Remoção através do *Software Center*
-
-Este ecrã varia consoante a distribuição que está a utilizar, no
-entanto, as opções são semelhantes em qualquer distribuição. Nos ecrãs
-seguintes são apresentados os ecrãs utilizando Linux Ubuntu 18.04.3 LTS.
-
-1.  Abra o **Ubuntu Software** (Menu Aplicações → Ubuntu Software).
-
-    ![Ilustração: Remoção da aplicação em Linux](Pictures/Autenticacao.Gov_Desinstalar_Linux.png "Remoção da aplicação em Linux"){:.center}
-
-2.  Prima o botão **Instalado** na barra superior.
-
-    ![Ilustração: Remoção da aplicação em Linux](Pictures/Autenticacao.Gov_Desinstalar_Linux2.png "Remoção da aplicação em Linux"){:.center}
-
-3.  Localize o pacote **pteid-mw** e prima o botão **Remover**.
-
-    ![Ilustração: Remoção da aplicação em Linux](Pictures/Autenticacao.Gov_Desinstalar_Linux3.png "Remoção da aplicação em Linux"){:.center}
-
-4.  Confirme a operação, voltando a escolher o botão **Remover**.
-
-    ![Ilustração: Remoção da aplicação em Linux](Pictures/Autenticacao.Gov_Desinstalar_Linux4.png "Remoção da aplicação em Linux"){:.center}
-
-5.  Será pedida a introdução da sua senha de utilizador. É necessário
-    que tenha privilégios de administração da máquina.
-
-    ![Ilustração: Apresentação da aplicação](Pictures/Autenticacao.Gov_Desinstalar_Linux5.png "Apresentação da aplicação"){:.center}
-
-6.  Após a conclusão do passo acima a o processo de desinstalação da
-    aplicação está terminado.
-
 #### Remoção através da linha de comandos
 
 **Remoção de pacote Flatpak**
@@ -415,21 +314,6 @@ seguintes são apresentados os ecrãs utilizando Linux Ubuntu 18.04.3 LTS.
 1. Verifique se a aplicação está de facto instalada via flatpak:
    isto acontece se existir uma entrada com o ID `pt.gov.autenticacao` na listagem devolvida  pelo comando `flatpak --columns=app list`.
 2. Em caso afirmativo pode remover o pacote com o seguinte comando: `flatpak remove pt.gov.autenticacao`
-
-**Remoção de pacote nativo (.deb ou .rpm)**
-
-1.  Execute o comando de remoção de software no sistema, consoante o
-    gestor de pacotes utilizado pelo seu sistema.
-
-    Gestor de pacotes baseado em ficheiros .deb, execute o comando:
-
-    `sudo dpkg -r pteid-mw`
-
-    Gestor de pacotes baseado em ficheiros .rpm, execute o comando:
-
-    `sudo rpm -e pteid-mw`
-
-2.  Após este passo, a aplicação terá sido removida do computador.
 
 ### Remoção em MacOS
 
@@ -442,17 +326,11 @@ seguintes são apresentados os ecrãs utilizando Linux Ubuntu 18.04.3 LTS.
 
 ### Atualização em Linux
 
-Ao transferir o ficheiro de instalação através do menu **Configurações** -> **Atualizações** da aplicação, este ficará disponível na diretoria das **Transferências**, por defeito em `~/Downloads`.
+Ao transferir o ficheiro de instalação através do menu **Configurações** -> **Atualizações** da aplicação, este ficará disponível na diretoria de **Transferências**, por defeito em `~/Downloads`.
 
 Pode também transferir a nova versão da aplicação através do site [oficial](https://www.autenticacao.gov.pt/web/guest/cc-aplicacao).
 
-Depois de ter transferido o ficheiro de instalação, para concluir a atualização:
-
-* Através da linha de comandos: siga os passos indicados na secção [Instalação através da linha de comandos](#instalação-através-da-linha-de-comandos).
-
-* Através do gestor de aplicações: siga os passos indicados na secção [Instalação através do *Software Center*](#instalação-através-do-software-center).
-
-    Nota: Ao utilizar o gestor de aplicações para atualizar a aplicação pode ser necessário remover a aplicação primeiro e só depois instalar a nova versão.
+Depois de ter transferido o ficheiro de instalação, para concluir a atualização siga os passos indicados na secção [Instalação através da linha de comandos](#instalação-através-da-linha-de-comandos).
 
 
 # Aplicação Utilitária “Autenticação.Gov”
