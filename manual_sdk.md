@@ -1535,7 +1535,7 @@ da seguinte forma:
 
     Security.addProvider(p);
 
-    Keystore ks = KeyStore.getInstance ("PKCS11", p);
+    KeyStore ks = KeyStore.getInstance ("PKCS11", p);
     try {
 
        // Initialize the PKCS#11 token
