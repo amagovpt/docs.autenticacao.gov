@@ -1,5 +1,6 @@
 import java.io.ByteArrayInputStream;
 import java.security.*;
+import java.security.interfaces.RSAPublicKey;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
@@ -80,12 +81,15 @@ public class SignData {
 
     private void verifySignature(Certificate signature_certificate, byte[] card_signature) {
         try {
-            Signature sig = Signature.getInstance("SHA256withRSA");
+
+            PublicKey pk = signature_certificate.getPublicKey();
+            String signatureAlgo = pk instanceof RSAPublicKey ? "SHA256withRSA": "SHA256withECDSA";
+            Signature sig = Signature.getInstance(signatureAlgo);
             sig.initVerify(signature_certificate.getPublicKey());
             sig.update(dataToBeSigned.getBytes(StandardCharsets.UTF_8));
             boolean verified = sig.verify(card_signature);
 
-            System.out.println("RSA-SHA256 signature is: " + (verified ? "OK": "NOK"));
+            System.out.format("%s signature is: %s\n", signatureAlgo, (verified ? "OK": "NOK"));
         } catch (NoSuchAlgorithmException e) {
             System.err.println("Non-conforming JVM, this algo is present in the Java Security Standard Algorithm Names Specification!");
             e.printStackTrace();
@@ -110,6 +114,7 @@ public class SignData {
 
         return null;
     }
+
     
     public void start() {
         
