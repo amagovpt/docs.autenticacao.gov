@@ -16,6 +16,7 @@
     - [Instalação em Linux](#instalação-em-linux)
       - [Instalação através da linha de comandos](#instalação-através-da-linha-de-comandos)
     - [Instalação em Mac OS](#instalação-em-mac-os)
+    - [Instalação em ChromeOS](#instalação-em-chromeos)
   - [Remoção da aplicação](#remoção-da-aplicação)
     - [Remoção em *Microsoft Windows 7*](#remoção-em-microsoft-windows-7)
     - [Remoção em *Microsoft Windows 10 ou 11*](#remoção-em-microsoft-windows-10-ou-11)
@@ -247,6 +248,19 @@ Para instalar esta versão da aplicação deve seguir este procedimento:
     “Autenticacão.Gov” já estará disponível na pasta Aplicações /
     *Applications*.
 
+### Instalação em ChromeOS
+
+1. Instalar o software flatpak seguindo as instruções específicas do ChromeOS: https://flatpak.org/setup/Chrome%20OS
+
+2. Fazer download do ficheiro Linux Pacote Flatpak do Autenticação.gov a partir desta página: https://www.autenticacao.gov.pt/web/guest/cc-aplicacao.
+
+3. Executar o comando `flatpak install pteid-mw-linux.x86_64.flatpak` na diretoria onde estiver o pacote flatpak descarregado.
+
+4. Após a applicação estar instalada com sucesso, aplicação pode ser corrida pela terminal executando o comando `flatpak run pt.gov.autenticacao`.
+
+**Nota: A funcionalidade da applicação é atualmente limitada em ChromeOS, sendo apenas possivel utilizar a Chave Móvel Digital.**
+
+
 ## Remoção da aplicação
 
 Para proceder à remoção da aplicação do Cartão de Cidadão, deverão
@@ -305,7 +319,7 @@ sistema operativo utilizado.
 
 **Nota**: a diretoria e ficheiros de *log*, que se encontram na pasta de instalação (por defeito em `C:\Program Files\Portugal Identity Card\log\`), não serão removidos ao desinstalar a aplicação Autenticação.Gov.
 
-### Remoção em Linux
+### Remoção em Linux e ChromeOS
 
 #### Remoção através da linha de comandos
 
