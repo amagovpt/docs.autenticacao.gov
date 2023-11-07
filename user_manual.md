@@ -1750,6 +1750,14 @@ Os seguintes registos podem ser adicionados:
 
 ---
 
+`HKLM\Software\PTEID\general\admin_config`
+
+  - **Tipo**: Número (0 / 1)
+  - **Descrição**: Ativar (1) ou desativar (0) a configuração de administrador, forçando o uso da proxy configurada pelo administrador na secção de registo de proxy em HKLM. Desta forma valores inseridos pelo utilizador são ignorados e a configuração de proxy torna-se desabilitada nas definições da aplicação.
+  - **Valor por omissão**: 0 (desativo)
+
+---
+
 `HKLM\Software\PTEID\general\cache_dirname`
 
   - **Tipo**: String
