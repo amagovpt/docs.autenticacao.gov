@@ -108,6 +108,7 @@ entre em contacto através da página:
 | XML                      | Extensible Markup Language         |
 | XAdES                    | XML Advanced Electronic Signatures |
 | PAdES                    | PDF Advanced Electronic Signatures |
+| PKCS#11                  | Public Key Cryptography Standards #11 - Cryptographic Token Interface |
 
 # Instalação
 
