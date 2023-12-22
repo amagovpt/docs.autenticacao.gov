@@ -19,6 +19,7 @@ public class ReadCard {
     PTEID_EIDCard eidCard = null;
     PTEID_EId eid = null;
     PTEID_CardType cardType = null;
+    PTEID_CardContactInterface contactInterface = null;
 
     /**
      * Initializes the SDK and sets main variables
@@ -42,9 +43,11 @@ public class ReadCard {
         readerContext = readerSet.getReader();
 
         //Gets the Card Contact Interface and type
-        PTEID_CardContactInterface contactInterface = readerContext.getCardContactInterface();
-        cardType = readerContext.getCardType();
-        System.out.println("Contact Interface:" + (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS ? "CONTACTLESS" : "CONTACT"));
+        if(readerContext.isCardPresent()){
+            contactInterface = readerContext.getCardContactInterface();
+            cardType = readerContext.getCardType();
+            System.out.println("Contact Interface:" + (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS ? "CONTACTLESS" : "CONTACT"));
+        }
 
         //Get the card instance for the first reader
         eidCard = readerContext.getEIDCard();
