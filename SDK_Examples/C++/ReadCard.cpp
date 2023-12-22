@@ -1,6 +1,7 @@
 #include "eidlib.h"
 #include "eidlibException.h"
 #include <iostream>
+#include <string.h>
 
 using namespace eIDMW;
 
@@ -10,6 +11,9 @@ int main(int argc, char **argv) {
     {
         //Initializes SDK (must always be called in the beginning of the program)
         PTEID_InitSDK();
+
+        //Sets test mode to true so that CC2 can be tested
+        PTEID_Config::SetTestMode(true);
 
         //Gets the set of readers connected to the system
         PTEID_ReaderSet& readerSet = PTEID_ReaderSet::instance();
@@ -26,8 +30,23 @@ int main(int argc, char **argv) {
         //Alternatively you can iterate through the readers using getReaderByNum(int index) instead of getReader()
         PTEID_ReaderContext& reader = readerSet.getReader();
 
-        //Gets the EIDCard and EId objects (with the cards information)
+        //Gets the Card Contact Interface and type
+        PTEID_CardContactInterface contactInterface = reader.getCardContactInterface();
+        PTEID_CardType cardType = reader.getCardType();
+        std::cout << "Contact Interface:" << (contactInterface == PTEID_CARD_CONTACTLESS ? "CONTACTLESS" : "CONTACT") << std::endl;
+
+        //Gets the EIDCard 
         PTEID_EIDCard& eidCard = reader.getEIDCard();
+
+        //If the contactInterface is contactless and the card supports contactless then authenticate with PACE
+        if (contactInterface == PTEID_CARD_CONTACTLESS && cardType == PTEID_CARDTYPE_IAS5){
+            std::string can_str;
+            std::cout << "Insert the CAN for this EIDCard: ";
+            std::cin >> can_str;
+            eidCard.initPaceAuthentication(can_str.c_str(), can_str.size(),  PTEID_CardPaceSecretType::PTEID_CARD_SECRET_CAN);
+        }
+
+        //Gets the EId objects (with the cards information)
         PTEID_EId& eid = eidCard.getID();
 
         std::cout << "Name:                       " << eid.getGivenName() << " " << eid.getSurname() << std::endl;
@@ -55,6 +74,7 @@ int main(int argc, char **argv) {
         std::cout << "MRZ (Machine Readable Zone): " << eid.getMRZ1() << std::endl;
         std::cout << "                             " << eid.getMRZ2() << std::endl;
         std::cout << "                             " << eid.getMRZ3() << std::endl;   
+        std::cout << (cardType == PTEID_CARDTYPE_IAS5 ? "CC2" : "CC1") << std::endl; 
     }
     catch (PTEID_ExNoReader &e) 
     {

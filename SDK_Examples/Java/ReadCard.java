@@ -1,5 +1,6 @@
 import pt.gov.cartaodecidadao.*;
-
+import java.util.Scanner;
+import java.lang.reflect.*;
 
 public class ReadCard {
 
@@ -18,6 +19,7 @@ public class ReadCard {
     PTEID_ReaderContext readerContext = null;
     PTEID_EIDCard eidCard = null;
     PTEID_EId eid = null;
+    PTEID_CardType cardType = null;
 
     /**
      * Initializes the SDK and sets main variables
@@ -28,6 +30,9 @@ public class ReadCard {
         //Must always be called in the beginning of the program
         PTEID_ReaderSet.initSDK();
 
+        //Sets test mode to true so that CC2 can be tested
+        //PTEID_Config.SetTestMode(true);
+
         //Gets the set of connected readers
         readerSet = PTEID_ReaderSet.instance();
 
@@ -37,8 +42,21 @@ public class ReadCard {
 		   and check if there is a card present with PTEID_ReaderContext.isCardPresent() */
         readerContext = readerSet.getReader();
 
+        //Gets the Card Contact Interface and type
+        PTEID_CardContactInterface contactInterface = readerContext.getCardContactInterface();
+        cardType = readerContext.getCardType();
+        System.out.println("Contact Interface:" + (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS ? "CONTACTLESS" : "CONTACT"));
+
         //Get the card instance for the first reader
         eidCard = readerContext.getEIDCard();
+
+        //If the contactInterface is contactless and the card supports contactless then authenticate with PACE
+        if (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS && cardType ==  PTEID_CardType.PTEID_CARDTYPE_IAS5){
+            Scanner in = new Scanner(System.in);
+            System.out.print("Insert the CAN for this EIDCard: ");
+            String can_str = in.nextLine();
+            eidCard.initPaceAuthentication(can_str, can_str.length(),  PTEID_CardPaceSecretType.PTEID_CARD_SECRET_CAN);
+        }
         eid = eidCard.getID();
     }
 
@@ -87,7 +105,7 @@ public class ReadCard {
         System.out.println("MRZ (Machine Readable Zone): " + eid.getMRZ1());
         System.out.println("                             " + eid.getMRZ2());
         System.out.println("                             " + eid.getMRZ3());
-        
+        System.out.println((cardType == PTEID_CardType.PTEID_CARDTYPE_IAS5 ? "CC2" : "CC1"));
     }
 
     public void start() {
