@@ -11,6 +11,7 @@ namespace Examples
         PTEID_EIDCard eidCard = null;
         PTEID_EId eid = null;
         PTEID_CardType cardType = PTEID_CardType.PTEID_CARDTYPE_UNKNOWN;
+        PTEID_CardContactInterface contactInterface = PTEID_CardContactInterface.PTEID_CARD_CONTACTEMPTY;
 
 
         /*
@@ -32,9 +33,13 @@ namespace Examples
             readerContext = readerSet.getReader();
 
             //Gets the Card Contact Interface and type
-            PTEID_CardContactInterface contactInterface = readerContext.getCardContactInterface();
-            cardType = readerContext.getCardType();
-            Console.WriteLine("Contact Interface:" + (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS ? "CONTACTLESS" : "CONTACT"));
+
+            if (readerContext.isCardPresent())
+            {
+                contactInterface = readerContext.getCardContactInterface();
+                cardType = readerContext.getCardType();
+                Console.WriteLine("Contact Interface:" + (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS ? "CONTACTLESS" : "CONTACT"));
+            }
 
             //Gets the card instance
             eidCard = readerContext.getEIDCard();
