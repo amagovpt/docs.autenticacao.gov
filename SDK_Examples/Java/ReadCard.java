@@ -1,6 +1,5 @@
 import pt.gov.cartaodecidadao.*;
 import java.util.Scanner;
-import java.lang.reflect.*;
 
 public class ReadCard {
 
