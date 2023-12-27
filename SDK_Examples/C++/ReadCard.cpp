@@ -31,9 +31,15 @@ int main(int argc, char **argv) {
         PTEID_ReaderContext& reader = readerSet.getReader();
 
         //Gets the Card Contact Interface and type
-        PTEID_CardContactInterface contactInterface = reader.getCardContactInterface();
-        PTEID_CardType cardType = reader.getCardType();
-        std::cout << "Contact Interface:" << (contactInterface == PTEID_CARD_CONTACTLESS ? "CONTACTLESS" : "CONTACT") << std::endl;
+        PTEID_CardContactInterface contactInterface;
+        PTEID_CardType cardType;
+
+        //Gets the Card Contact Interface and type
+        if(reader.isCardPresent()){
+            contactInterface = reader.getCardContactInterface();
+            cardType = reader.getCardType();
+            std::cout << "Contact Interface:" << (contactInterface == PTEID_CARD_CONTACTLESS ? "CONTACTLESS" : "CONTACT") << std::endl;
+        }
 
         //Gets the EIDCard 
         PTEID_EIDCard& eidCard = reader.getEIDCard();
