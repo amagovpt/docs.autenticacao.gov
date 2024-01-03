@@ -31,7 +31,7 @@ public class ReadCard {
         PTEID_ReaderSet.initSDK();
 
         //Sets test mode to true so that CC2 can be tested
-        //PTEID_Config.SetTestMode(true);
+        PTEID_Config.SetTestMode(true);
 
         //Gets the set of connected readers
         readerSet = PTEID_ReaderSet.instance();
