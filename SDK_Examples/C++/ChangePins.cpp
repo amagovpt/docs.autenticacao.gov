@@ -29,10 +29,33 @@ int main(int argc, char **argv) {
         //Gets a reader connected to the system (useful if you only have one)
         //Alternatively you can iterate through the readers using getReaderByNum(int index) instead of getReader()
         PTEID_ReaderContext& readerContext = readerSet.getReader();
-        
-        //Gets the EIDCard and EId objects (with the cards information)
-        PTEID_EIDCard& eidCard = readerSet.getReader().getEIDCard();
 
+        //Gets a reader connected to the system (useful if you only have one)
+        //Alternatively you can iterate through the readers using getReaderByNum(int index) instead of getReader()
+        PTEID_ReaderContext& reader = readerSet.getReader();
+
+        //Gets the Card Contact Interface and type
+        PTEID_CardContactInterface contactInterface;
+        PTEID_CardType cardType;
+
+        //Gets the Card Contact Interface and type
+        if(reader.isCardPresent()){
+            contactInterface = reader.getCardContactInterface();
+            cardType = reader.getCardType();
+            std::cout << "Contact Interface:" << (contactInterface == PTEID_CARD_CONTACTLESS ? "CONTACTLESS" : "CONTACT") << std::endl;
+        }
+
+        //Gets the EIDCard and EId objects (with the cards information)
+        PTEID_EIDCard& eidCard = reader.getEIDCard();
+
+        //If the contactInterface is contactless and the card supports contactless then authenticate with PACE
+        if (contactInterface == PTEID_CARD_CONTACTLESS && cardType == PTEID_CARDTYPE_IAS5){
+            std::string can_str;
+            std::cout << "Insert the CAN for this EIDCard: ";
+            std::cin >> can_str;
+            eidCard.initPaceAuthentication(can_str.c_str(), can_str.size(),  PTEID_CardPaceSecretType::PTEID_CARD_SECRET_CAN);
+        }
+        
         //The number of PIN verification tries that the user has (updated with each call to verifyPin or changePin)
         unsigned long triesLeft;
 
