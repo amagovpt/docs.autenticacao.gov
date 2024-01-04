@@ -17,8 +17,6 @@ if [ $OPTION = "-identity" ]; then
     g++ -c -std=c++17 ReadCard.cpp
     g++ -o ReadCard.example ReadCard.o -lpteidlib 
     ./ReadCard.example
-#    echo "Remove card after test and put it again"
-#    sleep 5
 
     echo "Running C++ SDK Example - GetPhoto"
 
@@ -26,12 +24,8 @@ if [ $OPTION = "-identity" ]; then
     g++ -o GetPhoto.example GetPhoto.o -lpteidlib
     
     ./GetPhoto.example -png "files/image.png"
-#    echo "Remove card after test and put it again"
-#    sleep 5
 
     ./GetPhoto.example -jp2 "files/image.jp2"
-#    echo "Remove card after test and put it again"
-#    sleep 5
 
     echo "Running C++ SDK Example - PinInfo"
 
