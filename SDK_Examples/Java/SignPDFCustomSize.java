@@ -1,4 +1,5 @@
 import pt.gov.cartaodecidadao.*;
+import java.util.Scanner;
 
 //NOTE: This example demonstrates a method - setCustomSealSize(width, height) which was introduced on version 3.7.0 of the SDK
 public class SignPDFCustomSize {
@@ -18,26 +19,48 @@ public class SignPDFCustomSize {
     PTEID_ReaderContext readerContext = null;
     PTEID_EIDCard eidCard = null;
     PTEID_EId eid = null;
+    PTEID_CardType cardType = null;
+    PTEID_CardContactInterface contactInterface = null;
 
     /**
      * Initializes the SDK and sets main variables
      * @throws PTEID_Exception when there is some error with the SDK methods
      */
     public void initiate() throws PTEID_Exception {
-       
+        
         //Must always be called in the beginning of the program
         PTEID_ReaderSet.initSDK();
+
+        //Sets test mode to true so that CC2 can be tested
+        PTEID_Config.SetTestMode(true);
 
         //Gets the set of connected readers
         readerSet = PTEID_ReaderSet.instance();
 
         //Gets the first reader
-        //When multiple readers are connected, you should iterate through the various indexes with the methods getReaderName and getReaderByName
+        //When multiple readers are connected, you can iterate through the various reader objects with the methods getReaderName and getReaderByName or getReaderByNum
+        //Any reader can be checked for an inserted card with PTEID_ReaderContext.isCardPresent()
         readerContext = readerSet.getReader();
+
+        //Gets the Card Contact Interface and type
+        if(readerContext.isCardPresent()){
+            contactInterface = readerContext.getCardContactInterface();
+            cardType = readerContext.getCardType();
+            System.out.println("Contact Interface:" + (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS ? "CONTACTLESS" : "CONTACT"));
+        }
 
         //Gets the card instance
         eidCard = readerContext.getEIDCard();
-        eid = eidCard.getID();
+
+        //If the contactInterface is contactless and the card supports contactless then authenticate with PACE
+        if (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS && cardType ==  PTEID_CardType.PTEID_CARDTYPE_IAS5){
+            Scanner in = new Scanner(System.in);
+            System.out.print("Insert the CAN for this EIDCard: ");
+            String can_str = in.nextLine();
+            eidCard.initPaceAuthentication(can_str, can_str.length(),  PTEID_CardPaceSecretType.PTEID_CARD_SECRET_CAN);
+        }
+
+        eid = eidCard.getID();      
     }
 
     /**
