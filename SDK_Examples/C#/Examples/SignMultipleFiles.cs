@@ -11,6 +11,8 @@ namespace Examples
         PTEID_ReaderContext readerContext = null;
         PTEID_EIDCard eidCard = null;
         PTEID_EId eid = null;
+        PTEID_CardType cardType = PTEID_CardType.PTEID_CARDTYPE_UNKNOWN;
+        PTEID_CardContactInterface contactInterface = PTEID_CardContactInterface.PTEID_CARD_CONTACTEMPTY;
 
         /*
          * Initializes the SDK and sets main variables
@@ -20,6 +22,9 @@ namespace Examples
             //Must always be called in the beginning of the program
             PTEID_ReaderSet.initSDK();
 
+            //Sets test mode to true so that CC2 can be tested
+            PTEID_Config.SetTestMode(true);
+
             //Gets the set of connected readers, if there is any inserted
             readerSet = PTEID_ReaderSet.instance();
 
@@ -27,8 +32,26 @@ namespace Examples
             //When multiple readers are connected, you should iterate through the various indexes with the methods getReaderName and getReaderByName
             readerContext = readerSet.getReader();
 
+            //Gets the Card Contact Interface and type
+
+            if (readerContext.isCardPresent())
+            {
+                contactInterface = readerContext.getCardContactInterface();
+                cardType = readerContext.getCardType();
+                Console.WriteLine("Contact Interface:" + (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS ? "CONTACTLESS" : "CONTACT"));
+            }
+
             //Gets the card instance
             eidCard = readerContext.getEIDCard();
+
+            //If the contactInterface is contactless and the card supports contactless then authenticate with PACE
+            if (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS && cardType == PTEID_CardType.PTEID_CARDTYPE_IAS5)
+            {
+                Console.WriteLine("Insert the CAN for this EIDCard: ");
+                string can_str = Console.ReadLine();
+                uint can_size = (uint)can_str.Length;
+                eidCard.initPaceAuthentication(can_str, can_size, PTEID_CardPaceSecretType.PTEID_CARD_SECRET_CAN);
+            }
             eid = eidCard.getID();
         }
 
