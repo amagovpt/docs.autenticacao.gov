@@ -21,7 +21,7 @@
   - [Configurar modo teste](#configurar-modo-teste)
   - [Acesso ao *smartcard* Cartão de Cidadão](#acesso-ao-smartcard-cartão-de-cidadão)
     - [Eventos de inserção / remoção de cartões](#eventos-de-inserção--remoção-de-cartões)
-    - [Usar Contactless](#usar-contactless) 
+    - [Usar Contactless](#usar-contactless)
   - [Dados pessoais do cidadão](#dados-pessoais-do-cidadão)
     - [Obtenção da Identificação](#obtenção-da-identificação)
     - [Obtenção da fotografia](#obtenção-da-fotografia)
@@ -484,9 +484,9 @@ public static void CardEventsCallback(int lRet, uint ulState, IntPtr callbackDat
 ```
 ### Usar Contactless
 
-Para usar a interface Contactless do Cartão de Cidadão, é necessário:
-- Obter a interface de contacto e o tipo de cartão após verificar a sua presença no leitor. Estas informações podem ser obtidas atraves das funções `PTEID_ReaderContext.getCardContactInterface()` e `PTEID_ReaderContext.getCardType()`.
-- Se o tipo de cartão for Cartão de Cidadão 2 e a interface de contacto for Contacless é necessário realizar pedir o CAN ao utilizador e depois usar esse CAN para a realizar a autenticação CAN atraves da função `PTEID_EIDCARD.initPaceAuthentication(secret,length,secretType)`.
+Para usar a interface Contactless do Cartão de Cidadão(disponível em cartões emitidos após Fevereiro de 2024), é necessário:
+- Obter a interface de contacto e o tipo de cartão após verificar a sua presença no leitor.Estas informações podem ser obtidas atraves das funções `PTEID_ReaderContext.getCardContactInterface()` e `PTEID_ReaderContext.getCardType()`.
+- Se o tipo de cartão for `PTEID_CardType.PTEID_CARDTYPE_IAS5` e a interface de contacto for `PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS` é necessário pedir o CAN ao utilizador e depois usar esse CAN para a realizar a autenticação PACE através da função `PTEID_EIDCARD.initPaceAuthentication(secret,length,secretType)`.
 
 1. Exemplo C++:
 ```c
