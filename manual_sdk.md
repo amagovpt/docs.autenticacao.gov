@@ -486,9 +486,12 @@ public static void CardEventsCallback(int lRet, uint ulState, IntPtr callbackDat
 
 Para usar a interface Contactless do Cartão de Cidadão(disponível em cartões emitidos após Fevereiro de 2024) é necessário:
 - Obter a interface de contacto e o tipo de cartão após verificar a sua presença no leitor. Estas informações podem ser obtidas atraves das funções `PTEID_ReaderContext.getCardContactInterface()` e `PTEID_ReaderContext.getCardType()`.
-- Se o tipo de cartão for `PTEID_CardType.PTEID_CARDTYPE_IAS5` e a interface de contacto for `PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS` é necessário pedir o CAN ao utilizador e depois usar esse CAN para a realizar a autenticação PACE através da função `PTEID_EIDCARD.initPaceAuthentication(secret,length,secretType)`.
+- Se o tipo de cartão for `PTEID_CardType.PTEID_CARDTYPE_IAS5` e a interface de contacto for `PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS` é necessário pedir o CAN ao utilizador e depois usar esse CAN para a realizar a autenticação PACE através da função `PTEID_EIDCARD.initPaceAuthentication(secret,length,secretType)`. 
+  - O CAN (card access number) é o código de 6 dígitos que se encontra no canto inferior direito dos Cartões de Cidadão emitidos após Fevereiro de 2024. <img src="Pictures/Infografia_Cartão_de_Cidadão.png" width="200">
+  - Apesar do CAN não possuir o limite de 3 tentativas que os PINS possuem, encontra-se protegido em relação a ataques de força bruta.
 
-Exemplo Java:
+
+ Exemplo Java:
 ```java
     PTEID_CardType cardType = null;
     PTEID_CardContactInterface contactInterface = null;
