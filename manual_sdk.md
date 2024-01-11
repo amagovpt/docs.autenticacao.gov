@@ -484,33 +484,11 @@ public static void CardEventsCallback(int lRet, uint ulState, IntPtr callbackDat
 ```
 ### Usar Contactless
 
-Para usar a interface Contactless do Cartão de Cidadão(disponível em cartões emitidos após Fevereiro de 2024), é necessário:
-- Obter a interface de contacto e o tipo de cartão após verificar a sua presença no leitor.Estas informações podem ser obtidas atraves das funções `PTEID_ReaderContext.getCardContactInterface()` e `PTEID_ReaderContext.getCardType()`.
+Para usar a interface Contactless do Cartão de Cidadão(disponível em cartões emitidos após Fevereiro de 2024) é necessário:
+- Obter a interface de contacto e o tipo de cartão após verificar a sua presença no leitor. Estas informações podem ser obtidas atraves das funções `PTEID_ReaderContext.getCardContactInterface()` e `PTEID_ReaderContext.getCardType()`.
 - Se o tipo de cartão for `PTEID_CardType.PTEID_CARDTYPE_IAS5` e a interface de contacto for `PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS` é necessário pedir o CAN ao utilizador e depois usar esse CAN para a realizar a autenticação PACE através da função `PTEID_EIDCARD.initPaceAuthentication(secret,length,secretType)`.
 
-1. Exemplo C++:
-```c
-    PTEID_CardContactInterface contactInterface;
-    PTEID_CardType cardType;
-
-    if(reader.isCardPresent()){
-        contactInterface = reader.getCardContactInterface();
-        cardType = reader.getCardType();
-        std::cout << "Contact Interface:" << (contactInterface == PTEID_CARD_CONTACTLESS ? "CONTACTLESS" : "CONTACT") << std::endl;
-    }
-
-    PTEID_EIDCard& eidCard = reader.getEIDCard();
-
-    if (contactInterface == PTEID_CARD_CONTACTLESS && cardType == PTEID_CARDTYPE_IAS5){
-        std::string can_str;
-        std::cout << "Insert the CAN for this EIDCard: ";
-        std::cin >> can_str;
-        eidCard.initPaceAuthentication(can_str.c_str(), can_str.size(),  PTEID_CardPaceSecretType::PTEID_CARD_SECRET_CAN);
-    }
-
-```
-
-2. Exemplo Java:
+Exemplo Java:
 ```java
     PTEID_CardType cardType = null;
     PTEID_CardContactInterface contactInterface = null;
@@ -530,28 +508,6 @@ Para usar a interface Contactless do Cartão de Cidadão(disponível em cartões
         eidCard.initPaceAuthentication(can_str, can_str.length(),  PTEID_CardPaceSecretType.PTEID_CARD_SECRET_CAN);
     }
 
-```
-
-3. Exemplo C\#:
-```c
-    PTEID_CardType cardType = PTEID_CardType.PTEID_CARDTYPE_UNKNOWN;
-    PTEID_CardContactInterface contactInterface = PTEID_CardContactInterface.PTEID_CARD_CONTACTEMPTY;
-
-    if (readerContext.isCardPresent())
-    {
-        contactInterface = readerContext.getCardContactInterface();
-        cardType = readerContext.getCardType();
-        Console.WriteLine("Contact Interface:" + (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS ? "CONTACTLESS" : "CONTACT"));
-    }
-
-    eidCard = readerContext.getEIDCard();
-
-    if (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS && cardType ==  PTEID_CardType.PTEID_CARDTYPE_IAS5){
-        Console.WriteLine("Insert the CAN for this EIDCard: ");
-        string can_str = Console.ReadLine();
-        uint can_size = (uint) can_str.Length;
-        eidCard.initPaceAuthentication(can_str, can_size,  PTEID_CardPaceSecretType.PTEID_CARD_SECRET_CAN);
-    }
 ```
 
 ## Dados pessoais do cidadão
