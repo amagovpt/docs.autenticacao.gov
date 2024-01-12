@@ -21,7 +21,7 @@
   - [Configurar modo teste](#configurar-modo-teste)
   - [Acesso ao *smartcard* Cartão de Cidadão](#acesso-ao-smartcard-cartão-de-cidadão)
     - [Eventos de inserção / remoção de cartões](#eventos-de-inserção--remoção-de-cartões)
-    - [Usar Contactless](#usar-contactless)
+    - [Acesso Contactless](#acesso-contactless)
   - [Dados pessoais do cidadão](#dados-pessoais-do-cidadão)
     - [Obtenção da Identificação](#obtenção-da-identificação)
     - [Obtenção da fotografia](#obtenção-da-fotografia)
