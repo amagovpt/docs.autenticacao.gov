@@ -495,6 +495,7 @@ Para usar a interface contactless do Cartão de Cidadão (disponível em cartõe
 **Notas:**
 * O CAN (card access number) é o código de 6 dígitos que se encontra no canto inferior direito dos Cartões de Cidadão emitidos após Fevereiro de 2024. <img src="Pictures/Infografia_Cartão_de_Cidadão.png" width="200">
 * O CAN não bloqueia após 3 tentativas erradas tal como os PINs, no entanto esta autenticação tem proteção no chip contra ataques de força bruta. 
+* A classe PTEID_PACE_ERROR é usada para o tratamento de erros relacionados com a autenticação PACE. Cada objeto PTEID_PACE_ERROR contem uma mensagem e código de erro associado.
 
  Exemplo Java:
 ```java
@@ -512,8 +513,13 @@ Para usar a interface contactless do Cartão de Cidadão (disponível em cartõe
     if (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS && cardType ==  PTEID_CardType.PTEID_CARDTYPE_IAS5){
         Scanner in = new Scanner(System.in);
         System.out.print("Insert the CAN for this EIDCard: ");
-        String can_str = in.nextLine();
-        eidCard.initPaceAuthentication(can_str, can_str.length(),  PTEID_CardPaceSecretType.PTEID_CARD_SECRET_CAN);
+        String can = in.nextLine();
+        try{
+          eidCard.initPaceAuthentication(can, can.length(),  PTEID_CardPaceSecretType.PTEID_CARD_SECRET_CAN);
+        }
+        catch(PTEID_PACE_ERROR ex){
+          System.out.println("Caught exception during PACE Authentication. Error: " + ex.GetMessage());
+        }
     }
 
 ```
