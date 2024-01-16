@@ -4,10 +4,11 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
-
 import java.nio.charset.StandardCharsets;
-
+import java.math.BigInteger;
+import java.util.Arrays;
 import pt.gov.cartaodecidadao.*;
+import java.util.Scanner;
 
 /* 
    This code example demonstrates the raw data signing feature of pteid-mw SDK
@@ -31,6 +32,9 @@ public class SignData {
     PTEID_ReaderContext readerContext = null;
     PTEID_EIDCard eidCard = null;
     final static String dataToBeSigned = "This is our input data for digital signature";
+    PTEID_CardType cardType = null;
+    PTEID_CardContactInterface contactInterface = null;
+
 
     /**
      * Initializes the SDK and sets main variables
@@ -41,6 +45,9 @@ public class SignData {
         //Must always be called in the beginning of the program
         PTEID_ReaderSet.initSDK();
 
+        //Sets test mode to true so that CC2 can be tested
+        PTEID_Config.SetTestMode(true);
+
         //Gets the set of connected readers
         readerSet = PTEID_ReaderSet.instance();
 
@@ -49,8 +56,23 @@ public class SignData {
         //Any reader can be checked for an inserted card with PTEID_ReaderContext.isCardPresent()
         readerContext = readerSet.getReader();
 
+        //Gets the Card Contact Interface and type
+        if(readerContext.isCardPresent()){
+            contactInterface = readerContext.getCardContactInterface();
+            cardType = readerContext.getCardType();
+            System.out.println("Contact Interface:" + (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS ? "CONTACTLESS" : "CONTACT"));
+        }
+
         //Gets the card instance
         eidCard = readerContext.getEIDCard();
+
+        //If the contactInterface is contactless and the card supports contactless then authenticate with PACE
+        if (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS && cardType ==  PTEID_CardType.PTEID_CARDTYPE_IAS5){
+            Scanner in = new Scanner(System.in);
+            System.out.print("Insert the CAN for this EIDCard: ");
+            String can_str = in.nextLine();
+            eidCard.initPaceAuthentication(can_str, can_str.length(),  PTEID_CardPaceSecretType.PTEID_CARD_SECRET_CAN);
+        }
     }
     
     private static String bytesToHex(byte[] hash) {
@@ -85,7 +107,7 @@ public class SignData {
             PublicKey pk = signature_certificate.getPublicKey();
             String signatureAlgo = pk instanceof RSAPublicKey ? "SHA256withRSA": "SHA256withECDSA";
             Signature sig = Signature.getInstance(signatureAlgo);
-            sig.initVerify(signature_certificate.getPublicKey());
+            sig.initVerify(pk);
             sig.update(dataToBeSigned.getBytes(StandardCharsets.UTF_8));
             boolean verified = sig.verify(card_signature);
 
@@ -95,7 +117,7 @@ public class SignData {
             e.printStackTrace();
         }
         catch (InvalidKeyException e) {
-            System.err.println("Can't use provided public key: "+e.getMessage());
+            System.err.println("Can't use provided public key: "+ e.getMessage());
         }
         catch (SignatureException e) {
             System.err.println("Failed to verify signature!: "+ e.getMessage());
@@ -144,9 +166,15 @@ public class SignData {
                 //Read matching certificate from card
                 Certificate java_cert = loadCertificateFromDEREncoding(cert.GetBytes());
                 if (java_cert != null) {
-
+                    //Verify ECDSA-SHA256 signature using Java security classes
+                    if (cardType ==  PTEID_CardType.PTEID_CARDTYPE_IAS5){
+                        // If CCv2 then it is required to convert the signature to ASN1 format
+                        verifySignature(java_cert, convertToASN1(signature.GetBytes()));
+                    }
                     //Verify RSA-SHA256 signature using Java security classes
-                    verifySignature(java_cert, signature.GetBytes());
+                    else{
+                        verifySignature(java_cert, signature.GetBytes());
+                    }
                 }
             }
 
@@ -183,5 +211,48 @@ public class SignData {
     public static void main(String[] args) {
         
         new SignData().start();
+    }
+
+    public static byte[] convertToASN1(byte[] rawSignature) {
+        // Extract r and s components from the raw signature
+        int keySize = rawSignature.length / 2;
+        byte[] rBytes = Arrays.copyOfRange(rawSignature, 0, keySize);
+        byte[] sBytes = Arrays.copyOfRange(rawSignature, keySize, 2 * keySize);
+
+        // Convert r and s to BigIntegers
+        BigInteger r = new BigInteger(1, rBytes);
+        BigInteger s = new BigInteger(1, sBytes);
+
+        // Encode r and s as ASN.1 INTEGERs
+        byte[] asn1Encoding = new byte[encodeASN1Integer(r).length + encodeASN1Integer(s).length];
+        System.arraycopy(encodeASN1Integer(r), 0, asn1Encoding, 0, encodeASN1Integer(r).length);
+        System.arraycopy(encodeASN1Integer(s), 0, asn1Encoding, encodeASN1Integer(r).length, encodeASN1Integer(s).length);
+
+
+        // Wrap the encoded integers in an ASN.1 SEQUENCE
+        return encodeASN1Sequence(asn1Encoding);
+    }
+
+    private static byte[] encodeASN1Integer(BigInteger value) {
+        byte[] valueBytes = value.toByteArray();
+        if (valueBytes[0] == 0x00) {
+            // Remove leading zero byte if present
+            valueBytes = Arrays.copyOfRange(valueBytes, 1, valueBytes.length);
+        }
+        int length = valueBytes.length;
+        byte[] encoding = new byte[length + 2];
+        encoding[0] = 0x02; // ASN.1 INTEGER tag
+        encoding[1] = (byte) length; // Length of INTEGER value
+        System.arraycopy(valueBytes, 0, encoding, 2, length);
+        return encoding;
+    }
+
+    private static byte[] encodeASN1Sequence(byte[] content) {
+        int length = content.length;
+        byte[] encoding = new byte[length + 2];
+        encoding[0] = 0x30; // ASN.1 SEQUENCE tag
+        encoding[1] = (byte) length; // Length of SEQUENCE content
+        System.arraycopy(content, 0, encoding, 2, length);
+        return encoding;
     }
 }
