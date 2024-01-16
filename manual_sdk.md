@@ -484,7 +484,7 @@ public static void CardEventsCallback(int lRet, uint ulState, IntPtr callbackDat
 ```
 ### Acesso Contactless
 
-A utilização do cartão de Cidadão em interface contactless do Cartão de Cidadão está protegida de acessos não autorizados através do protocolo de autenticação PACE.
+A utilização do Cartão de Cidadão em interface contactless está protegida de acessos não autorizados através do protocolo de autenticação PACE.
 Este protocolo está descrito no Doc 9303 parte 10 da ICAO (International Civil Aviation Organization) na secção 8.2.
 Este documento pode ser consultado em [ICAO 9303-10](https://www.icao.int/publications/documents/9303_p10_cons_en.pdf)
 
@@ -495,7 +495,7 @@ Para usar a interface contactless do Cartão de Cidadão (disponível em cartõe
 **Notas:**
 * O CAN (card access number) é o código de 6 dígitos que se encontra no canto inferior direito dos Cartões de Cidadão emitidos após Fevereiro de 2024. <img src="Pictures/Infografia_Cartão_de_Cidadão.png" width="200">
 * O CAN não bloqueia após 3 tentativas erradas tal como os PINs, no entanto esta autenticação tem proteção no chip contra ataques de força bruta. 
-* A classe PTEID_PACE_ERROR é usada para o tratamento de erros relacionados com a autenticação PACE. Cada objeto PTEID_PACE_ERROR contem uma mensagem e código de erro associado. Por exemplo, o código de erro EIDMW_PACE_ERR_BAD_TOKEN corresponde a introdução do CAN errado.
+* A classe PTEID_PACE_ERROR é usada para o tratamento de erros relacionados com a autenticação PACE. Cada objeto PTEID_PACE_ERROR contém uma mensagem e código de erro associado. Por exemplo, o código de erro EIDMW_PACE_ERR_BAD_TOKEN corresponde a introdução do CAN errado.
 
  Exemplo Java:
 ```java
