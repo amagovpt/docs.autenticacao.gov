@@ -224,10 +224,13 @@ public class SignData {
         BigInteger s = new BigInteger(1, sBytes);
 
         // Encode r and s as ASN.1 INTEGERs
-        byte[] asn1Encoding = new byte[encodeASN1Integer(r).length + encodeASN1Integer(s).length];
-        System.arraycopy(encodeASN1Integer(r), 0, asn1Encoding, 0, encodeASN1Integer(r).length);
-        System.arraycopy(encodeASN1Integer(s), 0, asn1Encoding, encodeASN1Integer(r).length, encodeASN1Integer(s).length);
+        byte[] r_encoded = encodeASN1Integer(r);
+        byte[] s_encoded = encodeASN1Integer(s);
 
+        byte[] asn1Encoding = new byte[r_encoded.length + s_encoded.length];
+
+        System.arraycopy(r_encoded, 0, asn1Encoding, 0, r_encoded.length);
+        System.arraycopy(s_encoded, 0, asn1Encoding, r_encoded.length, s_encoded.length);
 
         // Wrap the encoded integers in an ASN.1 SEQUENCE
         return encodeASN1Sequence(asn1Encoding);
