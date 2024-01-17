@@ -1329,9 +1329,9 @@ certificado de assinatura.
 
 Para isso deverá ser utilizado o método **Sign()** duma classe que implemente **PTEID_SigningDevice**.
 
-O Algoritmo de assinatura suportado é o **RSA-SHA256** mas o *smartcard*
+O Algoritmo de assinatura suportado é o **RSA-SHA256**, mas o *smartcard*
 apenas implementa o algoritmo RSA e como tal o bloco de input deve ser o
-*hash* **SHA-256** dos dados que se pretende assinar.
+*hash* **SHA-256** dos dados que se pretende assinar. Os cartões de Cidadão emitidos após fevereiro de 2024 suportam o algoritmo de assinatura **ECDSA** utilizando a curva **secp256r1 (NIST P-256)**. No entanto, assinaturas realizadas com este algoritmo tem de ser convertidas para o formato **ASN1** durante a sua verificação.
 
 1.  Exemplo C++
 
