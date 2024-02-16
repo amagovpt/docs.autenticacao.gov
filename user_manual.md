@@ -945,10 +945,11 @@ passos:
     selecionar a opção **Adicionar uma assinatura Digital**, conforme a
     imagem abaixo:
 
-    ![Ilustração: Assinatura em Microsoft Office](Pictures/Autenticacao.Gov_microsoft_office.png "Assinatura em Microsoft Office")
+    ![Ilustração: Assinatura em Microsoft Office](Pictures/Autenticacao.Gov_microsoft_office2.png "Assinatura em Microsoft Office")
 
 3.  Aparecerá uma mensagem específica da aplicação que está a utilizar (*Word*, *Excel* ou *Powerpoint*), clique em **OK**.
-4.  Na Caixa de diálogo **Assinar**, introduza o **Objetivo** da assinatura.
+4.  Na Caixa de diálogo **Assinar**, introduza o **Objetivo** da assinatura, conforme a image abaixo:
+    ![Ilustração: Assinatura em Microsoft Office](Pictures/Autenticacao.Gov_microsoft_office3.png "Assinatura em Microsoft Office")
 5.  Clique em assinar e introduza o seu PIN de assinatura na respetiva
     janela.
 6.  O documento ficará assinado digitalmente, e ficará só de leitura de
