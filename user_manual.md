@@ -216,13 +216,13 @@ Para instalar esta versão da aplicação deve seguir este procedimento:
 1.  Desinstalar alguma versão nativa do pacote pteid-mw que esteja instalada no sistema.
    Por exemplo em Ubuntu deverá utilizar o comando:
    `sudo apt remove pteid-mw`
-2.  Instalar o software flatpak seguindo as instruções específicas da distribuição: https://flatpak.org/setup/
+2.  Instalar o software Flatpak seguindo as instruções específicas da distribuição: <https://flatpak.org/setup/>
 3.  Instalar o pacote `pcsc-lite/pcscd` no sistema usando os pacotes nativos da distribuição. A aplicação funciona sem este componente, apenas as funcionalidades que exigem acesso ao Cartão de Cidadão dependem do pcscd.
 4.  Executar o comando `flatpak install pteid-mw-linux.x86_64.flatpak` na diretoria onde estiver o pacote flatpak descarregado.
 
 <h5 id="linux-scard-notes">Notas sobre a comunicação com o cartão</h5>
 
-1. O software flatpak deverá ter versão igual ou superior à 1.3.2 para permitir que a aplicação aceda ao Cartão de Cidadão. Este requisito é cumprido por distribuições como o Ubuntu 20.04 e 22.04, OpenSUSE Leap 15.3 e 15.4, entre outras.
+1. O software Flatpak deverá ter versão igual ou superior à 1.3.2 para permitir que a aplicação aceda ao Cartão de Cidadão. Este requisito é cumprido por distribuições como o Ubuntu 20.04 e 22.04, OpenSUSE Leap 15.3 e 15.4, entre outras.
 2. Em Ubuntu 22.04 é importante executar um comando extra para garantir que o acesso ao Cartão funciona sempre:
    ` sudo systemctl enable pcscd.socket`
 
@@ -250,15 +250,15 @@ Para instalar esta versão da aplicação deve seguir este procedimento:
 
 ### Instalação em ChromeOS
 
-1. Instalar o software flatpak seguindo as instruções específicas do ChromeOS: https://flatpak.org/setup/Chrome%20OS
+1. Instalar o software Flatpak seguindo as instruções específicas do ChromeOS: https://flatpak.org/setup/Chrome%20OS
 
-2. Fazer download do ficheiro Linux Pacote Flatpak do Autenticação.gov a partir desta página: https://www.autenticacao.gov.pt/web/guest/cc-aplicacao.
+2. Obter o instalador Linux em formato Flatpak a partir da [página oficial](https://www.autenticacao.gov.pt/web/guest/cc-aplicacao).
 
 3. Executar o comando `flatpak install pteid-mw-linux.x86_64.flatpak` na diretoria onde estiver o pacote flatpak descarregado.
 
-4. Após a applicação estar instalada com sucesso, aplicação pode ser corrida pela terminal executando o comando `flatpak run pt.gov.autenticacao`.
+4. Após a instalação, a aplicação pode ser executada com o comando `flatpak run pt.gov.autenticacao`.
 
-**Nota: A funcionalidade da applicação é atualmente limitada em ChromeOS, sendo apenas possivel utilizar a Chave Móvel Digital.**
+**Nota: A funcionalidade da applicação é atualmente limitada em ChromeOS, sendo possível utilizar apenas a Chave Móvel Digital.**
 
 
 ## Remoção da aplicação
@@ -342,7 +342,7 @@ sistema operativo utilizado.
 
 Ao transferir o ficheiro de instalação através do menu **Configurações** -> **Atualizações** da aplicação, este ficará disponível na diretoria de **Transferências**, por defeito em `~/Downloads`.
 
-Pode também transferir a nova versão da aplicação através do site [oficial](https://www.autenticacao.gov.pt/web/guest/cc-aplicacao).
+Pode também transferir a última versão da aplicação através da [página oficial](https://www.autenticacao.gov.pt/web/guest/cc-aplicacao).
 
 Depois de ter transferido o ficheiro de instalação, para concluir a atualização siga os passos indicados na secção [Instalação através da linha de comandos](#instalação-através-da-linha-de-comandos).
 
