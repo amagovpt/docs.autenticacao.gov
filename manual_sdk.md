@@ -484,17 +484,19 @@ public static void CardEventsCallback(int lRet, uint ulState, IntPtr callbackDat
 ```
 ### Acesso Contactless
 
-A utilização do Cartão de Cidadão em interface contactless está protegida de acessos não autorizados através do protocolo de autenticação PACE.
-Este protocolo está descrito no Doc 9303 parte 10 da ICAO (International Civil Aviation Organization) na secção 8.2.
+**Importante**: Funcionalidade disponível desde a versão 3.12.0 do Middleware
+
+A utilização do novo Cartão de Cidadão em interface contactless está protegida de acessos não autorizados através do protocolo de autenticação PACE.
+Este protocolo está descrito no Documento 9303 parte 10 da ICAO (International Civil Aviation Organization) na secção 8.2.
 Este documento pode ser consultado em [ICAO 9303-10](https://www.icao.int/publications/documents/9303_p10_cons_en.pdf)
 
-Para usar a interface contactless do Cartão de Cidadão (disponível em cartões emitidos após Fevereiro de 2024) é necessário:
+Para usar a interface contactless do novo Cartão de Cidadão é necessário:
 1. Obter o tipo de interface de comunicação e o tipo de cartão após verificar a sua presença no leitor. Estas informações podem ser obtidas atraves das funções `PTEID_ReaderContext.getCardContactInterface()` e `PTEID_ReaderContext.getCardType()`.
 2. Se o tipo de cartão for `PTEID_CardType.PTEID_CARDTYPE_IAS5` e a interface de contacto for `PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS` é necessário pedir o código CAN ao utilizador e depois usar esse CAN para a realizar a autenticação PACE através da função `PTEID_EIDCARD.initPaceAuthentication(secret,length,secretType)`. 
 
 **Notas:**
-* O CAN (card access number) é o código de 6 dígitos que se encontra no canto inferior direito dos Cartões de Cidadão emitidos após Fevereiro de 2024. <img src="Pictures/Infografia_Cartão_de_Cidadão.png" width="200">
-* O CAN não bloqueia após 3 tentativas erradas tal como os PINs, no entanto esta autenticação tem proteção no chip contra ataques de força bruta. 
+* O CAN (card access number) é o código de 6 dígitos que se encontra no canto inferior direito dos novos Cartões de Cidadão. <img src="Pictures/Infografia_Cartão_de_Cidadão.png" width="200">
+* O CAN não bloqueia após 3 tentativas erradas tal como os PINs, no entanto este mecanismo de autenticação tem proteção no chip contra ataques de força bruta. 
 * A classe PTEID_PACE_ERROR é usada para o tratamento de erros relacionados com a autenticação PACE. Cada objeto PTEID_PACE_ERROR contém uma mensagem e código de erro associado. Por exemplo, o código de erro EIDMW_PACE_ERR_BAD_TOKEN corresponde a introdução do CAN errado.
 
  Exemplo Java:
@@ -1331,7 +1333,8 @@ Para isso deverá ser utilizado o método **Sign()** duma classe que implemente 
 
 O Algoritmo de assinatura suportado é o **RSA-SHA256**, mas o *smartcard*
 apenas implementa o algoritmo RSA e como tal o bloco de input deve ser o
-*hash* **SHA-256** dos dados que se pretende assinar. Os cartões de Cidadão emitidos após fevereiro de 2024 suportam o algoritmo de assinatura **ECDSA** utilizando a curva **secp256r1 (NIST P-256)**. No entanto, assinaturas realizadas com este algoritmo tem de ser convertidas para o formato **ASN1** durante a sua verificação.
+*hash* **SHA-256** dos dados que se pretende assinar. 
+Os novos cartões de Cidadão introduzidos em 2024 suportam o algoritmo de assinatura **ECDSA** utilizando a curva **secp256r1 (NIST P-256)**. No entanto, assinaturas realizadas com este algoritmo tem de ser convertidas para o formato **ASN1** durante a sua verificação.
 
 1.  Exemplo C++
 
