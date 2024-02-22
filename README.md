@@ -2,12 +2,6 @@
 
 ## Novidades
 
-> **⚠ IMPORTANTE: Consulta de Morada do Cartão de Cidadão.**
-> Desde a versão 3.9.0 do Middleware a morada do Cartão de Cidadão é lida a partir dos serviços centrais.
->
-> Isto implica uma ligação à Internet funcional para a utilização da classe `PTEID_Address` para além da presença do cartão no leitor.
->
-> Para utilizadores do SDK, consultar o [Manual do SDK (online)](https://amagovpt.github.io/docs.autenticacao.gov/manual_sdk.html#obten%C3%A7%C3%A3o-da-morada).
 ## Introdução
 
 Este repositório contêm apenas a documentação do projecto. O projecto está disponivel em: https://github.com/amagovpt/autenticacao.gov
