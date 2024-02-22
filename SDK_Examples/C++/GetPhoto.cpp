@@ -25,7 +25,7 @@ int main(int argc, char **argv) {
         //Initializes SDK (must always be called in the beginning of the program)
         PTEID_InitSDK();
 
-        //Sets test mode to true so that CC2 can be tested
+        //Enable test mode if you're using a test card
         PTEID_Config::SetTestMode(true);
 
         //Get the set of readers connected to the system
@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
         //If the contactInterface is contactless and the card supports contactless then authenticate with PACE
         if (contactInterface == PTEID_CARD_CONTACTLESS && cardType == PTEID_CARDTYPE_IAS5){
             std::string can_str;
-            std::cout << "Insert the CAN for this EIDCard: ";
+            std::cout << "Insert the Card access number (CAN) for the card in use: ";
             std::cin >> can_str;
             eidCard.initPaceAuthentication(can_str.c_str(), can_str.size(),  PTEID_CardPaceSecretType::PTEID_CARD_SECRET_CAN);
         }

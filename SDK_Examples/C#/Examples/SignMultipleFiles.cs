@@ -22,8 +22,8 @@ namespace Examples
             //Must always be called in the beginning of the program
             PTEID_ReaderSet.initSDK();
 
-            //Sets test mode to true so that CC2 can be tested
-            PTEID_Config.SetTestMode(true);
+            //Enable test mode if you're using a test card
+            //PTEID_Config.SetTestMode(true);
 
             //Gets the set of connected readers, if there is any inserted
             readerSet = PTEID_ReaderSet.instance();
@@ -47,7 +47,7 @@ namespace Examples
             //If the contactInterface is contactless and the card supports contactless then authenticate with PACE
             if (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS && cardType == PTEID_CardType.PTEID_CARDTYPE_IAS5)
             {
-                Console.WriteLine("Insert the CAN for this EIDCard: ");
+                Console.WriteLine("Insert the Card access number (CAN) for the card in use: ");
                 string can_str = Console.ReadLine();
                 uint can_size = (uint)can_str.Length;
                 eidCard.initPaceAuthentication(can_str, can_size, PTEID_CardPaceSecretType.PTEID_CARD_SECRET_CAN);

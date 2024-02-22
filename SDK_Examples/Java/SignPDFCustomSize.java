@@ -31,8 +31,8 @@ public class SignPDFCustomSize {
         //Must always be called in the beginning of the program
         PTEID_ReaderSet.initSDK();
 
-        //Sets test mode to true so that CC2 can be tested
-        PTEID_Config.SetTestMode(true);
+        //Enable test mode if you're using a test card
+        //PTEID_Config.SetTestMode(true);
 
         //Gets the set of connected readers
         readerSet = PTEID_ReaderSet.instance();
@@ -55,7 +55,7 @@ public class SignPDFCustomSize {
         //If the contactInterface is contactless and the card supports contactless then authenticate with PACE
         if (contactInterface == PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS && cardType ==  PTEID_CardType.PTEID_CARDTYPE_IAS5){
             Scanner in = new Scanner(System.in);
-            System.out.print("Insert the CAN for this EIDCard: ");
+            System.out.print("Insert the Card access number (CAN) for the card in use: ");
             String can_str = in.nextLine();
             eidCard.initPaceAuthentication(can_str, can_str.length(),  PTEID_CardPaceSecretType.PTEID_CARD_SECRET_CAN);
         }

@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
         //If the contactInterface is contactless and the card supports contactless then authenticate with PACE
         if (contactInterface == PTEID_CARD_CONTACTLESS && cardType == PTEID_CARDTYPE_IAS5){
             std::string can_str;
-            std::cout << "Insert the CAN for this EIDCard: ";
+            std::cout << "Insert the Card access number (CAN) for the card in use: ";
             std::cin >> can_str;
             eidCard.initPaceAuthentication(can_str.c_str(), can_str.size(),  PTEID_CardPaceSecretType::PTEID_CARD_SECRET_CAN);
         }
