@@ -7,6 +7,7 @@
 # Table of Contents <!-- omit in toc -->
 - [Introdução](#introdução)
 - [Abreviaturas e acrónimos](#abreviaturas-e-acrónimos)
+- [Novidades](#novidades)
 - [Instalação](#instalação)
   - [Sistemas Operativos suportados](#sistemas-operativos-suportados)
   - [Linguagens de programação](#linguagens-de-programação)
@@ -18,7 +19,7 @@
 - [Procedimentos](#procedimentos)
   - [Pré-condições](#pré-condições)
   - [Inicialização / Finalização do SDK](#inicialização--finalização-do-sdk)
-  - [Configurar modo teste](#configurar-modo-teste)
+  - [Configurar modo de teste](#configurar-modo-de-teste)
   - [Acesso ao *smartcard* Cartão de Cidadão](#acesso-ao-smartcard-cartão-de-cidadão)
     - [Eventos de inserção / remoção de cartões](#eventos-de-inserção--remoção-de-cartões)
     - [Acesso Contactless](#acesso-contactless)
@@ -110,6 +111,15 @@ entre em contacto através da página:
 | XAdES                    | XML Advanced Electronic Signatures |
 | PAdES                    | PDF Advanced Electronic Signatures |
 | PKCS#11                  | Public Key Cryptography Standards #11 - Cryptographic Token Interface |
+
+# Novidades
+
+> **⚠ Suporte ao novo Cartão de Cidadão.**
+>
+> Desde a versão 3.12.0 do SDK é suportado o novo Cartão de Cidadão que, como meio de identificação eletrónica, inclui a possibilidade de operações com interface contactless segundo a norma ISO/IEC 14443
+> e a utilização do algoritmo ECDSA nas chaves e certificados do cidadão.
+>
+> É recomendada a consulta da nova secção [Acesso Contactless](#acesso-contactless) e se necessário a configuração do [modo de testes](#configurar-modo-de-teste).
 
 # Instalação
 
@@ -292,11 +302,20 @@ namespace PTEIDSample {
 }
 ```
 
-## Configurar modo teste
+## Configurar modo de teste
 
 Para alterar as configurações de forma a utilizar o modo teste, para usar cartões de teste, deve usar-se o método estático **SetTestMode(*bool* bTestMode)** da classe **PTEID_Config**.
 
 Com o valor do parâmetro *bTestMode* a *true*, os seguintes exemplos ativam o modo de teste.
+
+É também necessário adicionar os certificados raíz da PKI de testes em formato DER e extensão ".der" numa diretoria dependente do sistema operativo:
+* Windows: `C:\Program Files\Portugal Identity Card\eidstore\certs_test`
+* MacOS ou Linux: `/usr/local/share/certs_test`
+
+Para utilizar cartões do tipo *Novo Cartão de Cidadão* deve descarregar os certificados da seguinte página: http://pki2.teste.cartaodecidadao.pt/publico/entidade-certificacao-cc/certificados
+
+Os certificados da PKI de testes original encontram-se em: https://pki.teste.cartaodecidadao.pt/publico/certificado/cc_ec_cidadao/
+
 
 1.  Exemplo C++
 
