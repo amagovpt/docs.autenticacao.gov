@@ -3,7 +3,6 @@ var annotated_dup =
     [ "eIDMW", null, [
       [ "PTEID_Address", "classeIDMW_1_1PTEID__Address.html", "classeIDMW_1_1PTEID__Address" ],
       [ "PTEID_ASICContainer", "classeIDMW_1_1PTEID__ASICContainer.html", null ],
-      [ "PTEID_Biometric", "classeIDMW_1_1PTEID__Biometric.html", "classeIDMW_1_1PTEID__Biometric" ],
       [ "PTEID_ByteArray", "classeIDMW_1_1PTEID__ByteArray.html", "classeIDMW_1_1PTEID__ByteArray" ],
       [ "PTEID_Card", "classeIDMW_1_1PTEID__Card.html", "classeIDMW_1_1PTEID__Card" ],
       [ "PTEID_CardVersionInfo", "classeIDMW_1_1PTEID__CardVersionInfo.html", "classeIDMW_1_1PTEID__CardVersionInfo" ],
@@ -12,7 +11,6 @@ var annotated_dup =
       [ "PTEID_Certificates", "classeIDMW_1_1PTEID__Certificates.html", "classeIDMW_1_1PTEID__Certificates" ],
       [ "PTEID_CMDSignatureClient", "classeIDMW_1_1PTEID__CMDSignatureClient.html", "classeIDMW_1_1PTEID__CMDSignatureClient" ],
       [ "PTEID_Config", "classeIDMW_1_1PTEID__Config.html", "classeIDMW_1_1PTEID__Config" ],
-      [ "PTEID_Crypto", "classeIDMW_1_1PTEID__Crypto.html", "classeIDMW_1_1PTEID__Crypto" ],
       [ "PTEID_EId", "classeIDMW_1_1PTEID__EId.html", "classeIDMW_1_1PTEID__EId" ],
       [ "PTEID_EIDCard", "classeIDMW_1_1PTEID__EIDCard.html", "classeIDMW_1_1PTEID__EIDCard" ],
       [ "PTEID_ExBadTransaction", "classeIDMW_1_1PTEID__ExBadTransaction.html", "classeIDMW_1_1PTEID__ExBadTransaction" ],
@@ -36,6 +34,7 @@ var annotated_dup =
       [ "PTEID_ExSOD", "classeIDMW_1_1PTEID__ExSOD.html", "classeIDMW_1_1PTEID__ExSOD" ],
       [ "PTEID_ExUnknown", "classeIDMW_1_1PTEID__ExUnknown.html", "classeIDMW_1_1PTEID__ExUnknown" ],
       [ "PTEID_Object", "classeIDMW_1_1PTEID__Object.html", "classeIDMW_1_1PTEID__Object" ],
+      [ "PTEID_PACE_ERROR", "classeIDMW_1_1PTEID__PACE__ERROR.html", "classeIDMW_1_1PTEID__PACE__ERROR" ],
       [ "PTEID_PDFSignature", "classeIDMW_1_1PTEID__PDFSignature.html", "classeIDMW_1_1PTEID__PDFSignature" ],
       [ "PTEID_Photo", "classeIDMW_1_1PTEID__Photo.html", "classeIDMW_1_1PTEID__Photo" ],
       [ "PTEID_Pin", "classeIDMW_1_1PTEID__Pin.html", "classeIDMW_1_1PTEID__Pin" ],
@@ -47,17 +46,6 @@ var annotated_dup =
       [ "PTEID_SigningDeviceFactory", "classeIDMW_1_1PTEID__SigningDeviceFactory.html", "classeIDMW_1_1PTEID__SigningDeviceFactory" ],
       [ "PTEID_SmartCard", "classeIDMW_1_1PTEID__SmartCard.html", "classeIDMW_1_1PTEID__SmartCard" ],
       [ "PTEID_Sod", "classeIDMW_1_1PTEID__Sod.html", "classeIDMW_1_1PTEID__Sod" ],
-      [ "PTEID_XMLDoc", "classeIDMW_1_1PTEID__XMLDoc.html", "classeIDMW_1_1PTEID__XMLDoc" ],
       [ "PTEID_XmlUserRequestedInfo", "classeIDMW_1_1PTEID__XmlUserRequestedInfo.html", "classeIDMW_1_1PTEID__XmlUserRequestedInfo" ]
-    ] ],
-    [ "PTEID_ADDR", "structPTEID__ADDR.html", null ],
-    [ "PTEID_Certif", "structPTEID__Certif.html", null ],
-    [ "PTEID_Certifs", "structPTEID__Certifs.html", null ],
-    [ "PTEID_ID", "structPTEID__ID.html", null ],
-    [ "PTEID_PIC", "structPTEID__PIC.html", null ],
-    [ "PTEID_RSAPublicKey", "structPTEID__RSAPublicKey.html", null ],
-    [ "PTEID_TokenInfo", "structPTEID__TokenInfo.html", null ],
-    [ "PTEIDPin", "structPTEIDPin.html", null ],
-    [ "PTEIDPins", "structPTEIDPins.html", null ],
-    [ "tProxyInfo", "structtProxyInfo.html", null ]
+    ] ]
 ];
