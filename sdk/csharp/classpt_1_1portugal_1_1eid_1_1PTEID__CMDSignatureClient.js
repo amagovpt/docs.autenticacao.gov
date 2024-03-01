@@ -1,0 +1,28 @@
+var classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient =
+[
+    [ "PTEID_CMDSignatureClient", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#ae3ba503c1e64b5a32bd858d1615a734b", null ],
+    [ "Dispose", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#a2179946164127476f0952c850f3eedfd", null ],
+    [ "getAuthentication", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#afc340a59576e5ec956e9482f05187d19", null ],
+    [ "getCA", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#aa64ff9e5fb208c020784c78eada5f818", null ],
+    [ "getCert", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#aa3adf5450639b57bca80568c9d6bf174", null ],
+    [ "getCertificates", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#a7008ebea62da0f4f874b776d119dd02e", null ],
+    [ "getDeviceType", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#a977f0fcdfaa3e9e38a6050f158743b18", null ],
+    [ "getRoot", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#aaff4eb94be6fb3dc13340b6c77c1278d", null ],
+    [ "getSignature", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#a406134ab08280f5b129bb814c75496f1", null ],
+    [ "setMobileNumberCaching", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#a5e8632989a9b659831cf8fc1938d68dc", null ],
+    [ "Sign", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#a06d444a16fc96b527e0893b9ab1f4727", null ],
+    [ "Sign", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#aa03087c7a15a9238d2f4f9133ec6ad27", null ],
+    [ "SignASiC", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#ae8bb57854884f543b39372c70185b85b", null ],
+    [ "SignASiC", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#a24869db02906bf8ba1a17ba2aeb6d003", null ],
+    [ "SignPDF", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#a24c997f63f8535bfe9b2cb1b31792c25", null ],
+    [ "SignPDF", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#a4e83b1fefdbde0509ceefd7c4403f519", null ],
+    [ "SignSHA256", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#a15295115723e044b7b35b34d4891e79c", null ],
+    [ "SignSHA256", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#ace00e531ee6b2a711744ca5077c744ed", null ],
+    [ "SignXades", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#abb069c0f34c6468cf5bb0b6fa7a5d50c", null ],
+    [ "SignXades", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#ae467fd7c0bf27e50214a252d70bc8235", null ],
+    [ "SignXadesA", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#af8a168d81647353c610415cec94b09d4", null ],
+    [ "SignXadesAIndividual", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#a43953f0948343743e8274cdc250e1cdb", null ],
+    [ "SignXadesIndividual", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#a326a5ad91b99a45b801e96ad8f124e40", null ],
+    [ "SignXadesT", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#ab284ee5ad9d4edb447f6783fade11a93", null ],
+    [ "SignXadesTIndividual", "classpt_1_1portugal_1_1eid_1_1PTEID__CMDSignatureClient.html#a23c065097dc275da1fd53343f8ddd83d", null ]
+];

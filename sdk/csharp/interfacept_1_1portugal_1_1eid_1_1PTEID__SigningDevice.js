@@ -1,0 +1,26 @@
+var interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice =
+[
+    [ "getAuthentication", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#ad8fc613212a58430a821b8a36b13e17b", null ],
+    [ "getCA", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#ade5514331fde6d153cca8ab5967c2aa0", null ],
+    [ "getCert", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#a74a8996957efba6d5e6e770a9eb8c428", null ],
+    [ "getCertificates", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#afeae6228aa61edd3e012c485bf7d97f1", null ],
+    [ "getDeviceType", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#aecaac2703882b60edc41f808f1ea763b", null ],
+    [ "GetInterfaceCPtr", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#afee88054f39c4282ccec144f03f22bb0", null ],
+    [ "getRoot", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#a3a44cacdeba3b7d0a72ea066e2a5fbb7", null ],
+    [ "getSignature", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#a29203b929fa8113ea03b0eec282cd1d3", null ],
+    [ "Sign", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#a7e0f7e9d4f148573a14e5efda6567aba", null ],
+    [ "Sign", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#a453caf7a47f89202b076450122c93e1d", null ],
+    [ "SignASiC", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#a02a4951d20b71f478e6a0b11a0f7e74f", null ],
+    [ "SignASiC", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#ad09b0f0433a9fa1d47d44ffb03e460c4", null ],
+    [ "SignPDF", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#a764ead7113941f6e41a81f0ecf4e1d7c", null ],
+    [ "SignPDF", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#af54e05a6147645fd5f08a7869f0c5a69", null ],
+    [ "SignSHA256", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#a92fb8d2f7e082fbdc3cc950f235cddbc", null ],
+    [ "SignSHA256", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#ab70eacbd7cbd9b484cff7ee2c3905769", null ],
+    [ "SignXades", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#af140ca9c202a19873af3c36a1c326c08", null ],
+    [ "SignXades", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#aadc04d9a3d5df62bc6a3d31d2e5ce898", null ],
+    [ "SignXadesA", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#aed95df404653f1216ce54ec6721bd9dc", null ],
+    [ "SignXadesAIndividual", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#a5dd2a5e5eb80a1583d34787faaa95fa3", null ],
+    [ "SignXadesIndividual", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#aabd7ce865617c633d51fad0c647ec5c6", null ],
+    [ "SignXadesT", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#acf9f701f0ea55fcf4a2a39fe4c2a5d0c", null ],
+    [ "SignXadesTIndividual", "interfacept_1_1portugal_1_1eid_1_1PTEID__SigningDevice.html#ae9c935a09c83874c9e27d14de75988c6", null ]
+];
