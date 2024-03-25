@@ -125,11 +125,11 @@ Este manual pode-se dividir nas seguintes fundamentais áreas de utilização:
 
 # Novidades
 
-> **⚠ Suporte ao novo Cartão de Cidadão.**
+> **Suporte ao novo Cartão de Cidadão**
 >
-> Desde a versão 3.12.0 da aplicação é suportado o novo Cartão de Cidadão que tem a possibilidade de operações com leitura por aproximação (*contactless*) se utilizado um leitor de cartões apropriado.
+> Desde a versão 3.12.0 da aplicação é suportado o novo Cartão de Cidadão que tem a possibilidade de leitura por aproximação (*contactless*) se utilizado um leitor de cartões apropriado.
 >
-> Continua a existir a possibilidade de leitura no interface de contacto mas deve garantir que o cartão está inserido no leitor de forma correta, porque no novo Cartão de Cidadão os contactos do chip encontram-se no verso do documento.
+> Continua a existir a possibilidade de leitura na interface de contacto mas deve garantir que o cartão está inserido no leitor de forma correta, porque no novo Cartão de Cidadão os contactos do chip encontram-se no verso do documento.
 >
 > É recomendada a consulta da nova secção [Acesso Contactless](#acesso-contactless)
 
