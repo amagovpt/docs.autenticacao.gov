@@ -8,6 +8,7 @@
 # Tabela de conteúdos <!-- omit in toc -->
 
 - [Introdução](#introdução)
+- [Novidades](#novidades)
 - [Download, instalação e remoção da aplicação](#download-instalação-e-remoção-da-aplicação)
   - [Sistemas Operativos oficialmente suportados](#sistemas-operativos-oficialmente-suportados)
   - [Download do pacote de instalação da aplicação](#download-do-pacote-de-instalação-da-aplicação)
@@ -122,6 +123,17 @@ Este manual pode-se dividir nas seguintes fundamentais áreas de utilização:
     automatizada em ambientes Windows e configuração em ambientes
     empresariais;
 
+# Novidades
+
+> **⚠ Suporte ao novo Cartão de Cidadão.**
+>
+> Desde a versão 3.12.0 da aplicação é suportado o novo Cartão de Cidadão que tem a possibilidade de operações com leitura por aproximação (*contactless*) se utilizado um leitor de cartões apropriado.
+>
+> Continua a existir a possibilidade de leitura no interface de contacto mas deve garantir que o cartão está inserido no leitor de forma correta, porque no novo Cartão de Cidadão os contactos do chip encontram-se no verso do documento.
+>
+> É recomendada a consulta da nova secção [Acesso Contactless](#acesso-contactless)
+
+
 # Download, instalação e remoção da aplicação
 
 Neste ponto são apresentadas as instruções para a instalação e remoção
@@ -129,21 +141,19 @@ da aplicação Autenticação.gov para computador.
 
 ## Sistemas Operativos oficialmente suportados
 
-A lista de sistemas operativos suportados, nas suas arquiteturas de 32 e
-64 bits, são:
-
--   Sistemas operativos Microsoft:
+-   Sistemas Windows:
     -   Microsoft Windows 7
     -   Microsoft Windows 8
     -   Microsoft Windows 8.1
     -   Microsoft Windows 10
     -   Microsoft Windows 11
--   Distribuições de Linux suportadas:
-    -   Fedora 28 e superiores
-    -   OpenSuse Leap 15 e superiores
-    -   Ubuntu 18.04 e superiores
--   Sistemas operativos Apple:
-    -   Mac OSX Sierra (10.12) e superiores
+-   Sistemas Linux:
+    -   Fedora 38 e superiores
+    -   OpenSUSE Leap 15.2 e superiores
+    -   Ubuntu 20.04 e superiores
+    -   Outras distribuições Linux com suporte para pacotes Flatpak e arquitetura Intel x86_64
+-   Sistemas Apple MacOS:
+    -   Mac OS High Sierra (10.13) e superiores
 
 ## Download do pacote de instalação da aplicação
 
@@ -860,13 +870,30 @@ No que diz respeito às configurações, podem existir notificações de caráte
 
 ![Ilustração: Centro de Notificações - Cache](Pictures/Autenticacao.Gov_centro_notificacoes_cache.png "Centro de Notificações - Cache")
 
+### Acesso Contactless
+
+**Importante**: Funcionalidade disponível desde a versão 3.12.0 da aplicação
+
+Para usar a interface contactless do novo Cartão de Cidadão será apresentada uma nova janela de diálogo na página que estiver em uso, por exemplo, página de Identidade, Morada, Certificados ou Assinatura.
+Esta janela exige que o utilizador insira o código de acesso ao cartão, que tem o objetivo de prevenir acessos não autorizados na leitura *contactless*.
+
+![Ilustração: Leitura contactless](Pictures/CAN_dialog.png "Leitura contactless")
+
+O código de acesso ao cartão é o código de 6 dígitos que se encontra no canto inferior direito dos novos Cartões de Cidadão.
+
+![Ilustração: Infografia Novo Cartão de Cidadão](Pictures/Infografia_Cartão_de_Cidadão.png "Infografia Novo Cartão de Cidadão")
+
+Este código não será requerido em posteriores utilizações da aplicação com o mesmo cartão.
+
+No entanto se não pretende que seja guardado o código de acesso, pode desligar esta opção no separador "Dados da aplicação" dentro do menu Configurações da aplicação.
+
+**NOTA:** A utilização do cartão pelo interface contactless para assinatura ou autenticação em aplicações externas tais como o Adobe Acrobat Reader exige que este tenha sido lido uma vez na aplicação Autenticação.gov e que esteja ativa a opção "Guardar códigos de acesso" nas Configurações. 
 
 # Integração com aplicações
 
 O *middleware* do Cartão de Cidadão, instalado com a aplicação Autenticação.Gov, permite a integração com outras aplicações do sistema operativo, disponibilizando duas funcionalidades: Autenticação e Assinatura Digital.
 
 O *middleware* disponibiliza suporte criptográfico às aplicações via suporte criptográfico nativo do sistema operativo Windows ou via interface PKCS\#11.
-
 
 
 ## Integração com aplicações em Windows
