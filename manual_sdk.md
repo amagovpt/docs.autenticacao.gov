@@ -514,7 +514,7 @@ Para usar a interface contactless do novo Cartão de Cidadão é necessário:
 2. Se o tipo de cartão for `PTEID_CardType.PTEID_CARDTYPE_IAS5` e a interface de contacto for `PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS` é necessário pedir o código CAN ao utilizador e depois usar esse CAN para a realizar a autenticação PACE através da função `PTEID_EIDCARD.initPaceAuthentication(secret,length,secretType)`. 
 
 **Notas:**
-* O CAN (card access number) é o código de 6 dígitos que se encontra no canto inferior direito dos novos Cartões de Cidadão. <img src="Pictures/Infografia_Cartão_de_Cidadão.png" width="200">
+* O CAN (card access number) é o código de 6 dígitos que se encontra no canto inferior direito dos novos Cartões de Cidadão. ![](Pictures/Infografia_Cartão_de_Cidadão.png)
 * O CAN não bloqueia após 3 tentativas erradas tal como os PINs, no entanto este mecanismo de autenticação tem proteção no chip contra ataques de força bruta. 
 * A classe PTEID_PACE_ERROR é usada para o tratamento de erros relacionados com a autenticação PACE. Cada objeto PTEID_PACE_ERROR contém uma mensagem e código de erro associado. Por exemplo, o código de erro EIDMW_PACE_ERR_BAD_TOKEN corresponde a introdução do CAN errado.
 
