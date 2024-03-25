@@ -114,7 +114,7 @@ entre em contacto através da página:
 
 # Novidades
 
-> **⚠ Suporte ao novo Cartão de Cidadão.**
+> **Suporte ao novo Cartão de Cidadão**
 >
 > Desde a versão 3.12.0 do SDK é suportado o novo Cartão de Cidadão que, como meio de identificação eletrónica, inclui a possibilidade de operações com interface contactless segundo a norma ISO/IEC 14443
 > e a utilização do algoritmo ECDSA nas chaves e certificados do cidadão.
@@ -125,25 +125,22 @@ entre em contacto através da página:
 
 ## Sistemas Operativos suportados
 
-A lista de sistemas operativos suportados, arquitecturas de 32 e 64
-bits, são:
-
   - Sistemas operativos Windows:
 
-      - Windows 7;
-      - Windows 8/8.1;
-      - Windows 10;
-      - Windows 11.
+      - Windows 7
+      - Windows 8/8.1
+      - Windows 10
+      - Windows 11
 
   - Distribuições de Linux:
 
-      - Ubuntu: 18.04 e superiores
-      - OpenSuse: Leap 42.2
-      - Fedora: 24 e superiores
+      - Ubuntu: 20.04 e superiores
+      - OpenSuse Leap 15.2 e superiores 
+      - Fedora 38 e superiores
 
   - Sistemas operativos Apple MacOS:
 
-     - MacOS Sierra (10.12) e superiores
+     - MacOS High Sierra (10.13) e superiores
 
 ## Linguagens de programação
 
