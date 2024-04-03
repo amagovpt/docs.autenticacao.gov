@@ -1057,6 +1057,16 @@ PTEID_SigningDevice signingDev = factory.getSigningDevice(true, true);
 (...)
 ```
 
+**NOTA:** Para utilizar o serviço em pré-produção, é necessário uma configuração no SDK se pretendemos utilizar outro ambiente da CMD. 
+
+```
+PTEID_Config config = new PTEID_Config(PTEID_Param.PTEID_PARAM_CMD_HOST);
+config.setString("preprod.cmd.autenticacao.gov.pt");
+```
+Esta configuração através da classe **PTEID_Config** fica guardada localmente, o que significa que numa próxima execução no mesmo computador vai utilizar o **CMD_HOST** de pré-produção mesmo se retirar a chamada **PTEID_Config.setString()**.
+
+A configuração local que deve rever em caso de dúvida fica guardada em **Windows** no registry em **HKEY_CURRENT_USER\SOFTWARE\PTEID\general** e em **MacOS** no ficheiro **$HOME/Library/Preferences/pteid.conf** 
+
 ### Formato XML Advanced Electronic Signatures (XAdES)
 
 Esta funcionalidade permite assinar um ou múltiplos ficheiros em
