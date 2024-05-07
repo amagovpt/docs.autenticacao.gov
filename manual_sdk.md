@@ -503,8 +503,8 @@ public static void CardEventsCallback(int lRet, uint ulState, IntPtr callbackDat
 **Importante**: Funcionalidade disponível desde a versão 3.12.0 do Middleware
 
 A utilização do novo Cartão de Cidadão em interface contactless está protegida de acessos não autorizados através do protocolo de autenticação PACE.
-Este protocolo está descrito no Documento 9303 parte 10 da ICAO (International Civil Aviation Organization) na secção 8.2.
-Este documento pode ser consultado em [ICAO 9303-10](https://www.icao.int/publications/documents/9303_p10_cons_en.pdf)
+Este protocolo está descrito no Documento 9303 parte 11 da ICAO (International Civil Aviation Organization) na secção 8.2.
+Este documento pode ser consultado em [ICAO 9303-11](https://www.icao.int/publications/documents/9303_p11_cons_en.pdf)
 
 Para usar a interface contactless do novo Cartão de Cidadão é necessário:
 1. Obter o tipo de interface de comunicação e o tipo de cartão após verificar a sua presença no leitor. Estas informações podem ser obtidas atraves das funções `PTEID_ReaderContext.getCardContactInterface()` e `PTEID_ReaderContext.getCardType()`.
