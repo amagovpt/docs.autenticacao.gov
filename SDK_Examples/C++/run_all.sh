@@ -22,9 +22,11 @@ if [ $OPTION = "-identity" ]; then
 
     g++ -c -std=c++17 GetPhoto.cpp
     g++ -o GetPhoto.example GetPhoto.o -lpteidlib
-    
+
+    echo "1st run of GetPhoto with PNG output..."
     ./GetPhoto.example -png "files/image.png"
 
+    echo "2nd run of GetPhoto with JP2 output..."
     ./GetPhoto.example -jp2 "files/image.jp2"
 
     echo "Running C++ SDK Example - PinInfo"

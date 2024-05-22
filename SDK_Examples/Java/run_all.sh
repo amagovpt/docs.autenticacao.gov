@@ -24,19 +24,16 @@ if [ $OPTION == "-identity" ]; then
 
     javac -cp $JAR_PATH:. ReadCard.java
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. ReadCard
-#    echo "Remove card after test and put it again"
-#    sleep 5
 
     echo "Running Java SDK Example - GetPhoto"
 
     javac -cp $JAR_PATH:. GetPhoto.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "-png" $PHOTO_PNG
-#    echo "Remove card after test and put it again"
-#    sleep 5
 
+    echo "1st run of GetPhoto with PNG output..."
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "-png" $PHOTO_PNG
+
+    echo "2nd run of GetPhoto with JP2 output..."
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. GetPhoto "-jp2" $PHOTO_JPEG2000
-#    echo "Remove card after test and put it again"
-#    sleep 5
 
     echo "Running Java SDK Example - PinInfo"
 
