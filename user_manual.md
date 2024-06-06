@@ -1048,7 +1048,7 @@ seguida, estão divididos em **configuração**, consistindo na
 configuração inicial necessária, e **assinatura**, consistindo na
 assinatura propriamente.
 
-**Nota:** As imagens apresentadas são referentes ao *Microsoft Outlook 2016*.
+**Nota:** As imagens apresentadas são referentes ao *Microsoft Outlook 16*.
 
 **Configuração** – Esta operação é realizada apenas uma vez.
 
@@ -1066,7 +1066,7 @@ assinatura propriamente.
 
     ![Ilustração: Assinatura em Outlook](Pictures/Autenticacao.Gov_outlook3.png "Assinatura em Outlook")
 
-5.  Nesta secção, selecionar a opção **Adicionar a assinatura digital às mensagens a enviar** e clicar no botão **Definições**
+5.  Nesta secção, clicar no botão **Definições**
 
     ![Ilustração: Assinatura em Outlook](Pictures/Autenticacao.Gov_outlook4.png "Assinatura em Outlook")
 
@@ -1082,7 +1082,9 @@ assinatura propriamente.
 **Assinatura** - a efetuar cada vez que pretenda enviar um email
 assinado.
 
-1.  Ao clicar em **Enviar**, será solicitado o PIN de assinatura e o seu
+1. Ir a **Opções** e clickar em **Assinar** para ativar a assinatura.
+
+2.  Ao clicar em **Enviar**, será solicitado o PIN de assinatura e o seu
     email será assinado e enviado.
 
     ![Ilustração: Assinatura em Outlook: Escolha do certificado](Pictures/Autenticacao.Gov_outlook6.png
