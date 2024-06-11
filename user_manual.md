@@ -1062,7 +1062,7 @@ assinatura propriamente.
 
     ![Ilustração: Assinatura em Outlook](Pictures/Autenticacao.Gov_outlook2.png "Assinatura em Outlook")
 
-4.  Selecionar a secção **Definições do Centro de Fidedignidade**.
+4.  Selecionar a secção **Definições do Centro de Confiança**.
 
     ![Ilustração: Assinatura em Outlook](Pictures/Autenticacao.Gov_outlook3.png "Assinatura em Outlook")
 
@@ -1079,10 +1079,9 @@ assinatura propriamente.
 8.  Clique em **OK** em todas as janelas de configuração abertas. A
     configuração está terminada.
 
-**Assinatura** - a efetuar cada vez que pretenda enviar um email
-assinado.
+**Assinatura** - a efetuar cada vez que pretenda enviar um email assinado.
 
-1. Ir a **Opções** e clickar em **Assinar** para ativar a assinatura.
+1. No separador **Opções** da janela de criação de mensagem clicar em **Assinar** para ativar a assinatura.
 
 2.  Ao clicar em **Enviar**, será solicitado o PIN de assinatura e o seu
     email será assinado e enviado.
