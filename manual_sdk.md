@@ -1590,7 +1590,9 @@ Por exemplo em aplicações Java é possível utilizar o módulo pteid-pkcs11 in
 da seguinte forma:
 
 ```java
-    /* Exemplo de carregamento do "token" PKCS#11 que permite aceder às operações do CC */
+    /* Exemplo de carregamento do "token" PKCS#11 que permite aceder às operações criptográficas do CC
+       Foram omitidas as necessárias instruções import para as classes Java utilizadas, por exemplo: java.security.Provider.
+     */
     
     /*
        O ficheiro de configuração indicado no método configure() serve para indicar o caminho no
@@ -1632,13 +1634,24 @@ da seguinte forma:
 
     /* Os algoritmos de assinatura suportados pelo Cartão de Cidadão via PKCS#11 são 
        os seguintes e podem ser especificados através do método Signature.getInstance():
-	   - SHA512WithRSA
-	   - SHA384WithRSA
-       - SHA256withRSA  (recomendado por ser compatível com todos os cartões em circulação)
-	   - SHA512WithRSASSA-PSS
-	   - SHA384WithRSASSA-PSS
-	   - SHA256withRSASSA-PSS
-       - SHA1withRSA    (Não utilizar a não ser por razões de retro-compatibilidade com sistemas antigos)
+      - SHA512WithRSA
+      - SHA384WithRSA
+      - SHA256withRSA  (recomendado por ser compatível com todos os cartões em circulação)
+      - SHA512WithRSASSA-PSS
+      - SHA384WithRSASSA-PSS
+      - SHA256withRSASSA-PSS
+      - SHA1withRSA    (Não utilizar a não ser por razões de retro-compatibilidade com sistemas antigos)
+
+       Para os novos Cartões de Cidadão emitidos a partir de junho de 2024 os algoritmos suportados são diferentes devido à alteração do 
+       tipo de chaves para ECDSA. É possível verificar o tipo de chave do cartão que está a utilizar através do método
+       getAlgorithm() da classe java.security.Key. Este método devolve "RSA" para as chaves do CC versão 1 e "EC" para as chaves do novo Cartão de Cidadão.
+       Para chaves com algoritmo identificado como "EC" estes são os algoritmos disponíveis:
+      - SHA256withECDSA
+      - SHA384withECDSA
+      - SHA512withECDSA
+      - SHA256withECDSAinP1363Format
+      - SHA384withECDSAinP1363Format
+      - SHA512withECDSAinP1363Format
     */
 
 ```
