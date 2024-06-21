@@ -148,7 +148,7 @@ A lista de linguagens de programação suportadas são:
 
   - C++: Em Windows, Linux e MacOS;
   - Java: Em Windows, Linux e MacOS;
-  - C\#: Apenas em Windows;
+  - C\#: Em Windows, Linux e MacOS;
 
 ## Compiladores
 
@@ -185,8 +185,7 @@ Para isto deverá utilizar-se uma instalação customizada seleccionando as _op�
 
 ### Linux
 
-Para instalar o SDK é necessario efectuar o *download* do pacote em
-formato deb ou rpm conforme a distribuição Linux que utiliza.
+Para poder usar o sdk no Linux é necessário compilar o projeto e instalar.
 
 A biblioteca C++ libpteidlib.so ficará
 disponível em `/usr/local/lib` e os respectivos C++
@@ -198,6 +197,9 @@ Se a instalação for feita a partir do código fonte disponível em
 <https://github.com/amagovpt/autenticacao.gov> devem ser seguidas as
 instruções de compilação que constam do ficheiro README do projeto.
 
+Se pretender instalar o sdk para .net terá que correr o script
+localizado em `eidlibdotnetsdk/generate_cs_linux.sh` e copiar os ficheiros localizados na pasta `autenticacao.gov/pteid-mw-pt/_src/eidmw/lib` `pteidlib_dotnet8+.so` e `pteidlib_dotnet8+.dll` para a pasta `/usr/local/lib`
+
 ### MacOS
 
 Para instalar o SDK é necessário efectuar o *download* do pacote de
@@ -208,6 +210,9 @@ No que diz respeito ao SDK C++, os
 *header files* ficam localizados em `/usr/local/include` e a
 biblioteca à qual as aplicações deverão linkar está no
 caminho `/usr/local/lib/libpteidlib.dylib` .
+
+O SDK .net ficará disponível em `/usr/local/lib`. É necessário ter disponivel na variável de ambiente `DYLD_LIBRARY_PATH`
+o caminho `/usr/local/lib`.
 
 # Procedimentos
 
@@ -232,7 +237,9 @@ caminho `/usr/local/lib/libpteidlib.dylib` .
 
 3\. **C\#**
 
-  - Adicionar a biblioteca **pteidlib_dotnet.dll** às *references* do
+  Apenas no Windows, é possivel usar .net framework, usando esta biblioteca **pteidlib_dotnet.dll**.
+  Podemos usar .net 8.0 no Windows, macOS e Linux, com esta biblioteca **pteidlib_dotnet8+.dll**.
+  - Adicionar a biblioteca **pteidlib_dotnet.dll** ou **pteidlib_dotnet8+.dll** às *references* do
   projecto Visual Studio.
   - As classes e métodos de compatibilidade estão no namespace **eidpt**
   enquanto que as novas classes estão no namespace **pt.portugal.eid**.
