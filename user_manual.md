@@ -83,6 +83,7 @@
   - [Serviços online usados pela aplicação](#serviços-online-usados-pela-aplicação)
   - [Obtenção do relatório para análise através do menu Configurações](#obtenção-do-relatório-para-análise-através-do-menu-configurações)
   - [Remoção de metadados de ficheiros PDF](#remoção-de-metadados-de-ficheiros-pdf)
+  - [Propriedades do ficheiro assinado por AutoCAD](#propriedades-do-ficheiro-assinado-por-autocad)
 - [Interface de linha de comandos](#interface-de-linha-de-comandos)
   - [Consultar ajuda e versão](#consultar-ajuda-e-versão)
   - [Atalho para configurar modo de renderização gráfica](#atalho-para-configurar-modo-de-renderização-gráfica)
@@ -1343,6 +1344,8 @@ Apenas necessário para versões do Thunderbird anteriores à versão 102.
 
 ![Ilustração: Assinatura DWG 10](Pictures/Autenticacao.Gov_dwg10.png "Assinatura de ficheiros DWG")
 
+Se o separador **Assinatura Digital** não estiver presente, ver a secção [Propriedades do ficheiro assinado por AutoCAD](#propriedades-do-ficheiro-assinado-por-autocad).
+
 ## Autenticação em portais WEB
 
 Existem duas formas de se autenticar perante um portal web utilizando o
@@ -1659,6 +1662,15 @@ A remoção de metadados de ficheiros PDF, através, por exemplo, da opção "Im
 browsers, pode remover as assinaturas digitais existentes no ficheiro, mesmo que o selo visual se mantenha.  
 Por este motivo, caso seja necessária a remoção de metadados, através desse ou de outro processo 
 semelhante, esta deve ser feita antes de realizar qualquer assinatura.
+
+## Propriedades do ficheiro assinado por AutoCAD
+
+![Ilustração: Assinatura DWG 11](Pictures/Autenticacao.Gov_dwg11.png "Separador Assinatura Digital")
+
+No caso do separador **Assinatura Digital** não aparecer nas propriedades do ficheiro assinado, é necessário seguir os passos presentes neste [link](https://www.autodesk.com/br/support/technical/article/caas/sfdcarticles/sfdcarticles/PTB/Digital-Signatures-icon-disabled-by-default.html).
+
+
+
 
 # Interface de linha de comandos
 
