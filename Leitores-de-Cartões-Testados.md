@@ -23,6 +23,15 @@
 | Fedora 39 | 64 | CCID 1.5.5 | OK | OK | Testado com ambas as interfaces para o CC2 |
 | MacOS Sonoma | 64 | CCID (driver pré-instalado no MacOS) | OK | OK | Testado com ambas as interfaces para o CC2 |
 
+**Leitor utilizado:** Ewent EW1052
+**Tipo de leitor:** Simples
+
+| **Sistema operativo** | **32-64 bits** | **Nome e versão do driver** | **CC1** | **CC2** |
+|-------- |---- |--------------------------------------- |------ |------ | 
+| Windows 10 | 32 |Device Description: Microsoft Usbccid Smartcard Reader (WUDF) / Driver Name: wudfusbcciddriver.inf / Driver Version: 10.0.19041.1  | OK | OK |
+| Windows 10 | 64 |Device Description: Microsoft Usbccid Smartcard Reader (WUDF) / Driver Name: wudfusbcciddriver.inf / Driver Version: 10.0.19041.1  | OK | OK |
+| MacOS Sonoma | 64 | CCID (driver pré-instalado no MacOS) | OK | OK |
+
 **Leitor utilizado:** Identiv uTrust 4701
 **Tipo de leitor:** Dual-Interface
 
@@ -86,17 +95,5 @@
 | Windows 10 | 64 |Device Description: HP USB Smart Card Keyboard  / Driver Name: HPKBx64.sys / Driver Version: 4.35.0.2 04-03-2013  | (OK / OK) |
 | Ubuntu 18 | 64 |pcsc-lite version 1.8.23 | (OK / OK) |
 | MacOS Catalina | 64 |CCID 1.4.31         | (OK / OK) |
-
-**Leitor utilizado:** Ewent EW1052
-**Tipo de leitor:** Simples
-
-| **Sistema operativo** | **32-64 bits** | **Nome e versão do driver** | **Resultado leitura e assinatura** |
-|-------- |---- |--------------------------------------- |------ | 
-| Windows 7 | 32 |Device Description: Microsoft Usbccid Smartcard Reader (WUDF) / Driver Name: wudfusbcciddriver.inf / Driver Version: 6.1.7601.18459 | (OK / OK ) |
-| Windows 7 | 64 |Device Description: Microsoft Usbccid Smartcard Reader (WUDF) / Driver Name: wudfusbcciddriver.inf / Driver Version: 6.1.7601.18459 | (OK / OK ) |
-| Windows 10 | 32 |Device Description: Microsoft Usbccid Smartcard Reader (WUDF) / Driver Name: wudfusbcciddriver.inf / Driver Version: 10.0.18362.1  | (OK / OK ) |
-| Windows 10 | 64 |Device Description: Microsoft Usbccid Smartcard Reader (WUDF) / Driver Name: wudfusbcciddriver.inf / Driver Version: 10.0.18362.1  | (OK / OK ) |
-| Ubuntu 18 | 64 | pcsc-lite version 1.8.23 | (OK / OK ) |
-| MacOS Catalina | 64 | CCID 1.4.31         | (OK / OK ) |
 
 Atualizado em 08 de Maio 2024
