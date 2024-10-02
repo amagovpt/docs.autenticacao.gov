@@ -14,11 +14,9 @@ public class SignPDFCustomSize {
         }
     }
     
-    //Main attributes needed for SDK functionalities
     PTEID_ReaderSet readerSet = null;
     PTEID_ReaderContext readerContext = null;
     PTEID_EIDCard eidCard = null;
-    PTEID_EId eid = null;
     PTEID_CardType cardType = null;
     PTEID_CardContactInterface contactInterface = null;
 
@@ -60,7 +58,6 @@ public class SignPDFCustomSize {
             eidCard.initPaceAuthentication(can_str, can_str.length(),  PTEID_CardPaceSecretType.PTEID_CARD_SECRET_CAN);
         }
 
-        eid = eidCard.getID();      
     }
 
     /**
@@ -97,11 +94,11 @@ public class SignPDFCustomSize {
         //The page and coordinates where the signature will be printed
         int page = 1;
         double pos_x = 0.1;
-        double pos_y = 0.1;
+        double pos_y = 0.6;
 
         //You can set custom dimensions for your visible seal by using this method. 
         //The first argument is the width and the second is the height of the seal.
-        signature.setCustomSealSize(200, 200);
+        signature.setCustomSealSize(250, 90);
         
         //To actually sign the document you invoke this method, your authentication PIN will be requested
         //After this you can check the signed document in the path provided
@@ -112,10 +109,7 @@ public class SignPDFCustomSize {
 
         try {
             initiate();
-
-            System.out.println("Citizen name:                " + eid.getGivenName() + " " + eid.getSurname());
-            System.out.println("Card Number:                 " + eid.getDocumentNumber());
-            
+        
             sign(args[0], args[1]);
         } 
         catch (PTEID_ExNoReader ex) {

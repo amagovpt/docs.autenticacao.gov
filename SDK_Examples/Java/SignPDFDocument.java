@@ -18,7 +18,6 @@ public class SignPDFDocument {
         }
     }
     
-    //Main attributes needed for SDK functionalities
     PTEID_ReaderSet readerSet = null;
     PTEID_ReaderContext readerContext = null;
     PTEID_EIDCard eidCard = null;

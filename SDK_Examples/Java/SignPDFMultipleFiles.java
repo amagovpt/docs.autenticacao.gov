@@ -14,11 +14,9 @@ public class SignPDFMultipleFiles {
         }
     }
     
-    //Main attributes needed for SDK functionalities
     PTEID_ReaderSet readerSet = null;
     PTEID_ReaderContext readerContext = null;
     PTEID_EIDCard eidCard = null;
-    PTEID_EId eid = null;
     PTEID_CardType cardType = null;
     PTEID_CardContactInterface contactInterface = null;
 
@@ -59,8 +57,6 @@ public class SignPDFMultipleFiles {
             String can_str = in.nextLine();
             eidCard.initPaceAuthentication(can_str, can_str.length(),  PTEID_CardPaceSecretType.PTEID_CARD_SECRET_CAN);
         }
-
-        eid = eidCard.getID();
     }
     
     /**
@@ -112,9 +108,6 @@ public class SignPDFMultipleFiles {
 
         try {
             initiate();
-
-            System.out.println("User:                        " + eid.getGivenName() + " " + eid.getSurname());
-            System.out.println("Card Number:                 " + eid.getDocumentNumber());
             
             sign(args);
         } 
