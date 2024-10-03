@@ -1109,7 +1109,7 @@ Caso contrário será necessário criar um novo campo de assinatura num local á
 
 5. Clique em **Assinar** e escolha o nome e pasta onde deseja guardar o documento assinado.
 
-6. Para concluir, introduza o seu PIN de assinatura. A janela de introdução de PIN deverá ter o título de "Segurança do Windows" e a mensagem "Introduza o PIN de não rejeição".
+6. Para concluir, introduza o seu PIN de assinatura. A janela de introdução de PIN deverá ter o título de "Segurança do Windows" e a mensagem "Introduza o PIN de assinatura digital".
 
 ### Assinatura digital em *Adobe Acrobat Reader* em MacOS (desde a versão 3.11.0)
 
