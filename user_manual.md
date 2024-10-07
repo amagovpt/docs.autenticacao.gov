@@ -1607,11 +1607,15 @@ Servidores OCSP:
 - ocsp.root.cartaodecidadao.pt (porto 80)
 - ocsp.auc.cartaodecidadao.pt  (porto 80)
 - ocsp.asc.cartaodecidadao.pt  (porto 80)
+- ocsp.asc.pki2.cartaodecidadao.pt  (porto 80)
+- ocsp.asc.pki2.cartaodecidadao.pt  (porto 80)
+- ocsp.root.pki2.cartaodecidadao.pt  (porto 80)
 
 Servidores CRL:
 - crls.ecee.gov.pt (porto 80)
 - pkiroot.multicert.com (porto 80)
 - pki.cartaodecidadao.pt (porto 80)
+- pki2.cartaodecidadao.pt (porto 80)
 
 **Assinatura com atributos Profissionais:**
 
@@ -1619,7 +1623,8 @@ Servidores CRL:
 - autenticacao.gov.pt (porto 443) (apenas para carregamento com CMD)
 
 **Leitura da morada:**
-- morada.cartaodecidadao.pt (porto 443) (utilizado desde a versão 3.9.0 da aplicação)
+- morada.cartaodecidadao.pt (porto 443)
+- morada2.cartaodecidadao.pt (porto 443)
 
 **Atualização da aplicação:**
 - autenticacao.gov.pt (porto 443)
