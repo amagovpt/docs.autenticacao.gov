@@ -211,8 +211,7 @@ No que diz respeito ao SDK C++, os
 biblioteca à qual as aplicações deverão linkar está no
 caminho `/usr/local/lib/libpteidlib.dylib` .
 
-O SDK .net ficará disponível em `/usr/local/lib`. É necessário ter disponivel na variável de ambiente `DYLD_LIBRARY_PATH`
-o caminho `/usr/local/lib`.
+O SDK .net ficará disponível em `/usr/local/lib/pteidlib_dotnet8/(arm64/x64)`. Existem 2 versões da DLL `pteidlib_dotnet8+` deverá referenciar a versão adequada ao seu sistema MacOS.
 
 # Procedimentos
 
@@ -237,8 +236,9 @@ o caminho `/usr/local/lib`.
 
 3\. **C\#**
 
-  Apenas no Windows, é possivel usar .net framework, usando esta biblioteca **pteidlib_dotnet.dll**.
-  Podemos usar .net 8.0 no Windows, macOS e Linux, com esta biblioteca **pteidlib_dotnet8+.dll**.
+  Apenas no Windows, é possivel usar .net framework, com a biblioteca **pteidlib_dotnet.dll**.
+  
+  Desde a versão 3.13.0 é possível usar .net 8.0 ou superior no Windows, macOS e Linux, com a biblioteca **pteidlib_dotnet8+.dll**.
   - Adicionar a biblioteca **pteidlib_dotnet.dll** ou **pteidlib_dotnet8+.dll** às *references* do
   projecto Visual Studio.
   - As classes e métodos de compatibilidade estão no namespace **eidpt**
