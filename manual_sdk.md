@@ -67,7 +67,7 @@ anterior continue disponível, esta é desaconselhada pois a nova API
 cobre a maior parte dos casos de uso da anterior e tem funcionalidades
 novas.
 
-A secção [**Compatibilidade com o SDK da versão 1**](#compatibilidade-com-o-sdk-da-vers%c3%a3o-1)
+A secção [**Compatibilidade com o SDK da versão 1**](#compatibilidade-com-o-sdk-da-versão-1)
 contém informações relativamente à continuação da
 compatibilidade com a versão 1, descreve as diferenças comportamentais,
 os métodos removidos e os códigos de erro disponíveis.
@@ -1559,7 +1559,7 @@ Java ou C\#.
 
 Os métodos de compatibilidade com a versão 1
 do Middleware (MW) usam outros mecanismos de tratamento de erros: para
-mais detalhes consultar a secção [**Códigos de Erro**](#c%c3%b3digos-de-erro).
+mais detalhes consultar a secção [**Códigos de Erro**](#códigos-de-erro).
 
 A classe base de todas as excepções do MW é
 a classe **PTEID_Exception**.

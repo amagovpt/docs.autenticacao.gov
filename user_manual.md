@@ -585,7 +585,7 @@ inserido no leitor de cartões e for corretamente lido pela aplicação.
 
 Após clicar em **Assinar** deverá escolher a localização da pasta e do ficheiro onde guardar o
 ficheiro assinado (Não é possível substituir o ficheiro original) e seguir o procedimento de
-assinatura (ver secção [Introdução de chave](#introdu%c3%a7%c3%a3o-de-chave)). Em seguida é
+assinatura (ver secção [Introdução de chave](#introdução-de-chave)). Em seguida é
 apresentado uma mensagem a indicar que a assinatura digital foi efetuada com sucesso.
 
 ![Ilustração: Assinatura digital foi efetuada com sucesso](Pictures/Autenticacao.Gov_assinatura_sucesso.png "Assinatura digital foi efetuada com sucesso")
@@ -827,7 +827,7 @@ personalizado.
 - **Microsoft Office (Windows):** Configurações relativas a assinaturas em
 aplicações do Microsoft Office.
 
-- **Chave Móvel Digital (Windows):** Permite registar o certificado associado à sua conta da Chave Móvel Digital. Para saber mais consulte a secção [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-m%c3%b3vel-digital).
+- **Chave Móvel Digital (Windows):** Permite registar o certificado associado à sua conta da Chave Móvel Digital. Para saber mais consulte a secção [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-móvel-digital).
 
 - **Novo certificado raiz do Estado (Windows):** Permite instalar o certificado raiz da nova cadeia de certificados do cartão de cidadão na *Store* de certificados raiz confiáveis do Windows. Para saber mais consulte a secção [Problemas com a nova cadeia de confiança](#problemas-com-a-nova-cadeia-de-confiança).
 
@@ -907,12 +907,12 @@ Alguns exemplos dessas aplicações são: *Microsoft Word*, *Microsoft Excel*, *
 
 Para que os certificados fiquem automaticamente registados é necessário:
 
-- A opção "Registar certificados com a inserção do cartão" disponível no separador [Configuração de assinaturas](#configura%c3%a7%c3%a3o-de-assinaturas) estar ativa.
+- A opção "Registar certificados com a inserção do cartão" disponível no separador [Configuração de assinaturas](#configuração-de-assinaturas) estar ativa.
 - Abrir a aplicação local Autenticação.Gov antes de inserir o cartão. É aconselhado fazer pelo menos uma leitura do cartão na aplicação.
 
 **Integração com aplicações com a Chave Móvel Digital:**
 
-A integração com aplicações é também possível com a Chave Móvel Digital, ao nível da componente de assinatura digital. Para tal, siga o procedimento descrito em [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-m%c3%b3vel-digital).
+A integração com aplicações é também possível com a Chave Móvel Digital, ao nível da componente de assinatura digital. Para tal, siga o procedimento descrito em [Assinatura digital com Chave Móvel Digital](#assinatura-digital-com-chave-móvel-digital).
 
 Na assinatura com Chave Móvel Digital, a mensagem de verificação enviada ao utilizador segue um dos 2 seguintes formatos:
 
@@ -1071,7 +1071,7 @@ assinatura propriamente.
 
     ![Ilustração: Assinatura em Outlook](Pictures/Autenticacao.Gov_outlook4.png "Assinatura em Outlook")
 
-6.  Adicione uma descrição a esta configuração, p. ex.: “Assinatura com Cartão de Cidadão” e clique no botão **Escolher** para selecionar o certificado. Selecione o seu certificado de assinatura do Cartão de Cidadão ou  [Chave Móvel Digital](#assinatura-digital-com-chave-m%c3%b3vel-digital).
+6.  Adicione uma descrição a esta configuração, p. ex.: “Assinatura com Cartão de Cidadão” e clique no botão **Escolher** para selecionar o certificado. Selecione o seu certificado de assinatura do Cartão de Cidadão ou  [Chave Móvel Digital](#assinatura-digital-com-chave-móvel-digital).
 
     ![Ilustração: Assinatura em Outlook: Escolha do certificado](Pictures/Autenticacao.Gov_outlook5.png "Escolha do certificado")
 
@@ -1179,7 +1179,7 @@ Pode assinar documentos ou emails com a Chave Móvel Digital no Windows em aplic
 
 **Registo do certificado** –  deverá registar no Windows o certificado associado à sua Chave Móvel Digital.
 
-1. No separador [Configuração de assinaturas](#configura%c3%a7%c3%a3o-de-assinaturas) da aplicação “Autenticacão.Gov” há um segmento destinado a configurações da Chave Móvel Digital com um botão **Registar**. Pressione o botão para abrir uma janela de registo do certificado.
+1. No separador [Configuração de assinaturas](#configuração-de-assinaturas) da aplicação “Autenticacão.Gov” há um segmento destinado a configurações da Chave Móvel Digital com um botão **Registar**. Pressione o botão para abrir uma janela de registo do certificado.
 
 2. Insira o número de telemóvel associado à sua conta da Chave Móvel Digital e o PIN de Assinatura da Chave Móvel Digital e pressione **OK**.
 
@@ -1368,7 +1368,7 @@ Explorer*, *Microsoft Edge* e *Google Chrome* não exigem nenhuma
 configuração uma vez registado o certificado de autenticação do Cidadão.
 
 Para o *Mozilla Firefox* em qualquer Sistema Operativo é necessário
-efetuar algumas configurações descritas em [Configurar autenticação para *Mozilla Firefox*](#configurar-autentica%c3%a7%c3%a3o-para-mozilla-firefox).
+efetuar algumas configurações descritas em [Configurar autenticação para *Mozilla Firefox*](#configurar-autenticação-para-mozilla-firefox).
 
 A autenticação por certificado através do portal autenticação.gov.pt não exige a instalação da aplicação mas sim do plugin **Autenticação.Gov**.
 
@@ -1394,7 +1394,7 @@ Na versão 73.0.1 (para outras versões deverá ser semelhante):
 ![Ilustração: Carregar PKCS\#11 no Mozilla Firefox](Pictures/Firefox_carregar_pkcs11.png
   "Carregar PKCS\#11 no Mozilla Firefox")
 
-3. Pressione **Carregar**. Preencha o nome do módulo, por exemplo "PKCS\#11 do Cartao de Cidadao" (evite o "ç" e "ã"). Seguidamente, carregue em **Procurar...** e navegue até ao módulo PKCS#11 do Cartão de Cidadão, cuja localização se encontra descrita na secção [Integração com aplicações](#integra%c3%a7%c3%a3o-com-aplica%c3%a7%c3%b5es).
+3. Pressione **Carregar**. Preencha o nome do módulo, por exemplo "PKCS\#11 do Cartao de Cidadao" (evite o "ç" e "ã"). Seguidamente, carregue em **Procurar...** e navegue até ao módulo PKCS#11 do Cartão de Cidadão, cuja localização se encontra descrita na secção [Integração com aplicações](#integração-com-aplicações).
 
 **Nota**: em MacOS o que se recomenda neste passo é copiar e colar no campo "Nome do ficheiro do módulo" o seguinte nome: `/usr/local/lib/libpteidpkcs11.dylib`
 
@@ -1945,7 +1945,7 @@ onde **$HOME** indica a directoria Home do utilizador de sistema.
 O formato do ficheiro segue o [formato INI](https://en.wikipedia.org/wiki/INI_file) com a respectiva secção de
 configuração a ser indicada por uma tag. Os valores que se podem
 especificar em cada secção/tag são os que foram indicados na tabela anterior
-referente às [Configurações através de chaves de registo Windows](#configura%c3%a7%c3%b5es-atrav%c3%a9s-de-chaves-de-registo-windows).
+referente às [Configurações através de chaves de registo Windows](#configurações-através-de-chaves-de-registo-windows).
 
 Por exemplo para ativar manualmente o modo de diagnóstico devem ser adicionadas ao ficheiro as 2 seguintes linhas:
 ```
