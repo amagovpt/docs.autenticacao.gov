@@ -25,6 +25,11 @@ if [ $OPTION == "-identity" ]; then
     javac -cp $JAR_PATH:. ReadCard.java
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. ReadCard
 
+    echo "Running Java SDK Example - ListCertificates"
+
+    javac -cp $JAR_PATH:. ListCertificates.java
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. ListCertificates
+
     echo "Running Java SDK Example - GetPhoto"
 
     javac -cp $JAR_PATH:. GetPhoto.java
