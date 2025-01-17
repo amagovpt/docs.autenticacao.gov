@@ -59,6 +59,23 @@ public class ListCertificates {
 		return readerContext.getEIDCard();
     }
 
+    private static String certifTypeToString(PTEID_CertifType type) {
+
+    	if (type.equals(PTEID_CertifType.PTEID_CERTIF_TYPE_SIGNATURE))
+    		return "Citizen Signature";
+    	else if(type.equals(PTEID_CertifType.PTEID_CERTIF_TYPE_AUTHENTICATION))
+    		return "Citizen Authentication";
+    	else if(type.equals(PTEID_CertifType.PTEID_CERTIF_TYPE_ROOT_AUTH))
+    		return "Auth SubCA";
+    	else if(type.equals(PTEID_CertifType.PTEID_CERTIF_TYPE_ROOT_SIGN))
+    		return "Signature SubCA";
+    	else if(type.equals(PTEID_CertifType.PTEID_CERTIF_TYPE_ROOT))
+    		return "Root";
+    	else if(type.equals(PTEID_CertifType.PTEID_CERTIF_TYPE_UNKNOWN))
+    		return "Unknown";
+    	else return "";
+    }
+
     private static void listCertificates(PTEID_EIDCard card) throws PTEID_Exception {
 
     	System.out.println("Building signature certificate chain...");
@@ -76,7 +93,8 @@ public class ListCertificates {
         int level = 1;
         while(!current_cert.isRoot()) {
         	PTEID_Certificate next_cert = current_cert.getIssuer();
-        	System.out.format("Cert level %d: subject: %-66s validityEnd: %s\n", level, next_cert.getOwnerName(), next_cert.getValidityEnd());
+        	System.out.format("Cert level %d: subject: %-66s validityEnd: %s type: %s\n", level, 
+        		    next_cert.getOwnerName(), next_cert.getValidityEnd(), certifTypeToString(next_cert.getType()) );
         	current_cert = next_cert;
         	level++;
         }
