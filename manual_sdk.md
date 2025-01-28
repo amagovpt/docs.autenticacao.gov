@@ -46,6 +46,7 @@
 - [Atualizações do Middleware](#atualizações-do-middleware)
 - [Tratamento de erros](#tratamento-de-erros)
 - [API PKCS#11](#api-pkcs11)
+- [API MacOS](#api-macos)
 - [Compatibilidade com o SDK da versão 1](#compatibilidade-com-o-sdk-da-versão-1)
   - [Métodos removidos](#métodos-removidos)
   - [Diferenças no comportamento de alguns métodos](#diferenças-no-comportamento-de-alguns-métodos)
@@ -1663,6 +1664,14 @@ da seguinte forma:
 
 ```
 
+# API MacOS
+
+É possível também o acesso aos certificados e operações de assinatura e autenticação através da Security Framework do MacOS.
+Esta opção pode ser mais conveniente para aplicações macOS desenvolvidas nas linguagens suportadas pela Apple (Swift ou Objective-C).
+O módulo de integração que implementa esta funcionalidade (módulo CryptoTokenKit) é distribuído como um plugin da aplicação GUI, e é automaticamente iniciado com a inserção de um Cartão de Cidadão no sistema.
+
+Recomendamos a consulta do programa de exemplo disponível em [keyChainSign.swift](./SDK_Examples/MacOS-Swift/keyChainSign.swift)
+
 
 # Compatibilidade com o SDK da versão 1
 
@@ -1779,4 +1788,4 @@ _________________
 
 Desenvolvido pelo Estado Português<br>
 (Agência para a Modernização Administrativa, IP e Instituto dos Registos e do Notariado, IP)<br>
-© Copyright (C) 2010-2021
+© Copyright (C) 2010-2025
