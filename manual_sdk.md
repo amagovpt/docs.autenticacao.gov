@@ -338,7 +338,7 @@ PTEID_Config.SetTestMode(true);
 * Windows: `C:\Program Files\Portugal Identity Card\eidstore\certs_test`
 * MacOS ou Linux: `/usr/local/share/certs_test`
 
-Os certificados devem ser descarregados da seguinte página: http://pki2.teste.cartaodecidadao.pt/publico/entidade-certificacao-cc/certificados
+Os certificados devem ser descarregados da seguinte página: <https://pki2.teste.cartaodecidadao.pt/publico/entidade-certificacao-cc/certificados>
 
 
 ## Acesso ao *smartcard* Cartão de Cidadão
@@ -348,9 +348,9 @@ os seguinte passos:
 
   - Obter a lista de leitores de *smartcards* no sistema;
   - Seleccionar um leitor de *smartcards*;
-  - Verificar se o leitor contêm um cartão;
+  - Verificar se o leitor tem um cartão inserido;
   - Obter o objecto que fornece acesso ao cartão;
-  - Obter o objecto que contêm os dados pretendidos;
+  - Obter o objecto que contém os dados pretendidos;
 
 A classe **PTEID_ReaderSet** representa a lista de leitores de cartões
 disponíveis no sistema, esta classe disponibiliza uma variedade de
@@ -417,7 +417,7 @@ leitor que encontrar no sistema.
 
   - C++
 
-    ` PTEID_ReaderContext &readerContext = PTEID_ReaderSet.instance().getReader();`
+    `PTEID_ReaderContext &readerContext = PTEID_ReaderSet.instance().getReader();`
 
   - Java
 
