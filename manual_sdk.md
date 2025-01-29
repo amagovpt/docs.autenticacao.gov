@@ -1670,7 +1670,7 @@ da seguinte forma:
 Esta opção pode ser mais conveniente para aplicações macOS desenvolvidas nas linguagens suportadas pela Apple (Swift ou Objective-C).
 O módulo de integração que implementa esta funcionalidade (módulo CryptoTokenKit) é distribuído como um plugin da aplicação GUI, e é automaticamente iniciado com a inserção de um Cartão de Cidadão no sistema.
 
-Recomendamos a consulta do programa de exemplo disponível em [keyChainSign.swift](./SDK_Examples/MacOS-Swift/keyChainSign.swift)
+Recomendamos a consulta do programa de exemplo disponível em [keyChainSign.swift](https://github.com/amagovpt/docs.autenticacao.gov/blob/main/SDK_Examples/MacOS-Swift/keychainSign.swift)
 
 
 # Compatibilidade com o SDK da versão 1
