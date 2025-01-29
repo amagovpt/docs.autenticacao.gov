@@ -309,18 +309,9 @@ namespace PTEIDSample {
 
 ## Configurar modo de teste
 
-Para alterar as configurações de forma a utilizar o modo teste, para usar cartões de teste, deve usar-se o método estático **SetTestMode(*bool* bTestMode)** da classe **PTEID_Config**.
+Para alterar as configurações de forma a poder utilizar cartões de teste, deve usar-se o método estático **SetTestMode(*bool* bTestMode)** da classe **PTEID_Config**.
 
 Com o valor do parâmetro *bTestMode* a *true*, os seguintes exemplos ativam o modo de teste.
-
-É também necessário adicionar os certificados raíz da PKI de testes em formato DER e extensão ".der" numa diretoria dependente do sistema operativo:
-* Windows: `C:\Program Files\Portugal Identity Card\eidstore\certs_test`
-* MacOS ou Linux: `/usr/local/share/certs_test`
-
-Para utilizar cartões do tipo *Novo Cartão de Cidadão* deve descarregar os certificados da seguinte página: http://pki2.teste.cartaodecidadao.pt/publico/entidade-certificacao-cc/certificados
-
-Os certificados da PKI de testes original encontram-se em: https://pki.teste.cartaodecidadao.pt/publico/certificado/cc_ec_cidadao/
-
 
 1.  Exemplo C++
 
@@ -342,6 +333,13 @@ PTEID_Config.SetTestMode(true);
 (...)
 PTEID_Config.SetTestMode(true);
 ```
+
+É também necessário adicionar os certificados raíz da PKI de testes em formato DER e extensão ".der" numa diretoria dependente do sistema operativo:
+* Windows: `C:\Program Files\Portugal Identity Card\eidstore\certs_test`
+* MacOS ou Linux: `/usr/local/share/certs_test`
+
+Os certificados devem ser descarregados da seguinte página: http://pki2.teste.cartaodecidadao.pt/publico/entidade-certificacao-cc/certificados
+
 
 ## Acesso ao *smartcard* Cartão de Cidadão
 
