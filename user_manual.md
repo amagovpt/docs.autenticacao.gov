@@ -99,8 +99,6 @@
 
 # Introdução
 
-NOTA: A partir da versão 3.2.0, houve uma alteração de nomenclatura no manual. As referências a "Middleware do Cartão de Cidadão" foram substituídas por "aplicação Autenticação.gov para computador", excepto quando o termo "*middleware*" é mais apropriado.
-
 Este manual pretende descrever todas as funcionalidades providenciadas pela aplicação Autenticação.gov para computador.
 
 A instalação da aplicação Autenticação.gov para computador inclui o *middleware* do Cartão de Cidadão. Este *middleware* pode definir-se como a “camada” de
@@ -436,7 +434,7 @@ estado do Cartão de Cidadão.
 
 > ⚠ **IMPORTANTE: Consulta de Morada do Cartão de Cidadão.**
 >
-> Desde a versão 3.9.0 da aplicação local Autenticação.Gov a morada do Cartão de Cidadão é lida a partir dos serviços centrais.
+> Desde a versão 3.9.0 da aplicação Autenticação.Gov a morada do Cartão de Cidadão é lida a partir dos serviços centrais.
 > Isto implica uma ligação à Internet funcional para a leitura da morada. É por isso necessário garantir que não existe *firewall* ou outro *software* na rede local que impeça a ligação ao endereço `morada.cartaodecidadao.pt` no porto 443.
 > Para processos de alteração de morada iniciados desde o fim de dezembro de 2022, a confirmação de morada fica apenas disponível no portal [eportugal.gov.pt](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao).
 
@@ -1645,7 +1643,7 @@ Servidores CRL:
 
 ## Obtenção do relatório para análise através do menu Configurações
 
-A partir da versão 3.5.0 da aplicação, para todos os sistemas operativos, para ajudar a diagnosticar um problema com a aplicação local **Autenticação.gov**, é possível criar um **Relatório de Suporte**. Este **Relatório de Suporte** contém os ficheiros de log com informações sobre o funcionamento da aplicação, essenciais para o diagnóstico de eventuais problemas.
+Para permitir a análise técnica de problemas com a aplicação **Autenticação.gov**, é possível criar um **Relatório de Suporte**. Este **Relatório de Suporte** contém os ficheiros de log com informações sobre o funcionamento da aplicação, essenciais para o diagnóstico de eventuais problemas.
 
 Para obter o **Relatório de Suporte** deve:
 
@@ -1676,10 +1674,7 @@ No caso do separador **Assinatura Digital** não aparecer nas propriedades do fi
 
 
 
-
 # Interface de linha de comandos
-
-**Nota:** Esta funcionalidade só está disponível a partir da versão 3.3.0 da aplicação.
 
 Quando executada a partir da linha de comandos, a aplicação Autenticação.gov para computador aceita alguns modos e opções descritos nas seguintes subsecções.
 
