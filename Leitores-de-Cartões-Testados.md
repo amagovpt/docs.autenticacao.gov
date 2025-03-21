@@ -1,5 +1,8 @@
-# Middleware do Cartão de Cidadão
-## Leitores de Cartões Testados
+# Leitores de Cartões testados - Autenticação.gov
+
+Nas tabelas que apresentamos nesta página são apresentados leitores de smartcards testados com a aplicação Autenticação.gov 
+e o SDK do Cartão de Cidadão.
+Sempre que possível testamos com o modelo de Cartão de Cidadão mais antigo com chip de contacto, indicado nas tabelas como **CC1** e também com os cartões emitidos desde junho de 2024 indicados como **CC2**.
 
 **Leitor utilizado:** Gemalto Ezio Shield Pro (IDBridge CT710)
 **Tipo de leitor:** PinPad

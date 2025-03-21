@@ -29,12 +29,16 @@ Poderá aceder ao manual no seguinte URL:
 
 A documentação da API disponibilizada pelo SDK está disponível nos seguintes URLs:
 
-
 [Documentação Técnica do SDK C++ (online)](https://amagovpt.github.io/docs.autenticacao.gov/sdk/cpp/)
 
 [Documentação Técnica do SDK Java (online)](https://amagovpt.github.io/docs.autenticacao.gov/sdk/java/)
 
 [Exemplos de utilização do SDK](https://github.com/amagovpt/docs.autenticacao.gov/tree/main/SDK_Examples)
+
+## Leitores de smartcards
+
+Na seguinte página apresentamos um conjunto de testes de leitura com vários leitores de *smartcards* utilizando as 2 principais versões do Cartão de Cidadão:
+[Leitores de Cartões](https://amagovpt.github.io/docs.autenticacao.gov/Leitores-de-Cart%C3%B5es-Testados)
 
 
 ## Contactos
