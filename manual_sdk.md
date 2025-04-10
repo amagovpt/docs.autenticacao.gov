@@ -1573,21 +1573,12 @@ métodos do MW através da chamada ao método **GetError()** da classe
 **PTEID_Exception**.
 Através do método GetMessage() é possível obter uma descrição legível do erro (em língua inglesa)
 
-Cuidado com a inclusão de headers como "WinUser.h" dentro do header temos definido um metodo GetMessage()
-```cpp
-  #ifdef UNICODE
-  #define GetMessage  GetMessageW
-  #else
-  #define GetMessage  GetMessageA
-  #endif // !UNICODE
-```
-
-Este método pode criar conflitos e erros de linkagem como o abaixo.
-
+**Nota** para utilizadores do SDK C++: no Windows SDK existe uma definição de macro `GetMessage` que 
+tem conflito de nome com o método `PTEID_Exception::GetMessage` o que origina erros de linkagem com a seguinte mensagem:
 ```cpp
 unresolved external symbol "__declspec(dllimport) public: char const * __cdecl eIDMW::PTEID_Exception::GetMessageA(void)"
 ```
-Sugerimos evitar o uso deste header em conjunto com GetMessage.
+Recomendamos que não sejam utilizado #includes tais como `windows.h` ou `winuser.h` em conjunto com o método `PTEID_Exception::GetMessage`.
 
 As constantes numéricas dos códigos de erro
 estão expostas às aplicações em:
