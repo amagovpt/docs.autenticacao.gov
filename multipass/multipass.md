@@ -10,11 +10,13 @@ O método `getMultiPassToken()` retorna um objeto do tipo `PTEID_ByteArray` cont
 
 ### Exceções Possíveis
 
-O método pode lançar exceções do tipo `PTEID_Exception` com os seguintes códigos de erro:
+O método pode lançar exceções do tipo `PTEID_Exception` com os seguintes códigos de erro específicos para a funcionalidade multipass:
 
 * **EIDMW_ERR_NOT_SUPPORTED** (0xe1d00202): Este erro ocorre quando o cartão não é um Cartão de Cidadão 2. Pode ser retornado para cartões antigos, cartões não portugueses ou cartões não reconhecidos.
 
 * **EIDMW_ERR_FILE_NOT_FOUND** (0xe1d00208): Este erro ocorre quando o cartão é um Cartão de Cidadão 2 que não contem um multipass token.
+
+Além destas, outras exceções gerais podem ocorrer durante o acesso ao cartão. Para uma lista completa de todos os códigos de erro possíveis, consulte o [manual completo do SDK](https://amagovpt.github.io/docs.autenticacao.gov/manual_sdk.html#tratamento-de-erros).
 
 ### Leitura via Event Callback
 
