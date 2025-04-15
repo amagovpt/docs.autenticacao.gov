@@ -2,7 +2,7 @@
 
 **Importante**: Funcionalidade disponível desde a versão 3.14.0 do Middleware
 
-Esta funcionalidade permite a leitura de um identificador único de 16 bytes através de tecnologia contactless. Esta feature está disponível exclusivamente nos novos Cartões de Cidadão. A implementação já integra os protocolos de segurança definidos pelo standard ICAO Doc 9303, incluindo Passive Authentication (validação SOD) e Chip Authentication, garantindo a integridade e autenticidade dos dados e cartão.
+Esta funcionalidade permite a leitura de um identificador único de 16 bytes através de tecnologia contactless. Esta funcionalidade está disponível exclusivamente nos novos Cartões de Cidadão. A implementação já integra os protocolos de segurança definidos pelo standard ICAO Doc 9303, incluindo Passive Authentication (validação SOD) e Chip Authentication, garantindo a integridade e autenticidade dos dados e cartão.
 
 ### Dados Retornados
 
@@ -12,19 +12,19 @@ O método `getMultiPassToken()` retorna um objeto do tipo `PTEID_ByteArray` cont
 
 O método pode lançar exceções do tipo `PTEID_Exception` com os seguintes códigos de erro específicos para a funcionalidade multipass:
 
-* **EIDMW_ERR_NOT_SUPPORTED** (0xe1d00202): Este erro ocorre quando o cartão não é um Cartão de Cidadão 2. Pode ser retornado para cartões antigos, cartões não portugueses ou cartões não reconhecidos.
+* **EIDMW_ERR_NOT_SUPPORTED** (0xe1d00202): Este erro ocorre quando o cartão não é um Cartão de Cidadão 2. Pode ser retornado para cartões da versão 1, cartões não portugueses ou cartões não reconhecidos.
 
-* **EIDMW_ERR_FILE_NOT_FOUND** (0xe1d00208): Este erro ocorre quando o cartão é um Cartão de Cidadão 2 que não contem um multipass token.
+* **EIDMW_ERR_FILE_NOT_FOUND** (0xe1d00208): Este erro ocorre quando o cartão é um Cartão de Cidadão 2 que não contém um multipass token.
 
 Além destas, outras exceções gerais podem ocorrer durante o acesso ao cartão. Para uma lista completa de todos os códigos de erro possíveis, consulte o [manual completo do SDK](https://amagovpt.github.io/docs.autenticacao.gov/manual_sdk.html#tratamento-de-erros).
 
-### Leitura via Event Callback
+### Leitura via evento de inserção
 
-Além da leitura direta, o multipass token também pode ser obtido através de um EventCallback que pode ser registado para todos os leitores presentes no sistema. Poderá ler sobre callback setup [aqui](https://amagovpt.github.io/docs.autenticacao.gov/manual_sdk.html#eventos-de-inser%C3%A7%C3%A3o--remo%C3%A7%C3%A3o-de-cart%C3%B5es) .
+Além da leitura direta, o multipass token também pode ser lido após o registo de um evento de inserção de cartão. Para isso deve ser registada uma função callback, que fica associada a um ou mais leitores presentes no sistema. Mais informações sobre suporte aos eventos do leitor de cartões [aqui](https://amagovpt.github.io/docs.autenticacao.gov/manual_sdk.html#eventos-de-inser%C3%A7%C3%A3o--remo%C3%A7%C3%A3o-de-cart%C3%B5es).
 
 ### Notas Importantes
 
-- A função `getMultiPassToken()` só funciona com a tecnologia contactless. No entanto não é preciso input manual de PIN/CAN.
+- A função `getMultiPassToken()` só funciona com a tecnologia de leitura contactless. No entanto não é preciso input manual de PIN/CAN.
 - Pode utilizar o método `PTEID_ReaderContext::getCardType()` para verificar/confirmar o tipo de cartão antes de tentar ler o multipass token.
 
 ### Exemplos de Código
