@@ -1595,9 +1595,17 @@ estão expostas às aplicações em:
 É possível o acesso aos certificados e operações associadas do CC através de uma API standard e multi-plataforma para dispositivos criptográficos
 que está descrita na norma [PKCS#11](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html).
 
-
 Aplicações que possam utilizar vários tipos de certificados e/ou dispositivos de autenticação/assinatura podem deste modo aceder às operações disponibilizadas
 pelo CC através de uma API comum se tiverem em conta as especificidades que indicamos em seguida.
+
+## Suporte a múltiplas versões do Cartão de Cidadão
+
+Existem atualmente duas versões principais do Cartão de Cidadão:
+
+1. **Cartão de Cidadão v1**: Versão original que utiliza chaves RSA
+2. **Cartão de Cidadão v2**: Nova versão lançada a partir de junho de 2024 que utiliza chaves ECDSA e suporta leitura contactless
+
+## Acesso via PKCS#11 em Java
 
 Por exemplo em aplicações Java é possível utilizar o módulo pteid-pkcs11 incluído no middleware do CC através do *Security Provider* "SunPKCS11"
 da seguinte forma:
@@ -1666,8 +1674,53 @@ da seguinte forma:
       - SHA384withECDSAinP1363Format
       - SHA512withECDSAinP1363Format
     */
-
 ```
+
+## Suporte à leitura contactless no Cartão de Cidadão v2
+
+O novo Cartão de Cidadão v2 introduz a capacidade de leitura contactless, permitindo a interação com o cartão sem contacto físico direto. Para garantir a segurança destas operações, é necessário o uso de um código CAN (Card Access Number).
+
+### Características do código CAN:
+- Código numérico de 6 dígitos impresso fisicamente no cartão
+- Necessário apenas para leituras em modo contactless
+- Diferente dos PINs de autenticação, assinatura ou morada
+
+### Uso do código CAN com PKCS#11:
+
+#### Na API C do PKCS#11:
+Quando utilizar a função `C_Login` do módulo PKCS#11 em modo contactless com um Cartão de Cidadão v2, é necessário:
+- Passar o código CAN como valor do parâmetro `pPin`
+- O tamanho (`ulPinLen`) deve ser de 6 caracteres
+- Note que neste caso o `pPin` não se refere a nenhum PIN do cartão, mas sim ao CAN
+
+#### Em Java usando SunPKCS11:
+Para aplicações Java, o código CAN pode ser fornecido através do método `KeyStore.load`:
+
+```java
+    // Para Cartão de Cidadão v2 em modo contactless
+    // O CAN é um código de 6 dígitos impresso no cartão
+    char[] canCode = "123456".toCharArray(); // Substituir pelo CAN real
+    
+    try {
+        // Passar o CAN como parâmetro de password no método load
+        ks.load(null, canCode);
+    } catch (IOException | NoSuchAlgorithmException | CertificateException e) {
+        System.err.println("Erro ao inicializar o token PKCS#11: " + e);
+    }
+```
+
+### Deteção do tipo de cartão
+
+Atualmente, não existe uma API dedicada no PKCS#11 para verificar diretamente o tipo de cartão (v1 ou v2) ou se está a ser utilizado em modo contactless. Os programadores devem implementar a sua própria lógica para detetar isto.
+
+Uma abordagem possível seria tentar inicializar o cartão sem fornecer um PIN/CAN inicialmente. Se esta operação falhar, pode-se tentar novamente passando o código CAN. De momento, cabe ao programador implementar esta lógica de detecção de acordo com as necessidades específicas da sua aplicação.
+
+### Notas:
+
+1. O código CAN só é necessário para operações em modo contactless.
+2. Em modo com contacto físico, mesmo os cartões v2 funcionam como os v1 para efeitos de inicialização PKCS#11.
+3. Após a inicialização bem-sucedida com o CAN, as operações subsequentes que exigem autenticação (como assinar) ainda solicitarão o PIN de autenticação ou assinatura conforme apropriado.
+4. O CAN não substitui os PINs de autenticação, assinatura ou morada - serve apenas para estabelecer um canal seguro na comunicação contactless inicial.
 
 # API MacOS
 
