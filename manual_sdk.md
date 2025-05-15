@@ -186,7 +186,7 @@ Para isto deverá utilizar-se uma instalação customizada seleccionando as _op�
 
 ### Linux
 
-Para poder usar o sdk no Linux é necessário compilar o projeto e instalar.
+Para poder usar o sdk no Linux é necessário compilar o código-fonte do projeto e instalar as bibliotecas.
 
 A biblioteca C++ libpteidlib.so ficará
 disponível em `/usr/local/lib` e os respectivos C++
@@ -194,12 +194,13 @@ disponível em `/usr/local/lib` e os respectivos C++
 
 O SDK Java ficará disponível em `/usr/local/lib/pteid_jni` 
 
-Se a instalação for feita a partir do código fonte disponível em
-<https://github.com/amagovpt/autenticacao.gov> devem ser seguidas as
+Deve descarregar o código fonte disponível em <https://github.com/amagovpt/autenticacao.gov>  e seguir as
 instruções de compilação que constam do ficheiro README do projeto.
 
-Se pretender instalar o sdk para .net terá que correr o script
-localizado em `eidlibdotnetsdk/generate_cs_linux.sh` e copiar os ficheiros localizados na pasta `autenticacao.gov/pteid-mw-pt/_src/eidmw/lib` `pteidlib_dotnet8+.so` e `pteidlib_dotnet8+.dll` para a pasta `/usr/local/lib`
+Adicionalmente, se pretender instalar o SDK para .Net 8 ou superior terá de:
+1. Assumindo que o comando `dotnet` está disponível no sistema, executar o script `eidmw/eidlibdotnetsdk/generate_cs_linux.sh`
+2. Copiar as bibliotecas que foram geradas na pasta `eidmw/lib` com os nomes `libpteidlib_dotnet8+.so` e `pteidlib_dotnet8+.dll` para a pasta `/usr/local/lib`
+3. Executar o comando `ldconfig` para atualizar a cache de bibliotecas nativas no sistema
 
 ### MacOS
 
