@@ -1686,13 +1686,12 @@ O novo Cartão de Cidadão v2 introduz a capacidade de leitura contactless, perm
 - Necessário apenas para leituras em modo contactless
 - Diferente dos PINs de autenticação, assinatura ou morada
 
-### Uso do código CAN com PKCS#11:
+### Uso do código CAN com PKCS#11
 
 #### Na API C do PKCS#11:
 Quando utilizar a função `C_Login` do módulo PKCS#11 em modo contactless com um Cartão de Cidadão v2, é necessário:
 - Passar o código CAN como valor do parâmetro `pPin`
 - O tamanho (`ulPinLen`) deve ser de 6 caracteres
-- Note que neste caso o `pPin` não se refere a nenhum PIN do cartão, mas sim ao CAN
 
 #### Em Java usando SunPKCS11:
 Para aplicações Java, o código CAN pode ser fornecido através do método `KeyStore.load`:
@@ -1703,12 +1702,14 @@ Para aplicações Java, o código CAN pode ser fornecido através do método `Ke
     char[] canCode = "123456".toCharArray(); // Substituir pelo CAN real
     
     try {
-        // Passar o CAN como parâmetro de password no método load
+        // Passar o CAN como parâmetro "password" no método load
         ks.load(null, canCode);
     } catch (IOException | NoSuchAlgorithmException | CertificateException e) {
         System.err.println("Erro ao inicializar o token PKCS#11: " + e);
     }
 ```
+
+**NOTA:** O código CAN como parâmetro do método Keystore.load() ou C_Login() só deve ser usado a partir da versão 3.13.3 do SDK.
 
 ### Deteção do tipo de cartão
 
