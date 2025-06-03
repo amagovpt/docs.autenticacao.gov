@@ -43,6 +43,7 @@
   - [Certificados digitais](#certificados-digitais)
     - [Leitura dos certificados digitais no cartão de cidadão ou da Chave Móvel Digital](#leitura-dos-certificados-digitais-no-cartão-de-cidadão-ou-da-chave-móvel-digital)
   - [Sessão segura](#sessão-segura)
+  - [Leitura de documentos de viagem ICAO](#leitura-de-documentos-de-viagem-ICAO)
 - [Atualizações do Middleware](#atualizações-do-middleware)
 - [Tratamento de erros](#tratamento-de-erros)
 - [API PKCS#11](#api-pkcs11)
@@ -515,7 +516,7 @@ Este documento pode ser consultado em [ICAO 9303-11](https://www.icao.int/public
 
 Para usar a interface contactless do novo Cartão de Cidadão é necessário:
 1. Obter o tipo de interface de comunicação e o tipo de cartão após verificar a sua presença no leitor. Estas informações podem ser obtidas atraves das funções `PTEID_ReaderContext.getCardContactInterface()` e `PTEID_ReaderContext.getCardType()`.
-2. Se o tipo de cartão for `PTEID_CardType.PTEID_CARDTYPE_IAS5` e a interface de contacto for `PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS` é necessário pedir o código CAN ao utilizador e depois usar esse CAN para a realizar a autenticação PACE através da função `PTEID_EIDCARD.initPaceAuthentication(secret,length,secretType)`. 
+2. Se o tipo de cartão for `PTEID_CardType.PTEID_CARDTYPE_IAS5` e a interface de contacto for `PTEID_CardContactInterface.PTEID_CARD_CONTACTLESS` é necessário pedir o código CAN ao utilizador e depois usar esse CAN para a realizar a autenticação PACE através da função `PTEID_EIDCARD.initPaceAuthentication(secret,length,secretType)`.
 
 **Notas:**
 * O CAN (card access number) é o código de 6 dígitos que se encontra no canto inferior direito dos novos Cartões de Cidadão. ![](Pictures/Infografia_Cartão_de_Cidadão.png)
@@ -1510,6 +1511,71 @@ if ( ret != 0 ){
 	PTEID_Exit(0);
 	return 1;
 }
+```
+
+## Leitura de documentos de viagem ICAO
+
+Desde a versão 3.14.0 do Middleware está disponível a funcionalidade de leitura de documentos de viagem eletrónicos que sejam compatíveis com a especificação Doc 9303 da ICAO (*Machine Readable Travel Documents*).
+São exemplos deste tipo de documentos o novo Cartão de Cidadão introduzido em 2024, o Título de Residência e o Passaporte Eletrónico Português, entre muitos outros cartões de identidade e passaportes.
+
+Estes documentos contêm sempre 2 grupos de dados obrigatórios no seu chip contactless: o grupo de dados 1 (DG1) que inclui os dados pessoais: nome, número de documento, data de nascimento, sexo, país emissor do documento e data de validade e o grupo de dados 2 (DG2) que inclui a fotografia do titular.
+Para saber mais sobre os grupos de dados previstos na norma recomendamos a consulta [do documento ICAO 9303 - parte 10](https://www.icao.int/publications/pages/publication.aspx?docnum=9303).
+
+No caso do novo Cartão de Cidadão esta informação é um sub-conjunto dos dados nacionais que ficam disponíveis para leitura no estrangeiro em contexto de viagem.
+
+O controlo de acesso aos dados disponíveis no chip contactless do documento é realizado através da autenticação PACE com dados lidos da MRZ do documento (*Machine readable zone*) ou opcionalmente, no caso dos cartões, através do código CAN.
+Adicionalmente a segurança dos dados neste tipo de documentos é garantida por um mecanismo de autenticação passiva dos datagroups (*Passive Authentication*) e autenticação do chip através dos mecanismos *Active Authentication* e/ou *Chip Authentication*. Os mecanismos de segurança estão descritos em detalhe na [parte 11 do documento ICAO 9303](https://www.icao.int/publications/pages/publication.aspx?docnum=9303).
+
+No SDK o acesso a estes dados recorre a uma nova classe `Icao_Card`.
+Os eventuais erros na aplicação dos mecanismos de segurança são reportados através de classes tais como `PTEID_DocumentReport` ou no caso de um datagroup específico `PTEID_DataGroupReport`.
+Por exemplo o PTEID_DocumentReport pode ser obtido pelo método `Icao_Card.GetDocumentReport()`.
+
+Exemplo de código em Java para leitura de um documento:
+
+```java
+            
+      try {
+          final String can = ...   // O código CAN deve ser fornecido pelo utilizador
+          ICAO_Card card = reader.getICAOCard();
+          // Este exemplo de chamada ao método initPaceAuthentication() é válido para documentos que têm um código de acesso CAN, tais como os cartões de identidade europeus.
+          // Para os passaportes a autenticação PACE utiliza os dados da MRZ como "password"; estes dados podem ser lidos opticamente do documento físico na página de dados pessoais.
+          // Nesse caso o argumento do tipo PTEID_CardPaceSecretType deve ser PTEID_CARD_SECRET_MRZ e deve ser passado no primeiro argumento a string completa da MRZ.
+          card.initPaceAuthentication(can, can.length(), PTEID_CardPaceSecretType.PTEID_CARD_SECRET_CAN);
+
+          PTEID_ICAO_DG1 dg1 = card.readDataGroup1();
+          
+          System.out.println("Datagroup 1 (DG1): ");
+
+          System.out.println("Issuer Country: " + dg1.issuingState());
+          System.out.println("Document number: " + dg1.documentNumber());
+          System.out.println("Name: " + dg1.secondaryIdentifier() + " " + dg1.primaryIdentifier());
+          System.out.println("Sex: " + dg1.sex());
+          System.out.println("Date of birth: " +  dg1.dateOfBirth());
+          System.out.println("Date of expiry: " + dg1.dateOfExpiry());
+
+          PTEID_ICAO_DG2 dg2 = card.readDataGroup2();
+          
+          System.out.println("Datagroup 2 (DG2): ");
+          // A fotografia do DG2 está contida numa estrutura de dados biométricos com vários metadados adicionais
+          // Consultar o Doc 9303-10 para mais detalhes
+          if (!dg2.biometricInstances().isEmpty()) {
+              PTEID_FaceInfo faceInfo = dg2.biometricInstances().get(0).faceInfo();
+              PTEID_FaceInfoData faceInfoData = faceInfo.faceInfoData().get(0);
+              System.out.println(String.format("Photo size (%d:%d)", faceInfoData.imgWidth(), faceInfoData.imgHeight()));
+              
+              byte [] image_data = faceInfoData.photoRawData().GetBytes();
+              short image_data_type = faceInfoData.imgDataType();
+              if (image_data_type == 1) {
+                  System.out.println("Image data in JPEG-2000 format (JP2");
+              }
+              else if (image_data_type == 0) {
+                  System.out.println("Image data in JPEG format");
+              }
+          }
+      }
+      catch(PTEID_Exception e) {
+          System.err.println("Failed to read ICAO card! Error: " + e.GetMessage());
+      }
 ```
 
 # Atualizações do Middleware
