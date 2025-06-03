@@ -1526,9 +1526,9 @@ No caso do novo Cartão de Cidadão esta informação é um sub-conjunto dos dad
 O controlo de acesso aos dados disponíveis no chip contactless do documento é realizado através da autenticação PACE com dados lidos da MRZ do documento (*Machine readable zone*) ou opcionalmente, no caso dos cartões, através do código CAN.
 Adicionalmente a segurança dos dados neste tipo de documentos é garantida por um mecanismo de autenticação passiva dos datagroups (*Passive Authentication*) e autenticação do chip através dos mecanismos *Active Authentication* e/ou *Chip Authentication*. Os mecanismos de segurança estão descritos em detalhe na [parte 11 do documento ICAO 9303](https://www.icao.int/publications/pages/publication.aspx?docnum=9303).
 
-No SDK o acesso a estes dados recorre a uma nova classe `Icao_Card`.
+No SDK o acesso a estes dados recorre a uma nova classe `ICAO_Card`.
 Os eventuais erros na aplicação dos mecanismos de segurança são reportados através de classes tais como `PTEID_DocumentReport` ou no caso de um datagroup específico `PTEID_DataGroupReport`.
-Por exemplo o PTEID_DocumentReport pode ser obtido pelo método `Icao_Card.GetDocumentReport()`.
+Por exemplo o `PTEID_DocumentReport` pode ser obtido pelo método `ICAO_Card.GetDocumentReport()`.
 
 Exemplo de código em Java para leitura de um documento:
 
