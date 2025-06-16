@@ -35,6 +35,7 @@
       - [Morada e Alteração de morada](#morada-e-alteração-de-morada)
       - [Notas](#notas)
       - [Imprimir](#imprimir)
+      - [Dados de viagem](#dados-de-viagem)
     - [Assinatura digital](#assinatura-digital)
       - [Introdução de chave](#introdução-de-chave)
       - [Verificação de documento PDF assinado em Windows ou MacOS](#verificação-de-documento-pdf-assinado-em-windows-ou-macos)
@@ -131,6 +132,8 @@ Este manual pode-se dividir nas seguintes fundamentais áreas de utilização:
 > Continua a existir a possibilidade de leitura na interface de contacto mas deve garantir que o cartão está inserido no leitor de forma correta, porque no novo Cartão de Cidadão os contactos do chip encontram-se no verso do documento.
 >
 > É recomendada a consulta da nova secção [Acesso Contactless](#acesso-contactless)
+>
+> Desde a versão 3.14.0 da aplicação é possível ler a componente "Dados de viagem" do novo Cartão de Cidadão e outros documentos de identificação com chip de interface sem contacto tais como o Título de Residência Português e cartões de identidade de outros países Europeus. Esta funcionalidade é descrita na secção [Dados de viagem](#dados-de-viagem).
 
 
 # Download, instalação e remoção da aplicação
@@ -477,6 +480,24 @@ Para executar estas operações deverá executar os seguintes passos:
     conforme a imagem seguinte.
 
     ![Ilustração: Exemplo de exportação de PDF](Pictures/Autenticacao.Gov_print_pdf.png "Exemplo de exportação de PDF]")
+
+#### Dados de viagem
+
+Na secção Dados de viagem é possível ler os dados de vários tipos de documentos de identificação com chip *contactless*:
+1. Cartões de Cidadão do modelo em vigor desde junho de 2024
+2. Títulos de Residência Portugueses
+3. Cartões/bilhetes de identidade ou títulos de residência de outros países
+
+Este é um conjunto de dados que é possível ler dos documentos que seguem o Regulamento (UE) 1157/2019, do Parlamento Europeu e do Conselho ou mais globalmente a norma do documento 9303 da Organização Internacional da Aviação Civil (ICAO).
+O controlo de acesso aos dados destes documentos obriga à introdução de um código numérico de 6 dígitos impresso no documento físico. Nalguns tipos de documento este código tem a designação de CAN (*Card Access Number*).
+
+Se os dados forem corretamente lidos do chip do documento e a sua assinatura digital validada é apresentada a seguinte mensagem em cor verde: "Dados de viagem autênticos".
+
+Em casos em que é mostrado o campo "Nome do titular" em vez de "Nome completo do titular" isto significa que no chip do documento só está presente o nome que consta na zona de leitura ótica (MRZ) do mesmo. Este formato de nome obedece a uma série de regras internacionais da norma ICAO Doc 9303 e tem limite de número e tipo de caracteres, como tal é possível que esteja truncado e sem os caracteres nacionais tais como cedilhas, acentos ou outros diacríticos.
+
+![Ilustração: Exemplo de dados de viagem - CC](Pictures/Dados-viagem-CC.png "Exemplo de dados de viagem - CC]")
+![Ilustração: Exemplo de dados de viagem - Título de Residência](Pictures/Dados-viagem-TR.png "Exemplo de dados de viagem - Título de Residência]")
+
 
 ### Assinatura digital
 
