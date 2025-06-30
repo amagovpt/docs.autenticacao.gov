@@ -29,6 +29,8 @@ struct PTEID_CardInterfaceCallbacks {
 };
 ```
 
+Poderá verificar os types completos no header [`CardCallbacks.h`](https://github.com/amagovpt/autenticacao.gov/blob/master/pteid-mw-pt/_src/eidmw/eidlib/CardCallbacks.h)
+
 ### Códigos de Retorno
 
 Todos os métodos de callback devem retornar códigos da família `PTEID_CallbackResult`:
@@ -65,11 +67,11 @@ PTEID_ReaderSet::initSDKWithCallbacks(callbacks);
 
 - O campo `context` pode ser utilizado para passar dados específicos da implementação
 - Thread safety é garantida pela SDK
-- Recomenda-se validação rigorosa de todos os parâmetros de entrada
+- Recomenda-se validação rigorosa de todos os parâmetros
 
 ### Exemplo de Implementação
 
-Para um exemplo de implementação completo e funcional baseado na API PCSC poderá consultar o seguinte programa: [APDU Callbacks example code]()
+Para um exemplo de implementação completo e funcional baseado na API PCSC poderá consultar o seguinte programa: [APDU Callbacks example code](https://github.com/amagovpt/docs.autenticacao.gov/blob/main/multipass/apdu_callbacks.cpp)
 
 #### C++
 
