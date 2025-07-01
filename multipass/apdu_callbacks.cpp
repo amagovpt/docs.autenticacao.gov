@@ -95,8 +95,6 @@ public:
 			return PTEID_CALLBACK_ERR_INVALID_PARAM;
 		}
 
-        printf("hello world");
-
 		SCARD_READERSTATE readerState;
 		readerState.szReader = csReader;
 		readerState.dwCurrentState = SCARD_STATE_UNAWARE;
@@ -111,8 +109,6 @@ public:
 			return PTEID_CALLBACK_ERR_NO_READER;
 		case SCARD_E_INVALID_PARAMETER:
 			return PTEID_CALLBACK_ERR_INVALID_PARAM;
-		case SCARD_E_TIMEOUT:
-			return PTEID_CALLBACK_ERR_TIMEOUT;
 		default:
 			return PTEID_CALLBACK_ERR_COMM_ERROR;
 		}
@@ -326,7 +322,6 @@ int main(int argc, char **argv) {
 	};
 
     PTEID_ReaderSet::initSDKWithCallbacks(callbacks);
-	PTEID_Config config(PTEID_PARAM_GENERAL_LANGUAGE);
 
 	try {
 		PTEID_Config::SetTestMode(true);

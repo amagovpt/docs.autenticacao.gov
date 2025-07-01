@@ -40,7 +40,6 @@ Todos os métodos de callback devem retornar códigos da família `PTEID_Callbac
 - **PTEID_CALLBACK_ERR_NO_CARD** (0xe1d00302): Cartão não presente
 - **PTEID_CALLBACK_ERR_COMM_ERROR** (0xe1d00303): Erro de comunicação
 - **PTEID_CALLBACK_ERR_NO_READER** (0xe1d00304): Leitor não encontrado
-- **PTEID_CALLBACK_ERR_TIMEOUT** (0xe1d00305): Operação expirou
 - **PTEID_CALLBACK_ERR_ACCESS_DENIED** (0xe1d00306): Acesso negado
 - **PTEID_CALLBACK_ERR_NOT_SUPPORTED** (0xe1d00307): Operação não suportada
 - **PTEID_CALLBACK_ERR_BUFFER_TOO_SMALL** (0xe1d00308): Buffer insuficiente
