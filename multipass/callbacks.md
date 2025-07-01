@@ -1,4 +1,4 @@
-## Callbacks para Leitores não suportados
+## Utilização de leitores não suportados através de funções callback
 
 Esta funcionalidade permite aos programadores implementar suporte para leitores de cartões que não são nativamente suportados pelo SDK. Através da interface de callbacks `PTEID_CardInterfaceCallbacks`, é possível integrar qualquer leitor de cartões, independentemente do protocolo de comunicação utilizado.
 
@@ -8,7 +8,7 @@ Esta funcionalidade permite aos programadores implementar suporte para leitores 
 
 ### Estrutura da API
 
-A interface baseia-se na estrutura `PTEID_CardInterfaceCallbacks` que define todos os métodos necessários para comunicação com o leitor:
+A interface baseia-se na estrutura `PTEID_CardInterfaceCallbacks` que define todas as funções necessários para comunicação com o leitor:
 
 ```c
 struct PTEID_CardInterfaceCallbacks {
@@ -64,15 +64,15 @@ PTEID_ReaderSet::initSDKWithCallbacks(callbacks);
 
 ### Notas Importantes
 
-- O campo `context` pode ser utilizado para passar dados específicos da implementação
-- Thread safety é garantida pela SDK
-- Recomenda-se validação rigorosa de todos os parâmetros
+* O campo `context` pode ser utilizado para passar dados específicos da implementação às funções de callback
+* Thread safety é garantida pela SDK
+* Recomenda-se validação rigorosa de todos os parâmetros
 
 ### Exemplo de Implementação
 
-Para um exemplo de implementação completo e funcional baseado na API PCSC poderá consultar o seguinte programa: [APDU Callbacks example code](https://github.com/amagovpt/docs.autenticacao.gov/blob/main/multipass/apdu_callbacks.cpp)
+Para um exemplo de implementação completo e funcional baseado na API PC/SC poderá consultar o seguinte programa: [APDU Callbacks example code](https://github.com/amagovpt/docs.autenticacao.gov/blob/main/multipass/apdu_callbacks.cpp)
 
-#### C++
+#### Exemplo de utilização em C++
 
 ```cpp
 #include <eidlib.h>
