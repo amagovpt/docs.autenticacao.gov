@@ -1569,7 +1569,9 @@ Alternativamente, pode instalar o certificado manualmente seguindo as instruçõ
 
 ## Problemas na validação das assinaturas 
 
-Em caso de problemas na validação das assinaturas, verifique se está relacionado com o tópico [Problemas com a nova cadeia de confiança](#problemas-com-a-nova-cadeia-de-confiança).
+Em caso de problemas de validação no Adobe Acrobat Reader, por exemplo, se obtiver a mensagem "A validade da assinatura é DESCONHECIDA" numa assinatura gerada com Chave Móvel ou Cartão de Cidadão, recomendamos que utilize em alternativa o [Serviço de Validação de Assinaturas da AMA](https://validador.autenticacao.gov.pt/validation)
+
+Este serviço valida as assinaturas de acordo com as normas europeias para assinatura eletrónica qualificada. Os documentos submetidos **não são guardados** no servidor após o processamento.
 
 ## Problemas com ficheiros PDF não suportados
 
