@@ -1,12 +1,9 @@
 #include <cstdio>
-#include <eidlib.h>
-#include <eidlibException.h>
-#include <format>
 #include <iostream>
 #include <sstream>
-#include <thread>
-#include <time.h>
-#include <unistd.h>
+
+#include <eidlib.h>
+#include <eidlibException.h>
 
 #include <PCSC/winscard.h>
 #include <PCSC/wintypes.h>
@@ -245,44 +242,11 @@ public:
 	}
 
 	static PTEID_CallbackResult BeginTransaction(PTEID_CardHandle handle, void *context) {
-		SimplePCSCCallbacks *self = static_cast<SimplePCSCCallbacks *>(context);
-		if (!self) {
-			return PTEID_CALLBACK_ERR_INVALID_PARAM;
-		}
+		return PTEID_CALLBACK_OK;
 
-		auto it = self->m_handles.find(handle);
-		if (it == self->m_handles.end()) {
-			return PTEID_CALLBACK_ERR_INVALID_PARAM;
-		}
-
-		LONG lRet = SCardBeginTransaction(it->second);
-
-		switch (lRet) {
-		case SCARD_S_SUCCESS:
-			return PTEID_CALLBACK_OK;
-		case SCARD_E_SHARING_VIOLATION:
-			return PTEID_CALLBACK_ERR_ACCESS_DENIED;
-		case SCARD_W_REMOVED_CARD:
-			return PTEID_CALLBACK_ERR_CARD_REMOVED;
-		case SCARD_E_INVALID_PARAMETER:
-			return PTEID_CALLBACK_ERR_INVALID_PARAM;
-		default:
-			return PTEID_CALLBACK_ERR_COMM_ERROR;
-		}
 	}
 
 	static PTEID_CallbackResult EndTransaction(PTEID_CardHandle handle, void *context) {
-		SimplePCSCCallbacks *self = static_cast<SimplePCSCCallbacks *>(context);
-		if (!self) {
-			return PTEID_CALLBACK_ERR_INVALID_PARAM;
-		}
-
-		auto it = self->m_handles.find(handle);
-		if (it == self->m_handles.end()) {
-			return PTEID_CALLBACK_ERR_INVALID_PARAM;
-		}
-
-		SCardEndTransaction(it->second, SCARD_LEAVE_CARD);
 		return PTEID_CALLBACK_OK;
 	}
 
