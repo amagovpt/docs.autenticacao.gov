@@ -1,12 +1,17 @@
 #include <cstdio>
 #include <iostream>
 #include <sstream>
+#include <map>
 
 #include <eidlib.h>
 #include <eidlibException.h>
 
-#include <PCSC/winscard.h>
-#include <PCSC/wintypes.h>
+#ifdef _WIN32
+  #include <winscard.h>
+#else
+  #include <PCSC/winscard.h>
+  #include <PCSC/wintypes.h>
+#endif
 
 using namespace eIDMW;
 
@@ -17,7 +22,9 @@ private:
 	PTEID_CardHandle m_nextHandle;
 
 public:
-	SimplePCSCCallbacks() : m_hContext(0), m_nextHandle(1) {}
+	SimplePCSCCallbacks() : m_hContext(0) { 
+		m_nextHandle.handle = 1; 
+	}
 
 	static PTEID_CallbackResult EstablishContext(void *context) {
 		SimplePCSCCallbacks *self = static_cast<SimplePCSCCallbacks *>(context);
@@ -122,11 +129,11 @@ public:
 		DWORD dwActiveProtocol;
 
 		LONG lRet = SCardConnect(self->m_hContext, csReader, SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0 | SCARD_PROTOCOL_T1,
-								 &hCard, &dwActiveProtocol);
+			&hCard, &dwActiveProtocol);
 
 		switch (lRet) {
 		case SCARD_S_SUCCESS:
-			*outHandle = self->m_nextHandle++;
+			outHandle->handle = self->m_nextHandle.handle++;
 			*outProtocol = (dwActiveProtocol == SCARD_PROTOCOL_T0) ? PTEID_CardProtocol::T0 : PTEID_CardProtocol::T1;
 			self->m_handles[*outHandle] = hCard;
 			return PTEID_CALLBACK_OK;
@@ -270,22 +277,22 @@ void dumpByteArray(const unsigned char *data, long length) {
 int main(int argc, char **argv) {
 	SimplePCSCCallbacks pcsc_context;
 	PTEID_CardInterfaceCallbacks callbacks = {
-		.context = &pcsc_context,
-		.establishContext = SimplePCSCCallbacks::EstablishContext,
-		.releaseContext = SimplePCSCCallbacks::ReleaseContext,
-		.listReaders = SimplePCSCCallbacks::ListReaders,
-		.cardPresentInReader = SimplePCSCCallbacks::CardPresentInReader,
-		.statusWithATR = SimplePCSCCallbacks::StatusWithATR,
-		.connect = SimplePCSCCallbacks::Connect,
-		.disconnect = SimplePCSCCallbacks::Disconnect,
-		.transmit = SimplePCSCCallbacks::Transmit,
-		.recover = SimplePCSCCallbacks::Recover,
-		.control = SimplePCSCCallbacks::Control,
-		.beginTransaction = SimplePCSCCallbacks::BeginTransaction,
-		.endTransaction = SimplePCSCCallbacks::EndTransaction,
+		&pcsc_context,
+		 SimplePCSCCallbacks::EstablishContext,
+		 SimplePCSCCallbacks::ReleaseContext,
+		 SimplePCSCCallbacks::ListReaders,
+		 SimplePCSCCallbacks::CardPresentInReader,
+		 SimplePCSCCallbacks::StatusWithATR,
+		 SimplePCSCCallbacks::Connect,
+		 SimplePCSCCallbacks::Disconnect,
+		 SimplePCSCCallbacks::Transmit,
+		 SimplePCSCCallbacks::Recover,
+		 SimplePCSCCallbacks::Control,
+		 SimplePCSCCallbacks::BeginTransaction,
+		 SimplePCSCCallbacks::EndTransaction,
 	};
 
-    PTEID_ReaderSet::initSDKWithCallbacks(callbacks);
+	PTEID_ReaderSet::initSDKWithCallbacks(callbacks);
 
 	try {
 		PTEID_Config::SetTestMode(true);
