@@ -232,7 +232,7 @@ Para instalar esta versão da aplicação deve seguir este procedimento:
 3.  Instalar o pacote `pcsc-lite/pcscd` no sistema usando os pacotes nativos da distribuição. A aplicação funciona sem este componente, apenas as funcionalidades que exigem acesso ao Cartão de Cidadão dependem do pcscd.
 4.  Executar o comando `flatpak install pteid-mw-linux.x86_64.flatpak` na diretoria onde estiver o pacote flatpak descarregado.
 
-<h5 id="linux-scard-notes">Notas sobre a comunicação com o cartão</h5>
+**Notas sobre a comunicação com o cartão**
 
 1. O software Flatpak deverá ter versão igual ou superior à 1.3.2 para permitir que a aplicação aceda ao Cartão de Cidadão. Este requisito é cumprido por distribuições como o Ubuntu 20.04 e 22.04, OpenSUSE Leap 15.3 e 15.4, entre outras.
 2. Em Ubuntu 22.04 é importante executar um comando extra para garantir que o acesso ao Cartão funciona sempre:
@@ -1490,7 +1490,7 @@ Em caso de problemas verifique se está relacionado com o tópico [Problemas com
 
 ### Linux <!-- omit in toc -->
 
-⚠ Para sistemas Ubuntu 22.04 deve consultar a nota 2 [desta secção](#linux-scard-notes)
+⚠ Para sistemas Ubuntu 22.04 deve consultar a nota 2 da secção [Instalação em Linux](#instalação-em-linux)
 
 1.  Verifique se o leitor de cartões é compatível com o standard PC/SC (consulte a documentação do leitor ou contacte o fabricante).
 2.  Verifique se o driver/controlador do leitor estão corretamente instalados (consulte a documentação do leitor). A maioria dos leitores de smartcards são suportados hoje em dia pelo driver de código aberto CCID: https://ccid.apdu.fr/
