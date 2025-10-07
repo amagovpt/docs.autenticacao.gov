@@ -42,16 +42,11 @@
     - [Bloco de dados](#bloco-de-dados)
   - [Certificados digitais](#certificados-digitais)
     - [Leitura dos certificados digitais no cartão de cidadão ou da Chave Móvel Digital](#leitura-dos-certificados-digitais-no-cartão-de-cidadão-ou-da-chave-móvel-digital)
-  - [Sessão segura](#sessão-segura)
   - [Leitura de documentos de viagem ICAO](#leitura-de-documentos-de-viagem-ICAO)
 - [Atualizações do Middleware](#atualizações-do-middleware)
 - [Tratamento de erros](#tratamento-de-erros)
 - [API PKCS#11](#api-pkcs11)
 - [API MacOS](#api-macos)
-- [Compatibilidade com o SDK da versão 1](#compatibilidade-com-o-sdk-da-versão-1)
-  - [Métodos removidos](#métodos-removidos)
-  - [Diferenças no comportamento de alguns métodos](#diferenças-no-comportamento-de-alguns-métodos)
-  - [Códigos de Erro](#códigos-de-erro)
 - [Serviços online usados pelo Middleware](#serviços-online-usados-pelo-middleware)
 
 <!--- Content_begin -->
@@ -62,20 +57,8 @@ Este documento destina-se a programadores e analistas de sistemas que
 tencionam desenvolver soluções informáticas com base no SDK do
 middleware versão 3 do Cartão de Cidadão.
 
-Esta versão do SDK disponibiliza a mesma interface (API) que a
-disponibilizada na versão 1 e 2 do SDK. Desta forma, pretende-se obter a
-retro-compatibilidade com versões anteriores do SDK. Embora a API
-anterior continue disponível, esta é desaconselhada pois a nova API
-cobre a maior parte dos casos de uso da anterior e tem funcionalidades
-novas.
-
-A secção [**Compatibilidade com o SDK da versão 1**](#compatibilidade-com-o-sdk-da-versão-1)
-contém informações relativamente à continuação da
-compatibilidade com a versão 1, descreve as diferenças comportamentais,
-os métodos removidos e os códigos de erro disponíveis.
-
-O SDK do cartão de cidadão consiste num conjunto de bibliotecas
-utilizadas no acesso e suporte ao cartão de cidadão. Este SDK foi
+O SDK do Cartão de Cidadão consiste num conjunto de bibliotecas
+que facilitam o acesso e utilização das funcionalidades do documento digital. Este SDK é
 desenvolvido em C++, sendo providenciado o suporte a três diferentes
 tipos de sistemas operativos de 32/64 bits:
 
@@ -233,9 +216,7 @@ O SDK .net ficará disponível em `/usr/local/lib/pteidlib_dotnet8/(arm64/x64)`.
 
   - Incluir o ficheiro **pteidlibj.jar** como biblioteca no projecto.
   - Em sistemas MacOS ou Linux, adicionar à propriedade de sistema `java.library.path` do projecto/aplicação Java a localização das bibliotecas nativas do SDK: `/usr/local/lib`
-  - As classes e métodos de
-  compatibilidade com o middleware versão 1.x estão disponíveis no package **pteidlib** enquanto que
-  as novas classes estão no *package* **pt.gov.cartaodecidadao**.
+  - As classes Java do SDK estão no *package* **pt.gov.cartaodecidadao**.
 
 3\. **C\#**
 
@@ -244,8 +225,7 @@ O SDK .net ficará disponível em `/usr/local/lib/pteidlib_dotnet8/(arm64/x64)`.
   Desde a versão 3.13.0 é possível usar .net 8.0 ou superior no Windows, macOS e Linux, com a biblioteca **pteidlib_dotnet8+.dll**.
   - Adicionar a biblioteca **pteidlib_dotnet.dll** ou **pteidlib_dotnet8+.dll** às *references* do
   projecto Visual Studio.
-  - As classes e métodos de compatibilidade estão no namespace **eidpt**
-  enquanto que as novas classes estão no namespace **pt.portugal.eid**.
+  - As classes C# do SDK estão no namespace **pt.portugal.eid**.
 
 ## Inicialização / Finalização do SDK
 
@@ -1422,94 +1402,6 @@ PTEID_Certificates &certificates = signingDev.getCertificates();
 PTEID_Certificates certs = card.getCertificates();
 ```
 
-## Sessão segura
-
-O Cartão de Cidadão permite o estabelecimento de sessões seguras. É
-efectuada a autenticação entre ambas as partes (a aplicação e o cartão).
-Após este processo as operações seguintes são efectuadas sobre
-comunicação cifrada e autenticada.
-
-A autenticação da aplicação é efectuada através de CVCs (Card Verifiable
-Certificates). Estes certificados são emitidos somente a entidades que
-estejam autorizadas em Lei a efectuar operações privilegiadas no cartão.
-
-Existem duas operações privilegiadas que obrigam ao estabelecimento
-prévio de uma sessão segura:
-
-1. Leitura da morada sem introdução de PIN.
-2. Alteração da morada.
-
-Exemplo em C para a leitura da morada sem introdução do PIN
-(utilizando a biblioteca OpenSSL para implementar a assinatura do
-desafio enviado pelo cartão).
-
-Foram omitidos do bloco de código seguinte as declarações de
-\#*include* necessárias para utilizar as funções do OpenSSL. Para
-mais informações sobre OpenSSL, consultar
-a wiki do projecto em: [https://wiki.openssl.org](https://wiki.openssl.org).
-
-Esta funcionalidade está apenas disponível nos métodos de
-compatibilidade com a versão 1 do Middleware.
-
-Em seguida é apresentado o exemplo em C mas a sequência de métodos
-do SDK a utilizar em Java ou C\# será a mesma, isto é:
-
-1.  **pteid.CVC_Init()**
-2.  **pteid.CVC_Authenticate()**
-3.  **pteid.CVC_ReadFile()** ou **pteid.CVC_GetAddr()**
-
-```c++
-//Função auxiliar para carregar a chave privada associada ao certificado CVC
-RSA * loadPrivateKey(char * file_path) {
-  FILE * fp = fopen(file_path, "r");
-  if (fp == NULL)  {
-    fprintf(stderr, "Failed to open private key file: %s!\n", file_path);
-    return NULL;
-  }
-  RSA * key = PEM_read_RSAPrivateKey(fp, NULL, NULL, NULL);
-  if (key == NULL)  {
-        fprintf(stderr, "Failed to load private key file!\n");
-  }
-  return key;
-}
-
-//Init OpenSSL
-OpenSSL_add_all_algorithms();
-ERR_load_crypto_strings();
-(...)
-unsigned char challenge[128];
-// challenge that was signed by the private key corresponding to the CVC
-unsigned char signature[128];
-unsigned char fileBuffer[2000];
-long ret;
-ret = PTEID_CVC_Init( cvcCert, cvcCert_len, challenge,      sizeof(challenge));
-if ( ret != 0 ){
-	PTEID_Exit(0);
-	return 1;
-}
-// private_key_path – path for private key file in
-RSA* rsa_key = loadPrivateKey(private_key_path);
-RSA_private_encrypt( sizeof(challenge), challenge, signature, rsa_key, RSA_NO_PADDING);
-ret = PTEID_CVC_Authenticate( signature, sizeof(signature) );
-if ( ret != 0 ){
-	PTEID_Exit(0);
-	return 1;
-}
-unsigned char fileID[] = { /* address for file */ };
-unsigned long outlen = sizeof(fileBuffer);
-ret = PTEID_CVC_ReadFile( fileID, sizeof(fileID), fileBuffer, &outlen );
-if ( ret != 0 ){
-	PTEID_Exit(0);
-	return 1;
-}
-(...)
-PTEID_ADDR addrData; //For CVC_GetAddr()
-ret = PTEID_CVC_GetAddr( &addrData );
-if ( ret != 0 ){
-	PTEID_Exit(0);
-	return 1;
-}
-```
 
 ## Leitura de documentos de viagem ICAO
 
@@ -1621,12 +1513,7 @@ O SDK do middleware trata os erros através
 do lançamento de excepções qualquer que seja a linguagem utilizada: C++,
 Java ou C\#.
 
-Os métodos de compatibilidade com a versão 1
-do Middleware (MW) usam outros mecanismos de tratamento de erros: para
-mais detalhes consultar a secção [**Códigos de Erro**](#códigos-de-erro).
-
-A classe base de todas as excepções do MW é
-a classe **PTEID_Exception**.
+A classe base de todas as excepções do SDK é a classe **PTEID_Exception**.
 
 Existem algumas subclasses de
 **PTEID_Exception** para erros específicos como **PTEID_ExNoCardPresent** ou
@@ -1827,97 +1714,15 @@ O módulo de integração que implementa esta funcionalidade (módulo CryptoToke
 Recomendamos a consulta do programa de exemplo disponível em [keyChainSign.swift](https://github.com/amagovpt/docs.autenticacao.gov/blob/main/SDK_Examples/MacOS-Swift/keychainSign.swift)
 
 
-# Compatibilidade com o SDK da versão 1
-
-## Métodos removidos
-
-- ChangeAddress
-- CancelChangeAddress
-- GetChangeAddressProgress
-- GetLastWebErrorCode
-- GetLastWebErrorMessage
-- CVC_Authenticate_SM101
-- CVC_Init_SM101
-- CVC_WriteFile
-- CVC_WriteAddr
-- CVC_WriteSOD
-- CVC_WriteFile
-- CVC_R_DH_Auth
-- CVC_R_Init
-
-## Diferenças no comportamento de alguns métodos
-
-  - Método **pteid.GetCertificates()**
-
-Na versão anterior 1.26, o certificado «*Baltimore CyberTrust Root*» não
-está a ser retornado, ao contrário desta versão que obtém tal
-certificado.
-
-  - Método **pteid.GetPINs()**
-
-As flags dos PINs retornadas possuem valores diferentes. A versão
-anterior 1.26, neste momento, retorna o valor 47(base 10) (*0011
-0001*)(binário) e esta versão retorna o valor 17(base 10) (*0001
-0001*)(binário).
-
-  - Método **pteid.ReadFile()**
-
-O tamanho do *buffer* retornado com o conteúdo do ficheiro lido tem
-tamanhos diferentes. A versão 1, retorna em blocos de 240 bytes,
-enquanto esta versão retorna o tamanho total do ficheiro, que neste
-momento é de 1000 bytes (para o caso do ficheiro de notas).
-
-  - Métodos **pteid.WriteFile()** / **pteid.WriteFile_inOffset()**
-
-Quando é necessário escrever no ficheiro PersoData (Notas) do Cartão de
-Cidadão, o pedido de PIN é diferente. Na versão 1, o PIN é pedido uma
-vez dentro de uma sessão, podendo ser efectuada várias escritas, sem ser
-pedido novamente o PIN. Nesta versão, o PIN é sempre pedido quando é
-feita uma nova escrita no ficheiro.
-
-  - Métodos **pteid.VerifyPIN()**
-
-Na versão 1, quando um PIN é introduzido incorrectamente, é lançada uma
-excepção de imediato, enquanto que nesta versão tal não acontece. A
-excepção é apenas lançada se o utilizador escolher a opção "Cancelar" no
-diálogo de PIN errado que é mostrado.
-
-## Códigos de Erro
-
-Em vez de lançar excepções, as funções de compatibilidade para linguagem C mantêm a
-compatibilidade com versões anteriores em que são devolvidos os códigos
-descritos nas seguintes tabelas. Os códigos retornados pelo SDK estão
-apresentados na seguinte tabela, também presentes no ficheiro
-*eidlibcompat.h*.
-
-| Código de retorno       | Valor | Descrição                               |
-| ------------------------| ----- | --------------------------------------- |
-| PTEID_OK                | 0     | Função executou com sucesso             |
-| PTEID_E_BAD_PARAM       | 1     | Parâmetro inválido                      |
-| PTEID_E_INTERNAL        | 2     | Ocorreu um erro de consistência interna |
-| PTEID_E_NOT_INITIALIZED | 9     | A biblioteca não foi inicializada       |
-
-Foi removida a dependência da biblioteca *pteidlibopensc* contudo um
-conjunto de códigos de retorno, descritos na tabela abaixo, continuam a
-ser mantidos para garantir retrocompatibilidade.
-
-| Código de retorno            | Valor  | Notas                                            |
-| ---------------------------- | ------ | -------------------------------------------------|
-| SC_ERROR_NO_READERS_FOUND    | -1101 | Não existe um leitor conectado                    |
-| SC_ERROR_CARD_NOT_PRESENT    | -1104 | O cartão de cidadão não está inserido no leitor   |
-| SC_ERROR_KEYPAD_TIMEOUT      | -1108 | Expirou o tempo para introduzir o PIN             |
-| SC_ERROR_KEYPAD_CANCELLED    | -1109 | O utilizador cancelou a acção de introduzir o PIN |
-| SC_ERROR_AUTH_METHOD_BLOCKED | -1212 | O cartão tem o PIN bloqueado                      |
-| SC_ERROR_PIN_CODE_INCORRECT  | -1214 | O código PIN ou PUK introduzido está incorrecto   |
-| SC_ERROR_INTERNAL            | -1400 | Ocorreu um erro interno                           |
-| SC_ERROR_OBJECT_NOT_VALID    | -1406 | A consistência da informação presente no cartão   |
-|                              |       | está comprometida                                 |
-
 # Serviços online usados pelo Middleware
 
 Algumas funcionalidades requerem a ligação a serviços online para funcionarem corretamente. É por isso necessário garantir que não existe *firewall* ou outro *software* na rede local que impeça a ligação a estes serviços.
 
 Os *hostnames* e respetivos portos utilizados são listados em seguida por funcionalidade.
+
+**Leitura de morada:**
+- morada.cartaodecidadao.pt (porto 443)
+- morada2.cartaodecidadao.pt (porto 443)
 
 **Validação de certificados:**
 
