@@ -238,56 +238,57 @@ memória alocada para objectos internos do SDK é libertada.
 
 1.  Exemplo em C++
 
-```c++
-#include "eidlib.h"
+    ```c++
+    #include "eidlib.h"
+    
+    int main(int argc, char **argv){
+        PTEID_InitSDK();
+        // (...) - Código restante
+        PTEID_ReleaseSDK();
+    }
+    ```
 
-int main(int argc, char **argv){
-    PTEID_InitSDK();
-    // (...) - Código restante
-    PTEID_ReleaseSDK();
-}
-```
 2.  Exemplo em Java
 
-```java
-package pteidsample;
-import pt.gov.cartaodecidadao.*;
-
-/* NOTA: o bloco estático seguinte é estritamente necessário uma vez
-que é preciso carregar explicitamente a biblioteca JNI que implementa
-as funcionalidades do wrapper Java.*/
-
-public class SamplePTEID {
-    static {
-        try {
-            System.loadLibrary("pteidlibj");
-        } catch (UnsatisfiedLinkError e) {
-            System.err.println("Native code library failed to load. \n" + e);
-            System.exit(1);
+    ```java
+    package pteidsample;
+    import pt.gov.cartaodecidadao.*;
+    
+    /* NOTA: o bloco estático seguinte é estritamente necessário uma vez
+    que é preciso carregar explicitamente a biblioteca JNI que implementa
+    as funcionalidades do wrapper Java.*/
+    
+    public class SamplePTEID {
+        static {
+            try {
+                System.loadLibrary("pteidlibj");
+            } catch (UnsatisfiedLinkError e) {
+                System.err.println("Native code library failed to load. \n" + e);
+                System.exit(1);
+            }
+        }
+    
+        public static void main(String[] args) {
+            PTEID_ReaderSet.initSDK();
+            // (...) - Código restante
+            PTEID_ReaderSet.releaseSDK();
         }
     }
-
-    public static void main(String[] args) {
-        PTEID_ReaderSet.initSDK();
-        // (...) - Código restante
-        PTEID_ReaderSet.releaseSDK();
-    }
-}
-```
+    ```
 
 1.  Exemplo em C\#
 
-```c
-namespace PTEIDSample {
-	class Sample{
-		public static void Main(string[] args){
-			PTEID_ReaderSet.initSDK();
-			// (...) - Código restante
-			PTEID_ReaderSet.releaseSDK();
-		}
-	}
-}
-```
+    ```c
+    namespace PTEIDSample {
+    	class Sample{
+    		public static void Main(string[] args){
+    			PTEID_ReaderSet.initSDK();
+    			// (...) - Código restante
+    			PTEID_ReaderSet.releaseSDK();
+    		}
+    	}
+    }
+    ```
 
 ## Configurar modo de teste
 
@@ -297,24 +298,24 @@ Com o valor do parâmetro *bTestMode* a *true*, os seguintes exemplos ativam o m
 
 1.  Exemplo C++
 
-```c++
-(...)
-PTEID_Config::SetTestMode(true);
-```
+    ```c++
+    (...)
+    PTEID_Config::SetTestMode(true);
+    ```
 
-1.  Exemplo Java
+2.  Exemplo Java
 
-```java
-(...)
-PTEID_Config.SetTestMode(true);
-```
+    ```java
+    (...)
+    PTEID_Config.SetTestMode(true);
+    ```
 
-2.  Exemplo C\#
+3.  Exemplo C\#
 
-```c
-(...)
-PTEID_Config.SetTestMode(true);
-```
+    ```c
+    (...)
+    PTEID_Config.SetTestMode(true);
+    ```
 
 É também necessário adicionar os certificados raíz da PKI de testes em formato DER e extensão ".der" numa diretoria dependente do sistema operativo:
 * Windows: `C:\Program Files\Portugal Identity Card\eidstore\certs_test`
@@ -348,48 +349,48 @@ método **PTEID_ReaderContext.getEIDCard()** que devolve um objecto do tipo
 
 1.  Exemplo C++
 
-```c++
-PTEID_ReaderSet& readerSet = PTEID_ReaderSet::instance();
-for( int i=0; i < readerSet.readerCount(); i++){
-  PTEID_ReaderContext& context = readerSet.getReaderByNum(i);
-  if (context.isCardPresent()){
-    PTEID_EIDCard &card = context.getEIDCard();
-    (...)
-  }
-}
-```
+    ```c++
+    PTEID_ReaderSet& readerSet = PTEID_ReaderSet::instance();
+    for( int i=0; i < readerSet.readerCount(); i++){
+      PTEID_ReaderContext& context = readerSet.getReaderByNum(i);
+      if (context.isCardPresent()){
+        PTEID_EIDCard &card = context.getEIDCard();
+        (...)
+      }
+    }
+    ```
 
-1.  Exemplo Java
+2.  Exemplo Java
 
-```java
-PTEID_EIDCard card;
-PTEID_ReaderContext context;
-PTEID_ReaderSet readerSet;
-readerSet = PTEID_ReaderSet.instance();
-for( int i=0; i < readerSet.readerCount(); i++){
-	context = readerSet.getReaderByNum(i);
-	if (context.isCardPresent()){
-		card = context.getEIDCard();
-		(...)
-	}
-}
-```
+    ```java
+    PTEID_EIDCard card;
+    PTEID_ReaderContext context;
+    PTEID_ReaderSet readerSet;
+    readerSet = PTEID_ReaderSet.instance();
+    for( int i=0; i < readerSet.readerCount(); i++){
+    	context = readerSet.getReaderByNum(i);
+    	if (context.isCardPresent()){
+    		card = context.getEIDCard();
+    		(...)
+    	}
+    }
+    ```
 
-2.  Exemplo C\#
+3.  Exemplo C\#
 
-```c
-PTEID_EIDCard card;
-PTEID_ReaderContext context;
-PTEID_ReaderSet readerSet;
-readerSet = PTEID_ReaderSet.instance();
-for( int i=0; i < readerSet.readerCount(); i++){
-	context = readerSet.getReaderByNum(i);
-	if (context.isCardPresent()){
-		card = context.getEIDCard();
-		(...)
-	}
-}
-```
+    ```c
+    PTEID_EIDCard card;
+    PTEID_ReaderContext context;
+    PTEID_ReaderSet readerSet;
+    readerSet = PTEID_ReaderSet.instance();
+    for( int i=0; i < readerSet.readerCount(); i++){
+    	context = readerSet.getReaderByNum(i);
+    	if (context.isCardPresent()){
+    		card = context.getEIDCard();
+    		(...)
+    	}
+    }
+    ```
 
 **Nota:** Uma forma rápida de obter um objecto de contexto será utilizar
 o método **getReader()**. Este método devolve o objecto de contexto do
@@ -434,58 +435,59 @@ terá sido associado ao *callback* através do segundo argumento do método **Se
 
 1. Exemplo Java:
 
-```java
-class CardEventsCallback implements Callback {
-	   @Override
-      public void getEvent(long lRet, long ulState, Object callbackData) {
-         int cardState = (int)ulState & 0x0000FFFF;
-         int eventCounter = ((int)ulState) >> 16;
-
-         System.err.println("DEBUG: Card Event:" +
-                   " cardState: "+cardState + " Event Counter: "+ eventCounter);
-         if ((cardState & 0x20) != 0)
-         {
-            System.out.println("Card inserted");
-         }
-         else {
-              System.out.println("Card removed");
-         }
-      }
-}
-
-PTEID_ReaderSet readerSet = PTEID_ReaderSet.instance();
-PTEID_ReaderContext context = readerSet.getReader();
-long callbackId = context.SetEventCallback(new CardEventsCallback(), null);
-(...)
-context.StopEventCallback(callbackId);
-```
+    ```java
+    class CardEventsCallback implements Callback {
+    	   @Override
+          public void getEvent(long lRet, long ulState, Object callbackData) {
+             int cardState = (int)ulState & 0x0000FFFF;
+             int eventCounter = ((int)ulState) >> 16;
+    
+             System.err.println("DEBUG: Card Event:" +
+                       " cardState: "+cardState + " Event Counter: "+ eventCounter);
+             if ((cardState & 0x20) != 0)
+             {
+                System.out.println("Card inserted");
+             }
+             else {
+                  System.out.println("Card removed");
+             }
+          }
+    }
+    
+    PTEID_ReaderSet readerSet = PTEID_ReaderSet.instance();
+    PTEID_ReaderContext context = readerSet.getReader();
+    long callbackId = context.SetEventCallback(new CardEventsCallback(), null);
+    (...)
+    context.StopEventCallback(callbackId);
+    ```
 
 2. Exemplo C\#:
 
-```c
-public static void CardEventsCallback(int lRet, uint ulState, IntPtr callbackData) {
-
-	uint cardState = ulState & 0x0000FFFF;
-       uint eventCounter = (ulState) >> 16;
-
-       Console.WriteLine("DEBUG: Card Event: cardState: {1} Event Counter: {2}",
-                         cardState,
-                         eventCounter);
-
-       if ((cardState & 0x20) != 0) {
-             Console.WriteLine("Card inserted");
+    ```c
+    public static void CardEventsCallback(int lRet, uint ulState, IntPtr callbackData) {
+    
+    	uint cardState = ulState & 0x0000FFFF;
+           uint eventCounter = (ulState) >> 16;
+    
+           Console.WriteLine("DEBUG: Card Event: cardState: {1} Event Counter: {2}",
+                             cardState,
+                             eventCounter);
+    
+           if ((cardState & 0x20) != 0) {
+                 Console.WriteLine("Card inserted");
+           }
+           else {
+                 Console.WriteLine("Card removed");
+           }
        }
-       else {
-             Console.WriteLine("Card removed");
-       }
-   }
+    
+       PTEID_ReaderSet readerSet = PTEID_ReaderSet.instance();
+       IntPtr callbackData = (IntPtr)0;
+    
+       PTEID_ReaderContext context = readerSet.getReader();
+       context.SetEventCallback(CardEventsCallback, callbackData);
+    ```
 
-   PTEID_ReaderSet readerSet = PTEID_ReaderSet.instance();
-   IntPtr callbackData = (IntPtr)0;
-
-   PTEID_ReaderContext context = readerSet.getReader();
-   context.SetEventCallback(CardEventsCallback, callbackData);
-```
 ### Acesso Contactless
 
 **Importante**: Funcionalidade disponível desde a versão 3.12.0 do Middleware
@@ -551,41 +553,41 @@ ficheiros. Destacam-se os seguintes ficheiros:
 Para obter o conteúdo do ficheiro de identificação,
 o método **PTEID_EIDCard.getID()** deverá ser utilizado.
 
-1.  Exemplo C++
+1. Exemplo C++
 
-```c++
-(...)
-PTEID_EIDCard& card = context.getEIDCard();
-PTEID_EId& eid = card.getID();
+    ```c++
+    (...)
+    PTEID_EIDCard& card = context.getEIDCard();
+    PTEID_EId& eid = card.getID();
+    
+    std::string nome = eid.getGivenName();
+    std::string nrCC = eid.getDocumentNumber();
+    (...)
+    ```
 
-std::string nome = eid.getGivenName();
-std::string nrCC = eid.getDocumentNumber();
-(...)
-```
+2. Exemplo Java
 
-2.  Exemplo Java
+    ```java
+    (...)
+    PTEID_EIDCard card = context.getEIDCard();
+    PTEID_EId eid = card.getID();
+    
+    String nome = eid.getGivenName();
+    String nrCC = eid.getDocumentNumber();
+    (...)
+    ```
 
-```java
-(...)
-PTEID_EIDCard card = context.getEIDCard();
-PTEID_EId eid = card.getID();
+3. Exemplo C\#
 
-String nome = eid.getGivenName();
-String nrCC = eid.getDocumentNumber();
-(...)
-```
+    ```c
+    (...)
+    PTEID_EIDCard card = context.getEIDCard();
+    PTEID_EId eid = card.getID();
 
-3.  Exemplo C\#
-
-```c
-(...)
-PTEID_EIDCard card = context.getEIDCard();
-PTEID_EId eid = card.getID();
-
-string nome = eid.getGivenName();
-string nrCC = eid.getDocumentNumber();
-(...)
-```
+    string nome = eid.getGivenName();
+    string nrCC = eid.getDocumentNumber();
+    (...)
+    ```
 
 ### Obtenção da fotografia
 
@@ -595,37 +597,37 @@ formato PNG.
 
 1.  Exemplo C++
 
-```c++
-(...)
-PTEID_EIDCard& card = context.getEIDCard();
-PTEID_EId& eid = card.getID();
-PTEID_Photo& photoObj = eid.getPhotoObj();
-PTEID_ByteArray& praw = photoObj.getphotoRAW();	// formato JPEG2000
-PTEID_ByteArray& ppng = photoObj.getphoto();	  // formato PNG
-```
+    ```c++
+    (...)
+    PTEID_EIDCard& card = context.getEIDCard();
+    PTEID_EId& eid = card.getID();
+    PTEID_Photo& photoObj = eid.getPhotoObj();
+    PTEID_ByteArray& praw = photoObj.getphotoRAW();	// formato JPEG2000
+    PTEID_ByteArray& ppng = photoObj.getphoto();	  // formato PNG
+    ```
 
 2.  Exemplo Java
 
-```java
-(...)
-PTEID_EIDCard card = context.getEIDCard();
-PTEID_EId eid = card.getID();
-PTEID_Photo photoObj = eid.getPhotoObj();
-PTEID_ByteArray praw = photoObj.getphotoRAW();	// formato JPEG2000
-PTEID_ByteArray ppng = photoObj.getphoto();	    // formato PNG
-```
+    ```java
+    (...)
+    PTEID_EIDCard card = context.getEIDCard();
+    PTEID_EId eid = card.getID();
+    PTEID_Photo photoObj = eid.getPhotoObj();
+    PTEID_ByteArray praw = photoObj.getphotoRAW();	// formato JPEG2000
+    PTEID_ByteArray ppng = photoObj.getphoto();	    // formato PNG
+    ```
 
 3.  Exemplo C\#
 
-```c
-(...)
-PTEID_EIDCard card = context.getEIDCard();
-PTEID_EId eid = card.getID();
-PTEID_Photo photoObj = eid.getPhotoObj();
-PTEID_ByteArray praw = photoObj.getphotoRAW();	// formato JPEG2000
-PTEID_ByteArray ppng = photoObj.getphoto();	    // formato PNG
-(...)
-```
+    ```c
+    (...)
+    PTEID_EIDCard card = context.getEIDCard();
+    PTEID_EId eid = card.getID();
+    PTEID_Photo photoObj = eid.getPhotoObj();
+    PTEID_ByteArray praw = photoObj.getphotoRAW();	// formato JPEG2000
+    PTEID_ByteArray ppng = photoObj.getphoto();	    // formato PNG
+    (...)
+    ```
 
 ### Obtenção da morada
 
@@ -650,71 +652,71 @@ Existem a partir da referida versão novos códigos de erro relacionados com a u
 Para mais informação sobre tratamento de erros gerados pelo SDK ver a secção [**Tratamento de Erros**](#tratamento-de-erros).
 
 
-1.  Exemplo C++
+1. Exemplo C++
 
-```c++
-// (...) - Inicialização 
+    ```c++
+    // (...) - Inicialização 
+    
+    PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
+    unsigned long triesLeft;
+    
+    PTEID_Pins& pins = eidCard.getPins();
+    PTEID_Pin& pin = pins.getPinByPinRef(PTEID_Pin::ADDR_PIN); //ADDR_PIN - Código de Morada
+    
+    if (pin.verifyPin("", triesLeft, true)){
+        PTEID_Address& address = eidCard.getAddr();
+    
+        std::cout << "Country:                        " << address.getCountryCode() << std::endl;
+        // (...) - Código restante
+        std::cout << "Postal Locality:                " << address.getPostalLocality() << std::endl;
+    }  
+    
+    // (...) - Finalização
+    ```
 
-PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
-unsigned long triesLeft;
+2. Exemplo Java
 
-PTEID_Pins& pins = eidCard.getPins();
-PTEID_Pin& pin = pins.getPinByPinRef(PTEID_Pin::ADDR_PIN); //ADDR_PIN - Código de Morada
-
-if (pin.verifyPin("", triesLeft, true)){
-    PTEID_Address& address = eidCard.getAddr();
-
-    std::cout << "Country:                        " << address.getCountryCode() << std::endl;
-    // (...) - Código restante
-    std::cout << "Postal Locality:                " << address.getPostalLocality() << std::endl;
-}  
-
-// (...) - Finalização
-```
-
-2.  Exemplo Java
-
-```java
-// (...) - Inicialização 
-
-PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
-PTEID_ulwrapper triesLeft = new PTEID_ulwrapper(-1);
-
-PTEID_Pins pins = eidCard.getPins();
-PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN); //ADDR_PIN - Código de Morada
-
-if (pin.verifyPin("", triesLeft, true)){
-    PTEID_Address address = eidCard.getAddr();
-
-    System.out.println("Country:                        " + address.getCountryCode());
-    // (...) - Código restante
-    System.out.println("Postal Locality:                " + address.getPostalLocality());
-}
-
-// (...) - Finalização 
-```
+    ```java
+    // (...) - Inicialização 
+    
+    PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
+    PTEID_ulwrapper triesLeft = new PTEID_ulwrapper(-1);
+    
+    PTEID_Pins pins = eidCard.getPins();
+    PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN); //ADDR_PIN - Código de Morada
+    
+    if (pin.verifyPin("", triesLeft, true)){
+        PTEID_Address address = eidCard.getAddr();
+    
+        System.out.println("Country:                        " + address.getCountryCode());
+        // (...) - Código restante
+        System.out.println("Postal Locality:                " + address.getPostalLocality());
+    }
+    
+    // (...) - Finalização 
+    ```
 
 3.  Exemplo C\#
 
-```c
-// (...) - Inicialização 
-
-PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
-uint triesLeft = uint.MaxValue;
-
-PTEID_Pins pins = eidCard.getPins();
-PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN); //ADDR_PIN - Código de Morada
-
-if (pin.verifyPin("", ref triesLeft, true)){
-    PTEID_Address address = eidCard.getAddr();
-
-    System.out.println("Country:                        " + address.getCountryCode());
-    // (...) - Código restante
-    System.out.println("Postal Locality:                " + address.getPostalLocality());
-}
-
-// (...) - Finalização 
-```
+    ```c
+    // (...) - Inicialização 
+    
+    PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
+    uint triesLeft = uint.MaxValue;
+    
+    PTEID_Pins pins = eidCard.getPins();
+    PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN); //ADDR_PIN - Código de Morada
+    
+    if (pin.verifyPin("", ref triesLeft, true)){
+        PTEID_Address address = eidCard.getAddr();
+    
+        System.out.println("Country:                        " + address.getCountryCode());
+        // (...) - Código restante
+        System.out.println("Postal Locality:                " + address.getPostalLocality());
+    }
+    
+    // (...) - Finalização 
+    ```
 
 ### Leitura e escrita das notas pessoais
 
@@ -723,83 +725,85 @@ Para ler as notas pessoais deverá ser utilizado o método
 utilizado o método **PTEID_EIDCard.writePersonalNotes()**, sendo necessária
 a introdução do PIN de autenticação. Neste momento, as notas pessoais
 têm um limite de 1000 bytes (codificação recomendada: UTF-8).
+Nos cartões emitidos desde junho de 2024 não existe esta funcionalidade, o que significa que os métodos
+`readPersonalNotes()` e `writePersonalNotes()` lançam uma excepção com código de erro `EIDMW_ERR_NOT_SUPPORTED`.
 
 1.  Exemplo C++
 
-```c++
-// (...) - Inicialização 
-
-PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
-
-//Ler notas atuais e imprimir na consola
-const char *my_notes = eidCard.readPersonalNotes(); 
-std::cout << "Current notes: " << my_notes << std::endl;
-
-//Escrever novas notas
-std::string notes("We wrote successfully to the card!");
-PTEID_ByteArray personalNotes((const unsigned char*) notes.c_str(), notes.size() + 1);
-bool ok;
-
-PTEID_Pins& pins = eidCard.getPins();
-PTEID_Pin& pin = pins.getPinByPinRef(PTEID_Pin::AUTH_PIN); // AUTH_PIN - Código de Autenticação
-
-ok = eidCard.writePersonalNotes(personalNotes, &pin); 
-std::cout << "Was writing successful? " << (ok ? "Yes!" : "No.") << std::endl;
-
-// (...) - Finalização 
-```
+    ```c++
+    // (...) - Inicialização 
+    
+    PTEID_EIDCard& eidCard = PTEID_ReaderSet::instance().getReader().getEIDCard();
+    
+    //Ler notas atuais e imprimir na consola
+    const char *my_notes = eidCard.readPersonalNotes(); 
+    std::cout << "Current notes: " << my_notes << std::endl;
+    
+    //Escrever novas notas
+    std::string notes("We wrote successfully to the card!");
+    PTEID_ByteArray personalNotes((const unsigned char*) notes.c_str(), notes.size() + 1);
+    bool ok;
+    
+    PTEID_Pins& pins = eidCard.getPins();
+    PTEID_Pin& pin = pins.getPinByPinRef(PTEID_Pin::AUTH_PIN); // AUTH_PIN - Código de Autenticação
+    
+    ok = eidCard.writePersonalNotes(personalNotes, &pin); 
+    std::cout << "Was writing successful? " << (ok ? "Yes!" : "No.") << std::endl;
+    
+    // (...) - Finalização 
+    ```
 
 2.  Exemplo Java
 
-```java
-// (...) - Inicialização 
-
-PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
-
-//Ler notas atuais e imprimir na consola
-String my_notes = eidCard.readPersonalNotes(); 
-System.out.println("Current notes: " + my_notes);
-
-//Escrever novas notas
-String notes = "We wrote successfully to the card!";
-PTEID_ByteArray personalNotes = new PTEID_ByteArray(notes.getBytes(), notes.getBytes().length);
-boolean ok;
-
-PTEID_Pins pins = eidCard.getPins();
-PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.AUTH_PIN); // AUTH_PIN - Código de Autenticação
-
-ok = eidCard.writePersonalNotes(personalNotes, pin); 
-System.out.println("Was writing successful? " + (ok ? "Yes!" : "No."));
- 
-// (...) - Finalização 
-```
+    ```java
+    // (...) - Inicialização 
+    
+    PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
+    
+    //Ler notas atuais e imprimir na consola
+    String my_notes = eidCard.readPersonalNotes(); 
+    System.out.println("Current notes: " + my_notes);
+    
+    //Escrever novas notas
+    String notes = "We wrote successfully to the card!";
+    PTEID_ByteArray personalNotes = new PTEID_ByteArray(notes.getBytes(), notes.getBytes().length);
+    boolean ok;
+    
+    PTEID_Pins pins = eidCard.getPins();
+    PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.AUTH_PIN); // AUTH_PIN - Código de Autenticação
+    
+    ok = eidCard.writePersonalNotes(personalNotes, pin); 
+    System.out.println("Was writing successful? " + (ok ? "Yes!" : "No."));
+     
+    // (...) - Finalização 
+    ```
 
 3.  Exemplo C\#
 
-```c
-// (...) - Inicialização 
-
-PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
-
-//Ler notas atuais e imprimir na consola
-String my_notes = eidCard.readPersonalNotes(); 
-Console.WriteLine("Current notes: " + my_notes);
-
-//Escrever novas notas
-String notes = "We wrote successfully to the card!";
-
-byte[] notesBytes = Encoding.UTF8.GetBytes(notes);
-PTEID_ByteArray personalNotes = new PTEID_ByteArray(notesBytes, (uint) notesBytes.Length);
-Boolean ok;
-
-PTEID_Pins pins = eidCard.getPins();
-PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.AUTH_PIN); // AUTH_PIN - Código de Autenticação
-
-ok = eidCard.writePersonalNotes(personalNotes, pin);
-Console.WriteLine("Was writing successful? " + (ok ? "Yes!" : "No."));
-
-// (...) - Finalização   
-```
+    ```c
+    // (...) - Inicialização 
+    
+    PTEID_EIDCard eidCard = PTEID_ReaderSet.instance().getReader().getEIDCard();
+    
+    //Ler notas atuais e imprimir na consola
+    String my_notes = eidCard.readPersonalNotes(); 
+    Console.WriteLine("Current notes: " + my_notes);
+    
+    //Escrever novas notas
+    String notes = "We wrote successfully to the card!";
+    
+    byte[] notesBytes = Encoding.UTF8.GetBytes(notes);
+    PTEID_ByteArray personalNotes = new PTEID_ByteArray(notesBytes, (uint) notesBytes.Length);
+    Boolean ok;
+    
+    PTEID_Pins pins = eidCard.getPins();
+    PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.AUTH_PIN); // AUTH_PIN - Código de Autenticação
+    
+    ok = eidCard.writePersonalNotes(personalNotes, pin);
+    Console.WriteLine("Was writing successful? " + (ok ? "Yes!" : "No."));
+    
+    // (...) - Finalização   
+    ```
 
 ### Leitura dos dados de identidade do Cidadão e da Morada
 
@@ -899,50 +903,50 @@ pessoais.
 
 1.  Exemplo em C++
 
-```c++
-unsigned long triesLeft;
-PTEID_EIDCard *card;
-(...)
-card->getPins().getPinByPinRef(PTEID_Pin::ADDR_PIN).verifyPin("", triesLeft, true);
-PTEID_XmlUserRequestedInfo requestedInfo;
-requestedInfo.add(XML_CIVIL_PARISH);
-(...)
-requestedInfo.add(XML_GENDER);
-PTEID_CCXML_Doc &ccxml = card.getXmlCCDoc(requestedInfo);
-const char * resultXml = ccxml.getCCXML();
-```
+    ```c++
+    unsigned long triesLeft;
+    PTEID_EIDCard *card;
+    (...)
+    card->getPins().getPinByPinRef(PTEID_Pin::ADDR_PIN).verifyPin("", triesLeft, true);
+    PTEID_XmlUserRequestedInfo requestedInfo;
+    requestedInfo.add(XML_CIVIL_PARISH);
+    (...)
+    requestedInfo.add(XML_GENDER);
+    PTEID_CCXML_Doc &ccxml = card.getXmlCCDoc(requestedInfo);
+    const char * resultXml = ccxml.getCCXML();
+    ```
 
 2.  Exemplo em Java
 
-```java
-String resultXml;
-PTEID_EIDCard card;
-PTEID_ulwrapper triesLeft = new PTEID_ulwrapper(-1);
-(...)
-card.getPins().getPinByPinRef(PTEID_Pin.ADDR_PIN).verifyPin("", triesLeft, true);
-PTEID_XmlUserRequestedInfo requestedInfo = new PTEID_XmlUserRequestedInfo();
-requestedInfo.add(XMLUserData.XML_CIVIL_PARISH);
-(...)
-requestedInfo.add(XMLUserData.XML_GENDER);
-PTEID_CCXML_Doc result = idCard.getXmlCCDoc(requestedInfo);
-resultXml = result.getCCXML();
-```
+    ```java
+    String resultXml;
+    PTEID_EIDCard card;
+    PTEID_ulwrapper triesLeft = new PTEID_ulwrapper(-1);
+    (...)
+    card.getPins().getPinByPinRef(PTEID_Pin.ADDR_PIN).verifyPin("", triesLeft, true);
+    PTEID_XmlUserRequestedInfo requestedInfo = new PTEID_XmlUserRequestedInfo();
+    requestedInfo.add(XMLUserData.XML_CIVIL_PARISH);
+    (...)
+    requestedInfo.add(XMLUserData.XML_GENDER);
+    PTEID_CCXML_Doc result = idCard.getXmlCCDoc(requestedInfo);
+    resultXml = result.getCCXML();
+    ```
 
 3.  Exemplo em C\#
 
-```c
-string resultXml;
-PTEID_EIDCard card;
-uint triesLeft;
-(...)
-card.getPins().getPinByPinRef(PTEID_Pin.ADDR_PIN).verifyPin("", ref triesLeft, true);
-PTEID_XmlUserRequestedInfo requestedInfo = new PTEID_XmlUserRequestedInfo();
-requestedInfo.add(XMLUserData.XML_CIVIL_PARISH);
-(...)
-requestedInfo.add(XMLUserData.XML_GENDER);
-PTEID_CCXML_Doc result = idCard.getXmlCCDoc(requestedInfo);
-resultXml = result.getCCXML();
-```
+    ```c
+    string resultXml;
+    PTEID_EIDCard card;
+    uint triesLeft;
+    (...)
+    card.getPins().getPinByPinRef(PTEID_Pin.ADDR_PIN).verifyPin("", ref triesLeft, true);
+    PTEID_XmlUserRequestedInfo requestedInfo = new PTEID_XmlUserRequestedInfo();
+    requestedInfo.add(XMLUserData.XML_CIVIL_PARISH);
+    (...)
+    requestedInfo.add(XMLUserData.XML_GENDER);
+    PTEID_CCXML_Doc result = idCard.getXmlCCDoc(requestedInfo);
+    resultXml = result.getCCXML();
+    ```
 
 ## PINs
 
@@ -953,45 +957,45 @@ a sua alteração, deverá ser utilizado o método **changePin()**.
 
 1.  Exemplo C++
 
-```c++
-PTEID_EIDCard& card;
-unsigned long triesLeft;
-(...)
-PTEID_Pins &pins = card.getPins();
-PTEID_Pin &pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
-if (pin.verifyPin("", &triesLeft, true)){
-	bool bResult = pin.changePin("","", triesLeft, pin.getLabel());
-	if (!bResult && -1 == triesLeft) return;
-}
-```
+    ```c++
+    PTEID_EIDCard& card;
+    unsigned long triesLeft;
+    (...)
+    PTEID_Pins &pins = card.getPins();
+    PTEID_Pin &pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
+    if (pin.verifyPin("", &triesLeft, true)){
+    	bool bResult = pin.changePin("","", triesLeft, pin.getLabel());
+    	if (!bResult && -1 == triesLeft) return;
+    }
+    ```
 
 2.  Exemplo Java
 
-```java
-PTEID_EIDCard card;
-PTEID_ulwrapper triesLeft = new PTEID_ulwrapper(-1);
-(...)
-PTEID_Pins pins = card.getPins();
-PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
-if (pin.verifyPin("", triesLeft, true)){
-	bool bResult = pin.changePin("","", triesLeft, pin.getLabel());
-	if (!bResult && -1 == triesLeft) return;
-}
-```
+    ```java
+    PTEID_EIDCard card;
+    PTEID_ulwrapper triesLeft = new PTEID_ulwrapper(-1);
+    (...)
+    PTEID_Pins pins = card.getPins();
+    PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
+    if (pin.verifyPin("", triesLeft, true)){
+    	bool bResult = pin.changePin("","", triesLeft, pin.getLabel());
+    	if (!bResult && -1 == triesLeft) return;
+    }
+    ```
 
 3.  Exemplo C\#
 
-```c
-PTEID_EIDCard card;
-uint triesLeft;
-(...)
-PTEID_Pins pins = card.getPins();
-PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
-if (pin.verifyPin("", ref triesLeft, true)){
-	bool bResult = pin.changePin("","", triesLeft, pin.getLabel());
-	if (!bResult && -1 == triesLeft) return;
-}
-```
+    ```c
+    PTEID_EIDCard card;
+    uint triesLeft;
+    (...)
+    PTEID_Pins pins = card.getPins();
+    PTEID_Pin pin = pins.getPinByPinRef(PTEID_Pin.ADDR_PIN);
+    if (pin.verifyPin("", ref triesLeft, true)){
+    	bool bResult = pin.changePin("","", triesLeft, pin.getLabel());
+    	if (!bResult && -1 == triesLeft) return;
+    }
+    ```
 **Nota:** Se o primeiro parâmetro do método `verifyPin` for a string vazia, será aberta uma janela para introdução do PIN. Caso contrário, o primeiro parâmetro deverá ser a string com o PIN a ser verificado. Esta lógica aplica-se de modo análogo aos dois primeiros argumentos do método `changePin`.
 
 
@@ -1009,41 +1013,41 @@ Para obter um `PTEID_SigningDevice` deve utilizar a classe `PTEID_SigningDeviceF
 
 1.  Exemplo C++
 
-```c++
-(...)
-// Necessário para chamadas com PTEID_CMDSignatureClient
-PTEID_CMDSignatureClient::setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
-(...)
-// Neste exemplo ambas as opções estão ativas e, por isso, será apresentada uma janela
-PTEID_SigningDeviceFactory &factory = PTEID_SigningDeviceFactory::instance();
-PTEID_SigningDevice &signingDev = factory.getSigningDevice(true, true);
-(...)
-```
+    ```c++
+    (...)
+    // Necessário para chamadas com PTEID_CMDSignatureClient
+    PTEID_CMDSignatureClient::setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
+    (...)
+    // Neste exemplo ambas as opções estão ativas e, por isso, será apresentada uma janela
+    PTEID_SigningDeviceFactory &factory = PTEID_SigningDeviceFactory::instance();
+    PTEID_SigningDevice &signingDev = factory.getSigningDevice(true, true);
+    (...)
+    ```
 2.  Exemplo Java
 
-```java
-(...)
-// Necessário para chamadas com PTEID_CMDSignatureClient
-PTEID_CMDSignatureClient.setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
-(...)
-// Neste exemplo ambas as opções estão ativas e, por isso, será apresentada uma janela
-PTEID_SigningDeviceFactory factory = PTEID_SigningDeviceFactory.instance();
-PTEID_SigningDevice signingDev = factory.getSigningDevice(true, true);
-(...)
-```
+    ```java
+    (...)
+    // Necessário para chamadas com PTEID_CMDSignatureClient
+    PTEID_CMDSignatureClient.setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
+    (...)
+    // Neste exemplo ambas as opções estão ativas e, por isso, será apresentada uma janela
+    PTEID_SigningDeviceFactory factory = PTEID_SigningDeviceFactory.instance();
+    PTEID_SigningDevice signingDev = factory.getSigningDevice(true, true);
+    (...)
+    ```
 
 3.  Exemplo C#
 
-```csharp
-(...)
-// Necessário para chamadas com PTEID_CMDSignatureClient
-PTEID_CMDSignatureClient.setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
-(...)
-// Neste exemplo ambas as opções estão ativas e, por isso, será apresentada uma janela
-PTEID_SigningDeviceFactory factory = PTEID_SigningDeviceFactory.instance();
-PTEID_SigningDevice signingDev = factory.getSigningDevice(true, true);
-(...)
-```
+    ```csharp
+    (...)
+    // Necessário para chamadas com PTEID_CMDSignatureClient
+    PTEID_CMDSignatureClient.setCredentials(BASIC_AUTH_USER, BASIC_AUTH_PASSWORD, BASIC_AUTH_APPID);
+    (...)
+    // Neste exemplo ambas as opções estão ativas e, por isso, será apresentada uma janela
+    PTEID_SigningDeviceFactory factory = PTEID_SigningDeviceFactory.instance();
+    PTEID_SigningDevice signingDev = factory.getSigningDevice(true, true);
+    (...)
+    ```
 
 **NOTA:** Para utilizar o serviço de assinatura com CMD em pré-produção, é necessária uma configuração no SDK se pretendemos utilizar outro ambiente da CMD. 
 
@@ -1068,7 +1072,7 @@ para *containers* de assinatura.
 Será apresentado apenas um exemplo C++ para esta funcionalidade embora os wrappers Java e C\#
 contenham exactamente as mesmas classes e métodos necessários **PTEID_SigningDevice.SignXades()**.
 
-1.  Exemplo C++
+Exemplo C++
 
 ```c++
 const char *ficheiros[] = {"teste/Ficheiro1", "teste/Ficheiro2", "teste/Ficheiro3"};
@@ -1262,53 +1266,54 @@ signingDev.SignPDF(signature,  page, pos_x, pos_y, location, reason, output_fold
 ### Customização do selo de assinatura visível
 
 Através do método `setCustomSealSize(width, height)`, é possível alterar as dimensões do selo de assinatura vísivel utilizando o SDK. Para tal, é só necessário chamar o método com as dimensões pretendidas, após inicializar uma instância de `PTEID_PDFSignature`. Este método pode ser chamado para a assinatura de um único ficheiro ou para multi-assinatura.
-Exemplo C++
 
-```c++
-// (...) - Inicialização
+1. Exemplo C++
 
-//Inicializar assinatura
-PTEID_PDFSignature signature;
+    ```c++
+    // (...) - Inicialização
+    
+    //Inicializar assinatura
+    PTEID_PDFSignature signature;
+    
+    // (...) - Adicionar ficheiros e outras configurações (motivo, localização, etc)
+    
+    
+    //Para definir as dimensões do selo de assinatura é necessário invocar o seguinte método com as dimensões pretendidas. 
+    signature.setCustomSealSize(200, 200);
+    
+    // (...) - Assinar e Finalização
+    ```
 
-// (...) - Adicionar ficheiros e outras configurações (motivo, localização, etc)
+2. Exemplo Java
 
-
-//Para definir as dimensões do selo de assinatura é necessário invocar o seguinte método com as dimensões pretendidas. 
-signature.setCustomSealSize(200, 200);
-
-// (...) - Assinar e Finalização
-```
-
-Exemplo Java
-
-```java
-// (...) - Inicialização
-
-PTEID_PDFSignature signature = new PTEID_PDFSignature();
-
-// (...) - Adicionar ficheiros e outras configurações (motivo, localização, etc)
-
-//Para definir as dimensões do selo de assinatura é necessário invocar o seguinte método com as dimensões pretendidas. 
-signature.setCustomSealSize(200, 200);
-
-// (...) - Assinar e Finalização
-```
+    ```java
+    // (...) - Inicialização
+    
+    PTEID_PDFSignature signature = new PTEID_PDFSignature();
+    
+    // (...) - Adicionar ficheiros e outras configurações (motivo, localização, etc)
+    
+    //Para definir as dimensões do selo de assinatura é necessário invocar o seguinte método com as dimensões pretendidas. 
+    signature.setCustomSealSize(200, 200);
+    
+    // (...) - Assinar e Finalização
+    ```
 
 Exemplo C#
 
-```c
-// (...) - Inicialização
-
-PTEID_PDFSignature signature = new PTEID_PDFSignature();
-
-// (...) - Adicionar ficheiros e outras configurações (motivo, localização, etc)
-
-
-//Para definir as dimensões do selo de assinatura é necessário invocar o seguinte método com as dimensões pretendidas. 
-signature.setCustomSealSize(200, 200);
-
-// (...) - Assinar e Finalização
-```
+    ```c
+    // (...) - Inicialização
+    
+    PTEID_PDFSignature signature = new PTEID_PDFSignature();
+    
+    // (...) - Adicionar ficheiros e outras configurações (motivo, localização, etc)
+    
+    
+    //Para definir as dimensões do selo de assinatura é necessário invocar o seguinte método com as dimensões pretendidas. 
+    signature.setCustomSealSize(200, 200);
+    
+    // (...) - Assinar e Finalização
+    ```
 
 É também possível escolher incluir, ou não, a data de assinatura e o número de identificação civil através da aplicação, no menu `Personalização de Assinatura`, selecionando as respetivas checkboxes, ou através do ficheiro `~/.config/pteid.conf`, modificando o valor de `signature_seal_options`. Estas alterações são depois refletidas no selo da assinatura através do SDK.
 
@@ -1348,7 +1353,7 @@ apenas implementa o algoritmo RSA e como tal o bloco de input deve ser o
 *hash* **SHA-256** dos dados que se pretende assinar. 
 Os novos cartões de Cidadão introduzidos em 2024 suportam o algoritmo de assinatura **ECDSA** utilizando a curva **secp256r1 (NIST P-256)**. No entanto, assinaturas realizadas com este algoritmo tem de ser convertidas para o formato **ASN1** durante a sua verificação.
 
-1.  Exemplo C++
+Exemplo C++
 
 ```c++
 PTEID_ByteArray data_to_sign;
@@ -1357,7 +1362,7 @@ PTEID_ByteArray output = signingDev.Sign(data_to_sign, true);
 (...)
 ```
 
-2.  Exemplo Java
+Exemplo Java
 
 ```java
 PTEID_ByteArray data_to_sign;
@@ -1366,7 +1371,7 @@ PTEID_ByteArray output= signingDev.Sign(data_to_sign, true);
 (...)
 ```
 
-3.  Exemplo C\#
+Exemplo C\#
 
 ```c
 PTEID_ByteArray data_to_sign, output;
@@ -1388,19 +1393,19 @@ Para `PTEID_EIDCard`, o método `getCertificates()` devolve uma instância `PTEI
 
 Para `PTEID_CMDSignatureClient`, o método `getCertificates()` devolve uma instância `PTEID_Certificates` com a cadeia de certificados usada na última assinatura com essa instância de `PTEID_CMDSignatureClient`. Se nenhuma assinatura tiver sido efetuada, é mostrada uma janela para autenticar com a conta da Chave Móvel Digital para a qual se desejam obter os certificados. Este método requer credenciais de acesso ao serviço CMD tal como os métodos de assinatura (ver secção [Assinatura Digital](#assinatura-digital)).
 
-1.  Exemplo C++
+1. Exemplo C++
 
-```c++
-(...)
-PTEID_Certificates &certificates = signingDev.getCertificates();
-```
+    ```c++
+    (...)
+    PTEID_Certificates &certificates = signingDev.getCertificates();
+    ```
 
-2.  Exemplo Java/C#
+2. Exemplo Java/C#
 
-```java
-(...)
-PTEID_Certificates certs = card.getCertificates();
-```
+    ```java
+    (...)
+    PTEID_Certificates certs = card.getCertificates();
+    ```
 
 
 ## Leitura de documentos de viagem ICAO
