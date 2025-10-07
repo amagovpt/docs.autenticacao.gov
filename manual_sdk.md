@@ -1742,7 +1742,7 @@ da seguinte forma:
 ```
 
 **NOTA:** Desde a versão 3.13.3 do SDK deixaram de ser devolvidos os certificados das autoridades de certificação intermédias quando utilizados Cartões de Cidadão do modelo v2 com o módulo PKCS#11.
-Recomenda-se a obtenção das CAs intermédias descarregando estes certificados previamente da [página oficial da PKI](https://https://pki2.cartaodecidadao.pt/) ou descarregando no momento a partir do URL que existe em cada certificado na extensão _Authority Information Access_ (AIA). Apresentamos em seguida uma função Java para ler este endereço a partir dos dados do certificado, utilizando para isso a biblioteca BouncyCastle (bcprov-jdk18on-x.y.jar):
+Recomenda-se a obtenção das CAs intermédias descarregando estes certificados previamente da [página oficial da PKI](https://pki2.cartaodecidadao.pt/) ou descarregando no momento a partir do URL que existe em cada certificado na extensão _Authority Information Access_ (AIA). Apresentamos em seguida uma função Java para ler este endereço a partir dos dados do certificado, utilizando para isso a biblioteca BouncyCastle (bcprov-jdk18on-x.y.jar):
 
 ```java
       import org.bouncycastle.cert.X509CertificateHolder;
