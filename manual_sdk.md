@@ -1169,13 +1169,11 @@ signingDev.SignASiC(container, level);
 ### Ficheiros PDF
 
 O SDK fornece métodos para assinatura de ficheiros PDF de acordo com os
-standards PAdES (ETSI TS 102 778-1) e com o standard mais antigo
-implementado pelo Adobe Reader e Acrobat (*ISO 32000*).
+standards PAdES (ETSI TS 102 778-1).
 
 As assinaturas produzidas pelas bibliotecas do SDK podem ser validadas
-com os referidos produtos da Adobe ou alternativas *opensource* como a
-biblioteca iText ([http://itextpdf.com](http://itextpdf.com/)).
-
+com os referidos produtos da Adobe ou alternativas *opensource* como as
+bibliotecas do projeto [Digital Signature Service](https://github.com/esig/dss) da Comissão Europeia ou iText ([http://itextpdf.com](http://itextpdf.com/)).
 
 Os métodos de assinatura de PDF fornecem as seguintes opções:
   - Assinatura de acordo com a especificação dos seguintes perfis:
@@ -1742,6 +1740,36 @@ da seguinte forma:
       - SHA512withECDSAinP1363Format
     */
 ```
+
+**NOTA:** Desde a versão 3.13.3 do SDK deixaram de ser devolvidos os certificados das autoridades de certificação intermédias quando utilizados Cartões de Cidadão do modelo v2 com o módulo PKCS#11.
+Recomenda-se a obtenção das CAs intermédias descarregando estes certificados previamente da [página oficial da PKI](https://https://pki2.cartaodecidadao.pt/) ou descarregando no momento a partir do URL que existe em cada certificado na extensão _Authority Information Access_ (AIA). Apresentamos em seguida uma função Java para ler este endereço a partir dos dados do certificado, utilizando para isso a biblioteca BouncyCastle (bcprov-jdk18on-x.y.jar):
+
+```java
+      import org.bouncycastle.cert.X509CertificateHolder;
+      import org.bouncycastle.asn1.x509.AccessDescription;
+      import org.bouncycastle.asn1.x509.AuthorityInformationAccess;
+      import org.bouncycastle.asn1.x509.Extensions;
+      import org.bouncycastle.asn1.x509.GeneralName;
+
+      public String getIssuerURL(byte[] cert_data) throws IOException {
+        X509CertificateHolder bc_certificate = new X509CertificateHolder(cert_data);
+        Extensions extensions = bc_certificate.getExtensions();
+
+        AuthorityInformationAccess aia = AuthorityInformationAccess.fromExtensions(extensions);
+        for (AccessDescription ad : aia.getAccessDescriptions()) {
+            if (ad.getAccessMethod().equals(AccessDescription.id_ad_caIssuers)) {
+                GeneralName issuer_url = ad.getAccessLocation();
+
+                return issuer_url.getName().toString();
+            }
+        }
+
+        throw new IllegalArgumentException("Issuer URL not found in AIA extension!");
+      }
+
+```
+
+
 
 ## Suporte à leitura contactless no Cartão de Cidadão v2
 
