@@ -495,7 +495,7 @@ terá sido associado ao *callback* através do segundo argumento do método **Se
 
 A utilização do novo Cartão de Cidadão em interface contactless está protegida de acessos não autorizados através do protocolo de autenticação PACE.
 Este protocolo está descrito no Documento 9303 parte 11 da ICAO (International Civil Aviation Organization) na secção 8.2.
-Este documento pode ser consultado em [ICAO 9303-11](https://www.icao.int/publications/documents/9303_p11_cons_en.pdf)
+Este documento pode ser consultado em [ICAO 9303-11](https://www.icao.int/sites/default/files/publications/DocSeries/9303_p11_cons_en.pdf)
 
 Para usar a interface contactless do novo Cartão de Cidadão é necessário:
 1. Obter o tipo de interface de comunicação e o tipo de cartão após verificar a sua presença no leitor. Estas informações podem ser obtidas atraves das funções `PTEID_ReaderContext.getCardContactInterface()` e `PTEID_ReaderContext.getCardType()`.
@@ -1158,7 +1158,7 @@ standards PAdES (ETSI TS 102 778-1).
 
 As assinaturas produzidas pelas bibliotecas do SDK podem ser validadas
 com os referidos produtos da Adobe ou alternativas *opensource* como as
-bibliotecas do projeto [Digital Signature Service](https://github.com/esig/dss) da Comissão Europeia ou iText ([http://itextpdf.com](http://itextpdf.com/)).
+bibliotecas do projeto [Digital Signature Service](https://github.com/esig/dss) da Comissão Europeia ou iText.
 
 Os métodos de assinatura de PDF fornecem as seguintes opções:
   - Assinatura de acordo com a especificação dos seguintes perfis:
@@ -1321,14 +1321,12 @@ Exemplo C#
 ### Configurar o servidor de selo temporal
 
 O SDK permite seleccionar uma servidor diferente para a obtenção de
-selos temporais, uma vez que o servidor por defeito do Cartão do Cidadão
-([http://ts.cartaodecidadao.pt/tsa/server](http://ts.cartaodecidadao.pt/tsa/server))
+selos temporais, uma vez que o [serviço de selos temporais do Cartão do Cidadão](http://ts.cartaodecidadao.pt/tsa/server)
 tem um limite máximo de 20 pedidos em cada período de 20 minutos que
 se podem efectuar. Se este valor for excedido o serviço será bloqueado durante 24 horas, 
 sem prejuízo de outras consequências em caso de repetição de situações de bloqueio. 
-(para mais informações sobre o serviço de selo temporal/timestamps
-do Cartão do Cidadão, consulte a página
-[https://pki.cartaodecidadao.pt](https://pki.cartaodecidadao.pt)).
+Para mais informações sobre o serviço de selo temporal/timestamps
+do Cartão do Cidadão, consulte a página da [PKI](https://pki.cartaodecidadao.pt).
 
 Para usar um servidor diferente basta criar uma nova configuração, da
 seguinte forma:
@@ -1415,12 +1413,12 @@ Desde a versão 3.14.0 do Middleware está disponível a funcionalidade de leitu
 São exemplos deste tipo de documentos o novo Cartão de Cidadão introduzido em 2024, o Título de Residência e o Passaporte Eletrónico Português, entre muitos outros cartões de identidade e passaportes.
 
 Estes documentos contêm sempre 2 grupos de dados obrigatórios no seu chip contactless: o grupo de dados 1 (DG1) que inclui os dados pessoais: nome, número de documento, data de nascimento, sexo, país emissor do documento e data de validade e o grupo de dados 2 (DG2) que inclui a fotografia do titular.
-Para saber mais sobre os grupos de dados previstos na norma recomendamos a consulta [do documento ICAO 9303 - parte 10](https://www.icao.int/publications/pages/publication.aspx?docnum=9303).
+Para saber mais sobre os grupos de dados previstos na norma recomendamos a consulta [do documento ICAO 9303 - parte 10](https://www.icao.int/sites/default/files/publications/DocSeries/9303_p10_cons_en.pdf).
 
 No caso do novo Cartão de Cidadão esta informação é um sub-conjunto dos dados nacionais que ficam disponíveis para leitura no estrangeiro em contexto de viagem.
 
 O controlo de acesso aos dados disponíveis no chip contactless do documento é realizado através da autenticação PACE com dados lidos da MRZ do documento (*Machine readable zone*) ou opcionalmente, no caso dos cartões, através do código CAN.
-Adicionalmente a segurança dos dados neste tipo de documentos é garantida por um mecanismo de autenticação passiva dos datagroups (*Passive Authentication*) e autenticação do chip através dos mecanismos *Active Authentication* e/ou *Chip Authentication*. Os mecanismos de segurança estão descritos em detalhe na [parte 11 do documento ICAO 9303](https://www.icao.int/publications/pages/publication.aspx?docnum=9303).
+Adicionalmente a segurança dos dados neste tipo de documentos é garantida por um mecanismo de autenticação passiva dos datagroups (*Passive Authentication*) e autenticação do chip através dos mecanismos *Active Authentication* e/ou *Chip Authentication*. Os mecanismos de segurança estão descritos em detalhe na [parte 11 do documento ICAO 9303](https://www.icao.int/sites/default/files/publications/DocSeries/9303_p11_cons_en.pdf).
 
 No SDK o acesso a estes dados recorre a uma nova classe `ICAO_Card`.
 Os eventuais erros na aplicação dos mecanismos de segurança são reportados através de classes tais como `PTEID_DocumentReport` ou no caso de um datagroup específico `PTEID_DataGroupReport`.
@@ -1484,7 +1482,7 @@ A garantia de retro-compatibilidade deste projeto é apenas a nível da API Java
 A recomendação que fazemos é que as aplicações Java que utilizem o SDK deverão carregar o `pteidlibj.jar` a partir da versão instalada pelo Middleware
 em vez de incluir a versão inicial que existia no momento do desenvolvimento.
 
-Para o **SDK Java** é apenas necessário adicionar à *classpath* da aplicação o caminho para o `pteidlibj.jar` que é indicado na secção [**Instalação do SDK**](#instalação-do-SDK) e garantir que na instalação da aplicação não é incluída outra versão do mesmo JAR.
+Para o **SDK Java** é apenas necessário adicionar à *classpath* da aplicação o caminho para o `pteidlibj.jar` que é indicado na secção [**Instalação do SDK**](#instalação-do-sdk) e garantir que na instalação da aplicação não é incluída outra versão do mesmo JAR.
 
 Para o **SDK .Net** recomendamos o seguinte método para fazer uma atualização do Middleware e garantir a compatibilidade com as aplicações:
 
