@@ -206,11 +206,12 @@ O SDK .net ficará disponível em `/usr/local/lib/pteidlib_dotnet8/(arm64/x64)`.
 1\. **C/C++**
 
   - Windows/Visual Studio.
-  - Adicionar a import library **pteidlibCpp.lib** ao projecto.
-  - Por forma a conseguir incluir os *header files* do SDK adicionar a
+  - Adicionar a import library **pteidlib.lib** ao projecto.
+  - De forma a conseguir incluir os *header files* do SDK adicionar a
     directoria `C:\Program Files\Portugal Identity Card\sdk` nas
     propriedades do projecto em "C/C++" → "General" →
     "Additional Include Directories".
+  - As classes C++ do SDK estão definidas no namespace `eIDMW`.
 
 2\. **Java**
 
@@ -220,7 +221,7 @@ O SDK .net ficará disponível em `/usr/local/lib/pteidlib_dotnet8/(arm64/x64)`.
 
 3\. **C\#**
 
-  Apenas no Windows, é possivel usar .net framework, com a biblioteca **pteidlib_dotnet.dll**.
+  Apenas no Windows, é possível desenvolver em C# com .net framework, utilizando a biblioteca **pteidlib_dotnet.dll**.
   
   Desde a versão 3.13.0 é possível usar .net 8.0 ou superior no Windows, macOS e Linux, com a biblioteca **pteidlib_dotnet8+.dll**.
   - Adicionar a biblioteca **pteidlib_dotnet.dll** ou **pteidlib_dotnet8+.dll** às *references* do
