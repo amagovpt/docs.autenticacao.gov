@@ -1484,7 +1484,7 @@ A garantia de retro-compatibilidade deste projeto é apenas a nível da API Java
 A recomendação que fazemos é que as aplicações Java que utilizem o SDK deverão carregar o `pteidlibj.jar` a partir da versão instalada pelo Middleware
 em vez de incluir a versão inicial que existia no momento do desenvolvimento.
 
-Para o **SDK Java** é apenas necessário adicionar à *classpath* da aplicação o caminho para o `pteidlibj.jar` que é indicado na secção [**Instalação do SDK**](#Instalação-do-SDK) e garantir que na instalação da aplicação não é incluída outra versão do mesmo JAR.
+Para o **SDK Java** é apenas necessário adicionar à *classpath* da aplicação o caminho para o `pteidlibj.jar` que é indicado na secção [**Instalação do SDK**](#instalação-do-SDK) e garantir que na instalação da aplicação não é incluída outra versão do mesmo JAR.
 
 Para o **SDK .Net** recomendamos o seguinte método para fazer uma atualização do Middleware e garantir a compatibilidade com as aplicações:
 
