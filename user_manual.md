@@ -1677,7 +1677,7 @@ Para obter o **Relatório de Suporte** deve:
 5. Repetir a ação que resultou na situação de erro/problema. Desta forma, com o modo diagnóstico ativo, as informações sobre o erro/problema constantes nos ficheiros de log serão mais detalhadas.
 6. Voltar a navegar até ao menu **Configurações -> Configurações da Aplicação**.
 7. Pressionar o botão **Criar relatório**. Ao pressionar o botão **Criar relatório** é criado um ficheiro zip no Ambiente de Trabalho que contém os ficheiros de log da aplicação, com um nome deste tipo: **Autenticacao.gov_logs_DATA.zip**. 
-8. Por fim, deve enviar este ficheiro zip, juntamente com uma descrição o mais detalhada possível do problema, para o contacto de suporte através do email **cartaodecidadao@irn.mj.pt**.
+8. Por fim, deve enviar este ficheiro zip, juntamente com uma descrição o mais detalhada possível do problema, através da página de [Contactos do Autenticação.gov](https://www.autenticacao.gov.pt/contactos?appRedirect=AutenticacaoGovDesktop).
 
     ![Ilustração: Criar Relatório de Suporte](Pictures/Autenticacao.Gov_Relatorio_Suporte.png "Criar Relatório de Suporte")
 
