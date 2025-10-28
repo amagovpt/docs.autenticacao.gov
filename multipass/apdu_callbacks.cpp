@@ -18,12 +18,12 @@ using namespace eIDMW;
 class SimplePCSCCallbacks {
 private:
 	SCARDCONTEXT m_hContext;
-	std::map<PTEID_CardHandle, SCARDHANDLE> m_handles;
-	PTEID_CardHandle m_nextHandle;
+	std::map<PTEID_CardHandle, SCARDHANDLE> m_handles = {};
+	PTEID_CardHandle m_nextHandle = {};
 
 public:
-	SimplePCSCCallbacks() : m_hContext(0) { 
-		m_nextHandle.handle = 1; 
+	SimplePCSCCallbacks() : m_hContext(0) {
+		m_nextHandle.handle = 0;
 	}
 
 	static PTEID_CallbackResult EstablishContext(void *context) {
@@ -172,7 +172,7 @@ public:
 
 	static PTEID_CallbackResult Transmit(PTEID_CardHandle handle, const unsigned char *cmdData, unsigned long cmdLength,
 										 unsigned char *responseBuffer, unsigned long *respBufferSize, long *plRetVal,
-										 const void *pSendPci, void *pRecvPci, void *context) {
+										 PTEID_CardProtocol protocol, void *context) {
 		SimplePCSCCallbacks *self = static_cast<SimplePCSCCallbacks *>(context);
 		if (!self || !cmdData || !responseBuffer || !respBufferSize) {
 			return PTEID_CALLBACK_ERR_INVALID_PARAM;
@@ -184,7 +184,18 @@ public:
 		}
 
 		DWORD dwRecvLen = *respBufferSize;
-		const SCARD_IO_REQUEST *pioSendPci = (const SCARD_IO_REQUEST *)pSendPci;
+		const SCARD_IO_REQUEST *pioSendPci = [&]() {
+			switch (protocol) {
+			case PTEID_CardProtocol::T0:
+				return SCARD_PCI_T0;
+			case PTEID_CardProtocol::T1:
+				return SCARD_PCI_T1;
+			case PTEID_CardProtocol::ANY:
+			default:
+			 	throw std::invalid_argument("Invalid protocol in Transmit");
+
+			}
+		}();
 
 		SCARD_IO_REQUEST defaultPci = {SCARD_PROTOCOL_T1, sizeof(SCARD_IO_REQUEST)};
 		if (!pioSendPci) {
@@ -275,9 +286,9 @@ void dumpByteArray(const unsigned char *data, long length) {
 }
 
 int main(int argc, char **argv) {
-	SimplePCSCCallbacks pcsc_context;
+	SimplePCSCCallbacks* pcsc_context = new SimplePCSCCallbacks;
 	PTEID_CardInterfaceCallbacks callbacks = {
-		&pcsc_context,
+		pcsc_context,
 		 SimplePCSCCallbacks::EstablishContext,
 		 SimplePCSCCallbacks::ReleaseContext,
 		 SimplePCSCCallbacks::ListReaders,
@@ -292,7 +303,7 @@ int main(int argc, char **argv) {
 		 SimplePCSCCallbacks::EndTransaction,
 	};
 
-	PTEID_ReaderSet::initSDKWithCallbacks(callbacks);
+    PTEID_ReaderSet::initSDKWithCallbacks(callbacks);
 
 	try {
 		PTEID_Config::SetTestMode(true);
@@ -313,7 +324,7 @@ int main(int argc, char **argv) {
 	} catch (PTEID_Exception &e) {
 		std::stringstream sstream;
 		sstream << std::hex << e.GetError();
-		std::cout << "Caught exception in some SDK method. Error code: " << sstream.str().c_str();
+		std::cout << "Caught exception in some SDK method. Error code: " << sstream.str().c_str() << std::endl;
 		goto cleanup;
 	}
 
