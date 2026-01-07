@@ -1736,11 +1736,15 @@ Servidores OCSP:
 - ocsp.root.cartaodecidadao.pt (porto 80)
 - ocsp.auc.cartaodecidadao.pt  (porto 80)
 - ocsp.asc.cartaodecidadao.pt  (porto 80)
+- ocsp.asc.pki2.cartaodecidadao.pt  (porto 80)
+- ocsp.asc.pki2.cartaodecidadao.pt  (porto 80)
+- ocsp.root.pki2.cartaodecidadao.pt  (porto 80)
 
 Servidores CRL:
 - crls.ecee.gov.pt (porto 80)
 - pkiroot.multicert.com (porto 80)
 - pki.cartaodecidadao.pt (porto 80)
+- pki2.cartaodecidadao.pt (porto 80)
 
 **Selo temporal (por defeito):**
 
