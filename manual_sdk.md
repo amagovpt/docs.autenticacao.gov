@@ -42,7 +42,7 @@
     - [Bloco de dados](#bloco-de-dados)
   - [Certificados digitais](#certificados-digitais)
     - [Leitura dos certificados digitais no cartão de cidadão ou da Chave Móvel Digital](#leitura-dos-certificados-digitais-no-cartão-de-cidadão-ou-da-chave-móvel-digital)
-  - [Leitura de documentos de viagem ICAO](#leitura-de-documentos-de-viagem-ICAO)
+  - [Leitura de documentos de viagem ICAO](#leitura-de-documentos-de-viagem-icao)
 - [Atualizações do Middleware](#atualizações-do-middleware)
 - [Tratamento de erros](#tratamento-de-erros)
 - [API PKCS#11](#api-pkcs11)
