@@ -318,12 +318,11 @@ Com o valor do parâmetro *bTestMode* a *true*, os seguintes exemplos ativam o m
     PTEID_Config.SetTestMode(true);
     ```
 
-É também necessário adicionar os certificados raíz da PKI de testes em formato DER e extensão ".der" numa diretoria dependente do sistema operativo:
+É também necessário adicionar os certificados da PKI de testes em formato DER e extensão ".der" numa diretoria dependente do sistema operativo:
 * Windows: `C:\Program Files\Portugal Identity Card\eidstore\certs_test`
 * MacOS ou Linux: `/usr/local/share/certs_test`
 
-Os certificados devem ser descarregados da seguinte página: <https://pki2.teste.cartaodecidadao.pt/publico/entidade-certificacao-cc/certificados>
-
+Os certificados devem ser descarregados do seguinte arquivo .zip: [CC_certs_test_2025.zip](https://github.com/amagovpt/autenticacao.gov/releases/download/v3.12.0/CC_certs_test_2025.zip)
 
 ## Acesso ao *smartcard* Cartão de Cidadão
 
