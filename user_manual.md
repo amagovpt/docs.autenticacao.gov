@@ -438,18 +438,13 @@ estado do Cartão de Cidadão.
 > ⚠ **IMPORTANTE: Consulta de Morada do Cartão de Cidadão.**
 >
 > Desde a versão 3.9.0 da aplicação Autenticação.Gov a morada do Cartão de Cidadão é lida a partir dos serviços centrais.
-> Isto implica uma ligação à Internet funcional para a leitura da morada. É por isso necessário garantir que não existe *firewall* ou outro *software* na rede local que impeça a ligação ao endereço `morada.cartaodecidadao.pt` no porto 443.
-> Para processos de alteração de morada iniciados desde o fim de dezembro de 2022, a confirmação de morada fica apenas disponível no portal [eportugal.gov.pt](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao).
+> Isto implica uma ligação à Internet funcional para a leitura da morada. É por isso necessário garantir que não existe *firewall* ou outro *software* na rede local que impeça a ligação aos endereços `morada.cartaodecidadao.pt` e `morada2.cartaodecidadao.pt` no porto 443.
+> Para processos de alteração de morada iniciados desde o fim de dezembro de 2022, a confirmação de morada fica apenas disponível no portal [gov.pt](https://www.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao).
 
-Dentro do separador “Morada” é possível visualizar a morada atual e aceder ao portal [eportugal.gov.pt](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao) para completar o processo de alteração da morada. 
+Dentro do separador “Morada” é possível visualizar a morada atual e aceder ao portal [gov.pt](https://gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao) para completar o processo de alteração da morada. 
 
 Ambas as funcionalidades requerem uma ligação à Internet. Por favor certifique-se que está ligado
 antes de iniciar o processo.
-
-Para terminar o processo de alteração de morada, consulte a seguinte página Web:
-
-[Confirmar a alteração de morada](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao).
-
 
 #### Notas
 
