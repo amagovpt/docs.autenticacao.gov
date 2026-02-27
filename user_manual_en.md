@@ -10,7 +10,7 @@ Version 3.14.0
 
 1.  [**Introduction**](#introduction) **5**
 
-2.  **What\'s new ?** **5**
+2.  **What's new ?** **5**
 
 3.  [**Downloading, installation and removal of the
     application.**](#downloading-installation-and-removal-of-the-application)
@@ -134,7 +134,7 @@ Version 3.14.0
 
 69
 
-4.  [The card reader is installed but is not detected by the Citizen\'s
+4.  [The card reader is installed but is not detected by the Citizen's
     Card
     application.](#the-card-reader-is-installed-but-is-not-detected-by-the-citizens-card-application)
     71
@@ -157,7 +157,7 @@ Version 3.14.0
     Wayland)](#the-application-interface-does-not-support-move-or-drag-operations-linux-in-wayland)
     74
 
-9.  [Application won\'t start](#application-start-up-failure) 74
+9.  [Application won't start](#application-start-up-failure) 74
 
 10. [Issues with the new chain of
     trust](#issues-with-the-new-chain-of-trust) 75
@@ -224,26 +224,26 @@ Version 3.14.0
 
 This manual aims to describe all the features provided by the
 Autenticação.gov application for computers.
->
+
 The installation of the Autenticação.gov application for computers
-includes Citizen\'s Card middleware. This *middleware* constitutes the
-software layer between the computer and the Citizen\'s Card.
+includes Citizen's Card middleware. This *middleware* constitutes the
+software layer between the computer and the Citizen's Card.
 Authentication and electronic signature features are provided through
 the latter to the operating system and other electronic signature and
 authentication features and applications.
->
+
 The Autenticação.gov computer application allows management of the
-Citizen\'s Card. The application enables information viewing, note
+Citizen's Card. The application enables information viewing, note
 editing, personal *PIN* modification and the digital signature of
 files.
->
+
 This manual comprises the following fundamental areas of use:
 
 - The first section (in chapter two) covers downloading, installing, and
   removing the application;
 
 - The second section (in chapter three) describes the features of the
-  Citizen\'s Card management application and the digital file signing
+  Citizen's Card management application and the digital file signing
   function;
 
 - The third area (in chapters four and five) documents the integrations
@@ -253,25 +253,25 @@ This manual comprises the following fundamental areas of use:
   installation in Windows environments and configuration in business
   environments;
 
-# What\'s new ?
+# What's new ?
 
-> **Support for the new Citizen\'s Card**
+> **Support for the new Citizen's Card**
 >
-> Since version 3.12.0 of the application, the new Citizen\'s Card is
+> Since version 3.12.0 of the application, the new Citizen's Card is
 supported, enabling proximity reading (*contactless*) by using an
 appropriate card reader.
 >
 > There is still the option to read the card via the contact chip
 interface, but ensuring that the card is inserted correctly into the
-reader as in the new Citizen\'s Card the chip contacts are located on
+reader as in the new Citizen's Card the chip contacts are located on
 the back of the document.
 >
 > Reference to the new section [Contactless Access is advised](#contactless-access)
 >
-> Since version 3.14.0 of the application, the \"Travel Data\" component
-of the new Citizen\'s Card and other contactless chip-based
+> Since version 3.14.0 of the application, the "Travel Data" component
+of the new Citizen's Card and other contactless chip-based
 identification documents can be read such as the Portuguese Residence
-Permit (\"Título de Residência\") and identity cards from other
+Permit ("Título de Residência") and identity cards from other
 European countries. There is a description of this feature in the
 [Travel data section.](#headingh.1a9bpnwgfgu8)
 
@@ -312,19 +312,19 @@ Autenticação.gov application for computers.
 ## Downloading the application installation package
 
 To obtain the application installation package, access the official
-Citizen\'s Card website on the [Autenticação.gov application for
+Citizen's Card website on the [Autenticação.gov application for
 computers.](https://www.autenticacao.gov.pt/web/guest/cc-aplicacao)
 and download the correct version for operating systems.
->
+
 By clicking the link, an attempt is made to identify the operating
 system using the data provided by the browser, and a hyperlink is
 displayed in the content area on the right, allowing the downloading
 of the installation package appropriate for the system.
->
+
 In the case of *Linux* operating systems, distribution cannot be
 identified and a list of supported distributions for the detected
 architecture is displayed.
->
+
 This page contains a list of all officially supported operating system
 installation packages and user manuals.
 
@@ -339,7 +339,7 @@ The instructions below assume that the application installation file
 is previously downloaded online. If this is not the case, follow the
 steps described in the previous section: Downloading the application
 installation package.
->
+
 To install the Autenticação.gov application on the computer, follow
 the steps described in the following points, depending on the
 operating system in use.
@@ -350,7 +350,7 @@ operating system in use.
     file, double-click on it.
 
 2.  On the first interactive screen, you must tick the box to accept the
-    application\'s terms and conditions. For easy installation, press
+    application's terms and conditions. For easy installation, press
     **Install** (move on to step 5). For advanced installation, press
     **Advanced**. Advanced installation allows configuration of the path
     to the installation folder and the features to be installed.
@@ -371,7 +371,6 @@ operating system in use.
     click **Install**.
 
 ![](Pictures-en/Autenticacao.Gov_Instalacao_funcionalidades.png)
->
 
 5.  After this wizard finishes, it prompts a computer restart.
 
@@ -385,7 +384,7 @@ operating system in use.
 As from version 3.9.0 of the application, a new package format for
 Linux was introduced. The Flatpak format supports a larger number of
 Linux distributions in a uniform way.
->
+
 To install this version of the application, the procedure is as
 follows:
 
@@ -399,8 +398,8 @@ follows:
     [setup/](https://flatpak.org/setup/)
 
 3.  The pcsc-lite/pcscd package shall be installed in the system using
-    the distribution\'s native packages. The application works without
-    this component; only the features requiring access to the Citizen\'s
+    the distribution's native packages. The application works without
+    this component; only the features requiring access to the Citizen's
     Card depend on the pcscd.
 
 4.  Run the command flatpak install pteid-mw-linux.x86_64.flatpak in the
@@ -409,7 +408,7 @@ follows:
 ### Notes on communicating with the card
 
 1.  The Flatpak software shall be version 1.3.2 or a later version to
-    allow the application to access the Citizen\'s Card. This
+    allow the application to access the Citizen's Card. This
     requirement is met by distributions such as Ubuntu 20.04 and 22.04,
     OpenSUSE Leap 15.3 and 15.4, amongst others.
 
@@ -427,7 +426,6 @@ follows:
     licence terms.
 
 ![](Pictures-en/Autenticacao.Gov_Instalacao_MacOS2.png)
->
 
 3.  From this point on in the wizard, press the **Continue** button
     until the installation is complete.
@@ -452,14 +450,11 @@ follows:
 4.  After installation, the application is run with the command flatpak
     run pt.gov.autenticacao
 
-.
->
-**Note: The app\'s feature is currently limited on ChromeOS and only
-the Digital Mobile Key is used.**
+**Note: The app's feature is currently limited on ChromeOS and only the Digital Mobile Key is used.**
 
 ## Removing the application
 
-To remove the Citizen\'s Card application, the steps described in the
+To remove the Citizen's Card application, the steps described in the
 following points, relating to the operating system used, shall be
 followed.
 
@@ -506,7 +501,7 @@ followed.
 
 2.  **Through *Windows Settings***
 
-    1.  Access **Start Menu** -\**Windows Settings**.
+    1.  Access **Start Menu** -> **Windows Settings**.
 
     2.  Press the **Applications** button (Uninstall, defaults, optional
         features):
@@ -523,10 +518,7 @@ followed.
 5.  After these steps, the application shall be removed from the
     computer. It is advisd to restart the computer after these steps.
 
-**Note**: the directory and log files located in the installation
-folder (by default in
->
-C:\Program Files\Portugal Identity Card\log\ shall not be removed
+**Note**: the directory and log files located in the installation folder (by default in `C:\Program Files\Portugal Identity Card\log\`) shall not be removed
 upon uninstalling the Autenticação.Gov application.
 
 ### Removal from Linux and ChromeOS
@@ -545,7 +537,7 @@ upon uninstalling the Autenticação.Gov application.
 
 ### Removal from MacOS
 
-1.  Open the \"**Terminal**\" application on MacOS.\"
+1.  Open the "**Terminal**" application on MacOS."
 
 2.  Run the following command to uninstall all application files.
 
@@ -559,19 +551,19 @@ Upon transferring the installation file via the menu
 **Configurations** -> **Updates** of the application, the
 installation file is found in the **Transfers** directory, by default
 under `~/Downloads`.
->
+
 The latest version of the application can always be downloaded from
 the [official
 page](https://www.autenticacao.gov.pt/web/guest/cc-aplicacao) at
 https://www.autenticacao.gov.pt
->
+
 After downloading the installation file, follow the steps set out in
-the section \"Installation via command line\" to complete the update.
+the section "Installation via command line" to complete the update.
 
 # Autenticação.Gov Utility Application
 
 The Autenticação.Gov utility application is used to view and manage
-data on the Citizen\'s Card and to sign digital documents.
+data on the Citizen's Card and to sign digital documents.
 
 ![](Pictures-en/Autenticacao.Gov_Home.png)
 
@@ -579,11 +571,11 @@ The following operations can be performed on this application:
 
 - Viewing of identity information and photo of the citizen;
 
-- Viewing the citizen\'s address;
+- Viewing the citizen's address;
 
 - Viewing and editing the card notes;
 
-- Printing the Citizen\'s Card data;
+- Printing the Citizen's Card data;
 
 - Digital signature of PDF documents and other files;
 
@@ -594,11 +586,11 @@ The following operations can be performed on this application:
 
 - PIN Management (Test PIN, Change PIN).
 
-The application\'s appearance and behaviour are similar across all
+The application's appearance and behaviour are similar across all
 three operating systems, except for some features only available on
 Windows, as they are native features or specific Windows environment
 configurations.
->
+
 The shortcut to the application shall be available in different
 locations depending on the operating system type:
 
@@ -623,7 +615,7 @@ The application comprises 4 main areas of interaction:
 - **Configurations and help menu:** The configurations and help menus
   are provided;
 
-- **Working area:** Data viewing area for the Citizen\'s Card and
+- **Working area:** Data viewing area for the Citizen's Card and
   workspace for signature and security menus.
 
 ![](Pictures-en/Autenticacao.Gov_Card.png)
@@ -635,27 +627,26 @@ Signature Menu and Security Menu.
 
 ### Card Menu
 
-To view the citizen\'s identity information and photo, view the
-citizen\'s address, edit notes, and print the Citizen\'s Card data.
-The application enables the export of the citizen\'s photo to a file.
+To view the citizen's identity information and photo, view the
+citizen's address, edit notes, and print the Citizen's Card data.
+The application enables the export of the citizen's photo to a file.
 
-1.  **Identity** Provides viewing of the citizen\'s identification data
-    and photo to be found on the Citizen\'s Card. A photo of the citizen
+1.  **Identity** Provides viewing of the citizen's identification data
+    and photo to be found on the Citizen's Card. A photo of the citizen
     can also be exported via this page.
 
 ![](Pictures-en/Autenticacao.Gov_Identidade.png)
->
 
-2.  **Other data** Provides viewing of other data from the Citizen\'s
-    Card and checking of the status of the Citizen\'s Card.
+2.  **Other data** Provides viewing of other data from the Citizen's
+    Card and checking of the status of the Citizen's Card.
 
 ![](Pictures-en/Autenticacao.Gov_Outros_Dados.png)
 
 ### Address and Change of Address
 
-> ⚠ **IMPORTANT: Consulting Citizen\'s Card Address.**
+> ⚠ **IMPORTANT: Consulting Citizen's Card Address.**
 >
-> Currently, the address on the Citizen\'s Card is read from the central
+> Currently, the address on the Citizen's Card is read from the central
 services. This requires a working internet connection to read the
 address. It shall be ensured that there is no *firewall* or other
 *software* on the local network preventing connection to the addresses
@@ -673,7 +664,7 @@ starting the process.
 address.](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao)
 
 4.  **Notes** The application allows editing of the notes recorded on
-    the Citizen\'s Card.
+    the Citizen's Card.
 
 Reading this information does not require any code. For example,
 contact information shall be included for emergencies, details about
@@ -682,7 +673,7 @@ relevant and freely accessible.
 
 ![](Pictures-en/Autenticacao.Gov_Notas.png)
 
-5.  **Print** The application allows Citizen\'s Card data to be exported
+5.  **Print** The application allows Citizen's Card data to be exported
     to a PDF document or the document to be printed directly.
 
 To perform these operations, follow the steps below:
@@ -694,13 +685,11 @@ To perform these operations, follow the steps below:
     document and select the **Print** or **Generate PDF** option.
 
 ![](Pictures-en/Autenticacao.Gov_Print.png)
->
->
+
 The document to be exported and/or printed shall have a graphic
 appearance as shown in the following image.
->
+
 ![](Pictures-en/Autenticacao.Gov_print_pdf.png)
->
 
 6.  **Travel data**
 
@@ -708,7 +697,7 @@ appearance as shown in the following image.
 read from various types of identification documents with *contactless*
 chips:
 
-1.  Citizen\'s Cards of the model being issued since June 2024
+1.  Citizen's Cards of the model being issued since June 2024
 
 2.  Portuguese Residence Permits
 
@@ -720,13 +709,13 @@ broadly, the International Civil Aviation Organisation (ICAO) standard
 9303. Access control to the data in these documents requires the entry
 of a 6-digit numeric code printed on the physical document. In some
 types of documents, this code is called CAN (*Card Access Number* ).
->
-If the data is correctly read from the document\'s chip and its
+
+If the data is correctly read from the document's chip and its
 digital signature is validated, the following message is displayed in
-green: \"Document data is authentic\"
->
-In cases where the field \"Name of document holder\" is shown instead
-of \"Full name of document holder,\" the document chip only contains
+green: "Document data is authentic"
+
+In cases where the field "Name of document holder" is shown instead
+of "Full name of document holder," the document chip only contains
 the name appearing in the optically readable zone (MRZ) of the
 document. This name format adheres to a series of international rules
 under the ICAO Doc 9303 standard with a limit on the number and type
@@ -739,10 +728,10 @@ such as cedillas, accents or other diacritics.
 
 ###  Digital signature
 
-A digital signature enables the holder of a **Citizen\'s Card** or
+A digital signature enables the holder of a **Citizen's Card** or
 **Digital Mobile Key** to sign, of their own free will, using the
-personal key on their Citizen\'s Card or the Digital Mobile Key.
->
+personal key on their Citizen's Card or the Digital Mobile Key.
+
 **On the Signature menu** a PDF document or any other document is
 signed, with the possibility of signing multiple documents at the same
 time, adding professional attributes, as well as configuring other
@@ -755,7 +744,7 @@ using *Adobe Reader* software.
 The files to be signed can be selected by dragging them to the preview
 area or by using the keyboard shortcut **CTRL+V** (paste). The preview
 area may also be clicked or the button
->
+
 **Add files** and the files selected manually. A window will appear to
 select the files to be signed. The selected files will be displayed in
 the Choose files section, as shown in the following image.
@@ -773,15 +762,13 @@ the Choose files section, as shown in the following image.
 - **In ChromeOS**, to make the files appear for selection, the following
   procedure is necessary:
 
-\* Drag the file you wish to sign to the **Linux Files**
+* Drag the file you wish to sign to the **Linux Files**
 folder.![](Pictures-en/Autenticacao.gov_Filesystem_ChromeOS.png)
->
->
-\* After dragging the file, it will appear upon clicking the **Add
+
+* After dragging the file, it will appear upon clicking the **Add
 files** button.
->
+
 ![](Pictures-en/Autenticacao.gov_Filesystem_ChromeOS_Linux.png)
->
 
 - **Signature preview:** The document to be signed is viewed and the
   position and size of the signature stamp adjusted, moving it to the
@@ -797,9 +784,9 @@ The signature configurations are as follows:
 - **Type:** Signature type, required field, allows file signature
   selection:
 
-\* **PDF:** PAdES (*PDF Advanced Electronic Signatures*).
->
-\* **Other files:** ASiC package with *XML Advanced Electronic
+* **PDF:** PAdES (*PDF Advanced Electronic Signatures*).
+
+* **Other files:** ASiC package with *XML Advanced Electronic
 Signatures* (XAdES). This package is a ZIP file created according to
 the ASiC (Associated Signature Container) specification developed by
 ETSI (European Telecommunications Standards Institute) and following
@@ -824,7 +811,7 @@ files) and the respective signature in XAdES format.
   **Other Files**. [See Timestamp Service](#_heading=h.4rhta0ih5vwn) [on
   the Signature configurations page](#_heading=h.4rhta0ih5vwn)
 
-\* **Long-term validation:** With this option enabled, the data
+* **Long-term validation:** With this option enabled, the data
 required to validate the digital signature are included in the final
 signed file. In this way, it is possible to prove in the future that
 upon signature, the card certificate (or Digital Mobile Key) and its
@@ -833,7 +820,7 @@ filed for a long period of time. The signature with long-term
 validation complies with the PAdES-LTA profile specification.
 
 - **Add professional attributes:** The professional signature feature
-  enables authentication based on the user\'s qualified professional
+  enables authentication based on the user's qualified professional
   standing and institutional roles within society. The [Professional
   Attributes](#_heading=h.2ngh4b4yy13f) section includes the procedure
   for loading professional attributes. Available for **PDF** type
@@ -853,21 +840,21 @@ Further information on professional attributes is at the following
   for **PDF** type signatures.
 
 - **Smaller:** Allows the use of a smaller signature stamp. The smaller
-  stamp always displays the following fields in the same order: \"Full
-  Name\", \"NIC" (*Civil Identification Number*) and \"Signature Date\",
+  stamp always displays the following fields in the same order: "Full
+  Name", "NIC" (*Civil Identification Number*) and "Signature Date",
   unless there is not enough space (long full names). In this case,
   fields are added if possible until the space is filled, in the same
   order. Available for **PDF** type signatures.
 
 Upon selecting the desired options, in the area indicated in the
 previous figure, drag the signature stamp preview to the desired
-location and then press the button **Sign with Citizen\'s Card** or
+location and then press the button **Sign with Citizen's Card** or
 **Sign with Digital Mobile Key**.
->
-The **Sign with Citizen\'s Card** button is only available when the
-Citizen\'s Card is inserted into the card reader and correctly read by
+
+The **Sign with Citizen's Card** button is only available when the
+Citizen's Card is inserted into the card reader and correctly read by
 the application.
->
+
 After clicking on **Sign,** choose the folder and file name where you
 will save the signed file and follow the signing procedure (see
 section **Key introduction**). A message is then displayed indicating
@@ -877,20 +864,20 @@ that the digital signature was successful.
 
 The image below is an example of a file signed with the
 **Autenticação.Gov** application.
->
+
 ![](Pictures-en/Autenticacao.Gov_Assinatura_exemplo.png)
->
+
 If there any issues validating signatures, check whether the issue is
 related with the topic [Issues](#issues-with-the-new-chain-of-trust)
 [with the new chain of trust.](#issues-with-the-new-chain-of-trust)
 
 1.  **Key introduction** A digital signature enables the holder of a
-    **Citizen\'s Card** or **Digital Mobile Key** to sign, of their own
-    free will, using the personal key on their Citizen\'s Card or the
+    **Citizen's Card** or **Digital Mobile Key** to sign, of their own
+    free will, using the personal key on their Citizen's Card or the
     Digital Mobile Key.
 
-If signing with the personal key on the Citizen\'s Card, upon
-selecting the **Sign with Citizen\'s Card** option, the signature PIN
+If signing with the personal key on the Citizen's Card, upon
+selecting the **Sign with Citizen's Card** option, the signature PIN
 must be entered as shown in the following figure.
 
 ![]((Pictures-en/Autenticacao.Gov_assinatura_cc.png)
@@ -898,9 +885,8 @@ must be entered as shown in the following figure.
 If signing with the Digital Mobile Key, upon selecting the **Sign with
 Digital Mobile Key** option, enter the credentials as shown in the
 following figure.
->
+
 ![](Pictures-en/Autenticacao.Gov_assinatura_cmd.png)
->
 
 2.  **Verification of signed PDF document on Windows or MacOS** Upon
     applying a digital signature to a document, it should be
@@ -911,33 +897,31 @@ following figure.
 
 ![](Pictures-en/Autenticacao.Gov_assinatura_sample.png)
 
-Even when the signature is not visible (if the \"Visible\" option is
+Even when the signature is not visible (if the "Visible" option is
 not selected when signing), the signature is always validated in the
 signature panel, allowing viewing of the signature status taking into
 account the chain of trust and its cryptographic properties.
->
+
 ![](Pictures-en/Autenticacao.Gov_assinatura_verify.png)
->
->
-**Note**: When using the Adobe Reader function \"lock content after
-signing,\" avoid digitally signing the document again. Although it is
+
+**Note**: When using the Adobe Reader function "lock content after
+signing," avoid digitally signing the document again. Although it is
 permitted to add more signatures according to the PAdES standard,
 Adobe Reader invalidates the first signature in this process.
 
 ### Security
 
 The application offers some features related to security on the
-Citizen\'s Card.
+Citizen's Card.
 
-1.  **Certificates** This menu allows verification of the Citizen\'s
+1.  **Certificates** This menu allows verification of the Citizen's
     certificates and the chain of trust formed by the various
-    Certification Entities of the Citizen\'s Card and the Portuguese
+    Certification Entities of the Citizen's Card and the Portuguese
     State.
 
 ![](Pictures-en/Autenticacao.Gov_certificados_vazio.png)
->
->
-The status message presented in \"Certificate Status\" fields is a
+
+The status message presented in "Certificate Status" fields is a
 result of a validation bythe Citizen Card Infrastructure, requiring an
 internet connection. This validation is triggered when pressing the
 *Validate Certificates* button.
@@ -946,50 +930,47 @@ internet connection. This validation is triggered when pressing the
 
 Consult the certificates chain and the details of each certificate by
 pressing the *View details* button, visible in the previous image.
->
-![](Pictures-en/Autenticacao.Gov_certificados.png)
->
 
-2.  **PIN code** On this menu, the PIN codes for the Citizen\'s Card are
+![](Pictures-en/Autenticacao.Gov_certificados.png)
+
+2.  **PIN code** On this menu, the PIN codes for the Citizen's Card are
     viewed and changed.
 
 - **Authentication PIN:** This PIN is used to authenticate at websites
-  and applications supporting the Citizen\'s Card.
+  and applications supporting the Citizen's Card.
 
 - **Signature PIN:** This PIN is used to sign documents or transactions
-  in applications supporting the Citizen\'s Card.
+  in applications supporting the Citizen's Card.
 
 - **Address PIN:** This PIN is used for address verification.
 
 ![](Pictures-en/Autenticacao.Gov_codigos_pin.png)
 
 ![](Pictures-en/Autenticacao.Gov_Mudar_Pin.png)
->
 
 ### Configurations
 
 1.  **Signature Customisation** On this menu, the digital signature can
-    be customised, replacing the image of the Citizen\'s Card with an
-    image of the user\'s choice.
+    be customised, replacing the image of the Citizen's Card with an
+    image of the user's choice.
 
 The **Add signature** button allows selection of an image to be used
 in the customised signature. After adding an image, the **Use standard
 signature** or **Use a customised signature** option is selected, at
 the discretion of the user.
->
+
 The minimum recommended image size is 351 x 77px.
->
+
 The inclusion of the signature date and the civil identification
 number in the signature is optional. To this end, simply select the
 desired checkboxes on this menu.
->
+
 ![](Pictures-en/Autenticacao.Gov_personalizar_assinatura.png)
->
 
 2.  []{#_heading=h.2ngh4b4yy13f .anchor}**Professional Attributes** The
     Professional Attributes Certification System (SCAP) is for citizens,
     to sign a document in their capacity as professionals using their
-    Citizen\'s Card or Digital Mobile Key. Further information is at the
+    Citizen's Card or Digital Mobile Key. Further information is at the
     following *website*:
 
 <https://www.autenticacao.gov.pt/a-autenticacao-de-profissionais>
@@ -1005,10 +986,10 @@ Firstly, select the type of attributes:
 ![](Pictures-en/Autenticacao.Gov_scap.png)
 
 One of the attribute loading buttons is then clicked, depending on
-whether loading the attributes with the Citizen\'s Card or Digital
+whether loading the attributes with the Citizen's Card or Digital
 Mobile Key (CMD), respectively:
 
-- **Load with Citizen\'s Card:** upon selecting this button, enter your
+- **Load with Citizen's Card:** upon selecting this button, enter your
   authentication PIN and wait for the loading of the attributes.
 
 - **Load with Digital Mobile Key**: selecting this button shall initiate
@@ -1045,20 +1026,20 @@ for the attributes to load.
 
 - **Language:** Select the application language.
 
-- **Appearance:** Options related to the application\'s appearance. This
+- **Appearance:** Options related to the application's appearance. This
   section provides an option allowing the enabling and disabling of
   transition animations between menus.
 
 - **Application scale:** Options related to text size and other
   application components.
 
-- **Diagnostic mode**: Enable or disable the application\'s diagnostic
+- **Diagnostic mode**: Enable or disable the application's diagnostic
   mode. This mode raises the log detail level to *debug*, helping the
   support team to resolve any issues with the application.
 
 **On all operating systems, to help obtain log files, there is a new
-feature allowing the creation of a \"Diagnostic Report\". Simply press
-the \"Create report\" button.** Upon pressing the **Create report**
+feature allowing the creation of a "Diagnostic Report". Simply press
+the "Create report" button.** Upon pressing the **Create report**
 button, a compressed folder (zip file) is created on the Desktop
 containing all the log files. Send this folder (zip file), attached to
 a description of the issue, to the support contact. For further
@@ -1066,26 +1047,25 @@ information, see the chapter
 [Obtaining](#obtaining-the-report-for-analysis-via-the-configurations-menu)
 [Report for analysis on the Configurations
 menu.](#obtaining-the-report-for-analysis-via-the-configurations-menu)
->
+
 The *log* files by default are created at the following locations and
 are named with the prefix
->
 .PTEID:
 
 - **Windows**: In the log folder in the installation folder (by default,
 
 C:\Program Files\Portugal Identity Card ), usually:
->
+
 C:\Program Files\Portugal Identity Card\log\
 
-- **MacOS**: User\'s Home Directory, for instance:
+- **MacOS**: User's Home Directory, for instance:
 
 /Users/Utilizador/
 
-- **Linux**: User\'s Home Directory, for instance:
+- **Linux**: User's Home Directory, for instance:
 
 /home/User/
->
+
 **If application start is unsuccessful,** activate the diagnostic mode
 using the Autenticação.gov software configurations via Registry keys
 on Windows or a configuration file on Linux and MacOS.
@@ -1094,15 +1074,15 @@ on Windows or a configuration file on Linux and MacOS.
 
 ### HKEY_CURRENT_USER\Software\PTEID\logging\log_level;
 
-- On **Linux**, the key called \"log_level\" in the logging section of
+- On **Linux**, the key called "log_level" in the logging section of
   the file:
 
-### \$HOME/.config/pteid.conf ;
+### $HOME/.config/pteid.conf ;
 
-- On **MacOS**, the key named \"log_level\" in the logging section of
+- On **MacOS**, the key named "log_level" in the logging section of
   the file:
 
-### \$HOME/Library/Preferences/pteid.conf.
+### $HOME/Library/Preferences/pteid.conf.
 
 The key may have the following values:
 
@@ -1119,8 +1099,8 @@ In a business environment, change the following configuration as
 described in the chapter [Configuration instructions in business
 environments.](#configuration-instructions-in-business-environments)
 
-- **Graphics acceleration**: The application\'s graphics rendering mode
-  is activated. The *\"Hardware (Graphics card)\"* option should afford
+- **Graphics acceleration**: The application's graphics rendering mode
+  is activated. The *"Hardware (Graphics card)"* option should afford
   a better performance, but if there are any issues, an alternative
   option may have to be configured (see section [Graphical issues in the
   application.)](#graphics-issues-in-the-application)
@@ -1133,19 +1113,19 @@ environments.](#configuration-instructions-in-business-environments)
     if a system proxy configuration or an autoconfiguration script is
     defined (*Proxy Autoconfig),* this setting shall be used
     automatically by the application and other applications using
-    Citizen\'s Card middleware.
+    Citizen's Card middleware.
 
   - **Proxy server:** IP address / Hostname / Port.
 
   - **Proxy authentication:** Access credentials (if required).
 
-The following image shows the application\'s configurations menu.
+The following image shows the application's configurations menu.
 
 ![](Pictures-en/Autenticacao.Gov_configuracao.png)
 
 1.  []{#_heading=h.4rhta0ih5vwn .anchor}**Signature configuration** In
     this window, configure some aspects related with signing with the
-    Citizen\'s Card:
+    Citizen's Card:
 
 - **Certificates**: Options regarding the registration and removal of
   certificates during card insertion and removal.
@@ -1156,19 +1136,19 @@ application to be running (minimised or maximised).
 - **Timestamp Service:** Set up a customised timestamp service.
 
 The application allows the selection of a different server for
-obtaining time stamps, as the default server for the Citizen\'s Card
-is[(\[http://ts.cartaodecidadao.pt/tsa/server%](http://ts.cartaodecidadao.pt/tsa/server%25)
+obtaining time stamps, as the default server for the Citizen's Card
+is([http://ts.cartaodecidadao.pt/tsa/server](http://ts.cartaodecidadao.pt/tsa/server%25)
 [5D(http://ts.cartaodecidadao.pt/tsa/server))](http://ts.cartaodecidadao.pt/tsa/server)))
 There is a maximum limit of 20 requests in each 20-minute period. If
 this amount is exceeded, the service will be blocked for 24 hours,
 allowing for any other consequences in case of repeated blocking
-situations. (For further information on the Citizen\'s Card timestamp
+situations. (For further information on the Citizen's Card timestamp
 service, visit
-\[https://pki.cartaodecidadao.pt%5D(https://pki.cartaodecidadao.pt)).
->
-To use a different server, simply enter the server\'s URL in the text
+[https://pki.cartaodecidadao.pt](https://pki.cartaodecidadao.pt)).
+
+To use a different server, simply enter the server's URL in the text
 box.
->
+
 Further to this configuration, both PDF document signatures (PAdES)
 and XAdES format signatures shall use this newly configured server to
 obtain timestamps when signing.
@@ -1188,22 +1168,21 @@ obtain timestamps when signing.
   trust.](#issues-with-the-new-chain-of-trust)
 
 The following image shows the signature configurations menu.
->
+
 ![](Pictures-en/Autenticacao.Gov_configuracao_assinaturas.png)
->
 
 1.  **Application data** On this tab, the user can delete cached data
     stored from card readings and the loading of professional and
     business attributes.
 
-Stored data relating to the Citizen\'s Card includes identity data,
+Stored data relating to the Citizen's Card includes identity data,
 photo, and the authentication and signature certification chain.
->
+
 For professional and business attributes, a list of pre-loaded
 attributes is stored.
->
+
 There is also the option to disable the card data cache by
-deactivating the \"Use card data cache\" option.
+deactivating the "Use card data cache" option.
 
 ![](Pictures-en/Autenticacao.Gov_dados_app.png)
 
@@ -1216,8 +1195,8 @@ deactivating the \"Use card data cache\" option.
 
 ### Help
 
-The help window provides a summary of the application\'s features,
-indicating the path to this manual, and the application\'s support
+The help window provides a summary of the application's features,
+indicating the path to this manual, and the application's support
 page.
 
 ![](Pictures-en/Autenticacao.Gov_acerca.png)
@@ -1239,63 +1218,61 @@ necessary to use the application, such as the use of the cache:
 
 **Important:** This feature has been available since version 3.12.0 of
 the application.
->
-To use the contactless interface of the new Citizen\'s Card, a new
+
+To use the contactless interface of the new Citizen's Card, a new
 dialog box is displayed on the page currently in use, for example,
 the Identity, Address, Certificates, or Signature page. This window
 requires entry of the card access code, to prevent unauthorised access
 during *contactless* reading.
->
+
 ![](Pictures-en/CAN_dialog.png)
->
->
+
 The card access code is the 6-digit code located in the bottom right
-corner of the new Citizen\'s Cards.
->
+corner of the new Citizen's Cards.
+
 ![](Pictures-en/Infografia_Cartão_de_Cidadão.png)
->
->
+
 This code shall not be required for subsequent uses of the application
 with the same card.
->
+
 However, if you do not want the access code to be saved, you can
-disable this option in the \"Application Data\" tab within the
-application\'s Configurations menu.
->
+disable this option in the "Application Data" tab within the
+application's Configurations menu.
+
 **NOTE:** Using the card via the contactless interface for signing or
 authenticating in external applications such as Adobe Acrobat Reader
 requires the user to read it at least once in the Autenticação.gov
-application and that the \"Save access codes\" option is enabled under
+application and that the "Save access codes" option is enabled under
 Configurations.
 
 # Integration with applications
 
-The Citizen\'s Card middleware, installed with the Autenticação.Gov
+The Citizen's Card middleware, installed with the Autenticação.Gov
 application, allows integration with other operating system
 applications, providing two features: Authentication and Digital
 Signature.
->
+
 The *middleware* provides cryptographic support to applications via
 native cryptographic support in the Windows operating system or via
 the PKCS#11 interface.
 
 ## Integration with Windows applications
 
-### Integration with applications with the Citizen\'s Card
+### Integration with applications with the Citizen's Card
 
-Automatic registration of Citizen\'s Card certificates in the
+Automatic registration of Citizen's Card certificates in the
 operating system upon insertion into the card reader with the
 installation of middleware in Windows, ensuring the availability of
 authentication and signature features for applications using the
 system's cryptographic layer
->
+
 Some examples of these applications include: *Microsoft Word*,
 *Microsoft Excel*, *Microsoft Outlook* and *Adobe Acrobat Reader*.
->
+
 For certificates to be automatically registered, the\
 following is required:
 
-- The option \"Register certificates on insert\" available in the
+- The option "Register certificates on insert" available in the
   [Signatures configurations](#_heading=h.4rhta0ih5vwn)
   [tab](#_heading=h.4rhta0ih5vwn) is active.
 
@@ -1317,8 +1294,8 @@ to the user follows one of the following two formats:
   *Microsoft Office*:
 
     **Código de segurança: \<code\>.
-    Assinatura de documento** **\<document title/e-mail>\\".**
->
+    Assinatura de documento** **\<document title/e-mail>\".**
+
 Example:
 
 ![](Pictures-en/Mensagem_cmd_tipo_1.png)
@@ -1328,9 +1305,9 @@ Example:
 
 ### Security code: \<code\>.
 
-**Document signature \"Application: \<Application name\>Id: \<last 8
-digits of the hash of the content to be signed\>\".**
->
+**Document signature "Application: \<Application name\>Id: \<last 8
+digits of the hash of the content to be signed\>".**
+
 Example:
 
 ![](Pictures-en/Mensagem_cmd_tipo_2.png)
@@ -1340,7 +1317,7 @@ Example:
 For applications supporting PKCS#11, configure the middlewarefile
 location to enable support. The location of this file depends on the
 operating system being used.
->
+
 **Windows:** C:\Windows\System32\pteidpkcs11.dll **Linux:**
 /usr/local/lib/libpteidpkcs11.so **MacOS:**
 /usr/local/lib/libpteidpkcs11.dylib
@@ -1415,24 +1392,23 @@ from 4.0.0 onwards.
 In Linux operating systems, the detection of digital certificates in
 this Suite depends on the security configurations of *Mozilla
 Thunderbird* or *Mozilla Firefox*. For this feature to be available,
-first configure the integration with the Citizen\'s Card in *Mozilla
+first configure the integration with the Citizen's Card in *Mozilla
 Thunderbird* or *Firefox*. See the instructions in: [Digital signature
 of e-mail with Mozilla
 Thunderbird.](#digital-e-mail-signature-with-mozilla-thunderbird)
->
+
 For the digital signing of a document, follow these steps:
 
 1.  Access the **Digital Signatures File** menu.
 
-2.  A window will appear displaying the document\'s digital signatures.
+2.  A window will appear displaying the document's digital signatures.
     If there are no signatures yet, the list will appear empty as shown
     in the image below. Click the **Sign document button\...**
 
 ![](Pictures-en/Autenticacao.Gov_libre_office.png)
->
 
 3.  A window appears for selecting the certificate. Select the
-    certificate with your name and issued by **the Citizen\'s Card
+    certificate with your name and issued by **the Citizen's Card
     Qualified Digital Signature CA (*certificate authority*)** as
     illustrated in the image below:
 
@@ -1449,12 +1425,12 @@ For the digital signing of a document, follow these steps:
 The digital signature in *Outlook* by default requires the digital
 certificate to include the e-mail address, with this address matching
 the e-mail to be signed.
->
-The certificates included on the Citizen\'s Card and the Digital
+
+The certificates included on the Citizen's Card and the Digital
 Mobile Key do not contain any e-mail address. To make it possible to
-carry out digital signatures in *Outlook* with the Citizen\'s Card and
+carry out digital signatures in *Outlook* with the Citizen's Card and
 Digital Mobile Key, this validation needs to be disabled.
->
+
 In the application, this validation can be disabled by selecting the
 option **Allow e- mail signatures in Outlook** on the submenu
 **Signature configuration** of the Autenticação.gov application for
@@ -1474,23 +1450,21 @@ For the digital signing of an e-mail in *Outlook*, first carry out the
 respective configuration. The steps below are divided into
 **configuration**, consisting of the initial configuration required,
 and **signature**, consisting of the signature itself.
->
+
 **Note:** The images shown refer to *Microsoft Outlook 16*.
->
+
 **Configuration** This operation is performed only once.
 
-1.  Ensure that correspondence with the digital certificate\'s email
+1.  Ensure that correspondence with the digital certificate's email
     address is disabled, as instructed above.
 
 2.  In Outlook, access the **File - Options menu**
 
 ![](Pictures-en/Autenticacao.Gov_outlook.png)
->
 
 3.  Click **Trust Centre**.
 
 ![](Pictures-en/Autenticacao.Gov_outlook2.png)
->
 
 4.  Select the **Trust Centre** **Settings** section.
 
@@ -1499,16 +1473,14 @@ and **signature**, consisting of the signature itself.
 5.  In this section, click the **Settings button**
 
 ![](Pictures-en/Autenticacao.Gov_outlook4.png)
->
 
-6.  Add a description for this configuration for example: \"Signature
-    with Citizen\'s Card\" and click the **Choose** button to select the
-    certificate. Select the Citizen\'s Card or [Digital Mobile
+6.  Add a description for this configuration for example: "Signature
+    with Citizen's Card" and click the **Choose** button to select the
+    certificate. Select the Citizen's Card or [Digital Mobile
     Key](#digital-signature-with-digital-mobile-key) signature
     certificate.
 
 ![](Pictures-en/Autenticacao.Gov_outlook5.png)
->
 
 7.  In the configuration **Hash algorithm,** choose **SHA256** and click
     **OK**.
@@ -1549,24 +1521,24 @@ Reader*:
 3.  Click and drag the mouse to determine the position of the signature
     stamp in the document.
 
-4.  Ensure the Citizen\'s Card is inserted into the reader and select
-    the respective signature certificate, issued by the Citizen\'s Card
-    X Qualified Digital Signature CA (where \"X\" is a 4-digit number,
+4.  Ensure the Citizen's Card is inserted into the reader and select
+    the respective signature certificate, issued by the Citizen's Card
+    X Qualified Digital Signature CA (where "X" is a 4-digit number,
     for example 0010), and click**Continue**.
 
 5.  Click **Sign** and choose the name and folder to save the signed
     document.
 
 6.  Finally, enter the signature PIN. The window for entering the PIN
-    should be entitled \"Windows Security\" and display the message
-    \"Enter digital signature PIN\".
+    should be entitled "Windows Security" and display the message
+    "Enter digital signature PIN".
 
     1.  []{#_heading=h.4ctk8xmogvvd .anchor}**Digital signature in
         *Adobe Acrobat Reader* on MacOS.**
 
-The Citizen\'s Card supports native MacOS applications, via the
+The Citizen's Card supports native MacOS applications, via the
 PteidToken module, implementing the CryptoTokenKit framework.
->
+
 The initial configuration of this module in Acrobat Reader is much
 easier than in previous versions. To sign a document in *Adobe Acrobat
 Reader* in MacOS, firstly enable the use of the CryptoTokenKit module
@@ -1574,10 +1546,10 @@ as follows:
 
 1.  In *Adobe Acrobat Reader,* access the **Preferences\...**.menu
 
-2.  Select the **Signatures** category and in the \"Creation and
-    appearance\" section press **More\...**.
+2.  Select the **Signatures** category and in the "Creation and
+    appearance" section press **More\...**.
 
-3.  Click the \"Enable CryptoTokenKit structure support\" checkbox.
+3.  Click the "Enable CryptoTokenKit structure support" checkbox.
 
 Having previously signed with a CC using earlier versions of
 Autenticação.gov, also ensure that Acrobat Reader is running in native
@@ -1587,7 +1559,7 @@ the following help page:
 - <https://helpx.adobe.com/pt/acrobat/kb/apple-silicon-m1-processor-support.html>
 
 After this configuration which is required before first use, insert
-the Citizen\'s Card into the reader and the signature certificate
+the Citizen's Card into the reader and the signature certificate
 shall then be available in the **Certificates menu feature.**
 
 ### -\Digital signing in *Adobe Acrobat Reader* on MacOS with PKCS#11.
@@ -1600,7 +1572,6 @@ shall then be available in the **Certificates menu feature.**
 2. Select the category **Signatures** and in section "Identity and Trust Certificates" pressione **More...**.
 
 ![](Pictures/Autenticacao.Gov_macos_adobe_pref2.png)
->
 
 3. In section "Digital IDs" select **PKCS#11 Modules and Tokens** and click **Attach Module**.
 
@@ -1622,7 +1593,7 @@ If your Citizen Card is inserted in the reader and the module has been successfu
     stamp in the document.
 
 4.  Select the respective signature certificate, issued by the
-    **Citizen\'s Card X Qualified Digital Signature CA** (where \"X\" is
+    **Citizen's Card X Qualified Digital Signature CA** (where "X" is
     a 4-digit number, for example 0010), and load **Continue**.
 
 5.  Click **Sign** and choose the name and place to save the signed
@@ -1636,7 +1607,7 @@ Sign documents or e-mails with the Digital Mobile Key in Windows in
 applications such as *Microsoft Word*, *Microsoft Excel*, *Microsoft
 Outlook* and *Adobe Acrobat Reader*. The procedure is very similar to
 those described in the previous sections but two aspects differ:
->
+
 **Certificate registration** Registration of the certificate
 associated with the Digital Mobile Key in Windows.
 
@@ -1657,13 +1628,13 @@ associated with the Digital Mobile Key in Windows.
 In the event of non-registration of the certificate after reactivating
 the Digital Mobile Key Signature, or if the currently registered
 certificate has expired, repeat the registration procedure.
->
-**Signature** similar to signing with the Citizen\'s Card, with the
+
+**Signature** similar to signing with the Citizen's Card, with the
 following differences:
 
 - During configuration or at the time of signing, choose the certificate
-  issued by the **Citizen\'s Card X Qualified Digital Signature Digital
-  Mobile Key CA** (where \"X\" is a 5-digit number, for example, 00001
+  issued by the **Citizen's Card X Qualified Digital Signature Digital
+  Mobile Key CA** (where "X" is a 5-digit number, for example, 00001
   or 00002).
 
 ![](Pictures-en/Assinar_Word_CMD.png)
@@ -1697,7 +1668,7 @@ steps described also apply to configuring certificates in *Firefox*.
 3.  Click the **Load** button.
 
 4.  In the new window, fill in the module name (for example,
-    \"Citizen\'s Card\") and the path to the **PKCS#11**module, located
+    "Citizen's Card") and the path to the **PKCS#11**module, located
     in one of the following locations (recommendation: copy the path to
     the module, according to your operating system, from the following
     list):
@@ -1709,11 +1680,10 @@ steps described also apply to configuring certificates in *Firefox*.
 - C:\Windows\System32\pteidpkcs11.dll (Windows 64-bits)
 
 **In Linux:** /usr/local/lib/libpteidpkcs11.so
->
+
 **In MacOS:** /usr/local/lib/libpteidpkcs11.dylib
->
+
 ![](Pictures-en/Autenticacao.Gov_thunderbird7.png)
->
 
 5.  Press **OK** in all windows.
 
@@ -1722,38 +1692,37 @@ steps described also apply to configuring certificates in *Firefox*.
 7.  Select the **End-to-end encryption** tab.
 
 8.  In the **S/MIME** section, press the **Select** button in the field
-    with the indication *\"Personal certificate for digital
-    signature\"*.
+    with the indication *"Personal certificate for digital
+    signature"*.
 
 ![](Pictures-en/Autenticacao.Gov_thunderbird9.png)
 
-9.  Select the certificate with the description \"**CITIZEN\'S CARD:
+9.  Select the certificate with the description "**CITIZEN'S CARD:
     CITIZEN SIGNATURE CERTIFICATE** and click **OK**.
 
 ![](Pictures-en/Autenticacao.Gov_thunderbird5.png)
->
 
 10. With Thunderbird 102 or later, in the **End-to-end encryption** tab,
-    select the \"Add my signature by default\" box.
+    select the "Add my signature by default" box.
 
-11. For Thunderbird to use the Citizen\'s Card certificate for signing,
-    register and trust the root certificate of the Portuguese State\'s
+11. For Thunderbird to use the Citizen's Card certificate for signing,
+    register and trust the root certificate of the Portuguese State's
     certification chain.
 
     - For cards issued from April 2020 onwards, the certificate to be
-      registered is the certificate \"ECRaizEstado 002" (*State Root
+      registered is the certificate "ECRaizEstado 002" (*State Root
       CA*), available at: <http://trust.ecee.gov.pt/ecraiz002.crt>
 
     - For cards issued before April 2020, the certificate to be
-      registered is the certificate \"ECRaizEstado\" available at:
+      registered is the certificate "ECRaizEstado" available at:
       <http://trust.ecee.gov.pt/ecraiz.crt>
 
-To import the root certificate, click \"Manage certificates\...\" in
-the window used in point 1 and select the \"Authorities\" tab. Import
-the correct root certificate for the card and for the question \"Do
-you trust \"ECRaizestado/EcRaizEstado 002\" for the following
-purposes?\" select the option: \"Trust this CA to identify e-mail
-users.\"
+To import the root certificate, click "Manage certificates\..." in
+the window used in point 1 and select the "Authorities" tab. Import
+the correct root certificate for the card and for the question "Do
+you trust "ECRaizestado/EcRaizEstado 002" for the following
+purposes?" select the option: "Trust this CA to identify e-mail
+users."
 >
 **Signature** - to be performed for each signed e-mail sent. Only
 required for Thunderbird versions prior to version 102.
@@ -1765,7 +1734,7 @@ required for Thunderbird versions prior to version 102.
 
 ### Digital signature of DWF files
 
-**NOTE: DWF file signature only supports signing with a Citizen\'s
+**NOTE: DWF file signature only supports signing with a Citizen's
 Card**
 
 1.  Firstly, install on your computer the **Autodesk Design Review
@@ -1777,7 +1746,6 @@ Card**
 3.  Access the menu in the upper left field:
 
 ![](Pictures-en/Autenticacao.Gov_dwf1.png)
->
 
 4.  Access the **Security** option:
 
@@ -1786,9 +1754,8 @@ Card**
 5.  Select the **Add Digital Signature** option:
 
 ![](Pictures-en/Autenticacao.Gov_dwf3.png)
->
 
-6.  This window will display the computer\'s current certificates; click
+6.  This window will display the computer's current certificates; click
     **More Options** to select another certificate. Make sure the
     selected certificate matches the digital signature certificate.
     Finally, just press **OK**:
@@ -1798,7 +1765,6 @@ Card**
 7.  Enter the signature PIN requested in the window:
 
 ![](Pictures-en/Autenticacao.Gov_dwf5.png)
->
 
 8.  After this procedure, the digital signature process is complete and
     a window will appear confirming that the signature is valid.
@@ -1817,22 +1783,20 @@ Card**
 3.  Access the menu in the upper left field:
 
 ![](Pictures-en/Autenticacao.Gov_dwg1.png)
->
 
 4.  Access the **Save as** option and select **Drawing**:
 
 ![](Pictures-en/Autenticacao.Gov_dwg2.png)
->
 
 5.  Access the **Tools** option select **Digital signatures\...**:
 
 ![](Pictures-en/Autenticacao.Gov_dwg3.png)
 
 6.  Activate the checkbox **Attach a digital signature after saving the
-    drawing.**. This window displays the computer\'s existing
+    drawing.**. This window displays the computer's existing
     certificates; select **Digital Mobile Key CA\...** if signing with
-    the Mobile Key, or **Citizen\'s Card Qualified Digital Signature
-    CA\...** if signing with the Citizen\'s Card. Finally, just press
+    the Mobile Key, or **Citizen's Card Qualified Digital Signature
+    CA\...** if signing with the Citizen's Card. Finally, just press
     **OK**:
 
 **NOTE**: To sign using a Digital Mobile Key, follow the procedure of
@@ -1846,9 +1810,8 @@ Key](#digital-signature-with-digital-mobile-key) .
 - Citizen's Card:
 
 ![](Pictures-en/Autenticacao.Gov_dwg5.png)
->
 
-7.  If signing with the Citizen\'s Card, simply enter the signature PIN
+7.  If signing with the Citizen's Card, simply enter the signature PIN
     (referred to in the window as the non-repudiation PIN) and press
     **OK**. If signing with a Digital Mobile Key, the Digital Mobile Key
     signature pin shall be requested and, after entering it correctly,
@@ -1860,7 +1823,6 @@ Key](#digital-signature-with-digital-mobile-key) .
 ![](Pictures-en/Autenticacao.Gov_dwg6.png)
 
 ![](Pictures-en/Autenticacao.Gov_dwg7.png)
->
 
 - Citizen's Card:
 
@@ -1873,13 +1835,11 @@ Key](#digital-signature-with-digital-mobile-key) .
     - Digital Mobile Key:
 
 ![](Pictures-en/Autenticacao.Gov_dwg9.png)
->
 
 - Citizen's Card:
 
 ![](Pictures-en/Autenticacao.Gov_dwg10.png)
->
->
+
 If the **Digital Signature** tab is not present, see the section
 [Properties of the file
 signed](#properties-of-the-file-signed-by-autocad) [by
@@ -1888,34 +1848,34 @@ AutoCAD.](#properties-of-the-file-signed-by-autocad)
 ## Authentication at WEB portals
 
 There are two forms of authentication at a web portal using the
-Citizen\'s Card:
+Citizen's Card:
 
 - TLS authentication with client certificate via browser.
 
 - Authentication via certificate through **Autenticação.gov.pt** portal
 
-The authentication method depends entirely on the website\'s
+The authentication method depends entirely on the website's
 configuration; the user cannot choose one method over another.
->
+
 **Client-side certificate authentication via browser** is being
 deprecated, as it presents disadvantages in data collection; however,
 some websites still use this method.
->
+
 To use this authentication method, the application must be installed
 on the computer.
->
+
 Use the Windows Operating System; the browsers *Internet Explorer*,
 *Microsoft Edge* and *Google Chrome* do not require any configuration
 once the Citizen authentication certificate is registered.
->
+
 For *Mozilla Firefox* on any operating system, the configurations
-described in \"[Configure authentication for *Mozilla
-Firefox*](#_heading=h.sv0q7sh5zvii)*\"* should be performed.
->
+described in "[Configure authentication for *Mozilla
+Firefox*](#_heading=h.sv0q7sh5zvii)*"* should be performed.
+
 Authentication via certificate through the autenticacao.gov.pt portal
 does not require the installation of the application, but rather the
 **Autenticação.Gov** plugin.
->
+
 For further information, consult this help page:
 
 - <https://autenticacao.gov.pt/fa/ajuda/autenticacaogovpt.aspx>
@@ -1928,26 +1888,26 @@ advised.
     *Mozilla Firefox***
 
 To configure *Mozilla Firefox*, load the PKCS#11 module from the
-Citizen\'s Card. In version 73.0.1 (similar for other versions):
+Citizen's Card. In version 73.0.1 (similar for other versions):
 
 1.  Under *Mozilla Firefox* options, access **Privacy and Security**.
     You can access it directly by entering about:preferences#privacy on
     the address bar.
 
 2.  Scroll to the bottom of the page and, in the **Certificates**
-    section, press **Security devices\...** to open the \"Device
-    Manager\" window.
+    section, press **Security devices\...** to open the "Device
+    Manager" window.
 
 ![](Pictures-en/Autenticacao.Gov_thunderbird9.png)
 
-3.  Press **Load**. Fill in the module name, for example \"PKCS#11 of
-    the Citizen\'s Card\" (avoid \"ç\" and \"ã\"). Then click **Search
-    \...** and scroll to the PKCS#11 module of the Citizen\'s Card,
+3.  Press **Load**. Fill in the module name, for example "PKCS#11 of
+    the Citizen's Card" (avoid "ç" and "ã"). Then click **Search
+    \...** and scroll to the PKCS#11 module of the Citizen's Card,
     located as described in the section [Integration with
     applications.](#integration-with-applications)
 
 **Note:** in MacOS, copy and paste the following name into the
-\"Module file name\" field: /usr/local/lib/libpteidpkcs11.dylib
+"Module file name" field: /usr/local/lib/libpteidpkcs11.dylib
 
 4.  Press **OK** in the open windows to finish.
 
@@ -1959,34 +1919,33 @@ Citizen\'s Card. In version 73.0.1 (similar for other versions):
 
 To add the PKCS#11 module to Firefox, a card reader is installed on
 the computer.
->
+
 Make sure the reader is switched on and installed and a card is
 inserted before adding the PKCS#11 module.
->
+
 If using a 64-bit Linux or MacOS version, use a 64-bit version of
 *Firefox*
->
+
 / *Thunderbird*.
 
 2.  
 
-3.  []{#_heading=h.c0gc8h4os1os .anchor}**Incompatibility of Citizen\'s
+3.  []{#_heading=h.c0gc8h4os1os .anchor}**Incompatibility of Citizen's
     Card signatures with Adobe Reader, Microsoft Office** **or
     LibreOffice**
 
 Access the file pteidmdrv.inf , by default in the directory
 C:\Program Files\Portugal Identity
->
+
 (or in the directory selected during installation). After opening the
 directory, open the file options menu and select **Install**.
->
+
 ![](Pictures-en/Autenticacao.Gov_web_impossibilidade.png)
->
->
+
 After selecting this option, a dialog box appears (see image below)
-entitled \"Required Files,\" where the \"drivers\" folder located in
+entitled "Required Files," where the "drivers" folder located in
 the directory is selected.
->
+
 C:\Windows\System32 .
 
 ![](Pictures-en/Autenticacao.Gov_web_impossibilidade2.png)
@@ -1995,7 +1954,7 @@ If there are issues, check whether they are related with the
 topic[Issues with the new chain](#issues-with-the-new-chain-of-trust)
 [of trust.](#issues-with-the-new-chain-of-trust)
 
-## The card reader is installed but is not detected by the Citizen\'s Card application
+## The card reader is installed but is not detected by the Citizen's Card application
 
 ### Windows
 
@@ -2017,7 +1976,7 @@ topic[Issues with the new chain](#issues-with-the-new-chain-of-trust)
 
     d)  Disconnect the reader from the computer.
 
-    e)  Close the Citizen\'s Card application.
+    e)  Close the Citizen's Card application.
 
     f)  Reinsert the reader and reopen the application.
 
@@ -2031,7 +1990,6 @@ topic[Issues with the new chain](#issues-with-the-new-chain-of-trust)
         below).
 
 ![](Pictures-en/Autenticacao.Gov_Ligacao_Remota_SmartCard.png)
->
 
 ### Linux
 
@@ -2058,7 +2016,7 @@ c)  If not listed, start the service using the command: sudo systemctl
     start pcscd
 
 d)  If an error message is received, pcscdmay not be installed. Use your
-    Linux distribution\'s package manager to install pcscd (sometimes
+    Linux distribution's package manager to install pcscd (sometimes
     included in a package called pcsc-lite).
 
 <!-- -->
@@ -2069,12 +2027,12 @@ d)  If an error message is received, pcscdmay not be installed. Use your
 The *LibreOffice / OpenOffice* suite in Linux uses the *Mozilla
 Firefox application configurations* (or alternatively, *Thunderbird*)
 for certificate detection.
->
+
 For certificate detection in *LibreOffice / Apache OpenOffice Suite*,
 carry out the respective configuration in *Mozilla Firefox* if this
 application is installed. Otherwise, configure *Mozilla Thunderbird*
 to sign documents *in LibreOffice*.
->
+
 For further information, consult this help page:
 
 - <https://help.libreoffice.org/Common/Applying_Digital_Signatures/pt>
@@ -2084,20 +2042,20 @@ For further information, consult this help page:
 The rendering mode configured in the application during installation
 provides the best performance in most cases: hardware rendering.
 However, this mode requires a working OpenGL driver in the system for
-the computer\'s graphics card.
->
+the computer's graphics card.
+
 In the event of graphics issues, changing the graphics rendering mode
 is advised. Change it in the Graphics Acceleration section of the
 [Application configuration submenu.](#_heading=h.96tak3wzioch)
->
+
 **In the event of application startup failure,** change this option in
 three different ways:
 
-1.  \[Exclusive to Windows as from application version 3.4.0 onwards\]
-    In the application\'s installation folder (which, by default, is
+1.  [Exclusive to Windows as from application version 3.4.0 onwards]
+    In the application's installation folder (which, by default, is
     C:\Program Files\Portugal Identity Card ) there are three
     shortcuts to open the application by changing the graphics rendering
-    mode. The shortcuts are clickable icons with the application\'s
+    mode. The shortcuts are clickable icons with the application's
     symbol and the following names:
 
     - **Autenticação.Gov Software** for Software rendering (OpenGL);
@@ -2120,15 +2078,15 @@ icon on the desktop or in the start menu.
 
 ### HKEY_CURRENT_USER\Software\PTEID\configuretool\graphics_acceleration;
 
-- In **Linux**, the key \"graphics_acceleration\" in the configuretool
+- In **Linux**, the key "graphics_acceleration" in the configuretool
   section of the file:
 
-### \$HOME/.config/pteid.conf ;
+### $HOME/.config/pteid.conf ;
 
-- In **MacOS,** the key called \"graphics_acceleration\" in the
+- In **MacOS,** the key called "graphics_acceleration" in the
   configuretool section of the file:
 
-### \$HOME/Library/Preferences/pteid.conf.
+### $HOME/Library/Preferences/pteid.conf.
 
 The key may have the following values:
 
@@ -2158,19 +2116,19 @@ application.](#graphics-issues-in-the-application)
 In Linux systems using a Wayland-based graphics interface system,
 several interaction problems have been detected, including the
 inability to move the window by dragging it from the title bar.
->
+
 The following temporary solution is advised, assuming there is a
 XWayland component:
->
+
 Use the parameter -platform xcb , or the environment variable
 QT_QPA_PLATFORM=xcb to force the application to run in X11 mode, using
 XWayland.
->
-\$ eidguiV2 -platform xcb
->
+
+$ eidguiV2 -platform xcb
+
 or
->
-\$ QT_QPA_PLATFORM=xcb eidguiV2
+
+$ QT_QPA_PLATFORM=xcb eidguiV2
 
 ## Application start-up failure
 
@@ -2178,22 +2136,22 @@ When the application fails to start up,, change the application
 options using the Autenticação.gov software configurations (via
 Registry Keys in Windows or the configuration file in Linux and
 MacOS).
->
-One potential cause of issues is related with the computer\'s graphics
+
+One potential cause of issues is related with the computer's graphics
 card; see the topic [Graphics issues in the
 application.](#graphics-issues-in-the-application)
 
 ## Issues with the new chain of trust
 
-Citizen\'s Card certificates have been issued since 4 April 2020,
+Citizen's Card certificates have been issued since 4 April 2020,
 under the new chain of trust of the Portuguese State. The root
 certificate of the new chain, if not provided by the operating system,
 is installed to ensure that the certificates of cards issued after
 said date are automatically trusted by the Windows operating system,
 as well as by some applications not using the list of trusted services
 published by the European Union.
->
-Install the certificate from the Windows Store through the Citizen\'s
+
+Install the certificate from the Windows Store through the Citizen's
 Card application in the [Signature configuration
 submenu.](#_heading=h.4rhta0ih5vwn) Click the **Install certificate**
 button in the section **New State Root Certificate**. The certificate
@@ -2202,11 +2160,11 @@ associated with the Current User. **Note:** The automatic certificate
 installation feature is only available as from version 3.4.0 of the
 application onwards; earlier versions require the manual method
 described below.
->
+
 Alternatively, install the certificate manually by following the
 instructions in the SCEE (*State Electronic Certification System*)
 chain installation manual available at
-\[https://www.ecce.gov.pt/certificados/(https://www.ecce.gov.pt/certificados/).
+[https://www.ecce.gov.pt/certificados/](https://www.ecce.gov.pt/certificados/).
 Follow the specific instructions for the State Electronic
 Certification Entity Certificate - ECRaizEstado 002 (steps 4.1 to 4.10
 of the manual).
@@ -2214,12 +2172,12 @@ of the manual).
 ## Issues validating signatures
 
 In the event of validation problems in Adobe Acrobat Reader, for
-example, when receiving the message \"Signature validity is UNKNOWN\"
-in a signature generated with the Mobile Key or Citizen\'s Card, the
+example, when receiving the message "Signature validity is UNKNOWN"
+in a signature generated with the Mobile Key or Citizen's Card, the
 alternative [A](https://validador.autenticacao.gov.pt/validation)RTE
 [Signature Validation Service is
 advised](https://validador.autenticacao.gov.pt/validation).
->
+
 This service validates signatures in accordance with European
 standards for qualified electronic signatures. The documents submitted
 **are not saved** on the server after processing.
@@ -2234,7 +2192,7 @@ following types of PDF files:
 - PDF files containing XFA forms (created, for example, in the *Adobe
   LiveCycle* application).
 
-The signing of these files with the Citizen\'s Card or Digital Mobile
+The signing of these files with the Citizen's Card or Digital Mobile
 Key is possible using an external application, for example, *Adobe
 Acrobat Reader*. Follow the steps described in the section [Digital
 signature in *Adobe Acrobat Reader*](#_heading=h.a2of7nc5rjlk) .
@@ -2246,7 +2204,7 @@ network. In this eventuality, there is probably a security gateway or
 HTTPS proxy on the network filtering HTTPS traffic and interfering
 with the connection to the signature service using a Digital Mobile
 Key.
->
+
 Ask your company or organisation network administrator or IT support
 team to configure an exception to the HTTPS traffic filtering for the
 **Digital Mobile Key Signature** service. The necessary information is
@@ -2261,7 +2219,7 @@ Some application features require a connection to online services to
 function correctly. It shall thus be ensured that there is no
 *firewall* or other *software* on the local network preventing
 connection to these services.
->
+
 The *hostnames* and respective ports used are listed below by feature.
 
 ### Authentication with Digital Mobile Key:
@@ -2345,8 +2303,8 @@ CRL Servers:
 To enable the technical analysis of issues with the
 **Autenticação.gov** application, a **Support Report** is created.
 This **Support Report** contains log files with information about the
-application\'s operation, essential for diagnosing any issues.
->
+application's operation, essential for diagnosing any issues.
+
 To obtain the **Support Report**:
 
 1.  Open the application and navigate to the menu. **Configurations -> Application Configurations**.
@@ -2356,7 +2314,7 @@ To obtain the **Support Report**:
 3.  Restart the application.
 
 4.  After restarting, the application indicates the active diagnostic
-    mode in the application\'s top bar, and the bar colour changes to
+    mode in the application's top bar, and the bar colour changes to
     red. See image below.
 
 5.  Repeat the action that resulted in the error/issue. With the
@@ -2366,7 +2324,7 @@ To obtain the **Support Report**:
 6.  Navigate back to the menu **Configurations ->Application Configurations**.
 
 7.  Press the **Create report** button. Upon pressing the **Create
-    report** button, a zip file containing the application\'s log files
+    report** button, a zip file containing the application's log files
     is created on the Desktop, with a name of the type:
     **Autenticacao.gov_logs_DATA.zip**.
 
@@ -2378,10 +2336,10 @@ To obtain the **Support Report**:
 
 ## Removing metadata from PDF files
 
-Removing metadata from PDF files, for example through the \"Print to
-PDF\" option on some browsers, can remove existing digital signatures
+Removing metadata from PDF files, for example through the "Print to
+PDF" option on some browsers, can remove existing digital signatures
 in the file, even if the visual seal remains.
->
+
 Consequently, any required metadata removal using this or a similar
 process, must precede the digital signing process.
 
@@ -2404,10 +2362,10 @@ following subsections.
 The *\--help* (or *-h)* option allows the viewing of the available
 options on the command line for each mode. The installed version can
 be viewed with *\--version* (or *-v*).
->
+
 Example (Linux):
->
-\$ eidguiV2 -h
+
+$ eidguiV2 -h
 
 ## Shortcut to configure graphics rendering mode
 
@@ -2426,25 +2384,25 @@ three options and choose that which works best. The last option chosen
 shall be saved, restarting the application by clicking the icon on the
 desktop, in the start menu, or even via the command line without
 specifying this parameter.
->
+
 When experiencing issues with graphics cards, refer to the topic
 [Graphics issues in the
 application.](#graphics-issues-in-the-application) Example (Linux):
->
-\$ eidguiV2 -c
->
+
+$ eidguiV2 -c
+
 Example (Windows):
->
-\$ \"C:\Program Files\Portugal Identity Card\pteidguiV2.exe\" -c
+
+$ "C:\Program Files\Portugal Identity Card\pteidguiV2.exe" -c
 
 ## Shortcut to signature submenu
 
 Through the command-line interface, the application can be started
 directly from the digital signature submenu.
->
+
 The shortcut to the signature submenu (*sign*) requires the paths to
 the files to be loaded for signing.
->
+
 The following options are supported:
 
 - *\--destination DESTINATION* (*-d DESTINATION*): configures the
@@ -2453,29 +2411,29 @@ The following options are supported:
 
 - *\--tsa*: activates the signature with timestamp;
 
-- *\-- reason REASON* (*-r REASON*): configures the \'reason\' field of
+- *\-- reason REASON* (*-r REASON*): configures the 'reason' field of
   the signature;
 
-- *\-- location LOCATION* (*-l LOCATION* ): configures the \'location\'
+- *\-- location LOCATION* (*-l LOCATION* ): configures the 'location'
   field of the signature.
 
 Examples (Linux):
->
-\$ eidguiV2 sign -d /home/user/Documents/ficheiro.pdf
->
-\$ eidguiV2 sign \--tsa -m \"motivo\" -l \"localidade\" -d
+
+$ eidguiV2 sign -d /home/user/Documents/ficheiro.pdf
+
+$ eidguiV2 sign \--tsa -m "motivo" -l "localidade" -d
 /home/user/Documents/ \ ficheiro1.pdf \... ficheiroN.pdf
->
+
 Example (Windows):
 
-> "C:\Program Files\Portugal Identity Card\pteidguiV2.exe\" sign^
+> "C:\Program Files\Portugal Identity Card\pteidguiV2.exe" sign^
 -d C:\Users\USER\Documents ficheiro.pdf
 
 **Note:** Parameters containing whitespace characters must be enclosed
 in quotation marks. For example (Linux):
->
-\$ eidguiV2 sign -d /home/user/Documents/ \"ficheiro para
-assinar.pdf\"
+
+$ eidguiV2 sign -d /home/user/Documents/ "ficheiro para
+assinar.pdf"
 
 # Configuration instructions in business environments
 
@@ -2484,23 +2442,22 @@ assinar.pdf\"
 The Autenticação.gov software configurations are saved in *Windows* in
 registry keys. Changes made by the user to the graphics interface
 override the default values and are stored in sub-keys of:
->
+
 `HKCU\Software\PTEID`
->
+
 A standardised installation is configured by adding some values to the
 *Windows* registry for all computer users after software installation,
 using the keys listed below, sub-keys of the root key:
 **`HKLM\Software\PTEID`**
->
+
 **Note:** The following logs are never removed or altered:
->
+
 `HKLM\Software\PTEID\general\install_dirname`
 
 `HKLM\Software\PTEID\general\certs_dir`
->
+
 The following logs can be added:
->
->
+
 `HKLM\Software\PTEID\logging\log_level`
 
 - **Type**: String (debug, info, warning, error)
@@ -2510,7 +2467,7 @@ The following logs can be added:
 
 - **Default value**: error
 
-HKLM\Software\PTEID\logging\log_dirname
+`HKLM\Software\PTEID\logging\log_dirname`
 
 - **Type**: String
 
@@ -2519,7 +2476,7 @@ HKLM\Software\PTEID\logging\log_dirname
 
 - **Default value**: C:\Program Files\Portugal Identity Card\log
 
-HKLM\Software\PTEID\logging\log_prefix
+`HKLM\Software\PTEID\logging\log_prefix`
 
 - **Type**: String
 
@@ -2527,7 +2484,7 @@ HKLM\Software\PTEID\logging\log_prefix
 
 - **Default value**: .PTEID\_
 
-HKLM\Software\PTEID\general\admin_config
+`HKLM\Software\PTEID\general\admin_config`
 
 - **Type**: Number (0 / 1)
 
@@ -2539,25 +2496,25 @@ HKLM\Software\PTEID\general\admin_config
 
 - **Default value**: 0 (disabled)
 
-HKLM\Software\PTEID\general\cache_dirname
+`HKLM\Software\PTEID\general\cache_dirname`
 
 - **Type**: String
 
 - **Description:** Directory where the Middleware and application cache
   is stored.
 
-- **Default value**: C:\Users\\[User\]\AppData\Roaming\.pteid-ng
+- **Default value**: `C:\Users[User]\AppData\Roaming\.pteid-ng`
 
-HKLM\Software\PTEID\general\cache_enabled
+`HKLM\Software\PTEID\general\cache_enabled`
 
 - **Type**: Number (0 / 1)
 
-- **Description:** Enable (1) or disable (0) the cache for Citizen\'s
+- **Description:** Enable (1) or disable (0) the cache for Citizen's
   Card data.
 
 - **Default value**: 1 (active)
 
-HKLM\Software\PTEID\general\scap_host
+`HKLM\Software\PTEID\general\scap_host`
 
 - **Type**: String
 
@@ -2566,13 +2523,13 @@ HKLM\Software\PTEID\general\scap_host
 
 - **Default value**: scap.autenticacao.gov.pt
 
-HKLM\Software\PTEID\general\scap_port
+`HKLM\Software\PTEID\general\scap_port`
 
 - **Type**: Number (1 to 65535)
 
 - **Description:** Professional Attributes Service port (SCAP).
 
-HKLM\Software\PTEID\general\use_pinpad
+`HKLM\Software\PTEID\general\use_pinpad`
 
 - **Type**: Number (0 / 1)
 
@@ -2580,7 +2537,7 @@ HKLM\Software\PTEID\general\use_pinpad
 
 - **Default value**: 1 (Yes)
 
-HKLM\Software\PTEID\general\auth_pin_cache_normal
+`HKLM\Software\PTEID\general\auth_pin_cache_normal`
 
 - **Type**: Number (0 / 1)
 
@@ -2591,7 +2548,7 @@ HKLM\Software\PTEID\general\auth_pin_cache_normal
 
 ### Configurable from version: 3.1.0
 
-HKLM\Software\PTEID\configuretool\start_autoupdate
+`HKLM\Software\PTEID\configuretool\start_autoupdate`
 
 - **Type**: Number (0 / 1)
 
@@ -2600,7 +2557,7 @@ HKLM\Software\PTEID\configuretool\start_autoupdate
 
 - **Default value**: 1 (Yes)
 
-HKLM\Software\PTEID\configuretool\graphics_accelaration
+`HKLM\Software\PTEID\configuretool\graphics_accelaration`
 
 - **Type**: Number (0 / 1 / 2 (only in Windows))
 
@@ -2610,7 +2567,7 @@ HKLM\Software\PTEID\configuretool\graphics_accelaration
 
 - **Default value**: 1 (Graphics card)
 
-HKLM\Software\PTEID\configuretool\start_with_windows
+`HKLM\Software\PTEID\configuretool\start_with_windows`
 
 - **Type**: Number (0 / 1)
 
@@ -2618,7 +2575,7 @@ HKLM\Software\PTEID\configuretool\start_with_windows
 
 - **Default value**: 1 (Yes)
 
-HKLM\Software\PTEID\configuretool\registrate_certificate
+`HKLM\Software\PTEID\configuretool\registrate_certificate`
 
 - **Type**: Number (0 / 1)
 
@@ -2628,7 +2585,7 @@ HKLM\Software\PTEID\configuretool\registrate_certificate
 
 - **Default value**: 1 (Yes)
 
-HKLM\Software\PTEID\configuretool\remove_certificate
+`HKLM\Software\PTEID\configuretool\remove_certificate`
 
 - **Type**: Number (0 / 1)
 
@@ -2636,7 +2593,7 @@ HKLM\Software\PTEID\configuretool\remove_certificate
 
 - **Default value**: 0 (No)
 
-HKLM\Software\PTEID\proxy\use_system_proxy
+`HKLM\Software\PTEID\proxy\use_system_proxy`
 
 - **Type**: Number (0 / 1)
 
@@ -2644,19 +2601,19 @@ HKLM\Software\PTEID\proxy\use_system_proxy
 
 - **Default value**: 1 (Yes)
 
-HKLM\Software\PTEID\proxy\proxy_host
+`HKLM\Software\PTEID\proxy\proxy_host`
 
 - **Type**: String (hostname or IP address)
 
 - **Description:** Proxy server address.
 
-HKLM\Software\PTEID\proxy\proxy_port
+`HKLM\Software\PTEID\proxy\proxy_port`
 
 - **Type**: Number (1 to 65535)
 
 - **Description:** TCP Port of proxy server.
 
-HKLM\Software\PTEID\certificatecache\cert_cache_validity
+`HKLM\Software\PTEID\certificatecache\cert_cache_validity`
 
 - **Type**: Number (0 to 2147483647)
 
@@ -2665,44 +2622,36 @@ HKLM\Software\PTEID\certificatecache\cert_cache_validity
 
 ### Default value: 60
 
-
->
->
-HKLM\Software\PTEID\xsign\tsa_url
+`HKLM\Software\PTEID\xsign\tsa_url`
 
 - **Type**: String
 
-- **Description:** Timestamp server used for signing documents in the
-  format
+- **Description:** Timestamp server used for signing documents in the format `http(s)://HOST:PORTO`
 
-http(s)://HOST:PORTO
-
-- **Default value**: <http://ts.cartaodecidadao.pt/tsa/server>
+- **Default value**: `http://ts.cartaodecidadao.pt/tsa/server`
 
 ## Configurations via configuration file on Linux and MacOS
 
 The Autenticação.gov software configurations are saved in a
 configuration file on Linux and MacOS. This configuration file is
 located at the following path:
->
-**Linux:** \$HOME/.config/pteid.conf
->
-**MacOS:** \$HOME/Library/Preferences/pteid.conf
->
-where **HOME** indicates the system user\'s Home directory.
->
-The file format follows the [INI
-format](https://en.wikipedia.org/wiki/INI_file) with the respective
+
+**Linux:** `$HOME/.config/pteid.conf`
+
+**MacOS:** `$HOME/Library/Preferences/pteid.conf`
+
+where **HOME** indicates the system user's Home directory.
+
+The file format follows the [INI format](https://en.wikipedia.org/wiki/INI_file) with the respective
 configuration section indicated by a tag. The values specified in each
 section/tag are those indicated in the previous table for
-[Configurations via Windows registry
-keys.](#configurations-via-windows-registry-keys)
->
+[Configurations via Windows registry keys.](#configurations-via-windows-registry-keys)
+
 For example, to manually enable diagnostic mode, the following 2 lines
 are added to the file:
->
-\[logging\]
->
+
+[logging]
+
 log_level=debug
 
 ## Automated installation in Windows environments
@@ -2714,13 +2663,12 @@ administrator privileges):
     Modernization) to Store Trusted Publishers associated with the Local
     Computer via the MMC tool or via the following command:
 
-certmgr -add AMA\\_codesigning.cer -c -s -r localMachine
-TrustedPublisher
->
+`certmgr -add AMA\_codesigning.cer -c -s -r localMachine TrustedPublisher`
+
 The certificate is obtained from the MSI installer by viewing the file
 signature in the context menu at:
 
-### Properties -\Digital Signatures -\Details
+### Properties -> Digital Signatures -> Details
 
 2.  If the operating system is *Windows 7,* a *Hotfix* provided by
     *Microsoft* is installed to resolve any mismatch with the software
@@ -2733,7 +2681,7 @@ signature in the context menu at:
     software without user interaction using the following command:
 
 msiexec /i Autenticacao.gov-xxx.msi /qn
->
+
 To avoid restarting the system after installation, the parameter
 */norestart* is added to the command.
 
@@ -2742,11 +2690,9 @@ To avoid restarting the system after installation, the parameter
 1.  []{#_heading=h.u5k51mdcva59 .anchor}**Configuration in *Windows***
 
 If the computer in question has a proxy correctly configured in
-Windows, either by IP/Hostname
->
-\+ Port or via an auto-configuration script (PAC file), no
+Windows, either by IP/Hostname + Port or via an auto-configuration script (PAC file), no
 configuration is required in the application.
->
+
 The current software version does not support certain proxy server
 configurations, specifically those requiring NTLM or Kerberos
 authentication. To use features that require internet access (address
@@ -2763,8 +2709,8 @@ IP/Hostname + Port.
 # User Notes
 
 Drawn up by the Portuguese State
->
+
 (Agência para a Modernização Administrativa, IP and Instituto dos
 Registos e do Notariado, IP (*Institute of Registries and Notaries*))
->
+
 © Copyright (C) 2010-2021 false
