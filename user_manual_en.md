@@ -775,13 +775,13 @@ Version 3.14.0
   procedure is necessary:
 
 > \* Drag the file you wish to sign to the **Linux Files**
-> folder.![](media/image13.png)
+> folder.![](Pictures-en/Autenticacao.gov_Filesystem_ChromeOS.png)
 >
 >
 > \* After dragging the file, it will appear upon clicking the **Add
 > files** button.
 >
-> ![](media/image116.png)
+> ![](Pictures-en/Autenticacao.gov_Filesystem_ChromeOS_Linux.png)
 >
 
 - **Signature preview:** The document to be signed is viewed and the
@@ -1762,13 +1762,7 @@ If your Citizen Card is inserted in the reader and the module has been successfu
 
 1.  Open the e-mail composition window.
 
-2.  Click the **Security** options box and click **Digitally sign this
-    message.** This option will be enabled.
-
-> ![](media/image14.jpg)
->
-
-3.  Upon clicking **Send**, the signature PIN shall be requested and the
+2.  Upon clicking **Send**, the signature PIN shall be requested and the
     e-mail shall be signed and sent.
 
 ### Digital signature of DWF files
