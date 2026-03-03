@@ -10,7 +10,7 @@ Version 3.14.0
 
 1.  [**Introduction**](#introduction)
 
-2.  [**What's new ?**](#Whats-new)
+2.  [**What's new?**](#whats-new)
 
 3.  [**Downloading, installation and removal of the application.**](#downloading-installation-and-removal-of-the-application)
 
@@ -30,9 +30,9 @@ Version 3.14.0
 
     4.  [Removing the application](#removing-the-application)
 
-        1.  [Removal from *Microsoft Windows 7*](#Removal-from-Microsoft-Windows-7)
+        1.  [Removal from *Microsoft Windows 7*](#removal-from-microsoft-windows-7)
 
-        2.  [Removal from *Microsoft Windows 10 or 11*](#Removal-from-Microsoft-Windows-10-or-11)
+        2.  [Removal from *Microsoft Windows 10 or 11*](#removal-from-microsoft-windows-10-or-11)
 
         3.  [Removal from Linux and ChromeOS](#removal-from-linux-and-chromeos)
 
@@ -42,7 +42,7 @@ Version 3.14.0
 
         1.  [Linux update](#linux-update)
 
-4.  [**Autenticação.Gov Utility Application**](#autenticação.gov-utility-application)
+4.  [**Autenticação.Gov Utility Application**](#autenticaçãogov-utility-application)
 
     1.  [Application Presentation](#application-presentation)
 
@@ -66,19 +66,19 @@ Version 3.14.0
 
     1.  [Integration with Windows applications](#integration-with-windows-applications)
 
-    2.  [Integration with applications via the PKCS#11 interface](#integration-with-applications-via-the-pkcs11-interface.)
+    2.  [Integration with applications via the PKCS#11 interface](#integration-with-applications-via-the-pkcs11-interface)
 
     3.  [Digital signatures in common applications](#digital-signatures-in-common-applications)
 
-        1.  [Digital signature in the *Microsoft Office*](#digital-signature-in-microsoft-office-suit)
+        1.  [Digital signature in *Microsoft Office*](#digital-signature-in-microsoft-office-suite)
 
-        2.  [Digital signature in the *LibreOffice / OpenOffice*](#Digital-signature-in-the-LibreOffice--OpenOffice)
+        2.  [Digital signature in *LibreOffice / OpenOffice*](#digital-signature-in-the-libreoffice--openoffice)
 
-        3.  [Digital e-mail signature with *Microsoft Outlook*](#Digital-e-mail-signature-with-Microsoft-Outlook)
+        3.  [Digital e-mail signature with *Microsoft Outlook*](#digital-e-mail-signature-with-microsoft-outlook)
 
-        4.  [Digital signature in *Adobe Acrobat Reader*](#Digital-signature-in-Adobe-Acrobat-Reader)
+        4.  [Digital signature in *Adobe Acrobat Reader*](#digital-signature-in-adobe-acrobat-reader)
 
-        5.  [Digital signature in *Adobe Acrobat Reader* on MacOS (as from version 3.11.0)](#Digital-signature-in-Adobe-Acrobat-Reader-on-MacOS)
+        5.  [Digital signature in *Adobe Acrobat Reader* on MacOS (as from version 3.11.0)](#digital-signature-in-adobe-acrobat-reader-on-macos)
 
         6.  [Digital signature with Digital Mobile Key](#digital-signature-with-digital-mobile-key)
 
@@ -90,48 +90,48 @@ Version 3.14.0
 
     4.  [Authentication at WEB portals](#authentication-at-web-portals)
 
-        1.  [Configure authentication for *Mozilla Firefox*](#Configure-authentication-for-Mozilla-Firefox)
+        1.  [Configure authentication for *Mozilla Firefox*](#configure-authentication-for-mozilla-firefox)
 
 6.  [**Problem-Solving**](#problem-solving)
 
-    1.  [An error message is displayed when attempting to add the PKCS#11 module to *Firefox*](#An-error-message-is-displayed-when-attempting-to-add-the-PKCS11-module-to-Firefox--Thunderbird)
-        [*Thunderbird*](#An-error-message-is-displayed-when-attempting-to-add-the-PKCS11-module-to-Firefox--Thunderbird)
+    1.  [An error message is displayed when attempting to add the PKCS#11 module to *Firefox*](#an-error-message-is-displayed-when-attempting-to-add-the-pkcs11-module-to-firefox--thunderbird)
+        [*Thunderbird*](#an-error-message-is-displayed-when-attempting-to-add-the-pkcs11-module-to-firefox--thunderbird)
 
-    2.  [It is not possible to add the PKCS#11 module to *Adobe Acrobat Reader* in *MacOS*](#It-is-not-possible-to-add-the-PKCS11-module-to-Adobe-Acrobat-Reader-in-MacOS)
+    2.  [It is not possible to add the PKCS#11 module to *Adobe Acrobat Reader* in *MacOS*](#tt-is-not-possible-to-add-the-pkcs11-module-to-adobe-acrobat-reader-in-macos)
 
-    3.  [Unable to sign in *Adobe Reader*, *Microsoft Office* and *LibreOffice* with Citizen's Card](#Incompatibility-of-Citizens-Card-signatures-with-Adobe-Reader-Microsoft-Office-or-LibreOffice)
+    3.  [Unable to sign in *Adobe Reader*, *Microsoft Office* and *LibreOffice* with Citizen's Card](#incompatibility-of-citizens-card-signatures-with-adobe-reader-microsoft-office-or-libreoffice)
 
-4.  [The card reader is installed but is not detected by the Citizen's Card application.](#the-card-reader-is-installed-but-is-not-detected-by-the-citizens-card-application)
+    4.  [The card reader is installed but is not detected by the Citizen's Card application.](#the-card-reader-is-installed-but-is-not-detected-by-the-citizens-card-application)
 
-    1.  [Windows](#windows)
+        1.  [Windows](#windows)
 
-    2.  [Linux](#linux)
+        2.  [Linux](#linux)
 
-5.  [No certificates were detected during the signing attempt in the *Libre-*](#Failure-to-detect-certificates-during-signature-attempts-within-LibreOffice--Apache-OpenOffice) [*Office / Apache OpenOffice*](#Failure-to-detect-certificates-during-signature-attempts-within-LibreOffice--Apache-OpenOffice)
+    5.  [No certificates were detected during the signing attempt in the *Libre-*](#failure-to-detect-certificates-during-signature-attempts-within-libreoffice--apache-openoffice) [*Office / Apache OpenOffice*](#failure-to-detect-certificates-during-signature-attempts-within-libreoffice--apache-openoffice)
 
-6.  [Graphics issues in the application](#graphics-issues-in-the-application)
+    6.  [Graphics issues in the application](#graphics-issues-in-the-application)
 
-7.  [Issues with integrated graphics cards](#issues-with-integrated-graphics-cards)
+    7.  [Issues with integrated graphics cards](#issues-with-integrated-graphics-cards)
 
-8.  [It is not possible to move/drag the application (Linux on Wayland)](#the-application-interface-does-not-support-move-or-drag-operations-linux-in-wayland)
+    8.  [It is not possible to move/drag the application (Linux on Wayland)](#the-application-interface-does-not-support-move-or-drag-operations-linux-in-wayland)
 
-9.  [Application won't start](#application-start-up-failure)
+    9.  [Application won't start](#application-start-up-failure)
 
-10. [Issues with the new chain of trust](#issues-with-the-new-chain-of-trust)
+    10. [Issues with the new chain of trust](#issues-with-the-new-chain-of-trust)
 
-11. [Issues validating signatures](#issues-validating-signatures)
+    11. [Issues validating signatures](#issues-validating-signatures)
 
-12. [Issues with unsupported PDF files.](#issues-with-unsupported-pdf-files)
+    12. [Issues with unsupported PDF files.](#issues-with-unsupported-pdf-files)
 
-13. [Error in communication when signing with a Digital Mobile Key](#error-in-communication-when-signing-with-a-digital-mobile-key)
+    13. [Error in communication when signing with a Digital Mobile Key](#error-in-communication-when-signing-with-a-digital-mobile-key)
 
-14. [Online services used by the application](#online-services-used-by-the-application)
+    14. [Online services used by the application](#online-services-used-by-the-application)
 
-15. [Obtaining the report for analysis via the Configurations menu](#obtaining-the-report-for-analysis-via-the-configurations-menu)
+    15. [Obtaining the report for analysis via the Configurations menu](#obtaining-the-report-for-analysis-via-the-configurations-menu)
 
-16. [Removing metadata from PDF files](#removing-metadata-from-pdf-files) 
+    16. [Removing metadata from PDF files](#removing-metadata-from-pdf-files) 
 
-17. [File properties signed by AutoCAD](#properties-of-the-file-signed-by-autocad)
+    17. [File properties signed by AutoCAD](#properties-of-the-file-signed-by-autocad)
 
 <!-- -->
 
@@ -153,9 +153,9 @@ Version 3.14.0
 
     4.  [Information about proxy servers](#information-about-proxy-servers)
 
-        1.  [Configuration in *Windows*](#Configuration-in-Windows)
+        1.  [Configuration in *Windows*](#configuration-in-windows)
 
-        2.  [Configuration in *MacOS*](#Configuration-in-MacOS)
+        2.  [Configuration in *MacOS*](#configuration-in-macos)
 
 9.  [**User Notes**](#user-notes) **85**
 
@@ -192,7 +192,7 @@ This manual comprises the following fundamental areas of use:
   installation in Windows environments and configuration in business
   environments;
 
-# What's new ?
+# What's new?
 
 > **Support for the new Citizen's Card**
 >
@@ -212,7 +212,7 @@ of the new Citizen's Card and other contactless chip-based
 identification documents can be read such as the Portuguese Residence
 Permit ("Título de Residência") and identity cards from other
 European countries. There is a description of this feature in the
-[Travel data section.](#Travel-data)
+[Travel data section.](#travel-data)
 
 # Downloading, installation and removal of the application
 
@@ -553,7 +553,7 @@ The application comprises 4 main areas of interaction:
 - **Working area:** Data viewing area for the Citizen's Card and
   workspace for signature and security menus.
 
-![](Pictures-en/Autenticacao.Gov_Card.png)
+![](Pictures-en/Autenticacao.Gov_Card.png)f
 
 ## Application features
 
@@ -743,8 +743,8 @@ files) and the respective signature in XAdES format.
   stamp is the local time of the computer where the signature was
   provided , not having to match the time on the timestamp (obtained
   from a remote server). Available for signature types **PDF** and
-  **Other Files**. [See Timestamp Service](#Signature-configuration) [on
-  the Signature configurations page](#Signature-configuration)
+  **Other Files**. [See Timestamp Service](#signature-configuration) [on
+  the Signature configurations page](#signature-configuration)
 
 * **Long-term validation:** With this option enabled, the data
 required to validate the digital signature are included in the final
@@ -1208,8 +1208,8 @@ For certificates to be automatically registered, the\
 following is required:
 
 - The option "Register certificates on insert" available in the
-  [Signatures configurations](#Signature-configuration)
-  [tab](#Signature-configuration) is active.
+  [Signatures configurations](#signature-configuration)
+  [tab](#signature-configuration) is active.
 
 - Open the local Autenticação.Gov application before inserting the card.
   It is advisable to read the card at least once in the app.
@@ -1264,17 +1264,17 @@ of digital signature features in the following applications:
 
 ### Digital signature:
 
-- [Microsoft Office Suite](#Digital-signature-in-Microsoft-Office-suite)
+- [Microsoft Office Suite](#digital-signature-in-microsoft-office-suite)
 
-- [LibreOffice/OpenOffice Suite](#Digital-signature-in-the-LibreOffice--OpenOffice)
+- [LibreOffice/OpenOffice Suite](#digital-signature-in-the-libreoffice--openoffice)
 
-- [Microsoft Outlook](#Digital-e-mail-signature-with-Microsoft-Outlook)
+- [Microsoft Outlook](#digital-e-mail-signature-with-microsoft-outlook)
 
-- [Adobe Acrobat Reader](#Digital-signature-in-Adobe-Acrobat-Reader) on Windows
+- [Adobe Acrobat Reader](#digital-signature-in-adobe-acrobat-reader) on Windows
 
-- [Adobe Acrobat Reader on MacOS (as from version 3.11.0)](#Digital-signature-in-Adobe-Acrobat-Reader-on-MacOS)
+- [Adobe Acrobat Reader on MacOS (as from version 3.11.0)](#digital-signature-in-adobe-acrobat-reader-on-macos)
 
-- [Adobe Acrobat Reader on MacOS with PKCS#11](#Digital-signing-in-Adobe-Acrobat-Reader-on-MacOS-with-PKCS11)
+- [Adobe Acrobat Reader on MacOS with PKCS#11](#digital-signing-in-adobe-acrobat-reader-on-macos-with-pkcs11)
 
 - [Mozilla Thunderbird with PKCS#11](#digital-e-mail-signature-with-mozilla-thunderbird)
 
@@ -1430,7 +1430,7 @@ and **signature**, consisting of the signature itself.
 
 ### Digital signature in *Adobe Acrobat Reader*
 
-**Note: to** sign a document on *Adobe Acrobat Reader* on MacOS, follow the instructions in the section [Digital signature in *Adobe Acrobat Reader* in MacOS (since version 3.11.0)](#Digital-signature-in-Adobe-Acrobat-Reader-on-MacOS)
+**Note: to** sign a document on *Adobe Acrobat Reader* on MacOS, follow the instructions in the section [Digital signature in *Adobe Acrobat Reader* in MacOS (since version 3.11.0)](#digital-signature-in-adobe-acrobat-reader-on-macos)
 
 **Note:** signing with professional attributes is only possible in the
 Autenticação.Gov application. To sign a PDF document in *Adobe Acrobat
@@ -1536,7 +1536,7 @@ those described in the previous sections but two aspects differ:
 **Certificate registration** Registration of the certificate
 associated with the Digital Mobile Key in Windows.
 
-1.  In the [Signature configuration tab](#Signature-configuration) of
+1.  In the [Signature configuration tab](#signature-configuration) of
     the Autenticacão.Gov application, there is a section dedicated to
     configuring the Digital Mobile Key with the **Register** button.
     Press the button to open a certificate registration window.
@@ -1794,7 +1794,7 @@ Use the Windows Operating System; the browsers *Internet Explorer*,
 once the Citizen authentication certificate is registered.
 
 For *Mozilla Firefox* on any operating system, the configurations
-described in "[Configure authentication for *Mozilla Firefox*](#Configure-authentication-for-Mozilla-Firefox) should be performed.
+described in "[Configure authentication for *Mozilla Firefox*](#configure-authentication-for-mozilla-firefox) should be performed.
 
 Authentication via certificate through the autenticacao.gov.pt portal
 does not require the installation of the application, but rather the
@@ -1966,7 +1966,7 @@ the computer's graphics card.
 
 In the event of graphics issues, changing the graphics rendering mode
 is advised. Change it in the Graphics Acceleration section of the
-[Application configuration submenu.](#Application-configuration)
+[Application configuration submenu.](#application-configuration)
 
 **In the event of application startup failure,** change this option in
 three different ways:
@@ -2073,7 +2073,7 @@ published by the European Union.
 
 Install the certificate from the Windows Store through the Citizen's
 Card application in the [Signature configuration
-submenu.](#Signature-configuration) Click the **Install certificate**
+submenu.](#signature-configuration) Click the **Install certificate**
 button in the section **New State Root Certificate**. The certificate
 shall be added to the Trusted Root Certification Authorities Store
 associated with the Current User. **Note:** The automatic certificate
@@ -2115,7 +2115,7 @@ following types of PDF files:
 The signing of these files with the Citizen's Card or Digital Mobile
 Key is possible using an external application, for example, *Adobe
 Acrobat Reader*. Follow the steps described in the section [Digital
-signature in *Adobe Acrobat Reader*](#Digital-signature-in-Adobe-Acrobat-Reader) .
+signature in *Adobe Acrobat Reader*](#digital-signature-in-adobe-acrobat-reader) .
 
 ## Error in communication when signing with a Digital Mobile Key
 
