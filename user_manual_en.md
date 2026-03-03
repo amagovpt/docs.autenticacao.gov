@@ -1,6 +1,4 @@
-Version 3.14.0
-
-30/09/2025
+# Autenticação.gov desktop application user manual <!-- omit in toc -->
 
 ![](Pictures-en/CartaoCidadao.png)
 
@@ -8,156 +6,79 @@ Version 3.14.0
 
 # Table of Contents
 
-1.  [**Introduction**](#introduction)
-
-2.  [**What's new?**](#whats-new)
-
-3.  [**Downloading, installation and removal of the application.**](#downloading-installation-and-removal-of-the-application)
-
-    1.  [Officially supported operating systems](#officially-supported-operating-systems)
-
-    2.  [Downloading the application installation package](#downloading-the-application-installation-package)
-
-    3.  [Application installation](#application-installation)
-
-        1.  [Installation on Microsoft Windows](#installation-on-microsoft-windows)
-
-        2.  [Installation on Linux](#installation-on-linux)
-
-        3.  [Installation on Mac OS](#installation-on-mac-os)
-
-        4.  [Installation on ChromeOS](#installation-on-chromeos)
-
-    4.  [Removing the application](#removing-the-application)
-
-        1.  [Removal from *Microsoft Windows 7*](#removal-from-microsoft-windows-7)
-
-        2.  [Removal from *Microsoft Windows 10 or 11*](#removal-from-microsoft-windows-10-or-11)
-
-        3.  [Removal from Linux and ChromeOS](#removal-from-linux-and-chromeos)
-
-        4.  [Removal from MacOS](#removal-from-macos)
-
-    5.  [Application update](#application-update)
-
-        1.  [Linux update](#linux-update)
-
-4.  [**Autenticação.Gov Utility Application**](#autenticaçãogov-utility-application)
-
-    1.  [Application Presentation](#application-presentation)
-
-    2.  [Application features](#application-features) 
-
-        1.  [Card Menu](#card-menu) 
-
-        2.  [Digital signature](#digital-signature) 
-
-        3.  [Security](#security)
-
-        4.  [Configurations](#configurations)
-
-        5.  [Help](#help)
-
-        6.  [Notification Centre](#notification-centre)
-
-        7.  [Contactless Access](#contactless-access)
-
-5.  [**Integration with applications**](#integration-with-applications)
-
-    1.  [Integration with Windows applications](#integration-with-windows-applications)
-
-    2.  [Integration with applications via the PKCS#11 interface](#integration-with-applications-via-the-pkcs11-interface)
-
-    3.  [Digital signatures in common applications](#digital-signatures-in-common-applications)
-
-        1.  [Digital signature in *Microsoft Office*](#digital-signature-in-microsoft-office-suite)
-
-        2.  [Digital signature in *LibreOffice / OpenOffice*](#digital-signature-in-the-libreoffice--openoffice)
-
-        3.  [Digital e-mail signature with *Microsoft Outlook*](#digital-e-mail-signature-with-microsoft-outlook)
-
-        4.  [Digital signature in *Adobe Acrobat Reader*](#digital-signature-in-adobe-acrobat-reader)
-
-        5.  [Digital signature in *Adobe Acrobat Reader* on MacOS (as from version 3.11.0)](#digital-signature-in-adobe-acrobat-reader-on-macos)
-
-        6.  [Digital signature with Digital Mobile Key](#digital-signature-with-digital-mobile-key)
-
-        7.  [Digital e-mail signature with Mozilla Thunderbird](#digital-e-mail-signature-with-mozilla-thunderbird)
-
-        8.  [Digital signature DWF files](#digital-signature-of-dwf-files)
-
-        9. [Digital signature DWG files](#digital-signature-of-dwg-files)
-
-    4.  [Authentication at WEB portals](#authentication-at-web-portals)
-
-        1.  [Configure authentication for *Mozilla Firefox*](#configure-authentication-for-mozilla-firefox)
-
-6.  [**Problem-Solving**](#problem-solving)
-
-    1.  [An error message is displayed when attempting to add the PKCS#11 module to *Firefox*](#an-error-message-is-displayed-when-attempting-to-add-the-pkcs11-module-to-firefox--thunderbird)
-        [*Thunderbird*](#an-error-message-is-displayed-when-attempting-to-add-the-pkcs11-module-to-firefox--thunderbird)
-
-    2.  [It is not possible to add the PKCS#11 module to *Adobe Acrobat Reader* in *MacOS*](#tt-is-not-possible-to-add-the-pkcs11-module-to-adobe-acrobat-reader-in-macos)
-
-    3.  [Unable to sign in *Adobe Reader*, *Microsoft Office* and *LibreOffice* with Citizen's Card](#incompatibility-of-citizens-card-signatures-with-adobe-reader-microsoft-office-or-libreoffice)
-
-    4.  [The card reader is installed but is not detected by the Citizen's Card application.](#the-card-reader-is-installed-but-is-not-detected-by-the-citizens-card-application)
-
-        1.  [Windows](#windows)
-
-        2.  [Linux](#linux)
-
-    5.  [No certificates were detected during the signing attempt in the *Libre-*](#failure-to-detect-certificates-during-signature-attempts-within-libreoffice--apache-openoffice) [*Office / Apache OpenOffice*](#failure-to-detect-certificates-during-signature-attempts-within-libreoffice--apache-openoffice)
-
-    6.  [Graphics issues in the application](#graphics-issues-in-the-application)
-
-    7.  [Issues with integrated graphics cards](#issues-with-integrated-graphics-cards)
-
-    8.  [It is not possible to move/drag the application (Linux on Wayland)](#the-application-interface-does-not-support-move-or-drag-operations-linux-in-wayland)
-
-    9.  [Application won't start](#application-start-up-failure)
-
-    10. [Issues with the new chain of trust](#issues-with-the-new-chain-of-trust)
-
-    11. [Issues validating signatures](#issues-validating-signatures)
-
-    12. [Issues with unsupported PDF files.](#issues-with-unsupported-pdf-files)
-
-    13. [Error in communication when signing with a Digital Mobile Key](#error-in-communication-when-signing-with-a-digital-mobile-key)
-
-    14. [Online services used by the application](#online-services-used-by-the-application)
-
-    15. [Obtaining the report for analysis via the Configurations menu](#obtaining-the-report-for-analysis-via-the-configurations-menu)
-
-    16. [Removing metadata from PDF files](#removing-metadata-from-pdf-files) 
-
-    17. [File properties signed by AutoCAD](#properties-of-the-file-signed-by-autocad)
-
-<!-- -->
-
-7.  [**Command-line interface**](#command-line-interface)
-
-    1.  [Consult help and version](#consult-help-and-version)
-
-    2.  [Shortcut to configure graphics rendering mode](#shortcut-to-configure-graphics-rendering-mode) 
-
-    3.  [Shortcut to signature submenu](#shortcut-to-signature-submenu)
-
-8.  [**Configuration instructions in business environments**](#configuration-instructions-in-business-environments)
-
-    1.  [Configurations via Windows registry keys](#configurations-via-windows-registry-keys) 
-
-    2.  [Configuration via configuration file in Linux and MacOS](#configurations-via-configuration-file-on-linux-and-macos)
-
-    3.  [Automated installation in Windows environments](#automated-installation-in-windows-environments)
-
-    4.  [Information about proxy servers](#information-about-proxy-servers)
-
-        1.  [Configuration in *Windows*](#configuration-in-windows)
-
-        2.  [Configuration in *MacOS*](#configuration-in-macos)
-
-9.  [**User Notes**](#user-notes) **85**
+- [Introduction](#introduction)
+- [What's new ?](#whats-new)
+- [**Downloading, installation and removal of the application.**](#downloading-installation-and-removal-of-the-application)
+  - [Officially supported operating systems](#officially-supported-operating-systems)
+  - [Downloading the application installation package](#downloading-the-application-installation-package)
+  - [Application installation](#application-installation)
+    - [Installation on Microsoft Windows](#installation-on-microsoft-windows)
+    - [Installation on Linux](#installation-on-linux)
+    - [Installation on Mac OS](#installation-on-mac-os)
+    - [Installation on ChromeOS](#installation-on-chromeos)
+  - [Removing the application](#removing-the-application)
+    - [Removal from *Microsoft Windows 7*](#_heading=h.z8cko4o53ivq)
+    - [Removal from *Microsoft Windows 10 or 11*](#_heading=h.kaaa0yaudjtc)
+    - [Removal from Linux and ChromeOS](#removal-from-linux-and-chromeos)
+    - [Removal from MacOS](#removal-from-macos)
+  - [Application update](#application-update)
+    - [Linux update](#linux-update)
+- [**Autenticação.Gov Utility Application**](#autenticação.gov-utility-application)
+  - [Application Presentation](#application-presentation)
+  - [Application features](#application-features)
+    - [Card Menu](#card-menu)
+    - [Digital signature](#digital-signature)
+    - [Security](#security)
+    - [Configurations](#configurations)
+    - [Help](#help)
+    - [Notification Centre](#notification-centre)
+    - [Contactless Access](#contactless-access)
+- [**Integration with applications**](#integration-with-applications)
+  - [Integration with Windows applications](#integration-with-windows-applications)
+  - [Integration with applications via the PKCS#11 interface](#integration-with-applications-via-the-pkcs11-interface.)
+  - [Digital signatures in common applications](#digital-signatures-in-common-applications)
+    - [Digital signature in the *Microsoft Office* suite](#_heading=h.4pyr0kgolzfi)
+    - [Digital signature in the *LibreOffice / OpenOffice* suite](#_heading=h.buuqvm1lhecn)
+    - [Digital e-mail signature with *Microsoft Outlook*](#_heading=h.7i6nv1lj6u37)
+    - [Digital signature in *Adobe Acrobat Reader*](#_heading=h.a2of7nc5rjlk)
+    - [Digital signature in *Adobe Acrobat Reader* on MacOS (as from version 3.11.0)](#_heading=h.4ctk8xmogvvd)
+    - [Digital signature with Digital Mobile Key](#digital-signature-with-digital-mobile-key)
+    - [Digital e-mail signature with Mozilla Thunderbird](#digital-e-mail-signature-with-mozilla-thunderbird)
+    - [Digital signature of DWF files](#digital-signature-of-dwf-files)
+    - [Digital signature of DWG files](#digital-signature-of-dwg-files)
+  - [Authentication at WEB portals](#authentication-at-web-portals)
+    - [Configure authentication for *Mozilla Firefox*](#_heading=h.sv0q7sh5zvii)
+- [**Problem-Solving**](#problem-solving)
+  - [An error message is displayed when attempting to add the PKCS#11 module to *Firefox /* *Thunderbird*](#_heading=h.wngnymlfv7t2)
+  - [It is not possible to add the PKCS#11 module to *Adobe Acrobat Reader* in *MacOS*](#_heading=h.skdees10fz7i)
+  - [Unable to sign in *Adobe Reader*, *Microsoft Office* and *LibreOffice* with Citizen's Card](#_heading=h.c0gc8h4os1os)
+  - [The card reader is installed but is not detected by the Citizen's Card application.](#the-card-reader-is-installed-but-is-not-detected-by-the-citizens-card-application)
+    - [Windows](#windows)
+    - [Linux](#linux)
+  - [No certificates were detected during the signing attempt in the *Libre-* *Office / Apache OpenOffice* suite](#_heading=h.b844l9z07aws)
+  - [Graphics issues in the application](#graphics-issues-in-the-application)
+  - [Issues with integrated graphics cards](#issues-with-integrated-graphics-cards)
+  - [It is not possible to move/drag the application (Linux on Wayland)](#the-application-interface-does-not-support-move-or-drag-operations-linux-in-wayland)
+  - [Application won't start](#application-start-up-failure)
+  - [Issues with the new chain of trust](#issues-with-the-new-chain-of-trust)
+  - [Issues validating signatures](#issues-validating-signatures)
+  - [Issues with unsupported PDF files.](#issues-with-unsupported-pdf-files)
+  - [Error in communication when signing with a Digital Mobile Key](#error-in-communication-when-signing-with-a-digital-mobile-key)
+  - [Online services used by the application](#online-services-used-by-the-application)
+  - [Obtaining the report for analysis via the Configurations menu](#obtaining-the-report-for-analysis-via-the-configurations-menu)
+  - [Removing metadata from PDF files](#removing-metadata-from-pdf-files)
+  - [File properties of the file signed by AutoCAD](#properties-of-the-file-signed-by-autocad)
+- [**Command-line interface**](#command-line-interface)
+  - [Consult help and version](#consult-help-and-version)
+  - [Shortcut to configure graphics rendering mode](#shortcut-to-configure-graphics-rendering-mode)
+  - [Shortcut to signature submenu](#shortcut-to-signature-submenu)
+- [**Configuration instructions in business environments**](#configuration-instructions-in-business-environments)
+  - [Configurations via Windows registry keys](#configurations-via-windows-registry-keys)
+  - [Configuration via configuration file on Linux and MacOS](#configurations-via-configuration-file-on-linux-and-macos)
+  - [Automated installation in Windows environments](#automated-installation-in-windows-environments)
+  - [Information about proxy servers](#information-about-proxy-servers)
+    - [Configuration in *Windows*](#_heading=h.u5k51mdcva59)
+    - [Configuration in *MacOS*](#_heading=h.of3hwgki6ddz)
 
 # Introduction
 
@@ -251,9 +172,9 @@ Autenticação.gov application for computers.
 ## Downloading the application installation package
 
 To obtain the application installation package, access the official
-Citizen's Card website on the [Autenticação.gov application for
-computers.](https://www.autenticacao.gov.pt/web/guest/cc-aplicacao)
-and download the correct version for operating systems.
+website at [Autenticação.gov application for
+computers](https://www.autenticacao.gov.pt/web/guest/cc-aplicacao)
+and download the correct version for your operating system.
 
 By clicking the link, an attempt is made to identify the operating
 system using the data provided by the browser, and a hyperlink is
@@ -265,7 +186,7 @@ identified and a list of supported distributions for the detected
 architecture is displayed.
 
 This page contains a list of all officially supported operating system
-installation packages and user manuals.
+installer packages and user manuals.
 
 ![](Pictures-en/Portal_Autenticacao.Gov_Download.png)
 
@@ -328,13 +249,11 @@ To install this version of the application, the procedure is as
 follows:
 
 1.  Any native version of the pteid-mw package installed on the system
-    shall be uninstalled. For example, in Ubuntu use the command: sudo
-    apt remove pteid-mw
+    shall be uninstalled. For example, on Ubuntu use the command: `sudo apt remove pteid-mw`
 
 2.  The Flatpak software shall be installed following the specific
-    instructions for the distribution:
-    [https://flatpak.org/](https://flatpak.org/setup/)
-    [setup/](https://flatpak.org/setup/)
+    instructions for your Linux distribution:
+    [https://flatpak.org/setup](https://flatpak.org/setup/)
 
 3.  The pcsc-lite/pcscd package shall be installed in the system using
     the distribution's native packages. The application works without
@@ -376,9 +295,7 @@ follows:
 ### Installation on ChromeOS
 
 1.  The Flatpak software shall be installed following the specific
-    instructions for ChromeOS:
-    [https://flatpak.org/](https://flatpak.org/setup/Chrome%20OS)
-    [setup/Chrome%20OS](https://flatpak.org/setup/Chrome%20OS)
+    instructions for ChromeOS: [https://flatpak.org/setup/Chrome%20OS](https://flatpak.org/setup/Chrome%20OS)
 
 2.  Download the Linux installer in Flatpak format from the [official
     page.](https://www.autenticacao.gov.pt/web/guest/cc-aplicacao)
@@ -484,13 +401,10 @@ sudo /usr/local/bin/pteid_uninstall.sh
 
 Upon transferring the installation file via the menu
 **Configurations** -> **Updates** of the application, the
-installation file is found in the **Transfers** directory, by default
-under `~/Downloads`.
+installation file is found in the **Transfers** directory, by default under `~/Downloads`.
 
 The latest version of the application can always be downloaded from
-the [official
-page](https://www.autenticacao.gov.pt/web/guest/cc-aplicacao) at
-https://www.autenticacao.gov.pt
+the [official page](https://www.autenticacao.gov.pt/web/guest/cc-aplicacao).
 
 After downloading the installation file, follow the steps set out in
 the section "Installation via command line" to complete the update.
@@ -586,15 +500,15 @@ services. This requires a working internet connection to read the
 address. It shall be ensured that there is no *firewall* or other
 *software* on the local network preventing connection to the addresses
 morada.cartaodecidadao.pt or morada2.cartaodecidadao.pt .
->
-> On the Address tab, view the current address and access the
-portal[gov.pt](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao)
+
+On the Address tab, view the current address and access 
+[gov.pt](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao) 
 to complete the address change process.
->
-> Both features require an internet connection. Ensure connection before
+
+Both features require an internet connection. Ensure connection before
 starting the process.
->
-> To complete the address change process, visit the following webpage:
+
+To complete the address change process, visit the following webpage:
 [Confirm the change of
 address.](https://eportugal.gov.pt/servicos/confirmar-a-alteracao-de-morada-do-cartao-de-cidadao)
 
@@ -743,9 +657,7 @@ files) and the respective signature in XAdES format.
   stamp is the local time of the computer where the signature was
   provided , not having to match the time on the timestamp (obtained
   from a remote server). Available for signature types **PDF** and
-  **Other Files**. [See Timestamp Service](#signature-configuration) [on
-  the Signature configurations page](#signature-configuration)
-
+  **Other Files**. [See Timestamp Service on the Signature configurations page](#signature-configuration)
 * **Long-term validation:** With this option enabled, the data
 required to validate the digital signature are included in the final
 signed file. In this way, it is possible to prove in the future that
@@ -1071,11 +983,10 @@ application to be running (minimised or maximised).
 - **Timestamp Service:** Set up a customised timestamp service.
 
 The application allows the selection of a different server for
-obtaining time stamps, as the default server for the Citizen's Card
-is([http://ts.cartaodecidadao.pt/tsa/server](http://ts.cartaodecidadao.pt/tsa/server%25)
-[5D(http://ts.cartaodecidadao.pt/tsa/server))](http://ts.cartaodecidadao.pt/tsa/server)))
-There is a maximum limit of 20 requests in each 20-minute period. If
-this amount is exceeded, the service will be blocked for 24 hours,
+obtaining time stamps, as the default TSA server for Citizen's Card
+[http://ts.cartaodecidadao.pt/tsa/server](http://ts.cartaodecidadao.pt/tsa/server) 
+has a limit of 20 requests in each 20-minute period. If
+this amount is exceeded, service access  will be blocked for 24 hours,
 allowing for any other consequences in case of repeated blocking
 situations. (For further information on the Citizen's Card timestamp
 service, visit
@@ -1297,7 +1208,7 @@ Digital signing of document, following these steps:
 3.  A specific message appears from the application being used (*Word*,
     *Excel* or *Powerpoint*), click **OK**.
 
-4.  In the dialog box **Sign**, enter the signature **Objective** as
+4.  In the dialog box **Sign**, enter the signature purpose as
     shown in the image below:
 
 ![](Pictures-en/Autenticacao.Gov_microsoft_office3.png)
@@ -1319,7 +1230,7 @@ This section presents the digital signing of documents in
 and *Impress*. The version used in this manual was *LibreOffice 5.3*.
 The interface for this feature is quite similar across all versions
 from 4.0.0 onwards.
->
+
 In Linux operating systems, the detection of digital certificates in
 this Suite depends on the security configurations of *Mozilla
 Thunderbird* or *Mozilla Firefox*. For this feature to be available,
@@ -1558,9 +1469,8 @@ certificate has expired, repeat the registration procedure.
 following differences:
 
 - During configuration or at the time of signing, choose the certificate
-  issued by the **Citizen's Card X Qualified Digital Signature Digital
-  Mobile Key CA** (where "X" is a 5-digit number, for example, 00001
-  or 00002).
+  issued by **EC de Chave Móvel Digital de Assinatura Digital Qualificada do Cartão de Cidadão X**
+  (where "X" is a 5-digit number, for example, 00001 or 00002).
 
 ![](Pictures-en/Assinar_Word_CMD.png)
 
