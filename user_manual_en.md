@@ -714,8 +714,7 @@ The image below is an example of a file signed with the
 ![](Pictures-en/Autenticacao.Gov_Assinatura_exemplo.png)
 
 If there any issues validating signatures, check whether the issue is
-related with the topic [Issues](#issues-with-the-new-chain-of-trust)
-[with the new chain of trust.](#issues-with-the-new-chain-of-trust)
+related with the topic [Issues with the new chain of trust](#issues-with-the-new-chain-of-trust)
 
 1.  **Key introduction** A digital signature enables the holder of a
     **Citizen's Card** or **Digital Mobile Key** to sign, of their own
@@ -726,7 +725,7 @@ If signing with the personal key on the Citizen's Card, upon
 selecting the **Sign with Citizen's Card** option, the signature PIN
 must be entered as shown in the following figure.
 
-![]((Pictures-en/Autenticacao.Gov_assinatura_cc.png)
+![](Pictures-en/Autenticacao.Gov_assinatura_cc.png)
 
 If signing with the Digital Mobile Key, upon selecting the **Sign with
 Digital Mobile Key** option, enter the credentials as shown in the
@@ -891,9 +890,7 @@ button, a compressed folder (zip file) is created on the Desktop
 containing all the log files. Send this folder (zip file), attached to
 a description of the issue, to the support contact. For further
 information, see the chapter
-[Obtaining](#obtaining-the-report-for-analysis-via-the-configurations-menu)
-[Report for analysis on the Configurations
-menu.](#obtaining-the-report-for-analysis-via-the-configurations-menu)
+[Obtaining Report for analysis on the Configurations menu](#obtaining-the-report-for-analysis-via-the-configurations-menu)
 
 The *log* files by default are created at the following locations and
 are named with the prefix
@@ -1036,8 +1033,6 @@ deactivating the "Use card data cache" option.
     installer and subsequent initiation of the installation process,
     subject to available updates and user preference.
 
-.
-
 ### Help
 
 The help window provides a summary of the application's features,
@@ -1131,7 +1126,7 @@ Key through the digital signature component. Follow the procedure
 described under [Digital signature with Digital Mobile
 Key](#digital-signature-with-digital-mobile-key)
 [.](#digital-signature-with-digital-mobile-key)
->
+
 Upon signing with a Digital Mobile Key, the verification message sent
 to the user follows one of the following two formats:
 
@@ -1557,7 +1552,7 @@ the correct root certificate for the card and for the question "Do
 you trust "ECRaizestado/EcRaizEstado 002" for the following
 purposes?" select the option: "Trust this CA to identify e-mail
 users."
->
+
 **Signature** - to be performed for each signed e-mail sent. Only
 required for Thunderbird versions prior to version 102.
 
@@ -1836,20 +1831,19 @@ installation](#installation-on-linux) section
 
 3.  Check whether **pcscd daemon** is up and running:
 
-    a)  In a terminal window, execute the following command:
+    a\)  In a terminal window, execute the following command:
 
-ps -e \| grep pcscd
+    `ps -e | grep pcscd`
 
-b)  Search for a reference to the pcscd process.
+    b\)  Search for a reference to the pcscd process.
 
-c)  If not listed, start the service using the command: sudo systemctl
+    c\)  If not listed, start the service using the command: sudo systemctl
     start pcscd
 
-d)  If an error message is received, pcscdmay not be installed. Use your
-    Linux distribution's package manager to install pcscd (sometimes
+    d\)  If an error message is received, pcscd may not be installed. Use your
+    Linux distribution package manager to install pcscd (sometimes it is
     included in a package called pcsc-lite).
 
-<!-- -->
 
 ### Failure to detect certificates during signature attempts within *LibreOffice / Apache OpenOffice***
 
@@ -1880,9 +1874,8 @@ is advised. Change it in the Graphics Acceleration section of the
 **In the event of application startup failure,** change this option in
 three different ways:
 
-1.  [Exclusive to Windows as from application version 3.4.0 onwards]
-    In the application's installation folder (which, by default, is
-    C:\Program Files\Portugal Identity Card ) there are three
+1.  In the application's installation folder (which, by default, is
+    `C:\Program Files\Portugal Identity Card` ) there are three
     shortcuts to open the application by changing the graphics rendering
     mode. The shortcuts are clickable icons with the application's
     symbol and the following names:
@@ -1904,18 +1897,15 @@ icon on the desktop or in the start menu.
     Keys in Windows or configuration file in Linux and MacOS).
 
     - In **Windows**, the registry key:
+	**HKEY_CURRENT_USER\Software\PTEID\configuretool\graphics_acceleration**;
 
-### HKEY_CURRENT_USER\Software\PTEID\configuretool\graphics_acceleration;
-
-- In **Linux**, the key "graphics_acceleration" in the configuretool
+    - In **Linux**, the key "graphics_acceleration" in the configuretool
   section of the file:
+   **$HOME/.config/pteid.conf**;
 
-### $HOME/.config/pteid.conf ;
-
-- In **MacOS,** the key called "graphics_acceleration" in the
+    - In **MacOS**, the key called "graphics_acceleration" in the
   configuretool section of the file:
-
-### $HOME/Library/Preferences/pteid.conf.
+  **$HOME/Library/Preferences/pteid.conf**.
 
 The key may have the following values:
 
@@ -1929,16 +1919,12 @@ The key may have the following values:
 3.  Using the [Command-line interface.](#command-line-interface)
 
 In business environments, change this configuration as described in
-the chapter[Configuration
-instructions](#configuration-instructions-in-business-environments)
-[in business
-environments.](#configuration-instructions-in-business-environments)
+the chapter [Configuration instructions in business environments](#configuration-instructions-in-business-environments)
 
 ## Issues with integrated graphics cards
 
 When experiencing issues with graphics cards, refer to the topic
-[Graphics issues in the
-application.](#graphics-issues-in-the-application)
+[Graphics issues in the application.](#graphics-issues-in-the-application)
 
 ## The application interface does not support move or drag operations (Linux in Wayland)
 
@@ -1967,8 +1953,7 @@ Registry Keys in Windows or the configuration file in Linux and
 MacOS).
 
 One potential cause of issues is related with the computer's graphics
-card; see the topic [Graphics issues in the
-application.](#graphics-issues-in-the-application)
+card; see the topic [Graphics issues in the application.](#graphics-issues-in-the-application)
 
 ## Issues with the new chain of trust
 
@@ -1981,8 +1966,7 @@ as well as by some applications not using the list of trusted services
 published by the European Union.
 
 Install the certificate from the Windows Store through the Citizen's
-Card application in the [Signature configuration
-submenu.](#signature-configuration) Click the **Install certificate**
+Card application in the [Signature configuration submenu.](#signature-configuration) Click the **Install certificate**
 button in the section **New State Root Certificate**. The certificate
 shall be added to the Trusted Root Certification Authorities Store
 associated with the Current User. **Note:** The automatic certificate
@@ -2002,12 +1986,10 @@ of the manual).
 
 In the event of validation problems in Adobe Acrobat Reader, for
 example, when receiving the message "Signature validity is UNKNOWN"
-in a signature generated with the Mobile Key or Citizen's Card, the
-alternative [A](https://validador.autenticacao.gov.pt/validation)RTE
-[Signature Validation Service is
-advised](https://validador.autenticacao.gov.pt/validation).
+in a signature generated with the Mobile Key or Citizen's Card, using the
+alternative [ARTE Signature Validation Service](https://validador.autenticacao.gov.pt/validation) is advised.
 
-This service validates signatures in accordance with European
+This service validates signatures according to European
 standards for qualified electronic signatures. The documents submitted
 **are not saved** on the server after processing.
 
@@ -2051,80 +2033,61 @@ connection to these services.
 
 The *hostnames* and respective ports used are listed below by feature.
 
-### Authentication with Digital Mobile Key:
+** Authentication with Digital Mobile Key:**
 
 - cmd.autenticacao.gov.pt (port 443)
 
-### Certificate validation:
+**Certificate validation:**
 
 OCSP Servers:
 
 - ocsp.ecee.gov.pt (port 80 and 443)
-
 - ocsp.multicert.com (port 80)
-
 - ocsp.root.cartaodecidadao.pt (port 80)
-
 - ocsp.auc.cartaodecidadao.pt (port 80)
-
 - ocsp.asc.cartaodecidadao.pt (port 80)
-
 - ocsp.asc.pki2.cartaodecidadao.pt (port 80)
-
 - ocsp.asc.pki2.cartaodecidadao.pt (port 80)
-
 - ocsp.root.pki2.cartaodecidadao.pt (port 80)
 
 CRL Servers:
 
 - crls.ecee.gov.pt (port 80)
-
 - pkiroot.multicert.com (port 80)
-
 - pki.cartaodecidadao.pt (port 80)
-
 - pki2.cartaodecidadao.pt (port 80)
 
-### Signature with Professional Attributes:
+**Signature with Professional Attributes:**
 
 - scap.autenticacao.gov.pt (port 443)
-
 - autenticacao.gov.pt (port 443) (only for loading with CMD)
 
-### Reading the address:
+**Reading online address:**
 
 - morada.cartaodecidadao.pt (port 443)
-
 - morada2.cartaodecidadao.pt (port 443)
 
-### Application update:
+**Application update:**
 
 - autenticacao.gov.pt (port 443)
-
 - aplicacoes.autenticacao.gov.pt (port 443)
 
-### Certificate and news updates:
+**Certificate and news updates:**
 
 - raw.githubusercontent.com
-
-  - When obtaining the file at
-    [https://raw.githubusercontent.com/amagovpt/autenticacao.gov/](https://raw.githubusercontent.com/amagovpt/autenticacao.gov/master/pteid-mw-pt/_src/eidmw/news.json)
-    [master/pteid-mw-pt/\_src/eidmw/news.json](https://raw.githubusercontent.com/amagovpt/autenticacao.gov/master/pteid-mw-pt/_src/eidmw/news.json)
-
+  - When downloading the file at
+    https://raw.githubusercontent.com/amagovpt/autenticacao.gov/master/pteid-mw-pt/_src/eidmw/news.json
+    
 - github.com
+  - URLs in the following format:
+    https://github.com/amagovpt/autenticacao.gov/blob/master/pteid-mw-pt/_src/eidmw/misc/certs/FILENAME
 
-  - URLs in the format:
-    [https://github.com/amagovpt/autenticacao.gov/blob/master/pteid-mw-pt/](https://github.com/amagovpt/autenticacao.gov/blob/master/pteid-mw-pt/_src/eidmw/misc/certs/NOME_DO_FICHEIRO)
+**Documentation:**
 
-[\_src/eidmw/misc/certs/NOME_DO_FICHEIRO](https://github.com/amagovpt/autenticacao.gov/blob/master/pteid-mw-pt/_src/eidmw/misc/certs/NOME_DO_FICHEIRO)
+- URLs in the following format:
+  https://amagovpt.github.io/docs.autenticacao.gov/FILENAME
 
-### Documentation:
-
-- URLs in the format:
-  [https://amagovpt.github.io/docs.autenticacao.gov/](https://amagovpt.github.io/docs.autenticacao.gov/NOME_DO_FICHEIRO)FILENAME
-
-### Timestamp (by default):
-
+**Timestamp (by default):**
 - ts.cartaodecidadao.pt (port 80)
 
 ## Obtaining the report for analysis via the Configurations menu
@@ -2279,185 +2242,112 @@ A standardised installation is configured by adding some values to the
 using the keys listed below, sub-keys of the root key:
 **`HKLM\Software\PTEID`**
 
-**Note:** The following logs are never removed or altered:
+**Note:** The following registry entries MUST never be removed or altered:
 
 `HKLM\Software\PTEID\general\install_dirname`
 
 `HKLM\Software\PTEID\general\certs_dir`
 
-The following logs can be added:
-
-`HKLM\Software\PTEID\logging\log_level`
-
-- **Type**: String (debug, info, warning, error)
-
-- **Description:** Level of detail in the Middleware and application
-  logs.
-
-- **Default value**: error
-
-`HKLM\Software\PTEID\logging\log_dirname`
-
-- **Type**: String
-
-- **Description:** Directory where middleware and application log files
-  are generated.
-
-- **Default value**: C:\Program Files\Portugal Identity Card\log
-
-`HKLM\Software\PTEID\logging\log_prefix`
-
-- **Type**: String
-
-- **Description:** Prefix for the name of the log files.
-
-- **Default value**: .PTEID\_
-
-`HKLM\Software\PTEID\general\admin_config`
-
-- **Type**: Number (0 / 1)
-
-- **Description:** Enable (1) or disable (0) the administrator
-  configuration, forcing the use of the proxy configured by the
-  administrator in the proxy registration section in HKLM. Consequently,
-  user-entered values are ignored and the proxy configuration is
-  disabled in the application settings.
-
-- **Default value**: 0 (disabled)
-
-`HKLM\Software\PTEID\general\cache_dirname`
-
-- **Type**: String
-
-- **Description:** Directory where the Middleware and application cache
-  is stored.
-
-- **Default value**: `C:\Users[User]\AppData\Roaming\.pteid-ng`
-
-`HKLM\Software\PTEID\general\cache_enabled`
-
-- **Type**: Number (0 / 1)
-
-- **Description:** Enable (1) or disable (0) the cache for Citizen's
-  Card data.
-
-- **Default value**: 1 (active)
-
-`HKLM\Software\PTEID\general\scap_host`
-
-- **Type**: String
-
-- **Description:** Hostname of the Professional Attributes Service
-  (SCAP).
-
-- **Default value**: scap.autenticacao.gov.pt
-
-`HKLM\Software\PTEID\general\scap_port`
-
-- **Type**: Number (1 to 65535)
-
-- **Description:** Professional Attributes Service port (SCAP).
-
-`HKLM\Software\PTEID\general\use_pinpad`
-
-- **Type**: Number (0 / 1)
-
-- **Description:** Use PINPAD feature.
-
-- **Default value**: 1 (Yes)
-
-`HKLM\Software\PTEID\general\auth_pin_cache_normal`
-
-- **Type**: Number (0 / 1)
-
-- **Description:** Authentication PIN Caching via Minidriver.
-
-- **Default value**: 0 (No). For versions prior to 3.1.0, the default
-  value is 1.
-
-### Configurable from version: 3.1.0
-
-`HKLM\Software\PTEID\configuretool\start_autoupdate`
-
-- **Type**: Number (0 / 1)
-
-- **Description:** Check for software or certificate updates upon
-  application start-up and notify the user.
-
-- **Default value**: 1 (Yes)
-
-`HKLM\Software\PTEID\configuretool\graphics_accelaration`
-
-- **Type**: Number (0 / 1 / 2 (only in Windows))
-
-- **Description:** Graphics rendering mode. 0 for software rendering
-  (OpenGL), 1 for hardware rendering (Graphics card), or 2 for Software
-  rendering (ANGLE emulating OpenGL using Direct3D).
-
-- **Default value**: 1 (Graphics card)
-
-`HKLM\Software\PTEID\configuretool\start_with_windows`
-
-- **Type**: Number (0 / 1)
-
-- **Description:** Start the application with Windows.
-
-- **Default value**: 1 (Yes)
-
-`HKLM\Software\PTEID\configuretool\registrate_certificate`
-
-- **Type**: Number (0 / 1)
-
-- **Description:** Register certificates in Windows by inserting the
-  card. The certificate registration and removal options require this
-  application to be running (minimised or maximised).
-
-- **Default value**: 1 (Yes)
-
-`HKLM\Software\PTEID\configuretool\remove_certificate`
-
-- **Type**: Number (0 / 1)
-
-- **Description:** Remove Windows certificates by removing the card.
-
-- **Default value**: 0 (No)
-
-`HKLM\Software\PTEID\proxy\use_system_proxy`
-
-- **Type**: Number (0 / 1)
-
-- **Description:** Use the proxy server defined in Windows/MacOS.
-
-- **Default value**: 1 (Yes)
-
-`HKLM\Software\PTEID\proxy\proxy_host`
-
-- **Type**: String (hostname or IP address)
-
-- **Description:** Proxy server address.
-
-`HKLM\Software\PTEID\proxy\proxy_port`
-
-- **Type**: Number (1 to 65535)
-
-- **Description:** TCP Port of proxy server.
-
-`HKLM\Software\PTEID\certificatecache\cert_cache_validity`
-
-- **Type**: Number (0 to 2147483647)
-
-- **Description:** Local cache time (in seconds) of the certificate
-  validity status.
-
-### Default value: 60
-
-`HKLM\Software\PTEID\xsign\tsa_url`
-
-- **Type**: String
-
-- **Description:** Timestamp server used for signing documents in the format `http(s)://HOST:PORTO`
-
-- **Default value**: `http://ts.cartaodecidadao.pt/tsa/server`
+The following registry entries can be added:
+
+- `HKLM\Software\PTEID\logging\log_level`
+  - **Type:** String (`debug`, `info`, `warning`, `error`)
+  - **Description:** Level of detail in the Middleware and application logs.
+  - **Default value:** `error`
+
+- `HKLM\Software\PTEID\logging\log_dirname`
+  - **Type:** String
+  - **Description:** Directory where middleware and application log files are generated.
+  - **Default value:** `C:\Program Files\Portugal Identity Card\log`
+
+- `HKLM\Software\PTEID\logging\log_prefix`
+  - **Type:** String
+  - **Description:** Prefix for the name of the log files.
+  - **Default value:** `.PTEID_`
+
+- `HKLM\Software\PTEID\general\admin_config`
+  - **Type:** Number (`0` / `1`)
+  - **Description:** Enable (`1`) or disable (`0`) the administrator configuration, forcing the use of the proxy configured by the administrator in the proxy registration section in HKLM. Consequently, user-entered values are ignored and the proxy configuration is disabled in the application settings.
+  - **Default value:** `0` (disabled)
+
+- `HKLM\Software\PTEID\general\cache_dirname`
+  - **Type:** String
+  - **Description:** Directory where the Middleware and application cache is stored.
+  - **Default value:** `C:\Users[User]\AppData\Roaming\.pteid-ng`
+
+- `HKLM\Software\PTEID\general\cache_enabled`
+  - **Type:** Number (`0` / `1`)
+  - **Description:** Enable (`1`) or disable (`0`) the cache for Citizen's Card data.
+  - **Default value:** `1` (active)
+
+- `HKLM\Software\PTEID\general\scap_host`
+  - **Type:** String
+  - **Description:** Hostname of the Professional Attributes Service (SCAP).
+  - **Default value:** `scap.autenticacao.gov.pt`
+
+- `HKLM\Software\PTEID\general\scap_port`
+  - **Type:** Number (`1` to `65535`)
+  - **Description:** Professional Attributes Service port (SCAP).
+
+- `HKLM\Software\PTEID\general\use_pinpad`
+  - **Type:** Number (`0` / `1`)
+  - **Description:** Use PINPAD feature.
+  - **Default value:** `1` (Yes)
+
+- `HKLM\Software\PTEID\general\auth_pin_cache_normal`
+  - **Type:** Number (`0` / `1`)
+  - **Description:** Authentication PIN caching via Minidriver.
+  - **Default value:** `0` (No). For versions prior to `3.1.0`, the default value is `1`.
+  - **Configurable from version:** `3.1.0`
+
+- `HKLM\Software\PTEID\configuretool\start_autoupdate`
+  - **Type:** Number (`0` / `1`)
+  - **Description:** Check for software or certificate updates upon application start-up and notify the user.
+  - **Default value:** `1` (Yes)
+
+- `HKLM\Software\PTEID\configuretool\graphics_accelaration`
+  - **Type:** Number (`0` / `1` / `2` (only in Windows))
+  - **Description:** Graphics rendering mode. `0` for software rendering (OpenGL), `1` for hardware rendering (graphics card), or `2` for software rendering (ANGLE emulating OpenGL using Direct3D).
+  - **Default value:** `1` (Graphics card)
+
+- `HKLM\Software\PTEID\configuretool\start_with_windows`
+  - **Type:** Number (`0` / `1`)
+  - **Description:** Start the application with Windows.
+  - **Default value:** `1` (Yes)
+
+- `HKLM\Software\PTEID\configuretool\registrate_certificate`
+  - **Type:** Number (`0` / `1`)
+  - **Description:** Register certificates in Windows by inserting the card. The certificate registration and removal options require this application to be running (minimised or maximised).
+  - **Default value:** `1` (Yes)
+
+- `HKLM\Software\PTEID\configuretool\remove_certificate`
+  - **Type:** Number (`0` / `1`)
+  - **Description:** Remove Windows certificates by removing the card.
+  - **Default value:** `0` (No)
+
+- `HKLM\Software\PTEID\proxy\use_system_proxy`
+  - **Type:** Number (`0` / `1`)
+  - **Description:** Use the proxy server defined in Windows/MacOS.
+  - **Default value:** `1` (Yes)
+
+- `HKLM\Software\PTEID\proxy\proxy_host`
+  - **Type:** String (hostname or IP address)
+  - **Description:** Proxy server address.
+
+- `HKLM\Software\PTEID\proxy\proxy_port`
+  - **Type:** Number (`1` to `65535`)
+  - **Description:** TCP port of proxy server.
+
+
+- `HKLM\Software\PTEID\certificatecache\cert_cache_validity`
+  - **Type:** Number (`0` to `2147483647`)
+  - **Description:** Local cache time (in seconds) of the certificate validity status.
+  - **Default value:** `60`
+
+- `HKLM\Software\PTEID\xsign\tsa_url`
+  - **Type:** String
+  - **Description:** Timestamp server used for signing documents in the format `http(s)://HOST:PORTO`
+  - **Default value:** `http://ts.cartaodecidadao.pt/tsa/server`
 
 ## Configurations via configuration file on Linux and MacOS
 
@@ -2476,12 +2366,11 @@ configuration section indicated by a tag. The values specified in each
 section/tag are those indicated in the previous table for
 [Configurations via Windows registry keys.](#configurations-via-windows-registry-keys)
 
-For example, to manually enable diagnostic mode, the following 2 lines
-are added to the file:
-
+For example, to manually enable diagnostic mode, the following 2 lines should be added to the file:
+```
 [logging]
-
 log_level=debug
+```
 
 ## Automated installation in Windows environments
 
