@@ -211,31 +211,30 @@ operating system in use.
 
 2.  On the first interactive screen, you must tick the box to accept the
     application's terms and conditions. For easy installation, press
-    **Install** (move on to step 5). For advanced installation, press
-    **Advanced**. Advanced installation allows configuration of the path
+    **Instalar** (move on to step 5). For advanced installation, press
+    **Avançadas**. Advanced installation allows configuration of the path
     to the installation folder and the features to be installed.
 
 ![](Pictures-en/Autenticacao.Gov_Instalacao_termos.png)
 
-3.  After selecting **Advanced,** choose the folder where the
+3.  After selecting **Avançadas,** choose the folder where the
     application is to be installed. To change the default folder, click
-    on **Change** in the window that appears, navigate to the
+    on **Alterar** in the window that appears, navigate to the
     destination folder and press **OK**. To continue the installation in
-    the destination folder, press the **Next** button.
+    the destination folder, press the **Seguinte** button.
 
-4.  A screen should appear to choose the features to be installed. The
+4.  A screen should appear to choose the software features to be installed. The
     features are represented in a tree structure where each feature has
     a button to include or exclude it from the installation. When a
-    feature is selected, the description is displayed and the space
+    feature is selected, the description is displayed and the disk space
     required for its installation. To install the selected features,
-    click **Install**.
+    click **Instalar**.
 
 ![](Pictures-en/Autenticacao.Gov_Instalacao_funcionalidades.png)
 
 5.  After this wizard finishes, it prompts a computer restart.
 
-6.  When starting *Windows* again, the application installation will be
-    completed.
+6.  At the next *Windows* startup, the software installation will be completed.
 
 ### Installation on Linux
 
