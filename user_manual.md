@@ -2022,5 +2022,5 @@ Em MacOS é suportada a proxy do sistema mas apenas se for configurada por IP/Ho
 _________________
 
 Desenvolvido pelo Estado Português<br>
-(Agência para a Modernização Administrativa, IP e Instituto dos Registos e do Notariado, IP)<br>
-© Copyright (C) 2010-2023
+(Agência para a Reforma Tecnológica do Estado, IP e Instituto dos Registos e do Notariado, IP)<br>
+© Copyright (C) 2010-2026
