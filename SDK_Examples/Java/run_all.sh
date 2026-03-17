@@ -8,13 +8,13 @@ PHOTO_PNG="files/citizen_photo.png"
 PHOTO_JPEG2000="files/citizen_photo.jp2"
 
 
-#Possible options for example programs () : "-identity", "-addr", "-auth", "-sign", "-all"
-#Only -identity can be used with no PIN prompts
+#Possible options for sets of example programs: "-identity", "-addr", "-auth", "-sign", "-signCMD", "-all"
+#Only -identity can be used without PIN prompts
 
 OPTION=$1
 
 if [ -z $OPTION ]; then
-    echo "Usage: ./run_all.sh [-identity/-addr/-auth/-sign/-all]"
+    echo "Usage: ./run_all.sh [-identity/-addr/-auth/-sign/-signCMD/-all]"
     exit 0
 fi
 
@@ -25,10 +25,14 @@ if [ $OPTION == "-identity" ]; then
     javac -cp $JAR_PATH:. ReadCard.java
     java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. ReadCard
 
+    echo "Running Java SDK Example - TestMultipass"
+    javac -cp $JAR_PATH:. TestMultipass.java
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. TestMultipass
+
     echo "Running Java SDK Example - ListCertificates"
 
     javac -cp $JAR_PATH:. ListCertificates.java
-    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. ListCertificates
+    java -Djava.library.path=$LIB_PATH -Dfile.encoding=utf8 -cp $JAR_PATH:. ListCertificates TEST
 
     echo "Running Java SDK Example - GetPhoto"
 

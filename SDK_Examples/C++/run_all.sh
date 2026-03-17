@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#Possible options for example programs () : "-identity", "-addr", "-auth", "-sign", "-all"
-#Only -identity can be used with no PIN prompts
+#Possible options for example programs () : "-identity", "-addr", "-auth", "-sign", "-signCMD", "-all"
+#Only -identity can be used without PIN prompts
 
 OPTION=$1
 
 if [ -z $OPTION ]; then
-    echo "Usage: ./run_all.sh [-identity/-addr/-auth/-sign/-all]"
+    echo "Usage: ./run_all.sh [-identity/-addr/-auth/-sign/-signCMD/-all]"
     exit 0
 fi
 
