@@ -2104,29 +2104,28 @@ application's operation, essential for diagnosing any issues.
 
 To obtain the **Support Report**:
 
-1.  Open the application and navigate to the menu. **Configurations -> Application Configurations**.
+1.  Open the application and navigate to the menu. **Configurations -> Application configuration**.
 
-2.  In the "Diagnostic Mode" section, select the option **Activate diagnostic mode**.
+2.  In the "Debug Mode" section, select the option **Enable debug mode**.
 
 3.  Restart the application.
 
-4.  After restarting, the application indicates the active diagnostic
+4.  After restarting, the application indicates the active debug 
     mode in the application's top bar, and the bar colour changes to
     red. See image below.
 
-5.  Repeat the action that resulted in the error/issue. With the
-    diagnostic mode enabled, the information about the error/issue
-    contained in the log files shall be more detailed.
+5.  Repeat the action that resulted in the error/issue. When 
+    debug mode is enabled, the information written in the log files shall be more detailed.
 
-6.  Navigate back to the menu **Configurations ->Application Configurations**.
+6.  Navigate back to the menu **Configurations ->Application configuration**.
 
 7.  Press the **Create report** button. Upon pressing the **Create
-    report** button, a zip file containing the application's log files
-    is created on the Desktop, with a name of the type:
-    **Autenticacao.gov_logs_DATA.zip**.
+    report** button, a zip file containing the application log files
+    is created on the Desktop, named in the following format 
+    **Autenticacao.gov_logs_DATE.zip**.
 
-8.  Finally, send this zip file, along with a detailed description of
-    the issue, to the support contact at the e-mail
+8.  Finally, email this zip file, along with a detailed description of
+    the issue, to the support contact at 
     [**cartaodecidadao@irn.mj.pt**](mailto:cartaodecidadao@irn.mj.pt).
 
 ![](Pictures-en/Autenticacao.Gov_Relatorio_Suporte.png)
