@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['readercount',['readerCount',['../classeIDMW_1_1PTEID__ReaderSet.html#abcb34218a0b8cf2323eaefd56e833b22',1,'eIDMW::PTEID_ReaderSet']]],
-  ['readerlist',['readerList',['../classeIDMW_1_1PTEID__ReaderSet.html#a70be3d97532415adc997b9d0aa997ef2',1,'eIDMW::PTEID_ReaderSet']]],
-  ['readfile',['readFile',['../classeIDMW_1_1PTEID__Card.html#af2c538c31cd53c8bca9911d3fb3d1c6d',1,'eIDMW::PTEID_Card::readFile()'],['../classeIDMW_1_1PTEID__SmartCard.html#afc679558e9c47dc8558336f122ea98ed',1,'eIDMW::PTEID_SmartCard::readFile()']]],
-  ['release',['Release',['../classeIDMW_1_1PTEID__Object.html#ab1f177bc7f574cac65901fffb199f4f8',1,'eIDMW::PTEID_Object']]],
-  ['releasecard',['releaseCard',['../classeIDMW_1_1PTEID__ReaderContext.html#a7ce15b1a8427ed06851a305e983ef6cc',1,'eIDMW::PTEID_ReaderContext']]],
-  ['releasereaders',['releaseReaders',['../classeIDMW_1_1PTEID__ReaderSet.html#a52c4c02304cd5f65240e1c9baa54be50',1,'eIDMW::PTEID_ReaderSet']]],
-  ['releasesdk',['releaseSDK',['../classeIDMW_1_1PTEID__ReaderSet.html#ac189525f62e328b97f72657ed6414cf0',1,'eIDMW::PTEID_ReaderSet']]]
+  ['nationality_0',['nationality',['../classeIDMW_1_1PTEID__ICAO__DG1.html#a0d39ec6a8e0e2f5b872fbc218f9ff143',1,'eIDMW::PTEID_ICAO_DG1']]],
+  ['numberofbiometrics_1',['numberOfBiometrics',['../classeIDMW_1_1PTEID__ICAO__DG2.html#aa8babaf10ffedd6680490570bc61499a',1,'eIDMW::PTEID_ICAO_DG2']]],
+  ['numberoffacialimages_2',['numberOfFacialImages',['../classeIDMW_1_1PTEID__FaceInfo.html#a29a2703a2ee848140fc16725df5c9695',1,'eIDMW::PTEID_FaceInfo']]],
+  ['numberoffeaturepoints_3',['numberOfFeaturePoints',['../classeIDMW_1_1PTEID__FaceInfoData.html#a09c21b3de411a7f3aa9612b34acb655c',1,'eIDMW::PTEID_FaceInfoData']]],
+  ['numberofothernames_4',['numberOfOtherNames',['../classeIDMW_1_1PTEID__ICAO__DG11.html#a453bce5fe531c024e5d6acfb34764afb',1,'eIDMW::PTEID_ICAO_DG11']]]
 ];
