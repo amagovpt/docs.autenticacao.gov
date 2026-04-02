@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"classeIDMW_1_1PTEID__ReaderSet.html#ad2ab9ea381b78c15343b9308eef69df0":[2,0,0,57,8],
+"classeIDMW_1_1PTEID__ReaderSet.html#ae5629feb616937541f6fba952d10aabf":[2,0,0,57,2],
 "classeIDMW_1_1PTEID__SigningDevice.html":[2,0,0,58],
 "classeIDMW_1_1PTEID__SigningDevice.html#a03329bd1023fff909588e1146acbf0c6":[2,0,0,58,8],
 "classeIDMW_1_1PTEID__SigningDevice.html#a0e879d61cf0e078891aae33698054860":[2,0,0,58,3],

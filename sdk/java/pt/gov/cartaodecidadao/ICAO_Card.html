@@ -94,6 +94,11 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">ICAO_Card</span>
 <span class="extends-implements">extends <a href="PTEID_Object.html" title="class in pt.gov.cartaodecidadao">PTEID_Object</a></span></div>
+<div class="block">Class representing an ICAO-compliant card (MRTD - Machine Readable Travel Document).<br>
+ Provides access to standardized Data Groups (DGs) such as identity information,<br>
+ biometric data, and additional holder information, as well as authentication<br>
+ mechanisms like BAC (Basic Access Control) and PACE (Password Authenticated Connection Establishment).<br>
+ Reading Data groups requires prior authentication with either PACE or BAC.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -124,7 +129,9 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initPaceAuthentication(java.lang.String,long,pt.gov.cartaodecidadao.PTEID_CardPaceSecretType)" class="member-name-link">initPaceAuthentication</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;secret,
  long&nbsp;length,
  <a href="PTEID_CardPaceSecretType.html" title="class in pt.gov.cartaodecidadao">PTEID_CardPaceSecretType</a>&nbsp;secretType)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Init the Pace authentication process<br></div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#loadMasterList(java.lang.String)" class="member-name-link">loadMasterList</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;filePath)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -211,7 +218,12 @@ loadScripts(document, 'script');</script>
  long&nbsp;length,
  <a href="PTEID_CardPaceSecretType.html" title="class in pt.gov.cartaodecidadao">PTEID_CardPaceSecretType</a>&nbsp;secretType)</span>
                             throws <span class="exceptions"><a href="PTEID_Exception.html" title="class in pt.gov.cartaodecidadao">PTEID_Exception</a></span></div>
+<div class="block">Init the Pace authentication process<br></div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>secret</code> - string that holds the secret to make the PACE process<br></dd>
+<dd><code>length</code> - size of the secret string<br></dd>
+<dd><code>secretType</code> - type of the secret used to make the PACE process</dd>
 <dt>Throws:</dt>
 <dd><code><a href="PTEID_Exception.html" title="class in pt.gov.cartaodecidadao">PTEID_Exception</a></code></dd>
 </dl>
@@ -223,6 +235,9 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">initBACAuthentication</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;mrz_info)</span>
                            throws <span class="exceptions"><a href="PTEID_Exception.html" title="class in pt.gov.cartaodecidadao">PTEID_Exception</a></span></div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>mrz_info</code> - must contain the full MRZInfo needed for BAC authentication:<br>
+ i.e. document number + date of birth + expiry date, all 3 fields including their respective check digits</dd>
 <dt>Throws:</dt>
 <dd><code><a href="PTEID_Exception.html" title="class in pt.gov.cartaodecidadao">PTEID_Exception</a></code></dd>
 </dl>

@@ -97,9 +97,15 @@ $(document).ready(function(){initNavTree('classeIDMW_1_1ICAO__Card.html',''); in
   <div class="headertitle"><div class="title">eIDMW::ICAO_Card Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;eidlib.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ae2d22167075fa0c2045f6e5be5adc2ed" id="r_ae2d22167075fa0c2045f6e5be5adc2ed"><td class="memItemLeft" align="right" valign="top">virtual PTEIDSDK_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeIDMW_1_1ICAO__Card.html#ae2d22167075fa0c2045f6e5be5adc2ed">initPaceAuthentication</a> (const char *secret, size_t length, PTEID_CardPaceSecretType secretType)</td></tr>
+<tr class="separator:ae2d22167075fa0c2045f6e5be5adc2ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a837fc8fd067d189eb9073a92ea02c328" id="r_a837fc8fd067d189eb9073a92ea02c328"><td class="memItemLeft" align="right" valign="top">virtual PTEIDSDK_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeIDMW_1_1ICAO__Card.html#a837fc8fd067d189eb9073a92ea02c328">initBACAuthentication</a> (const char *mrz_info)</td></tr>
+<tr class="separator:a837fc8fd067d189eb9073a92ea02c328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93b29f82ab21132d77f9b96b149874ea" id="r_a93b29f82ab21132d77f9b96b149874ea"><td class="memItemLeft" align="right" valign="top">virtual PTEIDSDK_API <a class="el" href="classeIDMW_1_1PTEID__RawDataGroup.html">PTEID_RawDataGroup</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeIDMW_1_1ICAO__Card.html#a93b29f82ab21132d77f9b96b149874ea">readDatagroupRaw</a> (PTEID_DataGroupID tag)</td></tr>
 <tr class="separator:a93b29f82ab21132d77f9b96b149874ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a383b2810131697da4b562b01db33b5ca" id="r_a383b2810131697da4b562b01db33b5ca"><td class="memItemLeft" align="right" valign="top">virtual PTEIDSDK_API <a class="el" href="classeIDMW_1_1PTEID__ICAO__DG1.html">PTEID_ICAO_DG1</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeIDMW_1_1ICAO__Card.html#a383b2810131697da4b562b01db33b5ca">readDataGroup1</a> ()</td></tr>
@@ -167,7 +173,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ad774cbc9eed36911fd462b670a776075 inherit pro_attribs_classeIDMW_1_1PTEID__Object" id="r_ad774cbc9eed36911fd462b670a776075"><td class="memItemLeft" align="right" valign="top">SDK_Context *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classeIDMW_1_1PTEID__Object.html#ad774cbc9eed36911fd462b670a776075">m_context</a></td></tr>
 <tr class="separator:ad774cbc9eed36911fd462b670a776075 inherit pro_attribs_classeIDMW_1_1PTEID__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class representing an ICAO-compliant card (MRTD - Machine Readable Travel Document). Provides access to standardized Data Groups (DGs) such as identity information, biometric data, and additional holder information, as well as authentication mechanisms like BAC (Basic Access Control) and PACE (Password Authenticated Connection Establishment). Reading Data groups requires prior authentication with either PACE or BAC. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac473da7d854521f83ae2b657cc9704ee" name="ac473da7d854521f83ae2b657cc9704ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac473da7d854521f83ae2b657cc9704ee">&#9670;&#160;</a></span>ICAO_Card()</h2>
 
@@ -206,6 +214,88 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a837fc8fd067d189eb9073a92ea02c328" name="a837fc8fd067d189eb9073a92ea02c328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a837fc8fd067d189eb9073a92ea02c328">&#9670;&#160;</a></span>initBACAuthentication()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual PTEIDSDK_API void eIDMW::ICAO_Card::initBACAuthentication </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>mrz_info</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mrz_info</td><td>must contain the full MRZInfo needed for BAC authentication: i.e. document number + date of birth + expiry date, all 3 fields including their respective check digits </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae2d22167075fa0c2045f6e5be5adc2ed" name="ae2d22167075fa0c2045f6e5be5adc2ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2d22167075fa0c2045f6e5be5adc2ed">&#9670;&#160;</a></span>initPaceAuthentication()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual PTEIDSDK_API void eIDMW::ICAO_Card::initPaceAuthentication </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>secret</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PTEID_CardPaceSecretType&#160;</td>
+          <td class="paramname"><em>secretType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Init the Pace authentication process </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">secret</td><td>string that holds the secret to make the PACE process </td></tr>
+    <tr><td class="paramname">length</td><td>size of the secret string </td></tr>
+    <tr><td class="paramname">secretType</td><td>type of the secret used to make the PACE process </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a7d4a6af929915eca6a6434a78737ee86" name="a7d4a6af929915eca6a6434a78737ee86"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d4a6af929915eca6a6434a78737ee86">&#9670;&#160;</a></span>loadMasterList()</h2>
 
