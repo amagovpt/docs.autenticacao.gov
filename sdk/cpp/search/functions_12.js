@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['writefile_0',['writefile',['../classeIDMW_1_1PTEID__Card.html#a36e6a858ef15529f856223e9b57d82ca',1,'eIDMW::PTEID_Card::writeFile()'],['../classeIDMW_1_1PTEID__SmartCard.html#a98be99fbbbfa98c9a36bb2a78f4720a3',1,'eIDMW::PTEID_SmartCard::writeFile()']]],
-  ['writetofile_1',['writeToFile',['../classeIDMW_1_1PTEID__ByteArray.html#a74a3c0b4c95416ea493de12b2a0f518a',1,'eIDMW::PTEID_ByteArray']]]
+  ['validperiod_0',['validPeriod',['../classeIDMW_1_1PTEID__BiometricInfomation.html#ac12b835687cdee0ebfa81a8449dcdb09',1,'eIDMW::PTEID_BiometricInfomation']]],
+  ['verifydatevalidity_1',['verifyDateValidity',['../classeIDMW_1_1PTEID__Certificate.html#a0273e4775cdb549760485eb214b03ae3',1,'eIDMW::PTEID_Certificate']]],
+  ['verifypin_2',['verifypin',['../classeIDMW_1_1PTEID__Pin.html#abc6e7b41462361f206cef4f9794755af',1,'eIDMW::PTEID_Pin::verifyPin()'],['../classeIDMW_1_1PTEID__Pin.html#a607cdb3a73dd5784fab0ab86461de11c',1,'eIDMW::PTEID_Pin::verifyPin(const char *csPin, unsigned long &amp;ulRemaining, bool bShowDlg=true, void *wndGeometry=0)']]],
+  ['version_3',['version',['../classeIDMW_1_1PTEID__FaceInfo.html#a51cbd1bd7063e2dd80c7c6cdff292db0',1,'eIDMW::PTEID_FaceInfo']]]
 ];

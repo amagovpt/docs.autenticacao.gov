@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['operator_3d_0',['operator=',['../classeIDMW_1_1PTEID__Object.html#ab71d8a3ef93fca41a9d95f8a0afab212',1,'eIDMW::PTEID_Object::operator=()'],['../classeIDMW_1_1PTEID__ByteArray.html#a07f7f42743226ee08ca3765ee1e87121',1,'eIDMW::PTEID_ByteArray::operator=(const PTEID_ByteArray &amp;bytearray)'],['../classeIDMW_1_1PTEID__ByteArray.html#acce158aaaf167c5c4f986e30497c6bf0',1,'eIDMW::PTEID_ByteArray::operator=(const CByteArray &amp;bytearray)']]],
-  ['optionaldataline1_1',['optionalDataLine1',['../classeIDMW_1_1PTEID__ICAO__DG1.html#afbb1f5549dee7c0c948bf268e95e4b03',1,'eIDMW::PTEID_ICAO_DG1']]],
-  ['optionaldataline2_2',['optionalDataLine2',['../classeIDMW_1_1PTEID__ICAO__DG1.html#a2ac41287c41729abc41a725c9d5c2c29',1,'eIDMW::PTEID_ICAO_DG1']]],
-  ['othernames_3',['otherNames',['../classeIDMW_1_1PTEID__ICAO__DG11.html#a5b880d64795f299adc0a5983a118ebe1',1,'eIDMW::PTEID_ICAO_DG11']]],
-  ['othervalidtdnumbers_4',['otherValidTDNumbers',['../classeIDMW_1_1PTEID__ICAO__DG11.html#a980319119f3144eacff8d8a9e91e403d',1,'eIDMW::PTEID_ICAO_DG11']]]
+  ['nationality_0',['nationality',['../classeIDMW_1_1PTEID__ICAO__DG1.html#a0d39ec6a8e0e2f5b872fbc218f9ff143',1,'eIDMW::PTEID_ICAO_DG1']]],
+  ['numberofbiometrics_1',['numberOfBiometrics',['../classeIDMW_1_1PTEID__ICAO__DG2.html#aa8babaf10ffedd6680490570bc61499a',1,'eIDMW::PTEID_ICAO_DG2']]],
+  ['numberoffacialimages_2',['numberOfFacialImages',['../classeIDMW_1_1PTEID__FaceInfo.html#a29a2703a2ee848140fc16725df5c9695',1,'eIDMW::PTEID_FaceInfo']]],
+  ['numberoffeaturepoints_3',['numberOfFeaturePoints',['../classeIDMW_1_1PTEID__FaceInfoData.html#a09c21b3de411a7f3aa9612b34acb655c',1,'eIDMW::PTEID_FaceInfoData']]],
+  ['numberofothernames_4',['numberOfOtherNames',['../classeIDMW_1_1PTEID__ICAO__DG11.html#a453bce5fe531c024e5d6acfb34764afb',1,'eIDMW::PTEID_ICAO_DG11']]]
 ];
