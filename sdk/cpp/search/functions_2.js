@@ -1,7 +1,7 @@
 var searchData=
 [
   ['certificatecount_0',['certificateCount',['../classeIDMW_1_1PTEID__SmartCard.html#ab9f858f0ae1c4566a59e36bf27510806',1,'eIDMW::PTEID_SmartCard']]],
-  ['changepin_1',['changepin',['../classeIDMW_1_1PTEID__Pin.html#a745fb466d4e68a30bcc3bd34dfcaa558',1,'eIDMW::PTEID_Pin::changePin()'],['../classeIDMW_1_1PTEID__Pin.html#adcf31423c57335e6a44fef05c0b1c86c',1,'eIDMW::PTEID_Pin::changePin(const char *csPin1, const char *csPin2, unsigned long &amp;ulRemaining, const char *PinName, bool bShowDlg=true, void *wndGeometry=0)']]],
+  ['changepin_1',['changePin',['../classeIDMW_1_1PTEID__Pin.html#a745fb466d4e68a30bcc3bd34dfcaa558',1,'eIDMW::PTEID_Pin::changePin()'],['../classeIDMW_1_1PTEID__Pin.html#adcf31423c57335e6a44fef05c0b1c86c',1,'eIDMW::PTEID_Pin::changePin(const char *csPin1, const char *csPin2, unsigned long &amp;ulRemaining, const char *PinName, bool bShowDlg=true, void *wndGeometry=0)']]],
   ['checkcontextstillok_2',['checkContextStillOk',['../classeIDMW_1_1PTEID__Object.html#a355c5b806d6862374dde41e3954d057f',1,'eIDMW::PTEID_Object']]],
   ['clear_3',['Clear',['../classeIDMW_1_1PTEID__ByteArray.html#a130ba7e5396372dfa33d6b5a97f6fca7',1,'eIDMW::PTEID_ByteArray']]],
   ['colourspace_4',['colourSpace',['../classeIDMW_1_1PTEID__FaceInfoData.html#ad32958dc20fd08ccde7a6bc6b9281b8c',1,'eIDMW::PTEID_FaceInfoData']]],

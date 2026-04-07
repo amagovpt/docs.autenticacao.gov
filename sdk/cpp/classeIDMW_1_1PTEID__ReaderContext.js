@@ -7,6 +7,7 @@ var classeIDMW_1_1PTEID__ReaderContext =
     [ "getCardContactInterface", "classeIDMW_1_1PTEID__ReaderContext.html#af5914b850f442ca46eae02d38065de64", null ],
     [ "getCardType", "classeIDMW_1_1PTEID__ReaderContext.html#a9a21152f6e6b4843eefd34f371b34ccc", null ],
     [ "getEIDCard", "classeIDMW_1_1PTEID__ReaderContext.html#a0fb4bd16b9752d5f610dbe732272aeb8", null ],
+    [ "getICAOCard", "classeIDMW_1_1PTEID__ReaderContext.html#a1e9dab630721ddba44cc7792ea6cf273", null ],
     [ "getMultiPassToken", "classeIDMW_1_1PTEID__ReaderContext.html#a82af6df094f51f782a2295d3e073420d", null ],
     [ "getName", "classeIDMW_1_1PTEID__ReaderContext.html#a092c1068ccd498c8f47320dad5f04817", null ],
     [ "isCardChanged", "classeIDMW_1_1PTEID__ReaderContext.html#a683c3220d7345512bfd764f0297d3fe9", null ],

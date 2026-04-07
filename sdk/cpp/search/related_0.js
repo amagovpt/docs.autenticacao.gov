@@ -2,7 +2,7 @@ var searchData=
 [
   ['pteid_5fcard_3a_3agetcertificates_0',['getCertificates',['../classeIDMW_1_1PTEID__Certificates.html#ae66eb478afe967b10ae80344394a3abc',1,'eIDMW::PTEID_Certificates']]],
   ['pteid_5fcertificates_3a_3aaddcertificate_1',['addCertificate',['../classeIDMW_1_1PTEID__Certificate.html#a58b406ecdad3fb4426a754740f683d50',1,'eIDMW::PTEID_Certificate']]],
-  ['pteid_5fcertificates_3a_3agetcert_2',['pteid_certificates::getcert',['../classeIDMW_1_1PTEID__Certificate.html#a96c080b51dc98118fa600bc185c0e220',1,'eIDMW::PTEID_Certificate::getCert'],['../classeIDMW_1_1PTEID__Certificate.html#a6c37e1a08e5c88d3a43910c55e25a186',1,'eIDMW::PTEID_Certificate::getCert']]],
+  ['pteid_5fcertificates_3a_3agetcert_2',['PTEID_Certificates::getCert',['../classeIDMW_1_1PTEID__Certificate.html#a96c080b51dc98118fa600bc185c0e220',1,'eIDMW::PTEID_Certificate::getCert(unsigned long ulIndex)'],['../classeIDMW_1_1PTEID__Certificate.html#a6c37e1a08e5c88d3a43910c55e25a186',1,'eIDMW::PTEID_Certificate::getCert(PTEID_CertifType type)']]],
   ['pteid_5fcertificates_3a_3agetcertfromcard_3',['getCertFromCard',['../classeIDMW_1_1PTEID__Certificate.html#a7bccbe45116650123dd9166ba1fd7003',1,'eIDMW::PTEID_Certificate']]],
   ['pteid_5fcmdsignatureclient_3a_3agetcertificates_4',['getCertificates',['../classeIDMW_1_1PTEID__Certificates.html#a775c6b2e83f29dfc1ab1245f0156630b',1,'eIDMW::PTEID_Certificates']]],
   ['pteid_5feidcard_3a_3agetaddr_5',['getAddr',['../classeIDMW_1_1PTEID__Address.html#af80249a9986f1df4ca373a9a72108f60',1,'eIDMW::PTEID_Address']]],

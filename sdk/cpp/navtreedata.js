@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "My Project", "index.html", [
+  [ "Portuguese eID Middleware SDK", "index.html", [
     [ "C++ SDK Examples", "index.html", null ],
     [ "Deprecated List", "deprecated.html", null ],
     [ "Classes", "annotated.html", [
@@ -45,8 +45,8 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "classeIDMW_1_1PTEID__EId.html#a8fbacab08848869aefeb4e36b0192e48",
-"classeIDMW_1_1PTEID__ReaderSet.html#ad2ab9ea381b78c15343b9308eef69df0"
+"classeIDMW_1_1PTEID__ReaderSet.html#acd2f4d87bd4688dbf9f2b5074a6c56dc"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
