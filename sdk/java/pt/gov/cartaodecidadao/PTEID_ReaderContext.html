@@ -169,7 +169,16 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ICAO_Card.html" title="class in pt.gov.cartaodecidadao">ICAO_Card</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getICAOCard()" class="member-name-link">getICAOCard</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Get an instance of ICAO_Card if the smartcard chip present in reader is compatible with ICAO Doc 9303 specification<br>
+ <br>
+ Example of compatible documents: newer PT eID cards of type PTEID_CARDTYPE_IAS5, resident permits, european identity cards <br>
+ and ePassports<br>
+ <br>
+ If no card is present in the reader, exception PTEID_ExNoCardPresent is thrown.<br>
+ <br>
+ If the current card is not compatible with the ICAO specification, exception PTEID_ExCardTypeUnknown is thrown.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="PTEID_ByteArray.html" title="class in pt.gov.cartaodecidadao">PTEID_ByteArray</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMultiPassToken()" class="member-name-link">getMultiPassToken</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -404,6 +413,14 @@ loadScripts(document, 'script');</script>
 <h3>getICAOCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ICAO_Card.html" title="class in pt.gov.cartaodecidadao">ICAO_Card</a></span>&nbsp;<span class="element-name">getICAOCard</span>()
                       throws <span class="exceptions"><a href="PTEID_Exception.html" title="class in pt.gov.cartaodecidadao">PTEID_Exception</a></span></div>
+<div class="block">Get an instance of ICAO_Card if the smartcard chip present in reader is compatible with ICAO Doc 9303 specification<br>
+ <br>
+ Example of compatible documents: newer PT eID cards of type PTEID_CARDTYPE_IAS5, resident permits, european identity cards <br>
+ and ePassports<br>
+ <br>
+ If no card is present in the reader, exception PTEID_ExNoCardPresent is thrown.<br>
+ <br>
+ If the current card is not compatible with the ICAO specification, exception PTEID_ExCardTypeUnknown is thrown.</div>
 <dl class="notes">
 <dt>Throws:</dt>
 <dd><code><a href="PTEID_Exception.html" title="class in pt.gov.cartaodecidadao">PTEID_Exception</a></code></dd>
