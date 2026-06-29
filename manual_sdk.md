@@ -1331,8 +1331,10 @@ Para usar um servidor diferente basta criar uma nova configuração, da
 seguinte forma:
 
 ```
-PTEID_Config config = new PTEID_Config(PTEID_PARAM_XSIGN_TSAURL);
-config.setString("http://sha256timestamp.ws.symantec.com/sha256/timestamp");
+PTEID_Config config = new PTEID_Config(PTEID_Param.PTEID_PARAM_XSIGN_TSAURL);
+//Exemplo de configuração de um serviço de selos temporais não relacionado com a PKI do Cartão de Cidadão
+//Este é um serviço de acesso livre e disponível em Junho de 2026
+config.setString("http://timestamp.sectigo.com/qualified");
 ```
 
 Após esta configuração tanto as assinaturas de documentos PDF (PAdES)
