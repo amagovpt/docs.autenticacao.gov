@@ -150,7 +150,7 @@ A lista de compiladores suportados são:
 ## Instalação do SDK
 
 O SDK é distribuído nos pacotes de instalação Autenticação.gov que incluem também a aplicação GUI para o utilizador final.
-Os referidos pacotes de instalação são disponibilizados pela AMA em <https://www.autenticacao.gov.pt/web/guest/cc-aplicacao>
+Os referidos pacotes de instalação são disponibilizados pela ARTE em <https://www.autenticacao.gov.pt/web/guest/cc-aplicacao>
 
 ### Windows
 
@@ -1005,7 +1005,7 @@ A funcionalidade de assinatura está disponível para classes que implementam `P
 
 Ao assinar com `PTEID_EIDCard` será apresentada uma janela para introdução do PIN de assinatura do cartão inserido no leitor. 
 
-Com `PTEID_CMDSignatureClient`, é apresentada uma janela para introdução do número de telemóvel e PIN associados à conta da Chave Móvel Digital do assinante seguido de uma janela para introdução do código de segurança enviado para o telemóvel. Antes de utilizar os serviços da CMD deve configurar as credenciais de acesso ao serviço através do método `setCredentials`. Para mais informação, deverá contactar a AMA através da página: [Contactos](https://www.autenticacao.gov.pt/contactos?appRedirect=AutenticacaoGovDesktop).
+Com `PTEID_CMDSignatureClient`, é apresentada uma janela para introdução do número de telemóvel e PIN associados à conta da Chave Móvel Digital do assinante seguido de uma janela para introdução do código de segurança enviado para o telemóvel. Antes de utilizar os serviços da CMD deve configurar as credenciais de acesso ao serviço através do método `setCredentials`. Para mais informação, deverá contactar a ARTE através da página: [Contactos](https://www.autenticacao.gov.pt/contactos?appRedirect=AutenticacaoGovDesktop).
 
 Para obter um `PTEID_SigningDevice` deve utilizar a classe `PTEID_SigningDeviceFactory`. Na chamada ao método `getSigningDevice` pode indicar qual dos tipos de `PTEID_SigningDevice` deseja obter. Se ativar múltiplas opções, será apresentada uma janela ao utilizador para escolher o método de assinatura: Cartão de Cidadão ou Chave Móvel Digital.
 
@@ -1184,7 +1184,7 @@ Se os valores das coordenadas forem negativos a assinatura fica sem "selo" visí
 
 Será apresentado apenas um exemplo C++ para esta funcionalidade embora
 os wrappers Java e C\# contenham exactamente as mesmas classes e métodos
-necessários **PTEID_PdfSignature()** e **PTEID_SigningDevice.SignPDF()**.
+necessários **PTEID_PDFSignature()** e **PTEID_SigningDevice.SignPDF()**.
 
 Exemplo C++:
 
